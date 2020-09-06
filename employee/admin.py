@@ -1,8 +1,8 @@
 from django.contrib import admin
 
-from employee.models import  PaymentInfo, Deductibles, Employee
+from employee.models import  PaymentInfo, Employee, FamilyMember
 
 
 admin.site.register(PaymentInfo)
-admin.site.register(Deductibles)
 admin.site.register(Employee)
+admin.site.register(FamilyMember)

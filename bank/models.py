@@ -1,7 +1,7 @@
 from django.db import models
 from django.db.models.signals import pre_delete
 
-from address.models import BankAddress
+from common.models import BankAddress
 
 
 class Bank(models.Model):

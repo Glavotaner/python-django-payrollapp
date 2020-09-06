@@ -1,6 +1,6 @@
 from django.db import models
 
-from address.models import EmployeeAddress
+from common.models import Person, PersonalAddress
 from bank.models import Bank
 
 
@@ -10,44 +10,74 @@ class PaymentInfo(models.Model):
 
     def __str__(self):
         return f"""IBAN: {self.iban} with {self.bank}"""
+    
+class FamilyMember(Person):
 
-
-class Deductibles(models.Model):
-    no_children = models.IntegerField()
-    no_dependents = models.IntegerField()
-    no_dependents_disabled = models.IntegerField()
-    no_dependents_disabled_100 = models.IntegerField()
-
+    
     def __str__(self):
-        return f"""Number of children: {self.no_children}
-    Number of dependents: {self.no_dependents}
-    Number of disabled dependents: {self.no_dependents_disabled}
-    Number of 100% disabled dependents: {self.no_dependents_disabled_100}"""
+        return f"{self.age}"
+    
+    
+
+class Employee(Person):
 
 
-class Employee(models.Model):
-
-    STUDENT = 'ST'
-    FULL_TIME_EMPLOYEE = 'FTE'
+    # Choice lists
+    ## Contract types
+    STUDENT_CONTRACT = 'SC'
+    INDEFINITE_CONTRACT = 'NDC'
+    DEFINITE_CONTRACT = 'DC'
+    
+    ## Positions
+    SUPPORT_EMPLOYEE = 'SE'
+    PROJECT_MANAGER = 'PM'
+    DEVELOPER = 'D'
+    
+    # Dependents
+    @property
+    def no_children(self):
+        return 0
+    
+    @property
+    def no_dependents(self):
+        return 0
+    
+    @property
+    def no_dependents_disabled(self):
+        return 0
+    
+    @property
+    def no_dependents_disabled_100(self):
+        return 0
+    
+    
     positions = [
-        (STUDENT, 'Student'),
-        (FULL_TIME_EMPLOYEE, 'Full-time employee')
+        (SUPPORT_EMPLOYEE, 'Support employee'),
+        (PROJECT_MANAGER, 'Project manager'),
+        (DEVELOPER, 'Developer')
     ]
-
-    pid = models.IntegerField(primary_key=True, unique=True)
-    first_name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100)
-    dob = models.DateTimeField()
+    
+    contract_types = [
+        (STUDENT_CONTRACT, 'Student contract'),
+        (INDEFINITE_CONTRACT, 'Indefinite contract'),
+        (DEFINITE_CONTRACT, 'Definite contract')
+    ]
+    
+    
+    employee_since = models.DateField()
 
     # External relations
-    address = models.OneToOneField(EmployeeAddress, on_delete=models.CASCADE)
+    family_members = models.ManyToManyField(FamilyMember)
     payment_info = models.OneToOneField(
         PaymentInfo, on_delete=models.DO_NOTHING, unique=True)
-    deductibles = models.OneToOneField(Deductibles, models.CASCADE)
-
+    
+    contract_type = models.CharField(choices=contract_types, max_length=3, default=INDEFINITE_CONTRACT)
+    
     position = models.CharField(
-        choices=positions, max_length=3, default=STUDENT)
+        choices=positions, max_length=3, default=SUPPORT_EMPLOYEE)
 
     def __str__(self):
         return f"""{self.last_name}, {self.first_name}
-    PID: {self.pid}"""
+    PID: {self.pid}
+    Position: {self.position}
+    Num kids: {self.no_children}"""
