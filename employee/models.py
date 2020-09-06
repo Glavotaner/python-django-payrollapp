@@ -6,13 +6,14 @@ from bank.models import Bank
 
 class PaymentInfo(models.Model):
     bank = models.ForeignKey(Bank, on_delete=models.DO_NOTHING)
-    iban = models.IntegerField(primary_key=True)
+    iban = models.IntegerField(primary_key=True, verbose_name='IBAN')
 
     def __str__(self):
         return f"""IBAN: {self.iban} with {self.bank}"""
     
 class FamilyMember(Person):
 
+    family_member_of = models.ForeignKey('Employee', on_delete=models.DO_NOTHING)
     
     def __str__(self):
         return f"{self.age}"
@@ -63,21 +64,20 @@ class Employee(Person):
         (DEFINITE_CONTRACT, 'Definite contract')
     ]
     
-    
-    employee_since = models.DateField()
+    first_employment = models.BooleanField(default=True, verbose_name='First employment')
+    employee_since = models.DateField(verbose_name='Employee since')
 
     # External relations
-    family_members = models.ManyToManyField(FamilyMember)
+    #family_members = models.ForeignKey(FamilyMember, blank=True, on_delete=models.CASCADE)
     payment_info = models.OneToOneField(
         PaymentInfo, on_delete=models.DO_NOTHING, unique=True)
     
-    contract_type = models.CharField(choices=contract_types, max_length=3, default=INDEFINITE_CONTRACT)
+    contract_type = models.CharField(choices=contract_types, max_length=3, default=INDEFINITE_CONTRACT, verbose_name='Contract type')
     
     position = models.CharField(
-        choices=positions, max_length=3, default=SUPPORT_EMPLOYEE)
+        choices=positions, max_length=3, default=SUPPORT_EMPLOYEE, verbose_name='Position')
 
     def __str__(self):
         return f"""{self.last_name}, {self.first_name}
     PID: {self.pid}
-    Position: {self.position}
-    Num kids: {self.no_children}"""
+    Position: {self.position}"""

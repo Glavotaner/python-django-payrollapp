@@ -6,8 +6,8 @@ from common.models import BankAddress
 
 class Bank(models.Model):
     
-    business_id = models.IntegerField(primary_key=True)
-    bank_name = models.CharField(max_length = 10)
+    business_id = models.IntegerField(primary_key=True, verbose_name='Business ID')
+    bank_name = models.CharField(max_length = 10, verbose_name='Bank name')
     address = models.OneToOneField(BankAddress, on_delete = models.CASCADE)
     
     def delete_address(self, sender, **kwargs):

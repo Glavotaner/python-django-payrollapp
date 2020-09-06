@@ -5,18 +5,30 @@ from employee.models import Employee, PaymentInfo
  
 class Labour(models.Model):
     
+    class Meta:
+        verbose_name_plural = "Labour data"
+        
+    
     employee = models.ForeignKey(Employee, on_delete=models.DO_NOTHING)
-    labour_period = models.DateField()
-    regular_hours = models.IntegerField()
-    overtime_hours = models.IntegerField()
-    holiday_hours = models.IntegerField()
-    sunday_hours = models.IntegerField()
+    labour_period = models.DateField(verbose_name='Labour period')
+    regular_hours = models.IntegerField(verbose_name='Regular hours')
+    overtime_hours = models.IntegerField(verbose_name='Overtime hours')
+    holiday_hours = models.IntegerField(verbose_name='Holiday hours')
+    sunday_hours = models.IntegerField(verbose_name='Sunday hours')
+    
+    def __str__(self):
+        return f"""Employee ID: {self.employee.pid}
+    Regular hours: {self.regular_hours}
+    Overtime hours: {self.overtime_hours}
+    Holiday hours: {self.holiday_hours}
+    Sunday hours: {self.sunday_hours}"""
+    
     
 
 class Payroll(models.Model):
     
-    date_of_accounting = models.DateTimeField(auto_now=True)
-    accounted_period = models.DateField()
+    date_of_accounting = models.DateTimeField(auto_now=True, verbose_name='Date of accounting')
+    accounted_period = models.DateField(verbose_name='Accounted period')
     employee = models.ForeignKey(Employee, on_delete=models.DO_NOTHING)
     work_data = models.OneToOneField(Labour, on_delete=models.DO_NOTHING)
     

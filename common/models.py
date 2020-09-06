@@ -11,13 +11,16 @@ class Address(models.Model):
     class Meta:
         abstract = True
     
-    street_name = models.CharField(max_length = 20)
-    street_number = models.IntegerField()
-    postal_code = models.IntegerField()
-    city = models.CharField(max_length = 20)
+    street_name = models.CharField(max_length = 20, verbose_name='Street name')
+    street_number = models.IntegerField(verbose_name='Street number')
+    postal_code = models.IntegerField(verbose_name='Postal code')
+    city = models.CharField(max_length = 20, verbose_name='City')
     
 
 class PersonalAddress(Address):
+    
+    class Meta:
+        verbose_name_plural = "Personal Addresses"
     
     def __str__(self):
         return f"""{self.street_name} {self.street_number}, {self.postal_code} {self.city}"""
@@ -25,24 +28,33 @@ class PersonalAddress(Address):
 
 class BankAddress(Address):
     
+    class Meta:
+        verbose_name_plural = "Bank Addresses"
+    
     def __str__(self):
         return f"""{self.city}"""
     
 
 class PersonModel(models.Model):
     
+    class Meta:
+        abstract = True
+        
+    
     DISABLED = 'D'
     DISABLED_100 = 'D100'
+    NONE = 'N'
     
     disability = [
         (DISABLED, 'Disabled'),
-        (DISABLED_100, '100% disabled')
+        (DISABLED_100, '100% disabled'),
+        (NONE, 'None')
     ]
     
-    pid = models.CharField(primary_key = True, max_length = 11)
-    first_name = models.CharField(max_length = 30)
-    last_name = models.CharField(max_length = 20)
-    date_of_birth = models.DateField()
+    pid = models.CharField(primary_key = True, max_length = 11, verbose_name='PID')
+    first_name = models.CharField(max_length = 30, verbose_name='First name')
+    last_name = models.CharField(max_length = 20, verbose_name='Last name')
+    date_of_birth = models.DateField(verbose_name='Date of birth')
     
     @property
     def age(self):
@@ -51,7 +63,7 @@ class PersonModel(models.Model):
     
     address = models.ForeignKey(PersonalAddress, on_delete=models.CASCADE)
     
-    disability = models.CharField(choices=disability, max_length=4)
+    disability = models.CharField(choices=disability, max_length=4, verbose_name='Disability', default = NONE)
     
     
 class Person(PersonModel):
