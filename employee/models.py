@@ -11,14 +11,17 @@ class PaymentInfo(models.Model):
     def __str__(self):
         return f"""IBAN: {self.iban} with {self.bank}"""
     
-class FamilyMember(Person):
+class Dependent(Person):
 
-    family_member_of = models.ForeignKey('Employee', on_delete=models.DO_NOTHING)
+    dependent_of = models.ForeignKey('Employee', on_delete=models.CASCADE)
     
     def __str__(self):
-        return f"{self.age}"
+        return f"""{self.last_name}, {self.first_name}
+    PID: {self.pid}
+    Disability: {self.disability}
+    Age: {self.age}"""
     
-    
+
 
 class Employee(Person):
 
@@ -57,7 +60,6 @@ class Employee(Person):
         (PROJECT_MANAGER, 'Project manager'),
         (DEVELOPER, 'Developer')
     ]
-    
     contract_types = [
         (STUDENT_CONTRACT, 'Student contract'),
         (INDEFINITE_CONTRACT, 'Indefinite contract'),
@@ -68,14 +70,15 @@ class Employee(Person):
     employee_since = models.DateField(verbose_name='Employee since')
 
     # External relations
-    #family_members = models.ForeignKey(FamilyMember, blank=True, on_delete=models.CASCADE)
     payment_info = models.OneToOneField(
         PaymentInfo, on_delete=models.DO_NOTHING, unique=True)
+    
     
     contract_type = models.CharField(choices=contract_types, max_length=3, default=INDEFINITE_CONTRACT, verbose_name='Contract type')
     
     position = models.CharField(
         choices=positions, max_length=3, default=SUPPORT_EMPLOYEE, verbose_name='Position')
+
 
     def __str__(self):
         return f"""{self.last_name}, {self.first_name}
