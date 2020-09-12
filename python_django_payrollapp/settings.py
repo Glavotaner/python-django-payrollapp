@@ -39,8 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'common',
     'payroll',
-    'bank',
-    'employee'
+    'documents_data.documents',
+    'institutions_data.bank',
+    'institutions_data.city',
+    'employee_data.employee',
+    'employee_data.work_places'
 ]
 
 # Middleware framework

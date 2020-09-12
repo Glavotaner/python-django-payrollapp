@@ -1,12 +1,14 @@
 from django.db import models
+from django.contrib import admin
 
-import datetime 
-from dateutil.relativedelta import relativedelta
+
+from datetime import timezone, date
+from institutions_data.city.models import City
 
 # Create your models here.
 
 
-class Address(models.Model):
+class AbstractAddress(models.Model):
     
     class Meta:
         abstract = True
@@ -14,26 +16,18 @@ class Address(models.Model):
     street_name = models.CharField(max_length = 20, verbose_name='Street name')
     street_number = models.IntegerField(verbose_name='Street number')
     postal_code = models.IntegerField(verbose_name='Postal code')
-    city = models.CharField(max_length = 20, verbose_name='City')
+    city = models.ForeignKey(City, verbose_name='City name', on_delete=models.DO_NOTHING)
     
 
-class PersonalAddress(Address):
+class Address(AbstractAddress):
     
     class Meta:
-        verbose_name_plural = "Personal Addresses"
+        verbose_name_plural = "Addresses"
     
     def __str__(self):
         return f"""{self.street_name} {self.street_number}, {self.postal_code} {self.city}"""
 
-
-class BankAddress(Address):
-    
-    class Meta:
-        verbose_name_plural = "Bank Addresses"
-    
-    def __str__(self):
-        return f"""{self.city}"""
-    
+   
 
 class PersonModel(models.Model):
     
@@ -58,11 +52,21 @@ class PersonModel(models.Model):
     
     @property
     def age(self):
-       
-        return 10
+        today = date.today() 
+        try:  
+            birthday = self.date_of_birth.replace(year = today.year) 
     
-    address = models.ForeignKey(PersonalAddress, on_delete=models.CASCADE)
+        # raised when birth date is February 29 
+        # and the current year is not a leap year 
+        except ValueError:  
+            birthday = self.date_of_birth.replace(year = today.year, 
+                    month = self.date_of_birth.month + 1, day = 1) 
     
+        if birthday > today: 
+            return today.year - self.date_of_birth.year - 1
+        else: 
+            return today.year - self.date_of_birth.year 
+        
     disability = models.CharField(choices=disability, max_length=4, verbose_name='Disability', default = NONE)
     
     
@@ -71,4 +75,11 @@ class Person(PersonModel):
     def __str__(self):
         return f"""{self.last_name}, {self.first_name}
     PID: {self.pid}"""
+    
+
+class PersonAdmin(admin.ModelAdmin):
+    list_display = ('pid', 'disability', 'first_name', 'last_name', 'date_of_birth', 'age')
+    
+    field_sets = [("Personal", {"fields": (("pid", "first_name", "last_name", "date_of_birth", "age"))})]
+    
     

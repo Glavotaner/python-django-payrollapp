@@ -1,7 +1,6 @@
 from django.db import models
 
-from bank.models import Bank
-from employee.models import Employee, PaymentInfo
+from employee_data.employee.models import Employee
  
 class Labour(models.Model):
     
