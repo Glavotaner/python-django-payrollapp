@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Bank
+from third_party.bank.models import Bank
 
 
 admin.site.register(Bank)

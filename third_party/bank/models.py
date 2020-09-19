@@ -1,12 +1,12 @@
 from django.db import models
-from django.db.models.signals import pre_delete
 
-from common.models import Address
+from abstract.models import Address
 
 
 class Bank(Address):
     
     business_id = models.IntegerField(primary_key=True, verbose_name='Business ID')
+    oib = models.CharField(max_length=11, verbose_name = 'OIB')
     bank_name = models.CharField(max_length = 10, verbose_name='Bank name')
     
     

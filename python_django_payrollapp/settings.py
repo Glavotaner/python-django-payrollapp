@@ -37,13 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'common',
+    'abstract',
     'payroll',
-    'documents_data.documents',
-    'institutions_data.bank',
-    'institutions_data.city',
+    'calc_data',
+    'third_party.bank',
+    'third_party.city',
     'employee_data.employee',
-    'employee_data.work_places'
+    'employee_data.employment'
 ]
 
 # Middleware framework

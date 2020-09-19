@@ -3,7 +3,7 @@ from django.contrib import admin
 
 
 from datetime import timezone, date
-from institutions_data.city.models import City
+from third_party.city.models import City
 
 # Create your models here.
 
@@ -15,8 +15,9 @@ class AbstractAddress(models.Model):
     
     street_name = models.CharField(max_length = 20, verbose_name='Street name')
     street_number = models.IntegerField(verbose_name='Street number')
-    postal_code = models.IntegerField(verbose_name='Postal code')
     city = models.ForeignKey(City, verbose_name='City name', on_delete=models.DO_NOTHING)
+    
+    phone_number = models.CharField(max_length = 15, verbose_name = 'Phone number')
     
 
 class Address(AbstractAddress):
@@ -77,9 +78,6 @@ class Person(PersonModel):
     PID: {self.pid}"""
     
 
-class PersonAdmin(admin.ModelAdmin):
-    list_display = ('pid', 'disability', 'first_name', 'last_name', 'date_of_birth', 'age')
-    
-    field_sets = [("Personal", {"fields": (("pid", "first_name", "last_name", "date_of_birth", "age"))})]
+
     
     

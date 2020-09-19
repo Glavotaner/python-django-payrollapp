@@ -27,15 +27,18 @@ class Labour(models.Model):
 class Payroll(models.Model):
     
     date_of_accounting = models.DateTimeField(auto_now=True, verbose_name='Date of accounting')
-    accounted_period = models.DateField(verbose_name='Accounted period')
+    accounted_period_start = models.DateField(verbose_name='Accounted period start')
+    accounter_period_end = models.DateField(verbose_name = 'Accounted period end')
     employee = models.ForeignKey(Employee, on_delete=models.DO_NOTHING)
     work_data = models.OneToOneField(Labour, on_delete=models.DO_NOTHING)
     
     @property
+    def accounted_period(self):
+        return f"From {self.accounted_period_start} to {self.accounter_period_end}"
+    
+    @property
     def wage(self):
-        wages = {'SE': 42, 'D': 50, 'PM': 60}
-        
-        return wages.get(self.employee.position);
+        return self.employee.work_place.gross_salary
     
     BASE_DEDUCTIBLE = 2500
     PERSONAL_DEDUCTIBLE = BASE_DEDUCTIBLE * 1.4
@@ -152,7 +155,6 @@ class Payroll(models.Model):
     
     
     def __str__(self):
-        return f"""Net salary: {round(self.net_salary, 2)}
-    Labour cost: {round(self.labour_cost, 2)}"""    
+        return f"""{self.accounted_period}"""    
     
     
