@@ -2,9 +2,11 @@ from django.db import models
 
 from django.contrib import admin
 
+from datetime import date
+
 from abstract.models import Person, Address 
 from third_party.bank.models import Bank
-from employee_data.employment.models import SignedContract
+from employee_data.employment.models import Contract
 from calc_data.models import ContributionsModality, TaxModel
 
     
@@ -46,7 +48,7 @@ class Employee(Person, Address):
         dep_counter = 0
         
         for dependent in Dependent.objects.filter(dependent_of = self.pid).all():
-            if dependent.age > 16:
+            if dependent.child:
                 dep_counter += 1
         
         return dep_counter
@@ -70,23 +72,27 @@ class Employee(Person, Address):
                 dep_counter += 1
         
         return dep_counter
-    
-    
+
+        
     iban = models.IntegerField(unique=True, verbose_name='IBAN')
     
+    
+    # FIRST EMPLOYMENT DATA
     first_employment = models.BooleanField(default=True, verbose_name='First employment')
     first_employment_with_company = models.BooleanField(default = True, verbose_name='First employment with company')
-    employee_since = models.DateField(verbose_name='Employee since')
-
+    
+    @property
+    def employee_since(self):
+        pass
     
 
     # FOREIGN KEYS
     employee_bank = models.ForeignKey(to = Bank, verbose_name = 'Bank', on_delete=models.DO_NOTHING)
     contributions_model = models.ForeignKey(ContributionsModality, on_delete=models.DO_NOTHING)
-    signed_contract = models.ForeignKey(to = SignedContract,verbose_name='Contract type', on_delete=models.DO_NOTHING)
+    signed_contract = models.ForeignKey(to = Contract,verbose_name='Contract', on_delete=models.DO_NOTHING)
 
 
     def __str__(self):
-        return self.pid
+        return f"{self.pid}"
     
 

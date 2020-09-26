@@ -1,6 +1,23 @@
 from django.db import models
 
 from employee_data.employee.models import Employee
+
+"""
+TODOS:
+
+- Auto labour period charfield
+
+CALCS:
+- base case
+- min wage
+- income < deductible
+- contribution modalities
+- tax breaks
+- less than full hours
+-- proportional contr base, salary
+ 
+
+"""
  
 class Labour(models.Model):
     
@@ -10,25 +27,26 @@ class Labour(models.Model):
     
     employee = models.ForeignKey(Employee, on_delete=models.DO_NOTHING)
     labour_period = models.DateField(verbose_name='Labour period')
+    labour_start_date = models.DateField(verbose_name = 'Labour start date')
+    labour_end_date = models.DateField(verbose_name = 'Labour end date')
     regular_hours = models.IntegerField(verbose_name='Regular hours')
     overtime_hours = models.IntegerField(verbose_name='Overtime hours')
-    holiday_hours = models.IntegerField(verbose_name='Holiday hours')
-    sunday_hours = models.IntegerField(verbose_name='Sunday hours')
+    special_hours = models.IntegerField(verbose_name='Holiday hours')
     
     def __str__(self):
         return f"""Employee ID: {self.employee.pid}
     Regular hours: {self.regular_hours}
     Overtime hours: {self.overtime_hours}
-    Holiday hours: {self.holiday_hours}
-    Sunday hours: {self.sunday_hours}"""
+    Special hours: {self.special_hours}"""
     
     
 
 class Payroll(models.Model):
     
+    
     date_of_accounting = models.DateTimeField(auto_now=True, verbose_name='Date of accounting')
     accounted_period_start = models.DateField(verbose_name='Accounted period start')
-    accounter_period_end = models.DateField(verbose_name = 'Accounted period end')
+    accounted_period_end = models.DateField(verbose_name = 'Accounted period end')
     employee = models.ForeignKey(Employee, on_delete=models.DO_NOTHING)
     work_data = models.OneToOneField(Labour, on_delete=models.DO_NOTHING)
     
@@ -38,7 +56,7 @@ class Payroll(models.Model):
     
     @property
     def wage(self):
-        return self.employee.work_place.gross_salary
+        return self.employee.signed_contract.position.salary
     
     BASE_DEDUCTIBLE = 2500
     PERSONAL_DEDUCTIBLE = BASE_DEDUCTIBLE * 1.4
@@ -53,18 +71,14 @@ class Payroll(models.Model):
         return self.work_data.overtime_hours * self.wage + (self.wage * 0.33)
     
     @property
-    def holiday_hours_gross(self):
-        return self.work_data.holiday_hours * self.wage + (self.wage * 0.50)
-    
-    @property
-    def sunday_hours_gross(self):
-        return self.work_data.sunday_hours * self.wage + (self.wage * 0.25)
+    def special_hours_gross(self):
+        return self.work_data.special_hours * self.wage + (self.wage * 0.25)
     
     
     # GROSS SALARY
     @property
     def gross_salary(self):
-        return self.regular_hours_gross + self.overtime_hours_gross + self.holiday_hours_gross + self.sunday_hours_gross
+        return self.regular_hours_gross + self.overtime_hours_gross +  self.special_hours_gross
     
     
     # CONTRIBUTIONS

@@ -13,8 +13,9 @@ class Position(models.Model):
         return self.position_name
     
 
-class Contract(models.Model):
+class ContractType(models.Model):
     
+    contract_id = models.CharField(max_length=30, verbose_name = 'Contract ID', primary_key=True)
     contract_type = models.CharField(max_length=30, verbose_name = 'Contract type')
     
     
@@ -22,9 +23,9 @@ class Contract(models.Model):
         return self.contract_type
     
     
-class SignedContract(models.Model):
+class Contract(models.Model):
     
-    contract_type = models.ForeignKey(Contract, verbose_name = 'Contract type', on_delete=models.DO_NOTHING)
+    contract_type = models.ForeignKey(ContractType, verbose_name = 'Contract type', on_delete=models.DO_NOTHING)
     position = models.ForeignKey(Position, verbose_name = 'Position', on_delete = models.DO_NOTHING)
     sign_date = models.DateField(verbose_name = 'Sign date')
     expiration_date = models.DateField(verbose_name = 'Expiration date', blank=True, null=True)

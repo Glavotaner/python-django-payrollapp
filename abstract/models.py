@@ -5,7 +5,6 @@ from django.contrib import admin
 from datetime import timezone, date
 from third_party.city.models import City
 
-# Create your models here.
 
 
 class AbstractAddress(models.Model):

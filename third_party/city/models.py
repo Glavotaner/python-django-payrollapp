@@ -4,11 +4,10 @@ from django.db import models
 class City(models.Model):
     
     
-    class Meta:
-        verbose_name_plural = 'Cities'
+
     
     iban = models.CharField(max_length = 10, verbose_name = 'IBAN')
-    joppd = models.CharField(max_length = 5, verbose_name = 'JOPPD')
+    joppd = models.CharField(max_length = 5, verbose_name = 'JOPPD', primary_key=True)
     city_name = models.CharField(max_length = 50, verbose_name = 'City name')
     postal_code = models.IntegerField(verbose_name = 'Postal code')
     tax_rate = models.FloatField(verbose_name='Tax rate', default=0.00)
