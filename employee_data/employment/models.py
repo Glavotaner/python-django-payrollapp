@@ -25,6 +25,9 @@ class ContractType(models.Model):
     
 class Contract(models.Model):
     
+    class Meta:
+        get_latest_by = 'sign_date'
+    
     contract_type = models.ForeignKey(ContractType, verbose_name = 'Contract type', on_delete=models.DO_NOTHING)
     position = models.ForeignKey(Position, verbose_name = 'Position', on_delete = models.DO_NOTHING)
     sign_date = models.DateField(verbose_name = 'Sign date')

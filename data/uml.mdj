@@ -3458,7 +3458,24 @@
 											"top": 566,
 											"width": 256.93408203125,
 											"height": 13,
-											"text": "+contributions_model_id: integer {id, unique}",
+											"text": "+modality_mark: string {id, unique}",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF0zX9dGNYQF+Q=",
+											"_parent": {
+												"$ref": "AAAAAAF0rBpA9iBOLtg="
+											},
+											"model": {
+												"$ref": "AAAAAAF0zX9dAtYBJt0="
+											},
+											"font": "Arial;13;0",
+											"left": 13,
+											"top": 581,
+											"width": 256.93408203125,
+											"height": 13,
+											"text": "+pension_min_base: float",
 											"horizontalAlignment": 0
 										},
 										{
@@ -3472,10 +3489,10 @@
 											},
 											"font": "Arial;13;0",
 											"left": 13,
-											"top": 581,
+											"top": 596,
 											"width": 256.93408203125,
 											"height": 13,
-											"text": "+retirement_fund_gen: float = 0.15",
+											"text": "+pension_fund_gen: float = 0.15",
 											"horizontalAlignment": 0
 										},
 										{
@@ -3489,10 +3506,10 @@
 											},
 											"font": "Arial;13;0",
 											"left": 13,
-											"top": 596,
+											"top": 611,
 											"width": 256.93408203125,
 											"height": 13,
-											"text": "+retirement_fund_ind: float = 0.05",
+											"text": "+pension_fund_ind: float = 0.05",
 											"horizontalAlignment": 0
 										},
 										{
@@ -3506,7 +3523,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 13,
-											"top": 611,
+											"top": 626,
 											"width": 256.93408203125,
 											"height": 13,
 											"text": "+health_insurance: float = 0.165",
@@ -3517,7 +3534,7 @@
 									"left": 8,
 									"top": 561,
 									"width": 266.93408203125,
-									"height": 68
+									"height": 83
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -3530,7 +3547,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 8,
-									"top": 629,
+									"top": 644,
 									"width": 266.93408203125,
 									"height": 10
 								},
@@ -3572,7 +3589,7 @@
 							"left": 8,
 							"top": 536,
 							"width": 266.93408203125,
-							"height": 103,
+							"height": 118,
 							"nameCompartment": {
 								"$ref": "AAAAAAF0rBpA9SBJu/E="
 							},
@@ -8472,10 +8489,19 @@
 							"_parent": {
 								"$ref": "AAAAAAF0rBo2NSA48Sg="
 							},
-							"name": "contributions_model_id",
-							"type": "integer",
+							"name": "modality_mark",
+							"type": "string",
 							"isUnique": true,
 							"isID": true
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAF0zX9dAtYBJt0=",
+							"_parent": {
+								"$ref": "AAAAAAF0rBo2NSA48Sg="
+							},
+							"name": "pension_min_base",
+							"type": "float"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -8483,7 +8509,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF0rBo2NSA48Sg="
 							},
-							"name": "retirement_fund_gen",
+							"name": "pension_fund_gen",
 							"type": "float",
 							"defaultValue": "0.15"
 						},
@@ -8493,7 +8519,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF0rBo2NSA48Sg="
 							},
-							"name": "retirement_fund_ind",
+							"name": "pension_fund_ind",
 							"type": "float",
 							"defaultValue": "0.05"
 						},
