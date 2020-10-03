@@ -3,25 +3,6 @@ from django.db import models
 from employee_data.employee.models import Employee
 from calc_data.models import HourFund, Deductible, TaxModel
 
-"""
-TODOS:
-
-- Auto labour period charfield
-
-CALCS:
-- base case
-- min wage
-- income < deductible
-- contribution modalities
-- tax breaks
-- less than full hours
--- proportional contr base, salary
- 
-
-"""
-
-
-
 
 class Labour(models.Model):
     
@@ -30,7 +11,11 @@ class Labour(models.Model):
         
     
     employee = models.ForeignKey(Employee, on_delete=models.DO_NOTHING)
-    labour_period = models.DateField(verbose_name='Labour period')
+    
+    @property
+    def labour_period(self):
+        return f"{self.labour_start_date} to {self.labour_end_date}"
+    
     labour_start_date = models.DateField(verbose_name = 'Labour start date')
     labour_end_date = models.DateField(verbose_name = 'Labour end date')
     regular_hours = models.IntegerField(verbose_name='Regular hours')
@@ -38,10 +23,7 @@ class Labour(models.Model):
     special_hours = models.IntegerField(verbose_name='Holiday hours')
     
     def __str__(self):
-        return f"""Employee ID: {self.employee.pid}
-    Regular hours: {self.regular_hours}
-    Overtime hours: {self.overtime_hours}
-    Special hours: {self.special_hours}"""
+        return f"Employee ID: {self.employee.pid} | Labour period: {self.labour_period}"
     
     
 
@@ -101,7 +83,7 @@ class Payroll(models.Model):
     def gross_salary(self):
         
         if self.work_data.regular_hours < self.months_hours_fund:
-            return self.wage * self.work_data.regular_hours
+            return round(self.wage * self.work_data.regular_hours, 2)
         
         return round(self.employee.signed_contract.position.salary, 2)
     
@@ -124,20 +106,21 @@ class Payroll(models.Model):
     def pension_fund_total(self):
         return round(self.pension_fund_gen_amount + self.pension_fund_ind_amount, 2)
     
+    ## INCOME
     
     @property
     def income(self):
         if self.gross_salary - self.pension_fund_total < self.employee.contributions_model.pension_fund_min_base:
-            return self.employee.contributions_model.pension_fund_min_base
+            return round(self.employee.contributions_model.pension_fund_min_base, 2)
         
-        return self.gross_salary - self.pension_fund_total
+        return round(self.gross_salary - self.pension_fund_total, 2)
     
     
     ## DEDUCTIBLES
     
     @property
     def personal_deductible_amount(self):
-        return self.current_deductibles_model.base_deductible * self.current_deductibles_model.personal_deductible_coef
+        return round(self.current_deductibles_model.base_deductible * self.current_deductibles_model.personal_deductible_coef, 2)
     
     
     @property
@@ -145,40 +128,37 @@ class Payroll(models.Model):
         child_coefs = [0.7, 1.0, 1.4, 1.9, 2.5, 3.2, 4.0, 4.9, 5.9, 7]
         
         if 0 < self.employee.no_children < 10:
-            return child_coefs[self.employee.no_children - 1] * self.current_deductibles_model.base_deductible
+            return round(child_coefs[self.employee.no_children - 1] * self.current_deductibles_model.base_deductible, 2)
         elif self.employee.no_children <= 0:
             return 0
         else:
-            return ((self.employee.no_children - 9) * 1.1 + 7) * self.current_deductibles_model.base_deductible
+            return round(((self.employee.no_children - 9) * 1.1 + 7) * self.current_deductibles_model.base_deductible, 2)
     
     @property
     def dependents_deductible(self):
-        return self.employee.no_dependents * 0.7 * self.current_deductibles_model.base_deductible
+        return round(self.employee.no_dependents * 0.7 * self.current_deductibles_model.base_deductible, 2)
     
     @property
     def disabled_dependents(self):
-        return self.employee.no_dependents_disabled * 0.4 * self.current_deductibles_model.base_deductible
+        return round(self.employee.no_dependents_disabled * 0.4 * self.current_deductibles_model.base_deductible, 2)
     
     @property
     def disabled_dependents_100(self):
-        return self.employee.no_dependents_disabled_100 * 0.5 * self.current_deductibles_model.base_deductible
+        return round(self.employee.no_dependents_disabled_100 * 0.5 * self.current_deductibles_model.base_deductible, 2)
     
     @property
     def deductibles(self):
-        return self.personal_deductible_amount + self.dependents_children + self.dependents_deductible + self.disabled_dependents + self.disabled_dependents_100
+        return round(self.personal_deductible_amount + self.dependents_children + self.dependents_deductible + self.disabled_dependents + self.disabled_dependents_100, 2)
    
-   
+    ## TAX CALCULATIONS
+    
     @property 
     def tax_base(self):
-        
-        
         if self.deductibles > self.income:
             return 0
         
-        return self.income - self.deductibles
+        return round(self.income - self.deductibles, 2)
     
-    
-    # TAX    
     @property
     def income_tax_amount(self):
         
@@ -194,29 +174,29 @@ class Payroll(models.Model):
             income_tax = self.tax_base * self.current_tax_model.lo_tax_rate
             
         if 25 > self.employee.age <= 30:
-            return income_tax / 2
+            return round(income_tax / 2, 2)
              
-        return income_tax
+        return round(income_tax, 2)
     
     @property
     def city_tax_amount(self):
-        return self.income_tax_amount * (self.employee.city.tax_rate - self.employee.city.tax_break)
+        return round(self.income_tax_amount * (self.employee.city.tax_rate - self.employee.city.tax_break), 2)
     
     @property
     def tax_amount(self):
-        return self.income_tax_amount + self.city_tax_amount
+        return round(self.income_tax_amount + self.city_tax_amount, 2)
     
     
     
     # NET SALARY
     @property
     def net_salary(self):
-        return self.income - self.tax_amount
+        return round(self.income - self.tax_amount, 2)
     
     # LABOUR COST
     @property
     def labour_cost(self):
-        return self.gross_salary + self.health_insurance_amount
+        return round(self.gross_salary + self.health_insurance_amount, 2)
     
     
     def __str__(self):

@@ -1,0 +1,10 @@
+[{"model":"city.City","pk":20449,"oib":39458,"bank_name":"West Inc","street_name":"Debs","street_number":"39540","city":29666,"phone_number":"(724) 7343390"},
+{"model":"city.City","pk":25406,"oib":10765,"bank_name":"Metz, Beahan and Koch","street_name":"Melby","street_number":"67","city":39031,"phone_number":"(138) 1842348"},
+{"model":"city.City","pk":48095,"oib":20521,"bank_name":"Baumbach-Mills","street_name":"Ronald Regan","street_number":"3","city":33044,"phone_number":"(766) 7701257"},
+{"model":"city.City","pk":48635,"oib":24221,"bank_name":"Stokes-Murphy","street_name":"Schurz","street_number":"46","city":12744,"phone_number":"(364) 9019208"},
+{"model":"city.City","pk":15977,"oib":40115,"bank_name":"Ankunding Inc","street_name":"Michigan","street_number":"4498","city":45191,"phone_number":"(961) 9654491"},
+{"model":"city.City","pk":23146,"oib":21962,"bank_name":"Monahan, Cartwright and Kihn","street_name":"Karstens","street_number":"9","city":44122,"phone_number":"(804) 9603064"},
+{"model":"city.City","pk":19663,"oib":43992,"bank_name":"Goldner LLC","street_name":"Saint Paul","street_number":"43438","city":21796,"phone_number":"(717) 1818488"},
+{"model":"city.City","pk":35022,"oib":49265,"bank_name":"Huel, Weissnat and Gulgowski","street_name":"Gateway","street_number":"4516","city":19730,"phone_number":"(179) 5908640"},
+{"model":"city.City","pk":10959,"oib":26425,"bank_name":"Bailey LLC","street_name":"Stephen","street_number":"27531","city":31471,"phone_number":"(866) 2541991"},
+{"model":"city.City","pk":29596,"oib":48551,"bank_name":"Zemlak-Okuneva","street_name":"Merry","street_number":"6","city":10008,"phone_number":"(196) 1354958"}]

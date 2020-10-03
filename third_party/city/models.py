@@ -1,10 +1,10 @@
 from django.db import models
 
+import requests
+
 
 class City(models.Model):
     
-    
-
     
     iban = models.CharField(max_length = 10, verbose_name = 'IBAN')
     joppd = models.CharField(max_length = 5, verbose_name = 'JOPPD', primary_key=True)
@@ -13,6 +13,13 @@ class City(models.Model):
     tax_rate = models.FloatField(verbose_name='Tax rate', default=0.00)
     tax_break = models.FloatField(verbose_name = 'Tax break', default=0.00)
     
+    
+    def clean(self):
+ 
+        post_data = {'format':'json', 'api_key':'[YOUR_API_KEY]','iban':'DE46500700100927353010'}
+        
+        response = requests.post('https://api.iban.com/clients/api/v4/iban/',post_data)
+        print(response.text)
     
     def __str__(self):
         return f"""{self.city_name}"""

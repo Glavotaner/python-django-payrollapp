@@ -1,9 +1,10 @@
 from django.db import models
 from django.contrib import admin
 
-
+import re
 from datetime import timezone, date
 from third_party.city.models import City
+from django.core.exceptions import ValidationError
 
 
 
@@ -33,6 +34,7 @@ class PersonModel(models.Model):
     
     class Meta:
         abstract = True
+
         
     
     DISABLED = 'D'
@@ -55,9 +57,7 @@ class PersonModel(models.Model):
         today = date.today() 
         try:  
             birthday = self.date_of_birth.replace(year = today.year) 
-    
-        # raised when birth date is February 29 
-        # and the current year is not a leap year 
+     
         except ValueError:  
             birthday = self.date_of_birth.replace(year = today.year, 
                     month = self.date_of_birth.month + 1, day = 1) 
@@ -69,9 +69,55 @@ class PersonModel(models.Model):
         
     disability = models.CharField(choices=disability, max_length=4, verbose_name='Disability', default = NONE)
     
-    
+
 class Person(PersonModel):
     
+    def clean(self):
+        
+        #PID VALIDATION
+        if len(self.pid) != 11:
+            raise ValidationError('PID is of an invalid length')
+        if re.search('[^0-9]', self.pid):
+            raise ValidationError('PID is not entirely numeric')
+         
+        control = self.pid[-1]
+        previous_remainder = 0
+        
+        for i, num in enumerate(str(self.pid)):
+            num = int(num)    
+
+            if i == 10:
+                break
+            
+            if i == 0:
+                num += 10
+            else:
+                num += previous_remainder
+            
+            if num % 10 == 0:
+                num = 10
+            else:
+                num %= 10
+                    
+            num *= 2
+            
+            num %= 11
+
+            previous_remainder = num
+
+        if previous_remainder == 1:
+            valid = ((11 - previous_remainder) % 10) == int(control)
+        
+        else:
+            valid = (11 - previous_remainder) == int(control)
+        
+        if not valid:
+            raise ValidationError('PID is invalid, please check your input')
+        
+        if self.age < 18:
+            raise ValidationError('Employee cannot be underage')
+            
+        
     def __str__(self):
         return f"""{self.last_name}, {self.first_name}
     PID: {self.pid}"""
