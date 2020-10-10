@@ -12,6 +12,11 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 import posixpath
+import sys
+
+
+PROJECT_ROOT = os.path.dirname(__file__)
+sys.path.insert(0, os.path.join(PROJECT_ROOT, 'apps'))
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -37,13 +42,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'abstract',
-    'payroll',
-    'calc_data',
-    'third_party.bank',
-    'third_party.city',
-    'employee_data.employee',
-    'employee_data.employment'
+    'apps.payroll',
+    'apps.calc_data',
+    'apps.third_party.bank',
+    'apps.third_party.city',
+    'apps.employee_data.employee',
+    'apps.employee_data.employment'
 ]
 
 # Middleware framework
