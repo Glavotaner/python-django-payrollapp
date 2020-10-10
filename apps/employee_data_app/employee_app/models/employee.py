@@ -7,13 +7,13 @@ import re
 
 from .person import Person
 from .address import Address
-from apps.third_party.bank.models import Bank
-from apps.employee_data.employment.models import Contract
-from apps.calc_data.models import ContributionsModality, TaxModel
+from apps.third_parties_app.models import Bank
+from apps.employee_data_app.employment_app.models import Contract
+from apps.calculation_data_app.models import ContributionsModality, TaxModel
 from django.core.exceptions import ValidationError
 from apps.general_services.validators.id_validators import validate_iban
 from apps.general_services.validators.person_validation import validate_age
-from apps.employee_data.employee.services.dependents_calculator import *
+from apps.employee_data_app.employee_app.services.dependents_calculator import *
     
 
 

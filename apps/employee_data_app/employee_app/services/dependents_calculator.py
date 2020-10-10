@@ -1,4 +1,4 @@
-from apps.employee_data.employee.models.dependent import Dependent
+from apps.employee_data_app.employee_app.models.dependent import Dependent
 
 
 def calculate_no_children(pid: str) -> int:

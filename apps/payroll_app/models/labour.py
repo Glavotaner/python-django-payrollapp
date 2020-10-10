@@ -1,6 +1,6 @@
 from django.db import models
 
-from apps.employee_data.employee.models import Employee
+from apps.employee_data_app.employee_app.models import Employee
 
 
 class Labour(models.Model):

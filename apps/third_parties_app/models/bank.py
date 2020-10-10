@@ -1,6 +1,6 @@
 from django.db import models
 
-from apps.employee_data.employee.models.address import Address
+from apps.employee_data_app.employee_app.models.address import Address
 from django.core.exceptions import ValidationError
 from apps.general_services.validators.id_validators import validate_bid, validate_pid
 

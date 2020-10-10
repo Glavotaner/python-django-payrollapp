@@ -1,10 +1,10 @@
 from django.db import models
 
 from .labour import Labour
-from apps.employee_data.employee.models import Employee
-from apps.calc_data.models import HourFund, Deductible, TaxModel
+from apps.employee_data_app.employee_app.models import Employee
+from apps.calculation_data_app.models import HourFund, Deductible, TaxModel
 
-from apps.payroll.services.calculations import tax_calculation, contributions_calculation, deductibles_calculation, gross_salary_calculation, var_calculation
+from apps.payroll_app.services.calculations import tax_calculation, contributions_calculation, deductibles_calculation, gross_salary_calculation, var_calculation
 
 
 class Payroll(models.Model):

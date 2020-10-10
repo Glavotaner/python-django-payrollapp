@@ -4,7 +4,7 @@ from django.contrib import admin
 
 import re
 from datetime import timezone, date
-from apps.third_party.city.models import City
+from apps.third_parties_app.models import City
 from django.core.exceptions import ValidationError
 from apps.general_services.validators.general_validation import validate_phone_number
 
