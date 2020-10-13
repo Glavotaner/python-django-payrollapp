@@ -13,8 +13,8 @@ class City(models.Model):
         max_length=5, verbose_name='JOPPD', primary_key=True)
     city_name = models.CharField(max_length=50, verbose_name = _('City name'))
     postal_code = models.PositiveIntegerField(verbose_name = _('Postal code'))
-    tax_rate = models.FloatField(verbose_name = _('Tax rate'), default=0.00)
-    tax_break = models.FloatField(verbose_name = _('Tax break'), default=0.00)
+    tax_rate = models.FloatField(verbose_name = _('Tax rate'), default=0.00, help_text = _('Input city tax rate as a decimal number'))
+    tax_break = models.FloatField(verbose_name = _('Tax break'), default=0.00, help_text = _('Input city tax break as a decimal number eg. tax_rate = 0.13, tax_break = 0.06: tax_rate = 0.07'))
 
     def clean(self):
 

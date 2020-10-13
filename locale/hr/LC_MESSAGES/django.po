@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-13 12:59+0200\n"
+"POT-Creation-Date: 2020-10-13 14:06+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,7 +33,9 @@ msgstr "Minimalna osnovica za mirovinski fond"
 
 #: .\apps\calculation_data_app\models\contributions_modality.py:12
 msgid "The year's legal minimum pension fund base. Use '.' as decimal point"
-msgstr "Minimalna osnovica za obračun doprinosa za mirovinsko osiguranje za ovu godinu. Koristite decimalnu točku u unosu"
+msgstr ""
+"Minimalna osnovica za obračun doprinosa za mirovinsko osiguranje za ovu "
+"godinu. Koristite decimalnu točku u unosu"
 
 #: .\apps\calculation_data_app\models\contributions_modality.py:15
 #, fuzzy
@@ -44,7 +46,9 @@ msgstr "Mirovinski fond - generacijski"
 #: .\apps\calculation_data_app\models\contributions_modality.py:15
 msgid ""
 "Legal rate for the generational pension fund. Expressed as a decimal number"
-msgstr "Zakonska stopa doprinosa za mirovinski fond - generacijski. Izražena kao decimalan broj"
+msgstr ""
+"Zakonska stopa doprinosa za mirovinski fond - generacijski. Izražena kao "
+"decimalan broj"
 
 #: .\apps\calculation_data_app\models\contributions_modality.py:17
 #, fuzzy
@@ -55,7 +59,9 @@ msgstr "Mirovinski fond - individualni"
 #: .\apps\calculation_data_app\models\contributions_modality.py:17
 msgid ""
 "Legal rate for the individual pension fund. Expressed as a decimal number"
-msgstr "Zakonska stopa doprinosa za mirovinski fond - individualni. Izražena kao decimalan broj"
+msgstr ""
+"Zakonska stopa doprinosa za mirovinski fond - individualni. Izražena kao "
+"decimalan broj"
 
 #: .\apps\calculation_data_app\models\contributions_modality.py:20
 msgid "Health fund"
@@ -63,7 +69,9 @@ msgstr "Fond za zdravstveno osiguranje"
 
 #: .\apps\calculation_data_app\models\contributions_modality.py:20
 msgid "Legal rate for the health insurance fund. Expressed as a decimal number"
-msgstr "Zakonska stopa doprinosa za zdravstveno osiguranje. Izražena kao decimalan broj"
+msgstr ""
+"Zakonska stopa doprinosa za zdravstveno osiguranje. Izražena kao decimalan "
+"broj"
 
 #: .\apps\calculation_data_app\models\contributions_modality.py:24
 #: .\apps\employee_data_app\employee_app\models\employee.py:56
@@ -78,8 +86,20 @@ msgstr "Modeli doprinosa"
 msgid "Base deductible"
 msgstr "Osnovni odbitak"
 
+#: .\apps\calculation_data_app\models\deductible.py:8
+#, fuzzy
+#| msgid "Base deductible"
+msgid "Legal base deductible amount"
+msgstr "Osnovni odbitak"
+
 #: .\apps\calculation_data_app\models\deductible.py:9
 msgid "Personal deductible coef"
+msgstr "Koeficijent osobnog odbitka"
+
+#: .\apps\calculation_data_app\models\deductible.py:9
+#, fuzzy
+#| msgid "Personal deductible coef"
+msgid "Legal personal deductible coefficient"
 msgstr "Koeficijent osobnog odbitka"
 
 #: .\apps\calculation_data_app\models\deductible.py:10
@@ -340,6 +360,14 @@ msgstr "Platne liste"
 msgid "Business ID"
 msgstr "Matični broj poslovnog subjekta"
 
+#: .\apps\third_parties_app\models\bank.py:12
+msgid "Input valid business ID"
+msgstr "Važeći matični broj poslovnog subjekta"
+
+#: .\apps\third_parties_app\models\bank.py:13
+msgid "Input valid OID ID"
+msgstr "Važeči OIB"
+
 #: .\apps\third_parties_app\models\bank.py:14
 msgid "Bank name"
 msgstr "Naziv banke"
@@ -358,9 +386,19 @@ msgstr "Poštanski broj"
 msgid "Tax rate"
 msgstr "Niža porezna stopa"
 
+#: .\apps\third_parties_app\models\city.py:16
+msgid "Input city tax rate as a decimal number"
+msgstr "Unesite stopu prireza kao decimalan broj"
+
 #: .\apps\third_parties_app\models\city.py:17
 msgid "Tax break"
 msgstr "Porezna olakšica"
+
+#: .\apps\third_parties_app\models\city.py:17
+msgid ""
+"Input city tax break as a decimal number eg. tax_rate = 0.13, tax_break = "
+"0.06: tax_rate = 0.07"
+msgstr "Unesite stopu olakšice na plaćanje prireza kao decimalan broj. Primjer: Stopa prireza = 0.13, Stopa olakšice = 0.06: Konačna stopa prireza = 0.07"
 
 #: .\apps\third_parties_app\models\city.py:28
 #, fuzzy

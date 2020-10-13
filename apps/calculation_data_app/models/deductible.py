@@ -5,8 +5,8 @@ class Deductible(models.Model):
     
     
     
-    base_deductible = models.FloatField(verbose_name = _('Base deductible'))
-    personal_deductible_coef = models.FloatField(verbose_name = _('Personal deductible coef'))
+    base_deductible = models.FloatField(verbose_name = _('Base deductible'), help_text = _('Legal base deductible amount'))
+    personal_deductible_coef = models.FloatField(verbose_name = _('Personal deductible coef'), help_text = _('Legal personal deductible coefficient'))
     valid_from = models.DateTimeField(verbose_name = _('Valid from'), auto_now=True)
     
     class Meta:
