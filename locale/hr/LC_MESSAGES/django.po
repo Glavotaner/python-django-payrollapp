@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-13 10:52+0200\n"
+"POT-Creation-Date: 2020-10-13 12:59+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,21 +23,47 @@ msgstr ""
 msgid "Modality mark"
 msgstr "Oznaka modaliteta"
 
+#: .\apps\calculation_data_app\models\contributions_modality.py:9
+msgid "Up to 10 characters long textual ID of this modality"
+msgstr "Tekstualni ID za ovaj modalitet, ne duži od 10 znakova"
+
 #: .\apps\calculation_data_app\models\contributions_modality.py:12
 msgid "Pension fund minimal base"
 msgstr "Minimalna osnovica za mirovinski fond"
 
+#: .\apps\calculation_data_app\models\contributions_modality.py:12
+msgid "The year's legal minimum pension fund base. Use '.' as decimal point"
+msgstr "Minimalna osnovica za obračun doprinosa za mirovinsko osiguranje za ovu godinu. Koristite decimalnu točku u unosu"
+
 #: .\apps\calculation_data_app\models\contributions_modality.py:15
-msgid "Pension fund 1"
-msgstr "Mirovinski fond - 1. stup"
+#, fuzzy
+#| msgid "Pension fund minimal base"
+msgid "Pension fund - generational"
+msgstr "Mirovinski fond - generacijski"
+
+#: .\apps\calculation_data_app\models\contributions_modality.py:15
+msgid ""
+"Legal rate for the generational pension fund. Expressed as a decimal number"
+msgstr "Zakonska stopa doprinosa za mirovinski fond - generacijski. Izražena kao decimalan broj"
 
 #: .\apps\calculation_data_app\models\contributions_modality.py:17
-msgid "Pension fund 2"
-msgstr "Mirovinski fond - 2. stup"
+#, fuzzy
+#| msgid "Pension fund minimal base"
+msgid "Pension fund - individual"
+msgstr "Mirovinski fond - individualni"
+
+#: .\apps\calculation_data_app\models\contributions_modality.py:17
+msgid ""
+"Legal rate for the individual pension fund. Expressed as a decimal number"
+msgstr "Zakonska stopa doprinosa za mirovinski fond - individualni. Izražena kao decimalan broj"
 
 #: .\apps\calculation_data_app\models\contributions_modality.py:20
 msgid "Health fund"
 msgstr "Fond za zdravstveno osiguranje"
+
+#: .\apps\calculation_data_app\models\contributions_modality.py:20
+msgid "Legal rate for the health insurance fund. Expressed as a decimal number"
+msgstr "Zakonska stopa doprinosa za zdravstveno osiguranje. Izražena kao decimalan broj"
 
 #: .\apps\calculation_data_app\models\contributions_modality.py:24
 #: .\apps\employee_data_app\employee_app\models\employee.py:56
