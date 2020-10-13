@@ -1,6 +1,7 @@
 from django.db import models
 from .dependent import Dependent
 from django.contrib import admin
+from django.utils.translation import gettext_lazy as _
 
 from datetime import date
 import re
@@ -43,23 +44,29 @@ class Employee(Person, Address):
     
     
     # FIRST EMPLOYMENT DATA
-    first_employment = models.BooleanField(default=True, verbose_name='First employment')
-    first_employment_with_company = models.BooleanField(default = True, verbose_name='First employment with company')
+    first_employment = models.BooleanField(default=True, verbose_name = _('First employment'), db_index=True)
+    first_employment_with_company = models.BooleanField(default = True, verbose_name = _('First employment with company'), db_index=True)
     
-    employee_since = models.DateField(verbose_name='Employee since', auto_now = True)
+    employee_since = models.DateField(verbose_name = _('Employee since'), auto_now = True)
     
 
     # FOREIGN KEYS
-    employee_bank = models.ForeignKey(to = Bank, verbose_name = 'Bank', on_delete=models.DO_NOTHING)
+    employee_bank = models.ForeignKey(to = Bank, verbose_name = _('Bank'), on_delete=models.DO_NOTHING)
     
-    contributions_model = models.ForeignKey(ContributionsModality, on_delete=models.DO_NOTHING)
+    contributions_model = models.ForeignKey(ContributionsModality, on_delete=models.DO_NOTHING, verbose_name = _('Contributions model'))
     
-    signed_contract = models.ForeignKey(to = Contract,verbose_name='Contract', on_delete=models.DO_NOTHING)
+    signed_contract = models.ForeignKey(to = Contract,verbose_name = _('Contract'), on_delete=models.DO_NOTHING)
     
     
     def clean(self):
         validate_age(self.date_of_birth)
         #validate_iban(self.iban)
+
+    class Meta:
+        verbose_name = _('Employee')
+        verbose_name_plural = _('Employees')
+        
+        get_latest_by = 'employee_since'
 
 
     def __str__(self):
