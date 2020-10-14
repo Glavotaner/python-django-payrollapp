@@ -18,9 +18,9 @@ class AbstractPerson(models.Model):
 
     # DISABILITY ENUM
     disability = [
-        ('D', 'Disabled'),
-        ('D100', '100% disabled'),
-        ('N', 'None')
+        (_('D'), _('Disabled')),
+        (_('D100'), _('100% disabled')),
+        (_('N'), _('None'))
     ]
 
     pid = models.CharField(primary_key=True, max_length=11,

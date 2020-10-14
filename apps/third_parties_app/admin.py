@@ -1,4 +1,6 @@
 from django.contrib import admin
+from django.utils.translation import gettext as _
+
 from .models.bank import Bank
 from .models.city import City
 
@@ -7,7 +9,7 @@ class BankAdmin(admin.ModelAdmin):
 
     fieldsets = (
         (
-            'Bank data', {
+            _('Bank data'), {
                 "fields": [
                     'business_id',
                     'oib',
@@ -15,7 +17,7 @@ class BankAdmin(admin.ModelAdmin):
                 ],
             }),
         (
-            'Address and contact data', {
+            _('Address and contact data'), {
                 'fields': [
                     'city',
                     'street_name',
@@ -31,7 +33,7 @@ class CityAdmin(admin.ModelAdmin):
 
     fieldsets = (
         (
-            'City data', {
+            _('City data'), {
                 "fields": [
                     'city_name',
                     'postal_code',
@@ -39,7 +41,7 @@ class CityAdmin(admin.ModelAdmin):
                 ],
             }),
         (
-            'Tax data', {
+            _('Tax data'), {
                 'fields': [
                     'joppd',
                     'tax_rate',

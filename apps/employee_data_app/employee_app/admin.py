@@ -1,13 +1,14 @@
 from django.contrib import admin
+from django.utils.translation import gettext as _
 
 from .models import  Employee, Dependent
 
 class EmployeeAdmin(admin.ModelAdmin):
-    list_display = ('pid', 'first_name', 'last_name', 'date_of_birth', 'age', 'disability', 'no_dependents','no_dependents_disabled','no_dependents_disabled_100', 'no_children')
+    list_display = ('pid', 'first_name', 'last_name', 'date_of_birth', 'age', 'disability', 'no_dependents', 'no_dependents_disabled','no_dependents_disabled_100', 'no_children')
     
     fieldsets = (
         (
-            'Personal data', {
+            _('Personal data'), {
                 "fields": [
                     'pid', 
                     'first_name',
@@ -17,7 +18,7 @@ class EmployeeAdmin(admin.ModelAdmin):
                 ],
         }),
         (
-            'Address and contact data', {
+            _('Address and contact data'), {
                 'fields': [
                     'city',
                     'street_name',
@@ -27,7 +28,7 @@ class EmployeeAdmin(admin.ModelAdmin):
             }
         ),
         (
-            'Payment info', {
+            _('Payment info'), {
                 'fields': [
                     'employee_bank',
                     'iban'
@@ -35,7 +36,7 @@ class EmployeeAdmin(admin.ModelAdmin):
             }
         ),
         (
-            'Employment data', {
+            _('Employment data'), {
                 'fields': [
                     'first_employment',
                     'first_employment_with_company',

@@ -35,4 +35,4 @@ class Address(AbstractAddress):
 
 
     def __str__(self):
-        return f"""{self.street_name} {self.street_number}, {self.postal_code} {self.city}"""
+        return f"""{self.street_name} {self.street_number}, {self.city.postal_code} {self.city}"""

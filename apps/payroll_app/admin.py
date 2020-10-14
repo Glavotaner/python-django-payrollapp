@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.utils.translation import gettext as _
 
 from .models import Labour, Payroll
 
@@ -12,7 +13,7 @@ class LabourAdmin(admin.ModelAdmin):
                 ],
         }),
         (
-            'Accounted period data', {
+            _('Accounted period data'), {
                 'fields': [
                     'labour_start_date',
                     'labour_end_date'
@@ -20,7 +21,7 @@ class LabourAdmin(admin.ModelAdmin):
             }
         ),
         (
-            'Accounted hours data', {
+            _('Accounted hours data'), {
                 'fields': [
                     'regular_hours',
                     'overtime_hours',
@@ -36,7 +37,7 @@ class PayrollAdmin(admin.ModelAdmin):
     
     fieldsets = (
         (
-            'Accounted period data', {
+            _('Accounted period data'), {
                 'fields': [
                     'accounted_period_start',
                     'accounted_period_end'
@@ -44,7 +45,7 @@ class PayrollAdmin(admin.ModelAdmin):
             }
         ),
         (
-            'Employee and labour data', {
+            _('Employee and labour data'), {
                 'fields': [
                     'employee',
                     'work_data'

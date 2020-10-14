@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-13 15:15+0200\n"
+"POT-Creation-Date: 2020-10-14 13:15+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,7 +33,9 @@ msgstr "Minimalna osnovica za obračun doprinosa za mirovinski fond"
 
 #: .\apps\calculation_data_app\models\contributions_modality.py:12
 msgid "The year's legal minimum pension fund base. Use '.' as decimal point"
-msgstr "Ako bruto plaća da ovog koraka bude manja od navedene osnovice, doprinosi za mirovinsko osiguranje obračunat će se po minimalnoj osnovici"
+msgstr ""
+"Ako bruto plaća da ovog koraka bude manja od navedene osnovice, doprinosi za "
+"mirovinsko osiguranje obračunat će se po minimalnoj osnovici"
 
 #: .\apps\calculation_data_app\models\contributions_modality.py:15
 msgid "Pension fund - generational"
@@ -42,7 +44,9 @@ msgstr "Doprinos za mirovinsko osiguranje - stup generacijske solidarnosti"
 #: .\apps\calculation_data_app\models\contributions_modality.py:15
 msgid ""
 "Legal rate for the generational pension fund. Expressed as a decimal number"
-msgstr "Zakonski određena stopa obračuna doprinosa za mirovinsko osiguranje na temelju generacijske solidarnosti. Izražena kao decimalan broj"
+msgstr ""
+"Zakonski određena stopa obračuna doprinosa za mirovinsko osiguranje na "
+"temelju generacijske solidarnosti. Izražena kao decimalan broj"
 
 #: .\apps\calculation_data_app\models\contributions_modality.py:17
 msgid "Pension fund - individual"
@@ -51,7 +55,9 @@ msgstr "Doprinos za mirovinsko osiguranje - individualni stup"
 #: .\apps\calculation_data_app\models\contributions_modality.py:17
 msgid ""
 "Legal rate for the individual pension fund. Expressed as a decimal number"
-msgstr "Zakonski određena stopa obračuna doprinosa za individualno mirovinsko osiguranje. Izražena kao decimalan broj"
+msgstr ""
+"Zakonski određena stopa obračuna doprinosa za individualno mirovinsko "
+"osiguranje. Izražena kao decimalan broj"
 
 #: .\apps\calculation_data_app\models\contributions_modality.py:20
 msgid "Health fund"
@@ -59,10 +65,12 @@ msgstr "Stopa doprinosa za zdravstveno osiguranje"
 
 #: .\apps\calculation_data_app\models\contributions_modality.py:20
 msgid "Legal rate for the health insurance fund. Expressed as a decimal number"
-msgstr "Zakonski određena stopa obračuna doprinosa za zdravstveno osiguranje. Izražena kao decimalan broj"
+msgstr ""
+"Zakonski određena stopa obračuna doprinosa za zdravstveno osiguranje. "
+"Izražena kao decimalan broj"
 
 #: .\apps\calculation_data_app\models\contributions_modality.py:24
-#: .\apps\employee_data_app\employee_app\models\employee.py:56
+#: .\apps\employee_data_app\employee_app\models\employee.py:58
 msgid "Contributions model"
 msgstr "Model doprinosa"
 
@@ -139,6 +147,27 @@ msgstr "Porezni model"
 msgid "Tax models"
 msgstr "Porezni modeli"
 
+#: .\apps\employee_data_app\employee_app\admin.py:11
+#, fuzzy
+#| msgid "Person"
+msgid "Personal data"
+msgstr "Osobni podaci"
+
+#: .\apps\employee_data_app\employee_app\admin.py:21
+#: .\apps\third_parties_app\admin.py:20
+msgid "Address and contact data"
+msgstr "Adresa i kontakt podaci"
+
+#: .\apps\employee_data_app\employee_app\admin.py:31
+msgid "Payment info"
+msgstr "Podaci o plaćanju"
+
+#: .\apps\employee_data_app\employee_app\admin.py:39
+#, fuzzy
+#| msgid "Employee"
+msgid "Employment data"
+msgstr "Podaci o zaposlenju"
+
 #: .\apps\employee_data_app\employee_app\models\address.py:18
 msgid "Street name"
 msgstr "Naziv ulice"
@@ -180,37 +209,67 @@ msgstr "Uzdržavana osoba"
 msgid "Dependents"
 msgstr "Uzdržavane osobe"
 
-#: .\apps\employee_data_app\employee_app\models\employee.py:47
+#: .\apps\employee_data_app\employee_app\models\employee.py:29
+#, fuzzy
+msgid "Number of children"
+msgstr "Broj djece"
+
+#: .\apps\employee_data_app\employee_app\models\employee.py:49
 msgid "First employment"
 msgstr "Prvo zaposlenje"
 
-#: .\apps\employee_data_app\employee_app\models\employee.py:48
+#: .\apps\employee_data_app\employee_app\models\employee.py:50
 msgid "First employment with company"
 msgstr "Prvo zaposlenje u poslovnom subjektu"
 
-#: .\apps\employee_data_app\employee_app\models\employee.py:50
+#: .\apps\employee_data_app\employee_app\models\employee.py:52
 msgid "Employee since"
 msgstr "Zaposlenik od"
 
-#: .\apps\employee_data_app\employee_app\models\employee.py:54
+#: .\apps\employee_data_app\employee_app\models\employee.py:56
 #: .\apps\third_parties_app\models\bank.py:22
 msgid "Bank"
 msgstr "Banka"
 
-#: .\apps\employee_data_app\employee_app\models\employee.py:58
+#: .\apps\employee_data_app\employee_app\models\employee.py:60
 #: .\apps\employee_data_app\employment_app\models\contract.py:17
 msgid "Contract"
 msgstr "Ugovor"
 
-#: .\apps\employee_data_app\employee_app\models\employee.py:66
+#: .\apps\employee_data_app\employee_app\models\employee.py:68
 #: .\apps\payroll_app\models\labour.py:11
 #: .\apps\payroll_app\models\payroll.py:33
 msgid "Employee"
 msgstr "Zaposlenik"
 
-#: .\apps\employee_data_app\employee_app\models\employee.py:67
+#: .\apps\employee_data_app\employee_app\models\employee.py:69
 msgid "Employees"
 msgstr "Zaposlenici"
+
+#: .\apps\employee_data_app\employee_app\models\person.py:21
+msgid "D"
+msgstr "I"
+
+#: .\apps\employee_data_app\employee_app\models\person.py:21
+msgid "Disabled"
+msgstr "Invalid"
+
+#: .\apps\employee_data_app\employee_app\models\person.py:22
+msgid "D100"
+msgstr "I100"
+
+#: .\apps\employee_data_app\employee_app\models\person.py:22
+#, python-format
+msgid "100% disabled"
+msgstr "100% invalid"
+
+#: .\apps\employee_data_app\employee_app\models\person.py:23
+msgid "N"
+msgstr "N"
+
+#: .\apps\employee_data_app\employee_app\models\person.py:23
+msgid "None"
+msgstr "Nema"
 
 #: .\apps\employee_data_app\employee_app\models\person.py:27
 msgid "PID"
@@ -283,6 +342,22 @@ msgstr "Plaća"
 msgid "Positions"
 msgstr "Radna mjesta"
 
+#: .\apps\payroll_app\admin.py:16 .\apps\payroll_app\admin.py:40
+#, fuzzy
+#| msgid "Accounted period start"
+msgid "Accounted period data"
+msgstr "Podaci o obračunskom razdoblju"
+
+#: .\apps\payroll_app\admin.py:24
+#, fuzzy
+#| msgid "Accounted period start"
+msgid "Accounted hours data"
+msgstr "Podaci o obračunatim radnim satima"
+
+#: .\apps\payroll_app\admin.py:48
+msgid "Employee and labour data"
+msgstr "Podaci o zaposleniku i obračunu rada"
+
 #: .\apps\payroll_app\models\labour.py:17
 msgid "Labour start date"
 msgstr "Datum početka obračuna rada"
@@ -331,6 +406,18 @@ msgstr "Platna lista"
 #: .\apps\payroll_app\models\payroll.py:183
 msgid "Payrolls"
 msgstr "Platne liste"
+
+#: .\apps\third_parties_app\admin.py:12
+msgid "Bank data"
+msgstr "Bankovni podaci"
+
+#: .\apps\third_parties_app\admin.py:36
+msgid "City data"
+msgstr "Podaci o gradu"
+
+#: .\apps\third_parties_app\admin.py:44
+msgid "Tax data"
+msgstr "Podaci o porezu"
 
 #: .\apps\third_parties_app\models\bank.py:12
 msgid "Business ID"
@@ -384,8 +471,8 @@ msgstr "Gradovi"
 
 #: .\python_django_payrollapp\settings.py:129
 msgid "Croatian"
-msgstr ""
+msgstr "Hrvatski"
 
 #: .\python_django_payrollapp\settings.py:130
 msgid "English"
-msgstr ""
+msgstr "Engleski"
