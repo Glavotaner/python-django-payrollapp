@@ -1,6 +1,7 @@
 from typing import Any
 from django.db import models
 from django.contrib import admin
+from django.utils.translation import gettext_lazy as _
 
 import re
 from datetime import timezone, date
@@ -16,21 +17,17 @@ class AbstractPerson(models.Model):
         abstract = True
 
     # DISABILITY ENUM
-    DISABLED = 'D'
-    DISABLED_100 = 'D100'
-    NONE = 'N'
-
     disability = [
-        (DISABLED, 'Disabled'),
-        (DISABLED_100, '100% disabled'),
-        (NONE, 'None')
+        ('D', 'Disabled'),
+        ('D100', '100% disabled'),
+        ('N', 'None')
     ]
 
     pid = models.CharField(primary_key=True, max_length=11,
-                           verbose_name='PID')
-    first_name = models.CharField(max_length=30, verbose_name='First name')
-    last_name = models.CharField(max_length=20, verbose_name='Last name')
-    date_of_birth = models.DateField(verbose_name='Date of birth')
+                           verbose_name=_('PID'))
+    first_name = models.CharField(max_length=30, verbose_name = _('First name'))
+    last_name = models.CharField(max_length=20, verbose_name = _('Last name'))
+    date_of_birth = models.DateField(verbose_name = _('Date of birth'))
 
     @property
     def age(self):
@@ -48,7 +45,7 @@ class AbstractPerson(models.Model):
             return today.year - self.date_of_birth.year
 
     disability = models.CharField(
-        choices=disability, max_length=4, verbose_name='Disability', default=NONE)
+        choices=disability, max_length=4, verbose_name = _('Disability'), default='N')
 
     def clean(self):
 
@@ -57,6 +54,11 @@ class AbstractPerson(models.Model):
 
 
 class Person(AbstractPerson):
+
+    class Meta:
+        verbose_name = _('Person')
+        verbose_name_plural = _('Persons')
+
 
     def __str__(self):
         return f"""{self.last_name}, {self.first_name}

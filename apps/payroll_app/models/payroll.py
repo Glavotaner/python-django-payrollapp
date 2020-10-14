@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 from .labour import Labour
 from apps.employee_data_app.employee_app.models import Employee
@@ -11,11 +12,11 @@ class Payroll(models.Model):
     
 
     date_of_accounting = models.DateTimeField(
-        auto_now=True, verbose_name='Date of accounting')
+        auto_now=True, verbose_name = _('Date of accounting'), db_index=True)
     accounted_period_start = models.DateField(
-        verbose_name='Accounted period start')
+        verbose_name = _('Accounted period start'))
     accounted_period_end = models.DateField(
-        verbose_name='Accounted period end')
+        verbose_name = _('Accounted period end'))
 
     @property
     def current_deductibles_model(self):
@@ -27,10 +28,10 @@ class Payroll(models.Model):
 
     @property
     def accounted_period(self):
-        return f"From {self.accounted_period_start} to {self.accounted_period_end}"
+        return f"{_('From')} {self.accounted_period_start} {_('to')} {self.accounted_period_end}"
 
-    employee = models.ForeignKey(Employee, on_delete=models.DO_NOTHING)
-    work_data = models.OneToOneField(Labour, on_delete=models.DO_NOTHING)
+    employee = models.ForeignKey(Employee, on_delete=models.DO_NOTHING, db_index=True, verbose_name = _('Employee'))
+    work_data = models.OneToOneField(Labour, on_delete=models.DO_NOTHING, db_index=True, verbose_name = _('Work data'))
 
     @property
     def months_hours_fund(self):
@@ -176,6 +177,10 @@ class Payroll(models.Model):
     @property
     def labour_cost(self):
         return round(self.gross_salary + self.health_insurance_amount, 2)
+
+    class Meta:
+        verbose_name = _('Payroll')
+        verbose_name_plural = _('Payrolls')
 
     def __str__(self):
         return f"""{self.accounted_period} | {self.current_deductibles_model} | {self.current_tax_model}"""

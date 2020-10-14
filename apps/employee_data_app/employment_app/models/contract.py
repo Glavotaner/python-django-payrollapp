@@ -1,18 +1,22 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 from . import ContractType, Position
 
 class Contract(models.Model):
 
-    class Meta:
-        get_latest_by = 'sign_date'
 
     contract_type = models.ForeignKey(
-        ContractType, verbose_name='Contract type', on_delete=models.DO_NOTHING)
+        ContractType, verbose_name = _('Contract type'), on_delete=models.DO_NOTHING)
     position = models.ForeignKey(
-        Position, verbose_name='Position', on_delete=models.DO_NOTHING)
-    sign_date = models.DateField(verbose_name='Sign date')
+        Position, verbose_name = _('Position'), on_delete=models.DO_NOTHING)
+    sign_date = models.DateField(verbose_name = _('Sign date'))
     expiration_date = models.DateField(
-        verbose_name='Expiration date', blank=True, null=True)
+        verbose_name = _('Expiration date'), blank=True, null=True)
+
+    class Meta:
+        verbose_name = _('Contract')
+        verbose_name_plural = _('Contracts')
+        get_latest_by = 'sign_date'
 
     def __str__(self):
 
