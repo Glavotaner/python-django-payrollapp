@@ -4,8 +4,6 @@ from .dependent import Dependent
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
 
-from datetime import date
-import re
 
 from .person import Person
 from .address import Address
@@ -22,21 +20,23 @@ class Employee(Person, Address):
 
     # PROPERTIES
     # DEPENDENTS
+    
     @property
     def no_children(self):
         return calculate_no_children(self.pid)
-
+    
     @property
     def no_dependents(self):
         return calculate_no_dependents(self.pid)
-
+    
     @property
     def no_dependents_disabled(self):
         return caluclate_no_dependents_disabled(self.pid)
-
+    
     @property
     def no_dependents_disabled_100(self):
         return calculate_no_dependents_disabled_100(self.pid)
+    
 
     iban = models.CharField(unique=True, verbose_name='IBAN', max_length=34)
 
@@ -63,8 +63,6 @@ class Employee(Person, Address):
         validate_age(self.date_of_birth)
         # validate_iban(self.iban)
 
-    def delete(self):
-        keep_parents = True
 
     class Meta:
         verbose_name = _('Employee')

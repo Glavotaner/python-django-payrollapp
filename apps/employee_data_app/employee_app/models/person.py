@@ -10,7 +10,6 @@ from django.core.exceptions import ValidationError
 from apps.general_services.validators.id_validators import validate_pid
 from apps.general_services.validators.general_validation import validate_phone_number
 
-
 class AbstractPerson(models.Model):
 
     class Meta:

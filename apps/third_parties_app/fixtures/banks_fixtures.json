@@ -1,0 +1,12 @@
+[{"model": "third_parties_app.bank",
+    "fields": {"business_id":"71672268","oib":"26307690525","bank_name":"Leenti","street_name":"Fallview","street_number":39,"city":18286,"phone_number":303674443},
+{"model": "third_parties_app.bank",
+    "fields": {"business_id":"42492208","oib":"15615363375","bank_name":"Eidel","street_name":"Macpherson","street_number":52,"city":43719,"phone_number":220896672},
+{"model": "third_parties_app.bank",
+    "fields": {"business_id":"73335893","oib":"90811362025","bank_name":"Kwilith","street_name":"Carioca","street_number":63,"city":24963,"phone_number":129707654},
+{"model": "third_parties_app.bank",
+    "fields": {"business_id":"66997996","oib":"25102343609","bank_name":"Twitterworks","street_name":"Vera","street_number":47,"city":27887,"phone_number":398402493},
+{"model": "third_parties_app.bank",
+    "fields": {"business_id":"48062794","oib":"77425540685","bank_name":"Zooveo","street_name":"Mallory","street_number":94,"city":36685,"phone_number":433889559},
+{"model": "third_parties_app.bank",
+    "fields": {"business_id":"11616936","oib":"69906959340","bank_name":"Thoughtstorm","street_name":"Dixon","street_number":56,"city":39247,"phone_number":454991364}]

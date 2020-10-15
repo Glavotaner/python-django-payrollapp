@@ -18,7 +18,7 @@ class City(models.Model):
 
     def clean(self):
 
-        validate_city_id(self.joppd)
+        #validate_city_id(self.joppd)
         # validate_iban(self.iban)
         validate_gte(self.tax_rate, self.tax_break, 'Tax rate', 'Tax break')
         validate_gte(self.tax_rate, 0, '0')
