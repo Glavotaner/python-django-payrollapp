@@ -1,41 +1,30 @@
 from apps.employee_data_app.employee_app.models.dependent import Dependent
+from django.utils.translation import gettext_lazy as _
 
 
-def calculate_no_children(pid: str) -> int:
-    dep_counter = 0
+def _no_children(pid: str) -> int:
 
-    for dependent in Dependent.objects.filter(dependent_of=pid).all():
-        if dependent.age <= 16:
-            dep_counter += 1
+    deps = Dependent.objects.filter(dependent_of=pid).all()
 
-    return dep_counter
+    return sum(map(lambda d: d.child and d.disability == _('N'), deps))
 
 
-def calculate_no_dependents(pid: str) -> int:
-    dep_counter = 0
+def _no_dependents(pid: str) -> int:
 
-    for dependent in Dependent.objects.filter(dependent_of=pid).all():
-        if dependent.child:
-            dep_counter += 1
+    deps = Dependent.objects.filter(dependent_of=pid).all()
 
-    return dep_counter
+    return sum(map(lambda d: not d.child and d.disability == _('N'), deps))
 
 
-def caluclate_no_dependents_disabled(pid: str) -> int:
-    dep_counter = 0
+def _no_dependents_disabled(pid: str) -> int:
 
-    for dependent in Dependent.objects.filter(dependent_of=pid).all():
-        if dependent.disability == 'D':
-            dep_counter += 1
+    deps = Dependent.objects.filter(dependent_of=pid).all()
 
-    return dep_counter
+    return sum(map(lambda d: d.disability == _('D'), deps))
 
 
-def calculate_no_dependents_disabled_100(pid: str) -> int:
-    dep_counter = 0
+def _no_dependents_disabled_100(pid: str) -> int:
 
-    for dependent in Dependent.objects.filter(dependent_of=pid).all():
-        if dependent.disability == 'D100':
-            dep_counter += 1
+    deps = Dependent.objects.filter(dependent_of=pid).all()
 
-    return dep_counter
+    return sum(map(lambda d: d.disability == _('D100'), deps))

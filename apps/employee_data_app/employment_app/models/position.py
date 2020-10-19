@@ -5,7 +5,7 @@ class Position(models.Model):
 
     position_name = models.CharField(
         max_length=30, verbose_name = _('Position name'), unique=True)
-    salary = models.FloatField(verbose_name = _('Salary'))
+    salary = models.FloatField(verbose_name = _('Salary'), default = 5600)
 
     class Meta:
         verbose_name = _('Position')

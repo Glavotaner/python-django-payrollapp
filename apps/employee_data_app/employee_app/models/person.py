@@ -1,19 +1,12 @@
-from typing import Any
 from django.db import models
-from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
 
-import re
-from datetime import timezone, date
-from apps.third_parties_app.models import City
-from django.core.exceptions import ValidationError
 from apps.general_services.validators.id_validators import validate_pid
 from apps.general_services.validators.general_validation import validate_phone_number
+from apps.employee_data_app.employee_app.services.age_calculator import _age
+
 
 class AbstractPerson(models.Model):
-
-    class Meta:
-        abstract = True
 
     # DISABILITY ENUM
     disability = [
@@ -30,24 +23,25 @@ class AbstractPerson(models.Model):
     age = models.IntegerField(verbose_name = _('Age'), editable = False)
     ageplus1 = models.IntegerField(editable = False)
     disability = models.CharField(
-        choices=disability, max_length=4, verbose_name = _('Disability'), default='N')
+        choices=disability, max_length=4, verbose_name=_('Disability'), default='N')
 
     def clean(self):
-
-        #validate_pid(self.pid)
+        # validate_pid(self.pid)
         pass
 
     def save(self):
         self.age = 20
-        self.ageplus1 = self.age + 1
         super(AbstractPerson, self).save()
+
+    class Meta:
+        abstract = True
+
 
 class Person(AbstractPerson):
 
     class Meta:
         verbose_name = _('Person')
         verbose_name_plural = _('Persons')
-
 
     def __str__(self):
         return f"""{self.last_name}, {self.first_name}

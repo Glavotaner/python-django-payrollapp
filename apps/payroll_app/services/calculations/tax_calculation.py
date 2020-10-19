@@ -1,42 +1,38 @@
-# INCOME TAX CALCULATION
-def calculate_income_tax_amount_young(current_tax_model: object, tax_base: float) -> float:
+def _income(self):
+   if self.gross_salary - self.pension_fund_total < self.employee.contributions_model.pension_fund_min_base:
+        return round(self.employee.contributions_model.pension_fund_min_base, 2)
 
-    if tax_base > current_tax_model.tax_bracket:
-        hi_tax_base = tax_base - \
-            current_tax_model.tax_bracket
-
-        income_tax = (current_tax_model.tax_bracket *
-                      current_tax_model.lo_tax_rate) + \
-            (hi_tax_base * current_tax_model.hi_tax_rate)
-
-    else:
-        income_tax = tax_base * \
-            current_tax_model.lo_tax_rate
-
-    return round(income_tax / 2, 2)
+    return round(self.gross_salary - self.pension_fund_total, 2) 
 
 
-def calculate_income_tax_amount(current_tax_model: object, tax_base: float) -> float:
+def _tax_base(self):
+    if self.deductibles > self.income:
+        return 0
 
-    if tax_base > current_tax_model.tax_bracket:
-        hi_tax_base = tax_base - \
-            current_tax_model.tax_bracket
+    return round(self.income - self.deductibles, 2)
 
-        income_tax = (current_tax_model.tax_bracket *
-                      current_tax_model.lo_tax_rate) + \
-            (hi_tax_base * current_tax_model.hi_tax_rate)
+
+def _income_tax_amount(self) -> float:
+
+    if self.tax_base > self.current_tax_model.tax_bracket:
+        hi_tax_base = self.tax_base - \
+            self.current_tax_model.tax_bracket
+
+        income_tax = (self.current_tax_model.tax_bracket *
+                      self.current_tax_model.lo_tax_rate) + \
+            (hi_tax_base * self.current_tax_model.hi_tax_rate)
 
     else:
-        income_tax = tax_base * \
-            current_tax_model.lo_tax_rate
+        income_tax = self.tax_base * \
+            self.current_tax_model.lo_tax_rate
 
     return round(income_tax, 2)
 
 
-def calculate_city_tax_amount(income_tax_amount: float, city: object) -> float:
-    return round(income_tax_amount * (city.tax_rate -
-                                      city.tax_break), 2)
+def _city_tax_amount(self) -> float:
+    return round(self.income_tax_amount * (self.employee.city.tax_rate -
+                                      self.employee.city.tax_break), 2)
 
 
-def calculate_tax_amount(income_tax_amount: float, city_tax_amount: float) -> float:
-    return round(income_tax_amount + city_tax_amount, 2)
+def _tax_amount(self) -> float:
+    return round(self.income_tax_amount + self.city_tax_amount, 2)

@@ -1,9 +1,7 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from django.core.exceptions import ValidationError
 from apps.general_services.validators.general_validation import validate_gte
 from apps.general_services.validators.id_validators import validate_iban, validate_city_id
-import re
 
 
 class City(models.Model):

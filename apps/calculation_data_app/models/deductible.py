@@ -5,11 +5,11 @@ from django.utils.translation import gettext_lazy as _
 class Deductible(models.Model):
 
     base_deductible = models.FloatField(verbose_name=_(
-        'Base deductible'), help_text=_('Legal base deductible amount'))
+        'Base deductible'), help_text=_('Legal base deductible amount'), default = 2500)
     personal_deductible_coef = models.FloatField(verbose_name=_(
-        'Personal deductible coef'), help_text=_('Legal personal deductible coefficient'))
+        'Personal deductible coef'), help_text=_('Legal personal deductible coefficient'), default = 1.6)
     valid_from = models.DateTimeField(
-        verbose_name=_('Valid from'), auto_now=True)
+        verbose_name=_('Valid from'), auto_now_add=True)
 
     class Meta:
         verbose_name = _('Deductible')
