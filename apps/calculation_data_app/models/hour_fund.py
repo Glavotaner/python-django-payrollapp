@@ -14,6 +14,7 @@ class HourFund(models.Model):
     
     def save(self):
         self.period_id = str(self.year) + str(self.month)
+        super(HourFund, self).save()
     
     def __str__(self):
         return f"{self.period_id}"
