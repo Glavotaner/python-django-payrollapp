@@ -3,6 +3,7 @@ from django.utils.translation import gettext_lazy as _
 
 class HourFund(models.Model):
     
+
     period_id = models.IntegerField(verbose_name=_('Period ID'), unique = True, editable= False)
     year = models.IntegerField(verbose_name = _('Year'), default= 2020)
     month = models.IntegerField(verbose_name = _('Month'))

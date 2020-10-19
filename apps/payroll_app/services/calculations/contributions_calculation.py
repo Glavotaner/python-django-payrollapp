@@ -29,3 +29,4 @@ def _pension_fund_ind_amount(self) -> float:
 
 def _pension_fund_total(pension_fund_gen_amount: float, pension_fund_ind_amount: float) -> float:
     return round(pension_fund_gen_amount + pension_fund_ind_amount, 2)
+
