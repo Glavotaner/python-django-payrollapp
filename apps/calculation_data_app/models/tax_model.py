@@ -4,9 +4,9 @@ from django.utils.translation import gettext_lazy as _
 class TaxModel(models.Model):
     
     
-    tax_bracket = models.FloatField(verbose_name = _('High tax bracket'))
-    lo_tax_rate = models.FloatField(verbose_name = _('Low tax rate'))
-    hi_tax_rate = models.FloatField(verbose_name = _('High tax rate'))
+    tax_bracket = models.FloatField(verbose_name = _('High tax bracket'), default = 30000)
+    lo_tax_rate = models.FloatField(verbose_name = _('Low tax rate'), default = 0.24)
+    hi_tax_rate = models.FloatField(verbose_name = _('High tax rate'), default = 0.36)
     
     valid_from = models.DateField(verbose_name = _('Valid from'))
 
