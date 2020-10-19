@@ -18,25 +18,15 @@ from apps.employee_data_app.employee_app.services.dependents_calculator import *
 
 class Employee(Person, Address):
 
-    # PROPERTIES
     # DEPENDENTS
-    
-    @property
-    def no_children(self):
-        return calculate_no_children(self.pid)
-    
-    @property
-    def no_dependents(self):
-        return calculate_no_dependents(self.pid)
-    
-    @property
-    def no_dependents_disabled(self):
-        return caluclate_no_dependents_disabled(self.pid)
-    
-    @property
-    def no_dependents_disabled_100(self):
-        return calculate_no_dependents_disabled_100(self.pid)
-    
+    no_children = models.IntegerField(
+        verbose_name=_('Number of children'), editable=False)
+    no_dependents = models.IntegerField(
+        verbose_name=_('Number of dependents'), editable=False)
+    no_dependents_disabled = models.IntegerField(
+        verbose_name=_('Number of disabled dependents'), editable=False)
+    no_dependents_disabled_100 = models.IntegerField(
+        verbose_name=_('Number of 100% disabled dependents'), editable=False)
 
     iban = models.CharField(unique=True, verbose_name='IBAN', max_length=34)
 
@@ -51,10 +41,10 @@ class Employee(Person, Address):
 
     # FOREIGN KEYS
     employee_bank = models.ForeignKey(
-        to=Bank, verbose_name=_('Bank'), on_delete=models.SET_NULL, null = True)
+        to=Bank, verbose_name=_('Bank'), on_delete=models.SET_NULL, null=True)
 
     contributions_model = models.ForeignKey(
-        ContributionsModality, on_delete=models.SET_NULL, verbose_name=_('Contributions model'), null = True)
+        ContributionsModality, on_delete=models.SET_NULL, verbose_name=_('Contributions model'), null=True)
 
     signed_contract = models.OneToOneField(
         to=Contract, verbose_name=_('Contract'), on_delete=models.CASCADE)
@@ -63,12 +53,19 @@ class Employee(Person, Address):
         validate_age(self.date_of_birth)
         # validate_iban(self.iban)
 
-
     class Meta:
         verbose_name = _('Employee')
         verbose_name_plural = _('Employees')
 
         get_latest_by = 'employee_since'
+
+    def save(self):
+        self.no_children = 1#_no_children(self)
+        self.no_dependents = 1#_no_dependents(self)
+        self.no_dependents_disabled = 1#_no_dependents_disabled(self)
+        self.no_dependents_disabled_100 = 1#_no_dependents_disabled_100(self)
+        super(Employee, self).save()
+
 
     def __str__(self):
         return f"{self.pid}"

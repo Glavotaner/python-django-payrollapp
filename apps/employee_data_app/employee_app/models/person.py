@@ -27,22 +27,8 @@ class AbstractPerson(models.Model):
     first_name = models.CharField(max_length=30, verbose_name = _('First name'))
     last_name = models.CharField(max_length=20, verbose_name = _('Last name'))
     date_of_birth = models.DateField(verbose_name = _('Date of birth'))
-
-    @property
-    def age(self):
-        today = date.today()
-        try:
-            birthday = self.date_of_birth.replace(year=today.year)
-
-        except ValueError:
-            birthday = self.date_of_birth.replace(year=today.year,
-                                                  month=self.date_of_birth.month + 1, day=1)
-
-        if birthday > today:
-            return today.year - self.date_of_birth.year - 1
-        else:
-            return today.year - self.date_of_birth.year
-
+    age = models.IntegerField(verbose_name = _('Age'), editable = False)
+    ageplus1 = models.IntegerField(editable = False)
     disability = models.CharField(
         choices=disability, max_length=4, verbose_name = _('Disability'), default='N')
 
@@ -51,6 +37,10 @@ class AbstractPerson(models.Model):
         #validate_pid(self.pid)
         pass
 
+    def save(self):
+        self.age = 20
+        self.ageplus1 = self.age + 1
+        super(AbstractPerson, self).save()
 
 class Person(AbstractPerson):
 

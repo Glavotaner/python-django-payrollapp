@@ -9,14 +9,18 @@ from apps.payroll_app.services.calculations import tax_calculation, contribution
 
 
 class Payroll(models.Model):
-    
 
     date_of_accounting = models.DateTimeField(
-        auto_now=True, verbose_name = _('Date of accounting'), db_index=True)
+        auto_now=True, verbose_name=_('Date of accounting'), db_index=True)
     accounted_period_start = models.DateField(
-        verbose_name = _('Accounted period start'))
+        verbose_name=_('Accounted period start'))
     accounted_period_end = models.DateField(
-        verbose_name = _('Accounted period end'))
+        verbose_name=_('Accounted period end'))
+    accounted_period_id = models.CharField(verbose_name=_(
+        'Accounted period ID'), editable=False, max_length=15, unique=True)
+
+    months_hours_fund = models.IntegerField(
+        verbose_name=_("Month's hours fund"), editable=False)
 
     @property
     def current_deductibles_model(self):
@@ -26,13 +30,62 @@ class Payroll(models.Model):
     def current_tax_model(self):
         return TaxModel.objects.latest()
 
-    @property
-    def accounted_period(self):
-        return f"{_('From')} {self.accounted_period_start} {_('to')} {self.accounted_period_end}"
+    employee = models.ForeignKey(
+        Employee, on_delete=models.DO_NOTHING, db_index=True, verbose_name=_('Employee'))
+    work_data = models.OneToOneField(
+        Labour, on_delete=models.DO_NOTHING, db_index=True, verbose_name=_('Work data'))
 
-    employee = models.ForeignKey(Employee, on_delete=models.DO_NOTHING, db_index=True, verbose_name = _('Employee'))
-    work_data = models.OneToOneField(Labour, on_delete=models.DO_NOTHING, db_index=True, verbose_name = _('Work data'))
+    wage = models.FloatField(verbose_name=_('Wage'), editable=False)
+    overtime_hours_gross = models.FloatField(
+        verbose_name=_('Overtime hours gross'), editable=False)
+    special_hours_gross = models.FloatField(
+        verbose_name=_('Special hours gross'), editable=False)
+    gross_salary = models.FloatField(
+        verbose_name=_('Gross salary'), editable=False)
 
+    contributons_base = models.FloatField(
+        verbose_name=_('Contributions base'), editable=False)
+
+    health_insurance_amount = models.FloatField(
+        verbose_name=_('Health insurance amount'), editable=False)
+
+    pension_fund_gen_amount = models.FloatField(verbose_name=_(
+        'Generational pension fund contribution amount'), editable=False)
+    pension_fund_ind_amount = models.FloatField(
+        verbose_name=_('Individual pension fund amount'), editable=False)
+    pension_fund_total = models.FloatField(verbose_name=_(
+        'Total pension fund contribution amount'), editable=False)
+
+    income = models.FloatField(verbose_name=_('Income'), editable=False)
+
+    personal_deductible_amount = models.FloatField(
+        verbose_name=_('Personal deductible amount'), editable=False)
+
+    deductible_dependents = models.FloatField(
+        verbose_name=_('Dependents deductible amount'), editable=False)
+    deductible_children = models.FloatField(
+        verbose_name=_('Children deductible amount'), editable=False)
+    deductible_dependents_disabled = models.FloatField(
+        verbose_name=_('Disabled dependents deductible amount'), editable=False)
+    deductible_dependents_disabled_100 = models.FloatField(verbose_name=_(
+        '100% disabled dependents deductible amount'), editable=False)
+    total_deductibles = models.FloatField(
+        verbose_name=_('Total deductibles amount'), editable=False)
+
+    tax_base = models.FloatField(verbose_name=_('Tax base'), editable=False)
+    income_tax_amount = models.FloatField(
+        verbose_name=_('Income tax amount'), editable=False)
+    city_tax_amount = models.FloatField(
+        verbose_name=_('City tax amount'), editable=False)
+    total_tax = models.FloatField(
+        verbose_name=_('Total tax amount'), editable=False)
+
+    net_salary = models.FloatField(
+        verbose_name=_('Net salary'), editable=False)
+
+    labour_cost = models.FloatField(
+        verbose_name=_('Labour cost'), editable=False)
+    """
     @property
     def months_hours_fund(self):
 
@@ -43,21 +96,21 @@ class Payroll(models.Model):
             year=acc_period_year, month=acc_period_month)
 
         return monthly_hours_fund_id.total_hours
-
+    """"""
     @property
     def wage(self):
         return round(float(self.employee.signed_contract.position.salary) / self.months_hours_fund, 2)
 
     # HOURS GROSS
-
+    """"""
     @property
     def overtime_hours_gross(self):
         return round(self.work_data.overtime_hours * self.wage + (self.wage * 0.33), 2)
-
+    """"""
     @property
     def special_hours_gross(self):
         return round(self.work_data.special_hours * self.wage + (self.wage * 0.25), 2)
-
+    """"""
     # GROSS SALARY
 
     @property
@@ -67,9 +120,9 @@ class Payroll(models.Model):
             return round(self.wage * self.work_data.regular_hours, 2)
 
         return round(self.employee.signed_contract.position.salary, 2)
-
+    """
     # CONTRIBUTIONS
-
+    """
     @property
     def contributions_base(self):
         if self.work_data.regular_hours < self.months_hours_fund:
@@ -86,38 +139,38 @@ class Payroll(models.Model):
             return self.employee.contributions_model.pension_fund_min_base
 
         return self.gross_salary
-
+    """"""
     @property
     def health_insurance_amount(self):
         return round(self.gross_salary * self.employee.contributions_model.health_insurance, 2)
-
+    """"""
     @property
     def pension_fund_gen_amount(self):
         return round(self.gross_salary * self.employee.contributions_model.pension_fund_gen, 2)
-
+    """"""
     @property
     def pension_fund_ind_amount(self):
         return round(self.gross_salary * self.employee.contributions_model.pension_fund_ind, 2)
-
+    """"""
     @property
     def pension_fund_total(self):
         return round(self.pension_fund_gen_amount + self.pension_fund_ind_amount, 2)
-
+    """
     # INCOME
-
+    """
     @property
     def income(self):
         if self.gross_salary - self.pension_fund_total < self.employee.contributions_model.pension_fund_min_base:
             return round(self.employee.contributions_model.pension_fund_min_base, 2)
 
         return round(self.gross_salary - self.pension_fund_total, 2)
-
+    """
     # DEDUCTIBLES
-
+    """
     @property
     def personal_deductible_amount(self):
         return round(self.current_deductibles_model.base_deductible * self.current_deductibles_model.personal_deductible_coef, 2)
-
+    """"""
     @property
     def dependents_children(self):
         child_coefs = [0.7, 1.0, 1.4, 1.9, 2.5, 3.2, 4.0, 4.9, 5.9, 7]
@@ -144,9 +197,9 @@ class Payroll(models.Model):
     @property
     def deductibles(self):
         return round(self.personal_deductible_amount + self.dependents_children + self.dependents_deductible + self.disabled_dependents + self.disabled_dependents_100, 2)
-
+    """
     # TAX CALCULATIONS
-
+    """
     @property
     def tax_base(self):
         if self.deductibles > self.income:
@@ -168,7 +221,7 @@ class Payroll(models.Model):
         return round(self.income_tax_amount + self.city_tax_amount, 2)
 
     # NET SALARY
-
+    """"""
     @property
     def net_salary(self):
         return round(self.income - self.tax_amount, 2)
@@ -177,7 +230,7 @@ class Payroll(models.Model):
     @property
     def labour_cost(self):
         return round(self.gross_salary + self.health_insurance_amount, 2)
-
+    """
     class Meta:
         verbose_name = _('Payroll')
         verbose_name_plural = _('Payrolls')
