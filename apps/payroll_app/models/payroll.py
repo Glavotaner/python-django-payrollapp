@@ -3,13 +3,12 @@ from django.utils.translation import gettext_lazy as _
 
 from .labour import Labour
 from apps.employee_data_app.employee_app.models import Employee
-from apps.calculation_data_app.models import HourFund, Deductible, TaxModel
+from apps.calculation_data_app.models import Deductible, TaxModel
 
 from apps.payroll_app.services.calculations import tax_calculation, contributions_calculation, deductibles_calculation, gross_salary_calculation, var_calculation
 
 
 class Payroll(models.Model):
-    
 
     date_of_accounting = models.DateTimeField(
         auto_now=True, verbose_name=_('Date of accounting'), db_index=True)

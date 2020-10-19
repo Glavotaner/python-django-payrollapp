@@ -1,14 +1,8 @@
-from typing import Any
 from django.db import models
-from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
 
-import re
-from datetime import timezone, date
-from apps.third_parties_app.models import City
-from django.core.exceptions import ValidationError
 from apps.general_services.validators.id_validators import validate_pid
-from apps.general_services.validators.general_validation import validate_phone_number
+from apps.employee_data_app.employee_app.services.age_calculator import _age
 
 
 class AbstractPerson(models.Model):

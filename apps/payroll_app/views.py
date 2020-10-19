@@ -1,14 +1,14 @@
-from django.http import HttpResponse
 from django.shortcuts import render
 
 from .models import Payroll
 
 
 def index(request):
-    return HttpResponse("bruh")
+    return render(request, 'index.html')
 
-def payrolls(request):
-    payroll_list = Payroll.objects.get(1)
-    context = {'payrolls_list': payroll_list}
+def list(request):
+    idvar = Payroll.objects.get(id = 1).accounted_period
     
-    return render(request, 'payroll/list.html', context)
+    context = {'payroll_id': idvar}
+    
+    return render(request, 'list.html', context)

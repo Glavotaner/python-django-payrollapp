@@ -6,7 +6,6 @@ from apps.employee_data_app.employee_app.models import Employee
 
 class Labour(models.Model):
 
-    
 
     employee = models.ForeignKey(Employee, on_delete=models.DO_NOTHING, db_index=True, verbose_name = _('Employee'))
     labour_period = models.CharField(verbose_name=_('Labour period ID'), editable = False, unique = True, max_length = 15)

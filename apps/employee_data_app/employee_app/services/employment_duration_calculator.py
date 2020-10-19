@@ -3,7 +3,7 @@ from dateutil import relativedelta
 from apps.employee_data_app.employment_app.models import Contract
 
 
-def calculate_employment_duration(self):
+def _employment_duration(self):
     latest_contract = Contract.objects.filter(
         employee=self.pid).order_by('-sign_date')[0]
 

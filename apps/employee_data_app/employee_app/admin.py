@@ -4,7 +4,9 @@ from django.utils.translation import gettext as _
 from .models import  Employee, Dependent
 
 class EmployeeAdmin(admin.ModelAdmin):
-    list_display = ('pid', 'first_name', 'last_name', 'date_of_birth', 'age', 'disability', 'no_dependents', 'no_dependents_disabled','no_dependents_disabled_100', 'no_children')
+    list_display = ('pid', 'first_name', 'last_name', 'date_of_birth', 'age',  'employee_since', 'first_employment', 'first_employment_with_company', 'no_dependents', 'no_children', 'no_dependents_disabled', 'no_dependents_disabled_100')
+
+    search_fields = ['pid']
     
     fieldsets = (
         (
@@ -64,6 +66,10 @@ class DependentAdmin(admin.ModelAdmin):
         'child',
         'dependent_of'
     ]
+
+    
+    search_fields = ['pid']
+    list_display = ('pid', 'first_name', 'last_name', 'date_of_birth', 'child', 'disability')
                         
 
 

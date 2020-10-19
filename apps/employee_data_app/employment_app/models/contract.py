@@ -11,7 +11,7 @@ class Contract(models.Model):
         Position, verbose_name = _('Position'), on_delete=models.DO_NOTHING)
     sign_date = models.DateField(verbose_name = _('Sign date'))
     expiration_date = models.DateField(
-        verbose_name = _('Expiration date'), blank=True, null=True)
+        verbose_name = _('Expiration date'))
 
     class Meta:
         verbose_name = _('Contract')

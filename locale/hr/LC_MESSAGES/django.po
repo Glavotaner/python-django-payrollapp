@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-14 13:15+0200\n"
+"POT-Creation-Date: 2020-10-15 10:37+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -70,7 +70,7 @@ msgstr ""
 "Izražena kao decimalan broj"
 
 #: .\apps\calculation_data_app\models\contributions_modality.py:24
-#: .\apps\employee_data_app\employee_app\models\employee.py:58
+#: .\apps\employee_data_app\employee_app\models\employee.py:59
 msgid "Contributions model"
 msgstr "Model doprinosa"
 
@@ -209,16 +209,32 @@ msgstr "Uzdržavana osoba"
 msgid "Dependents"
 msgstr "Uzdržavane osobe"
 
-#: .\apps\employee_data_app\employee_app\models\employee.py:29
-#, fuzzy
+#: .\apps\employee_data_app\employee_app\models\employee.py:28
 msgid "Number of children"
 msgstr "Broj djece"
 
-#: .\apps\employee_data_app\employee_app\models\employee.py:49
+#: .\apps\employee_data_app\employee_app\models\employee.py:33
+#, fuzzy
+#| msgid "Number of children"
+msgid "Number of dependents"
+msgstr "Broj djece"
+
+#: .\apps\employee_data_app\employee_app\models\employee.py:37
+#, fuzzy
+#| msgid "Number of children"
+msgid "Number of disabled dependents"
+msgstr "Broj djece"
+
+#: .\apps\employee_data_app\employee_app\models\employee.py:41
+#, python-format
+msgid "Number of 100% disabled dependents"
+msgstr ""
+
+#: .\apps\employee_data_app\employee_app\models\employee.py:47
 msgid "First employment"
 msgstr "Prvo zaposlenje"
 
-#: .\apps\employee_data_app\employee_app\models\employee.py:50
+#: .\apps\employee_data_app\employee_app\models\employee.py:49
 msgid "First employment with company"
 msgstr "Prvo zaposlenje u poslovnom subjektu"
 
@@ -231,18 +247,18 @@ msgstr "Zaposlenik od"
 msgid "Bank"
 msgstr "Banka"
 
-#: .\apps\employee_data_app\employee_app\models\employee.py:60
+#: .\apps\employee_data_app\employee_app\models\employee.py:62
 #: .\apps\employee_data_app\employment_app\models\contract.py:17
 msgid "Contract"
 msgstr "Ugovor"
 
-#: .\apps\employee_data_app\employee_app\models\employee.py:68
+#: .\apps\employee_data_app\employee_app\models\employee.py:70
 #: .\apps\payroll_app\models\labour.py:11
 #: .\apps\payroll_app\models\payroll.py:33
 msgid "Employee"
 msgstr "Zaposlenik"
 
-#: .\apps\employee_data_app\employee_app\models\employee.py:69
+#: .\apps\employee_data_app\employee_app\models\employee.py:71
 msgid "Employees"
 msgstr "Zaposlenici"
 
@@ -286,6 +302,10 @@ msgstr "Prezime"
 #: .\apps\employee_data_app\employee_app\models\person.py:30
 msgid "Date of birth"
 msgstr "Datum rođenja"
+
+#: .\apps\employee_data_app\employee_app\models\person.py:45
+msgid "Age"
+msgstr ""
 
 #: .\apps\employee_data_app\employee_app\models\person.py:48
 msgid "Disability"
