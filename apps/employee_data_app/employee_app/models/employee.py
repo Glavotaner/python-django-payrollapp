@@ -3,7 +3,7 @@ from django.utils.translation import gettext_lazy as _
 
 
 from .person import Person
-from .address import Address
+from apps.third_parties_app.models import Address
 from apps.third_parties_app.models import Bank
 from apps.employee_data_app.employment_app.models import Contract
 from apps.calculation_data_app.models import ContributionsModality

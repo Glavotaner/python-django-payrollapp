@@ -23,6 +23,7 @@ class Labour(models.Model):
 
     def save(self):
         self.labour_period = str(self.employee.pid[:11]) + ' - ' + str(self.labour_end_date)
+        super(Labour, self).save()
 
     def __str__(self):
         return f"{_('Employee ID')}: {self.employee.pid} | {_('Labour period')}: {self.labour_period}"

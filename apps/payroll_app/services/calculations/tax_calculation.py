@@ -1,5 +1,5 @@
 def _income(self):
-   if self.gross_salary - self.pension_fund_total < self.employee.contributions_model.pension_fund_min_base:
+    if self.gross_salary - self.pension_fund_total < self.employee.contributions_model.pension_fund_min_base:
         return round(self.employee.contributions_model.pension_fund_min_base, 2)
 
     return round(self.gross_salary - self.pension_fund_total, 2) 

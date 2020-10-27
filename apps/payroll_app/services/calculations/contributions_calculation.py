@@ -1,13 +1,13 @@
 def _contributions_base(self):
-   if self.work_data.regular_hours < self.months_hours_fund:
+    if self.work_data.regular_hours < self.months_hours_fund:
             proportional_min_base = (self.employee.contibutions_model.pension_fund_min_base /
                                      self.months_hours_fund) * self.labour_data.total_hours
 
-        if self.gross_salary < proportional_min_base:
-            return proportional_min_base
+    if self.gross_salary < proportional_min_base:
+        return proportional_min_base
 
-        elif self.gross_salary > proportional_min_base:
-            return self.gross_salary
+    elif self.gross_salary > proportional_min_base:
+        return self.gross_salary
 
     elif self.gross_salary < self.employee.contributions_model.pension_fund_min_base:
         return self.employee.contributions_model.pension_fund_min_base
