@@ -2,7 +2,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 from apps.general_services.validators.id_validators import validate_pid
-from apps.employee_data_app.employee_app.services.age_calculator import _age
+from apps.employee_data_app.employee_app.services.var_calculator import _age
 
 
 class Person(models.Model):

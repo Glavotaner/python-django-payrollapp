@@ -6,10 +6,10 @@ def _income(self):
 
 
 def _tax_base(self):
-    if self.deductibles > self.income:
+    if self.total_deductibles > self.income:
         return 0
 
-    return round(self.income - self.deductibles, 2)
+    return round(self.income - self.total_deductibles, 2)
 
 
 def _income_tax_amount(self) -> float:
@@ -34,5 +34,11 @@ def _city_tax_amount(self) -> float:
                                       self.employee.city.tax_break), 2)
 
 
-def _tax_amount(self) -> float:
+def _total_tax(self) -> float:
     return round(self.income_tax_amount + self.city_tax_amount, 2)
+
+def _net_salary(self) -> float:
+    return round(self.income - self.total_tax)
+
+def _labour_cost(self) -> float:
+    return round(self.gross_salary + self.health_insurance_amount)
