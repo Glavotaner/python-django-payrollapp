@@ -1,5 +1,9 @@
 from apps.calculation_data_app.models import HourFund
 
+def _accounted_period_id(self):
+        return str(self.accounted_period_start)[0:4]
+        
+
 def _months_hours_fund(self):
        
         acc_period_year = str(self.accounted_period_start)[0:4]

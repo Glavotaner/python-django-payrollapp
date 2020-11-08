@@ -1,10 +1,31 @@
+from apps.third_parties_app.models.bank import Bank
+from apps.third_parties_app.models.city import City
 from django.contrib import admin
 from django.utils.translation import gettext as _
 
-from .models.bank import Bank
-from .models.city import City
 
+class CityAdmin(admin.ModelAdmin):
 
+    fieldsets = (
+        (
+            _('City data'), {
+                "fields": [
+                    'city_name',
+                    'postal_code',
+                    'iban'
+                ],
+            }),
+        (
+            _('Tax data'), {
+                'fields': [
+                    'joppd',
+                    'tax_rate',
+                    'tax_break'
+                ]
+            }
+        )
+    )
+    
 class BankAdmin(admin.ModelAdmin):
 
     fieldsets = (
@@ -29,28 +50,5 @@ class BankAdmin(admin.ModelAdmin):
     )
 
 
-class CityAdmin(admin.ModelAdmin):
-
-    fieldsets = (
-        (
-            _('City data'), {
-                "fields": [
-                    'city_name',
-                    'postal_code',
-                    'iban'
-                ],
-            }),
-        (
-            _('Tax data'), {
-                'fields': [
-                    'joppd',
-                    'tax_rate',
-                    'tax_break'
-                ]
-            }
-        )
-    )
-
-
-admin.site.register(Bank, BankAdmin)
 admin.site.register(City, CityAdmin)
+admin.site.register(Bank, BankAdmin)
