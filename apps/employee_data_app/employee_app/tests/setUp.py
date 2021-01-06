@@ -2,7 +2,7 @@ from datetime import date
 from apps.employee_data_app.employment_app.models import Contract, ContractType, Position
 from apps.third_parties_app.models import City, Bank
 from apps.employee_data_app.employee_app.models import Employee, Dependent
-from apps.calculation_data_app.models import ContributionsModality, Deductible
+from apps.calculation_data_app.models import ContributionsModel, DeductiblesModel
 from apps.payroll_app.services.calculations import deductibles_calculation
 
 def _setUp(self):
@@ -26,7 +26,7 @@ def _setUp(self):
         city=city
     )
 
-    ContributionsModality.objects.create(
+    ContributionsModel.objects.create(
         modality_mark="REG",
         pension_fund_min_base=3265,
         pension_fund_gen=0.15,
@@ -54,14 +54,14 @@ def _setUp(self):
         sign_date=date.today()
     )
 
-    Deductible.objects.create(
+    DeductiblesModel.objects.create(
         base_deductible=2500,
         personal_deductible_coef=1.6,
         valid_from=date.today()
     )
 
     bank = Bank.objects.get(oib="87939104217")
-    contributions_model = ContributionsModality.objects.get(id=1)
+    contributions_model = ContributionsModel.objects.get(id=1)
     signed_contract = Contract.objects.get(id=1)
 
     Employee.objects.create(
@@ -81,7 +81,7 @@ def _setUp(self):
 
     self.employee = Employee.objects.get(pid="38263212113")
     
-    self.current_deductibles_model = Deductible.objects.latest()
+    self.current_deductibles_model = DeductiblesModel.objects.latest()
     self.personal_deductible_amount = deductibles_calculation._personal_deductible_amount(self)
 
     Dependent.objects.create(pid="38263212111",\

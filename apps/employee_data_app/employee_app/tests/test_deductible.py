@@ -3,13 +3,13 @@ from django.test import TestCase
 from datetime import date
 
 from apps.third_parties_app.models import City, Bank
-from apps.calculation_data_app.models import ContributionsModality
-from apps.employee_data_app.employment_app.models import Position, Contract, ContractType, contract_type
-from apps.employee_data_app.employee_app.models import Employee, Dependent
-from apps.calculation_data_app.models import Deductible
+from apps.calculation_data_app.models import ContributionsModel
+from ...employment_app.models import Position, Contract, ContractType, contract_type
+from ..models import Employee, Dependent
+from apps.calculation_data_app.models import DeductiblesModel
 
 from apps.payroll_app.services.calculations import deductibles_calculation
-from apps.employee_data_app.employee_app.tests.setUp import _setUp
+from ..tests.setUp import _setUp
 
 class DeductibleTest(TestCase):
     

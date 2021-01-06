@@ -10,7 +10,10 @@ class TaxModel(models.Model):
     tax_from = models.FloatField(verbose_name=_("Tax from"))
     tax_to = models.FloatField(verbose_name=_("Tax to"))
     
-    tax_rate = models.FloatField(verbose_name=_("Tax rate"), help_text=_("Expressed as a decimal number"))
+    tax_rate = models.FloatField(
+        verbose_name=_("Tax rate"), 
+        help_text=_("Expressed as a decimal number")
+        )
 
     
     def __str__(self):

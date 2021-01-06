@@ -6,28 +6,54 @@ from apps.general_services.validators.id_validators import validate_iban, valida
 
 
 class City(models.Model):
-    
+
     class Meta:
         verbose_name = _('City')
         verbose_name_plural = _('Cities')
-        
 
-    iban = models.CharField(max_length=34, verbose_name='IBAN', null=True)
+    iban = models.CharField(
+        max_length=34,
+        verbose_name='IBAN',
+        null=True
+    )
+
     joppd = models.CharField(
-        max_length=5, verbose_name='JOPPD', primary_key=True)
-    city_name = models.CharField(max_length=80, verbose_name = _('City name'))
-    postal_code = models.CharField(verbose_name = _('Postal code'), max_length=5)
-    tax_rate = models.FloatField(verbose_name = _('Tax rate'), default=0.00, help_text = _('Input city tax rate as a decimal number'))
-    tax_break = models.FloatField(verbose_name = _('Tax break'), default=0.00, null=True, blank=True, help_text = _('Input city tax break as a decimal number eg. tax_rate = 0.13, tax_break = 0.06: tax_rate = 0.07'))
+        max_length=5,
+        verbose_name='JOPPD',
+        primary_key=True
+    )
+
+    city_name = models.CharField(
+        max_length=80,
+        verbose_name=_('City name')
+    )
+
+    postal_code = models.CharField(
+        verbose_name=_('Postal code'),
+        max_length=5
+    )
+
+    tax_rate = models.FloatField(
+        verbose_name=_('Tax rate'),
+        default=0.00,
+        help_text=_('Input city tax rate as a decimal number')
+    )
+
+    tax_break = models.FloatField(
+        verbose_name=_('Tax break'),
+        default=0.00,
+        null=True, blank=True,
+        help_text=_('Input city tax break as a decimal number \
+            eg. tax_rate = 0.13, tax_break = 0.06: tax_rate = 0.07')
+    )
 
     def clean(self):
 
-        #validate_city_id(self.joppd)
-        #validate_iban(self.iban)
+        # validate_city_id(self.joppd)
+        # validate_iban(self.iban)
         validate_gte(self.tax_rate, self.tax_break, 'Tax rate', 'Tax break')
         validate_gte(self.tax_rate, 0, '0')
         validate_gte(self.tax_break, 0, '0')
-
 
     def __str__(self):
         return f"""{self.city_name}"""

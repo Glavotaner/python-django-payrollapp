@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import TaxModel, HourFund, ContributionsModality, Deductible
+from .models import TaxModel, HourFund, ContributionsModel, DeductiblesModel
 
 class TaxModelAdmin(admin.ModelAdmin):
     list_display = ('tax_from', 'tax_to', 'tax_rate')
@@ -20,5 +20,5 @@ class ContributionsModalityAdmin(admin.ModelAdmin):
 
 admin.site.register(TaxModel, TaxModelAdmin)
 admin.site.register(HourFund, HourFundAdmin)
-admin.site.register(ContributionsModality, ContributionsModalityAdmin)
-admin.site.register(Deductible, DeductibleAdmin)
+admin.site.register(ContributionsModel, ContributionsModalityAdmin)
+admin.site.register(DeductiblesModel, DeductibleAdmin)
