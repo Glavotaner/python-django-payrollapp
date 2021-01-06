@@ -1,0 +1,2 @@
+[{"model": "calculation_data_app.ContributionsModality", "pk": 1, "fields": {"modality_mark": "REG", "pension_fund_min_base": 3321.96, "pension_fund_gen": 0.15, "pension_fund_ind": 0.05, "health_insurance": 0.165 }},
+{"model": "calculation_data_app.ContributionsModality", "pk": 1, "fields": {"modality_mark": "DO30", "pension_fund_min_base": 3321.96, "pension_fund_gen": 0.15, "pension_fund_ind": 0.05, "health_insurance": 0 }}]

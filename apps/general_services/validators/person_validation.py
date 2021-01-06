@@ -1,5 +1,5 @@
 from django.core.exceptions import ValidationError
-from _datetime import date
+from datetime import date
 
 def validate_age(dob):
     today = date.today() 
@@ -15,5 +15,8 @@ def validate_age(dob):
     else: 
         _age = today.year - dob.year
     
-    if _age < 18:
+    if 0 < _age < 18:
         raise ValidationError('Employee cannot be underage')
+    
+    if _age < 0:
+        raise ValidationError('Date of birth cannot be in the future')

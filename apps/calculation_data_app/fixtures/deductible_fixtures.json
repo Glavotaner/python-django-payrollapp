@@ -1,0 +1,11 @@
+[
+    {
+        "model": "calculation_data_app.deductible",
+        "pk": 1,
+        "fields": {
+            "base_deductible": 2500,
+            "personal_deductible_coef": 1.6,
+            "valid_from": "2020-11-21"
+        }
+    }
+]

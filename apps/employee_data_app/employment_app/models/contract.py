@@ -14,10 +14,11 @@ class Contract(models.Model):
         ContractType, verbose_name = _('Contract type'), on_delete=models.DO_NOTHING)
     position = models.ForeignKey(
         Position, verbose_name = _('Position'), on_delete=models.DO_NOTHING)
+    multiplier = models.FloatField(verbose_name=_('Multiplier'), default=0.00)
     
     sign_date = models.DateField(verbose_name = _('Sign date'))
     expiration_date = models.DateField(
-        verbose_name = _('Expiration date'), null=True)
+        verbose_name = _('Expiration date'), null=True,blank=True)
 
 
     def __str__(self):

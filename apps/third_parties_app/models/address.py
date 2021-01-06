@@ -15,9 +15,7 @@ class Address(models.Model):
         verbose_name_plural = _('Addresses')
         
 
-    street_name = models.CharField(
-        max_length=100, verbose_name=_('Street name'))
-    street_number = models.IntegerField(verbose_name=_('Street number'))
+    street_address = models.CharField(verbose_name=_('Street address'), max_length=300)
     city = models.ForeignKey(City, verbose_name=_(
         'City name'), on_delete=models.DO_NOTHING)
     phone_number = models.CharField(

@@ -3,7 +3,7 @@ from django.contrib import admin
 from .models import TaxModel, HourFund, ContributionsModality, Deductible
 
 class TaxModelAdmin(admin.ModelAdmin):
-    list_display = ('tax_bracket', 'lo_tax_rate', 'hi_tax_rate', 'valid_from')
+    list_display = ('tax_from', 'tax_to', 'tax_rate')
 
 
 class HourFundAdmin(admin.ModelAdmin):

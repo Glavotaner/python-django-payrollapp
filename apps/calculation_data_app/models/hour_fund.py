@@ -8,7 +8,7 @@ class HourFund(models.Model):
         verbose_name_plural = _('Hour funds')
     
 
-    period_id = models.IntegerField(verbose_name=_('Period ID'), unique = True, editable= False)
+    period_id = models.IntegerField(verbose_name=_('Period ID'), unique = True, editable= False, primary_key = True)
     year = models.IntegerField(verbose_name = _('Year'), default= 2020)
     month = models.IntegerField(verbose_name = _('Month'))
     total_hours = models.IntegerField(verbose_name = _('Total hours'))

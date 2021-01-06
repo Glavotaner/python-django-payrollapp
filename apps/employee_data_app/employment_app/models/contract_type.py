@@ -8,9 +8,6 @@ class ContractType(models.Model):
         verbose_name = _('Contract type')
         verbose_name_plural = _('Contract types')
         
-
-    contract_id = models.IntegerField(
-     verbose_name = _('Contract type ID'), primary_key=True)
     contract_type = models.CharField(
         max_length=50, verbose_name = _('Contract type'))
 

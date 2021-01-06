@@ -2,7 +2,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 from apps.general_services.validators.id_validators import validate_pid
-from apps.employee_data_app.employee_app.services.var_calculator import _age
+from apps.employee_data_app.employee_app.services.var_calculation import _age
 
 
 class Person(models.Model):
@@ -14,16 +14,16 @@ class Person(models.Model):
         verbose_name_plural = _('Persons')
 
     # DISABILITY ENUM
-    disability = [
+    disability = (
         (_('D'), _('Disabled')),
         (_('D100'), _('100% disabled')),
         (_('N'), _('None'))
-    ]
+    )
 
     pid = models.CharField(primary_key=True, max_length=11,
                            verbose_name=_('PID'))
-    first_name = models.CharField(max_length=30, verbose_name=_('First name'))
-    last_name = models.CharField(max_length=20, verbose_name=_('Last name'))
+    first_name = models.CharField(max_length=30, verbose_name=_('First name'), blank=True, null=True)
+    last_name = models.CharField(max_length=20, verbose_name=_('Last name'), blank=True, null=True)
     date_of_birth = models.DateField(verbose_name=_('Date of birth'))
     age = models.IntegerField(verbose_name=_('Age'), editable=False)
     disability = models.CharField(
@@ -33,6 +33,6 @@ class Person(models.Model):
         # validate_pid(self.pid)
         pass
 
-    def save(self):
+    def save(self, *args, **kwargs):
         self.age = _age(self)
-        super(Person, self).save()
+        super(Person, self).save(*args, **kwargs)

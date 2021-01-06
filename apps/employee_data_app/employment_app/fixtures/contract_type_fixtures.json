@@ -1,0 +1,16 @@
+[
+    {
+        "model": "employment_app.ContractType",
+        "pk": 1,
+        "fields": {
+            "contract_type": "Određeno"
+        }
+    },
+    {
+        "model": "employment_app.ContractType",
+        "pk": 2,
+        "fields": {
+            "contract_type": "Neodređeno"
+        }
+    }
+]

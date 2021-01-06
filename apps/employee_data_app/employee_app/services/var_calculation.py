@@ -1,7 +1,6 @@
 from datetime import date
 from datetime import datetime
 from dateutil import relativedelta
-from apps.employee_data_app.employment_app.models import Contract
 
 
 def _age(self) -> int:
@@ -21,11 +20,9 @@ def _age(self) -> int:
     
 
 def _employment_duration(self) -> str:
-    latest_contract = Contract.objects.filter(pk=2).get()
-
     today = datetime.today()
 
-    dif = relativedelta.relativedelta(today, latest_contract.sign_date)
+    dif = relativedelta.relativedelta(today, self.signed_contract.sign_date)
 
     dm = str(dif.months)
     dy = str(dif.years)

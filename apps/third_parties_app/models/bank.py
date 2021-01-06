@@ -13,9 +13,11 @@ class Bank(Address):
         
 
     business_id = models.CharField(
-        primary_key=True, verbose_name=_('Business ID'), max_length=8, help_text = _('Input valid business ID'))
-    oib = models.CharField(max_length=11, verbose_name='OIB', help_text = _('Input valid OID ID'))
+         verbose_name=_('Business ID'), max_length=8, help_text = _('Input valid business ID'))
+    oib = models.CharField(primary_key=True, max_length=11, verbose_name='OIB', help_text = _('Input valid OID ID'), unique=True)
     bank_name = models.CharField(max_length=40, verbose_name=_('Bank name'))
+    
+    iban = models.CharField(max_length=40, verbose_name=_('IBAN'))
 
     def clean(self):
         # validate_bid(self.business_id)

@@ -17,7 +17,7 @@ class Labour(models.Model):
     labour_start_date = models.DateField(verbose_name = _('Labour start date'))
     labour_end_date = models.DateField(verbose_name = _('Labour end date'))
     
-    regular_hours = models.PositiveIntegerField(verbose_name = _('Regular hours'))
+    regular_hours = models.PositiveIntegerField(verbose_name = _('Regular hours'), default=0)
     overtime_hours = models.PositiveIntegerField(verbose_name = _('Overtime hours'), default = 0)
     special_hours = models.PositiveIntegerField(verbose_name = _('Holiday hours'), default = 0)
 

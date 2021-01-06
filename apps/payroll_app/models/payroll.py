@@ -21,20 +21,16 @@ class Payroll(models.Model):
         verbose_name=_('Accounted period start'))
     accounted_period_end = models.DateField(
         verbose_name=_('Accounted period end'))
+    
+    current_deductibles_model = models.ForeignKey(Deductible, on_delete=models.DO_NOTHING, editable=False)
+    
+    current_tax_model = models.ForeignKey(TaxModel, on_delete=models.DO_NOTHING, editable=False)
 
     accounted_period_id = models.CharField(verbose_name=_(
         'Accounted period ID'), editable=False, max_length=15, unique=True)
 
     months_hours_fund = models.IntegerField(
         verbose_name=_("Month's hours fund"), editable=False, primary_key=True)
-
-    @property
-    def current_deductibles_model(self):
-        return Deductible.objects.latest()
-
-    @property
-    def current_tax_model(self):
-        return TaxModel.objects.latest()
     
 
     employee = models.ForeignKey(
@@ -95,6 +91,11 @@ class Payroll(models.Model):
 
 
     def save(self):
+        
+        self.current_deductibles_model = Deductible.objects.latest()
+        
+        self.current_tax_model = TaxModel.objects.latest()
+        
         self.accounted_period_id = var_calculation._accounted_period_id(self)
 
         self.months_hours_fund = var_calculation._months_hours_fund(self)

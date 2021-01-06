@@ -3,7 +3,10 @@ from django.core.exceptions import ValidationError
 
 
 def validate_phone_number(phone_number):
-    if re.search('^\d{3}-\d{3}-\d{4}$', phone_number):
+    
+    phone_number = phone_number.strip()
+    
+    if re.search('^[^0-9+-/]{17}$', phone_number):
         raise ValidationError(
             'Phone number must only contain numbers and +, () or / characters')
         

@@ -9,7 +9,7 @@ class Position(models.Model):
         
 
     position_name = models.CharField(
-        max_length=80, verbose_name = _('Position name'), unique=True)
+        max_length=80, verbose_name = _('Position name'))
     salary = models.FloatField(verbose_name = _('Salary'), default = 5600)
 
 

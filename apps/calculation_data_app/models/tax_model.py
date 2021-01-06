@@ -6,15 +6,12 @@ class TaxModel(models.Model):
     class Meta:
         verbose_name = _('Tax model')
         verbose_name_plural = _('Tax models')
-        get_latest_by = 'valid_from'
+        
+    tax_from = models.FloatField(verbose_name=_("Tax from"))
+    tax_to = models.FloatField(verbose_name=_("Tax to"))
     
-    
-    tax_bracket = models.FloatField(verbose_name = _('High tax bracket'), default = 30000)
-    lo_tax_rate = models.FloatField(verbose_name = _('Low tax rate'), default = 0.24)
-    hi_tax_rate = models.FloatField(verbose_name = _('High tax rate'), default = 0.36)
-    
-    valid_from = models.DateField(verbose_name = _('Valid from'))
+    tax_rate = models.FloatField(verbose_name=_("Tax rate"), help_text=_("Expressed as a decimal number"))
 
     
     def __str__(self):
-        return f"{self.lo_tax_rate}"
+        return f"{self.tax_rate}"

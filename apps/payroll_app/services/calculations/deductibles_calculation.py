@@ -1,4 +1,3 @@
-
 def _personal_deductible_amount(self):
     return round(self.current_deductibles_model.base_deductible * \
         self.current_deductibles_model.personal_deductible_coef, 2)

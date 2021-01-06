@@ -1,0 +1,318 @@
+Andrijaševci	8
+Antunovac	10
+Babina Greda	5
+Bale	1
+Barban	5
+Bedenica	3
+Bednja	10
+Beli Manastir	5
+Belica	0
+Belišće	7
+Benkovac	5
+Beretinec	7
+Bilice	10
+Bilje	5
+Biograd na Moru	12
+Biskupija	4
+Bistra	10
+Bizovac	3
+Bjelovar	0
+Blato	10
+Bol	10
+Borovo	6
+Bošnjaci	5
+Brckovljani	3
+Brdovec	10
+Brela	5
+Brestovac	5
+Breznica	10
+Breznički Hum	3
+Brinje	10
+Brodski Stupnik	10
+Buje	6
+Bukovlje	10
+Buzet	6
+Cerna	5
+Cernik	10
+Cerovlje	2
+Cestica	10
+Cista Provo	3
+Civljane	5
+Crikvenica	10
+Čabar	5
+Čaglin	5
+Čakovec	10
+Čazma	10
+Čeminac	10
+Čepin	10
+Darda	5
+Daruvar	10
+Davor	10
+Delnice	5
+Dežanovac	5
+Dicmo	8
+Donja Stubica	10
+Donja Voća	10
+Donji Andrijevci	8
+Donji Kukuruzari	6
+Donji Lapac	5
+Donji Martijanec	5
+Donji Miholjac	5
+Dragalić	10
+Draž	2
+Drenovci	5
+Drniš	5
+Dubrava	6
+Dubravica	10
+Dubrovačko primorje	10
+Dubrovnik	10
+Duga Resa	10
+Dugo Selo	9
+Dugopolje	0
+Dvor	5
+Đakovo	10
+Đurđenovac	10
+Erdut	5
+Ernestinovo	10
+Ervenik	3
+Farkaševac	3
+Fažana	3
+Feričanci	10
+Fužine	5
+Garčin	10
+Garešnica	10
+Gornji Bogićevci	5
+Gornji Kneginec	10
+Gospić	10
+Gračac	7
+Gračišće	5
+Gradec	5
+Grubišno Polje	5
+Gunja	5
+Hrašćina	5
+Hrvace	10
+Hrvatska Dubica	3
+Hrvatska Kostajnica	6
+Ilok	0
+Imotski	12
+Ivanec	10
+Ivanić grad	6
+Ivankovo	10
+Jagodnjak	3
+Jakovlje	5
+Jakšić	5
+Jastrebarsko	9
+Jelsa	10
+Kamanje	10
+Kanfanar	3
+Kapela	8
+Kaptol	10
+Karlovac	12
+Karojba	5
+Kaštela	12
+Kaštelir-Labinci	5
+Kijevo	5
+Kistanje	3
+Klanjec	12
+Klenovnik	7
+Klinča Sela	10
+Klis	10
+Kloštar Ivanić	2
+Kloštar Podravski	5
+Kneževi Vinogradi	4
+Knin	10
+Komiža	5
+Konavle	10
+Končanica	5
+Konjšćina	10
+Korčula	6
+Kraljevica	5
+Krašić	6
+Kravarsko	5
+Križ	2
+Križevci	10
+Krnjak	8
+Kula Norinska	10
+Kutina	12
+Labin	6
+Lanišće	5
+Lasinja	10
+Lastovo	10
+Lepoglava	8
+Lipik	10
+Lipovljani	6
+Lišane Ostrovičke	6
+Ližnjan	5
+Lokvičići	7
+Lovas	5
+Lovinac	8
+Ludbreg	12
+Luka	5
+Lukač	8
+Lumbarda	5
+Lupoglav	1
+Ljubešćica	10
+Magadenovac	2
+Majur	5
+Makarska	10
+Mali Bukovec	10
+Marčana	5
+Marija Gorica	10
+Marijanci	5
+Markušica	5
+Maruševec	5
+Matulji	10
+Medulin	5
+Metković	8
+Milna	3
+Mljet	10
+Motovun	0
+Mrkopalj	7
+Muć	7
+Murter-Kornati	8
+Našice	8
+Negoslavci	5
+Nova Gradiška	12
+Nova Kapela	10
+Novi Marof	10
+Novi Vinodolski	7
+Novska	10
+Nuštar	6
+Ogulin	5
+Okučani	10
+Omiš	8
+Opatija	7.5
+Opuzen	10
+Orle	5
+Osijek	13
+Otočac	9
+Otok (Sinj)	5
+Otok (Vinkovci)	10
+Ozalj	10
+Pakrac	10
+Pazin	9
+Perušić	8
+Petlovac	5
+Petrijanec	5
+Petrijevci	5
+Petrinja	10
+Pićan	2
+Pirovac	6
+Pisarovina	6
+Pleternica	10
+Plitvička jezera	8
+Ploče	10
+Podbablje	6
+Podcrkavlje	5
+Podgora	10
+Podgorač	5
+Podstrana	10
+Pokupsko	5
+Polača	10
+Popovac	3
+Popovača	6
+Požega	7
+Pregrada	10
+Preseka	5
+Primošten	10
+Proložac	5
+Promina	0
+Pučišća	5
+Pula	12
+Pušća	10
+Radoboj	8
+Rakovec	3
+Rakovica	8
+Raša	6
+Ravna Gora	7.5
+Rešetari	10
+Ribnik	5
+Rijeka	15
+Rovinj	6
+Rugvica	0
+Runovići	6
+Ružić	5
+Senj	10
+Sibinj	10
+Sinj	0
+Sisak	10
+Skradin	5
+Slatina	6
+Slavonski Brod	12
+Slunj	5
+Solin	10
+Split	15
+Sračinec	5
+Stara Gradiška	5
+Stari Grad	10
+Stari Mikanovci	10
+Staro Petrovo Selo	10
+Stupnik	6
+Supetar	10
+Sutivan	10
+Sveta Nedelja (Labin)	6
+Sveta Nedelja (Samobor)	0
+Sveti Đurđ	5
+Sveti Filip i Jakov	10
+Sveti Ilija	10
+Sveti Ivan Zelina	12
+Sveti Lovreč	5
+Sveti Petar u Šumi	7
+Svetvinčenat	5
+Šibenik	10
+Škabrnja	10
+Špišić Bukovica	9
+Štefanje	0
+Štitar	5
+Tinjan	5
+Tisno	9
+Tordinci	5
+Tribunj	6
+Trnovec Bartolovečki	7
+Trogir	8
+Trpanj	10
+Tučepi	10
+Udbina	5
+Umag	6
+Unešić	5
+Valpovo	0
+Varaždin	10
+Varaždinske Toplice	10
+Vela Luka	9
+Velika Gorica	12
+Velika Kopanica	7
+Veliki Bukovec	5
+Veliko Trgovišće	7.5
+Vidovec	10
+Vinica	5
+Vinkovci	13
+Virovitica	10
+Vis	3
+Visoko	10
+Višnjan	5
+Vižinada	3
+Vladislavci	10
+Vodice	6
+Vodnjan	7.5
+Vođinci	10
+Vojnić	7.5
+Vrbanja	5
+Vrbje	3
+Vrbovec	12
+Vrbovsko	10
+Vrgorac	10
+Vrhovine	5
+Vrlika	7
+Zadar	12
+Zadvarje	1
+Zagreb	18
+Zagvozd	6
+Zaprešić	12
+Zlatar	10
+Zlatar Bistrica	5
+Zmijavci	8
+Žakanje	0
+Žminj	5
+Žumberak	3
+Župa Dubrovačka	10
+Županja	12

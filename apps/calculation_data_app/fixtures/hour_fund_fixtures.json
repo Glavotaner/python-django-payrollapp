@@ -1,0 +1,20 @@
+[
+    {
+        "model": "calculation_data_app.HourFund",
+        "pk": 202011,
+        "fields": {
+            "year": 2020,
+            "month": 11,
+            "total_hours": 168
+        }
+    },
+    {
+        "model": "calculation_data_app.HourFund",
+        "pk": 202012,
+        "fields": {
+            "year": 2020,
+            "month": 12,
+            "total_hours": 160
+        }
+    }
+]
