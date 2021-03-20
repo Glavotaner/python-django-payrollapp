@@ -2,6 +2,7 @@ from django.contrib import admin
 
 from .models import TaxModel, HourFund, ContributionsModel, DeductiblesModel
 
+
 class TaxModelAdmin(admin.ModelAdmin):
     list_display = ('tax_from', 'tax_to', 'tax_rate')
 
@@ -15,7 +16,7 @@ class DeductibleAdmin(admin.ModelAdmin):
 
 
 class ContributionsModalityAdmin(admin.ModelAdmin):
-    list_display = ('modality_mark', 'pension_fund_min_base', 'pension_fund_gen', 'pension_fund_ind', 'health_insurance')
+    list_display = ('model_mark', 'min_base', 'pension_fund_gen', 'pension_fund_ind', 'health_insurance')
 
 
 admin.site.register(TaxModel, TaxModelAdmin)

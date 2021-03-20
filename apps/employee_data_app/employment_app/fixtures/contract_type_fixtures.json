@@ -1,16 +1,16 @@
 [
-    {
-        "model": "employment_app.ContractType",
-        "pk": 1,
-        "fields": {
-            "contract_type": "Određeno"
-        }
-    },
-    {
-        "model": "employment_app.ContractType",
-        "pk": 2,
-        "fields": {
-            "contract_type": "Neodređeno"
-        }
+  {
+    "model": "employment_app.ContractType",
+    "pk": 1,
+    "fields": {
+      "contract_type": "DEFINITE"
     }
+  },
+  {
+    "model": "employment_app.ContractType",
+    "pk": 2,
+    "fields": {
+      "contract_type": "INDEFINITE"
+    }
+  }
 ]

@@ -1,12 +1,10 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 from . import Address
-from ...general_services.validators.id_validators import validate_bid, validate_pid
-from django.utils.translation import gettext_lazy as _
 
 
 class Bank(Address):
-
     class Meta:
         verbose_name = _('Bank')
         verbose_name_plural = _('Banks')

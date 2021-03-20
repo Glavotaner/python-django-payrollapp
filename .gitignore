@@ -2,10 +2,11 @@
 *pyproj
 *.sln
 *.user
+/obj
 
 /.vs
 /.vscode
-
+/.idea
 
 ### Django ###
 *.log
@@ -18,3 +19,6 @@ media
 
 ### testing ###
 /tests
+
+### Data ###
+/data

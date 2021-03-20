@@ -1,11 +1,11 @@
-from apps.third_parties_app.models.bank import Bank
-from apps.third_parties_app.models.city import City
 from django.contrib import admin
 from django.utils.translation import gettext as _
 
+from apps.third_parties_app.models.bank import Bank
+from apps.third_parties_app.models.city import City
+
 
 class CityAdmin(admin.ModelAdmin):
-
     fieldsets = (
         (
             _('City data'), {
@@ -19,15 +19,14 @@ class CityAdmin(admin.ModelAdmin):
             _('Tax data'), {
                 'fields': [
                     'joppd',
-                    'tax_rate',
-                    'tax_break'
+                    'tax_rate'
                 ]
             }
         )
     )
-    
-class BankAdmin(admin.ModelAdmin):
 
+
+class BankAdmin(admin.ModelAdmin):
     fieldsets = (
         (
             _('Bank data'), {
@@ -41,8 +40,7 @@ class BankAdmin(admin.ModelAdmin):
             _('Address and contact data'), {
                 'fields': [
                     'city',
-                    'street_name',
-                    'street_number',
+                    'street_address',
                     'phone_number'
                 ]
             }

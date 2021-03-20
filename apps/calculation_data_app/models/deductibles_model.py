@@ -1,11 +1,9 @@
 from django.db import models
-from django.utils.translation import gettext_lazy as _
-
 from django.utils.timezone import now
+from django.utils.translation import gettext_lazy as _
 
 
 class DeductiblesModel(models.Model):
-
     class Meta:
         verbose_name = _('Deductible')
         verbose_name_plural = _('Deductibles')
@@ -52,7 +50,7 @@ class DeductiblesModel(models.Model):
         verbose_name=_('Disabled dependent'), default=0.4
     )
     disabled_dependent_100 = models.FloatField(
-        verbose_name=_('Disabled dependent'), default=1.5
+        verbose_name=_('100% disabled dependent'), default=1.5
     )
 
     valid_from = models.DateTimeField(

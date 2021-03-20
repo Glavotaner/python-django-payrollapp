@@ -14,7 +14,6 @@ import os
 import posixpath
 import sys
 
-
 PROJECT_ROOT = os.path.dirname(__file__)
 sys.path.insert(0, os.path.join(PROJECT_ROOT, 'apps'))
 
@@ -46,10 +45,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apps.employee_data_app.employee_app',
     'apps.third_parties_app',
-    'apps.employee_data_app.employment_app',
     'apps.calculation_data_app',
+    'apps.employee_data_app.employment_app',
+    'apps.employee_data_app.employee_app',
     'apps.payroll_app'
 ]
 
@@ -58,7 +57,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    #'django.middleware.locale.LocaleMiddleware'
+    # 'django.middleware.locale.LocaleMiddleware'
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -114,11 +113,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 def gettext(s):
     return s
-    
+
+
 LANGUAGE_CODE = 'hr'
 TIME_ZONE = 'UTC'
 USE_I18N = True
@@ -129,9 +130,6 @@ LANGUAGES = (
     ('hr', gettext('Croatian')),
     ('en', gettext('English'))
 )
-
-
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/

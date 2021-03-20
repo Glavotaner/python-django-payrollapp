@@ -1,26 +1,26 @@
 [
-    {
-        "model": "employment_app.Position",
-        "pk": 1,
-        "fields": {
-            "position_name": "Konzultant",
-            "salary": 5600
-        }
-    },
-    {
-        "model": "employment_app.Position",
-        "pk": 2,
-        "fields": {
-            "position_name": "Developer",
-            "salary": 7000
-        }
-    },
-    {
-        "model": "employment_app.Position",
-        "pk": 3,
-        "fields": {
-            "position_name": "Projekt manager",
-            "salary": 8000
-        }
+  {
+    "model": "employment_app.Position",
+    "pk": 1,
+    "fields": {
+      "position_name": "CONSULTANT",
+      "salary": 5600
     }
+  },
+  {
+    "model": "employment_app.Position",
+    "pk": 2,
+    "fields": {
+      "position_name": "DEVELOPER",
+      "salary": 7000
+    }
+  },
+  {
+    "model": "employment_app.Position",
+    "pk": 3,
+    "fields": {
+      "position_name": "PROJEKT MANAGER",
+      "salary": 8000
+    }
+  }
 ]

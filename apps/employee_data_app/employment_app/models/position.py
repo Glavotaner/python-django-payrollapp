@@ -3,7 +3,6 @@ from django.utils.translation import gettext_lazy as _
 
 
 class Position(models.Model):
-
     class Meta:
         verbose_name = _('Position')
         verbose_name_plural = _('Positions')

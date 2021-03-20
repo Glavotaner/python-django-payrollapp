@@ -1,13 +1,11 @@
 from django.db import models
-
-from . import City
-from apps.general_services.validators.general_validation import validate_phone_number
 from django.utils.translation import gettext_lazy as _
+
 from apps.general_services.validators.general_validation import validate_phone_number
+from .city import City
 
 
 class Address(models.Model):
-
     class Meta:
         abstract = True
 

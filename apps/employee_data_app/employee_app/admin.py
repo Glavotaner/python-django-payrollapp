@@ -1,30 +1,32 @@
 from django.contrib import admin
 from django.utils.translation import gettext as _
 
-from .models import  Employee, Dependent
+from .models import Employee, Dependent
+
 
 class EmployeeAdmin(admin.ModelAdmin):
-    list_display = ('pid', 'first_name', 'last_name', 'date_of_birth', 'age',  'employee_since', 'first_employment', 'first_employment_with_company', 'no_dependents', 'no_children', 'no_dependents_disabled', 'no_dependents_disabled_100')
+    list_display = ('pid', 'first_name', 'last_name', 'date_of_birth', 'employee_since', 'first_employment',
+                    'first_employment_with_company', 'no_dependents', 'no_children', 'no_dependents_disabled',
+                    'no_dependents_disabled_100')
 
     search_fields = ['pid']
-    
+
     fieldsets = (
         (
             _('Personal data'), {
                 "fields": [
-                    'pid', 
+                    'pid',
                     'first_name',
                     'last_name',
                     'date_of_birth',
                     'disability'
                 ],
-        }),
+            }),
         (
             _('Address and contact data'), {
                 'fields': [
                     'city',
-                    'street_name',
-                    'street_number',
+                    'street_address',
                     'phone_number'
                 ]
             }
@@ -58,19 +60,17 @@ class EmployeeAdmin(admin.ModelAdmin):
 
 class DependentAdmin(admin.ModelAdmin):
     fields = [
-        'pid', 
+        'pid',
         'first_name',
         'last_name',
         'date_of_birth',
+        'child_in_line',
         'disability',
-        'child',
         'dependent_of'
     ]
 
-    
     search_fields = ['pid']
-    list_display = ('pid', 'first_name', 'last_name', 'date_of_birth', 'child', 'disability')
-                        
+    list_display = ('pid', 'first_name', 'last_name', 'date_of_birth', 'child_in_line', 'disability')
 
 
 admin.site.register(Employee, EmployeeAdmin)

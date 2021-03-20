@@ -11,7 +11,7 @@ class LabourAdmin(admin.ModelAdmin):
                 "fields": [
                     'employee'
                 ],
-        }),
+            }),
         (
             _('Accounted period data'), {
                 'fields': [
@@ -30,10 +30,12 @@ class LabourAdmin(admin.ModelAdmin):
             }
         )
     )
-    
-    
+
+
 class PayrollAdmin(admin.ModelAdmin):
-    list_display = ('months_hours_fund', 'gross_salary', 'health_insurance_amount', 'pension_fund_total', 'income', 'personal_deductible_amount', 'total_deductibles', 'tax_base', 'income_tax_amount', 'city_tax_amount', 'total_tax', 'net_salary')
+    list_display = ('months_hours_fund', 'gross_salary', 'health_insurance_amount', 'pension_fund_total', 'income',
+                    'personal_deductible_amount', 'total_deductibles', 'tax_base', 'income_tax_amount',
+                    'city_tax_amount', 'total_tax', 'net_salary')
 
     fieldsets = (
         (

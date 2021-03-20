@@ -1,16 +1,17 @@
-from django.core.exceptions import ValidationError
 import re
+
+from django.core.exceptions import ValidationError
+from django.utils.translation import gettext_lazy as _
 
 
 def validate_pid(pid: str):
-    
     pid = pid.strip()
-    
+
     if len(pid) != 11:
-        raise ValidationError('PID is of an invalid length')
+        raise ValidationError(_('PID is of an invalid length'))
 
     if re.search('[^0-9]', pid):
-        raise ValidationError('PID is not entirely numeric')
+        raise ValidationError(_('PID is not entirely numeric'))
 
     control = int(pid[-1])
     previous_remainder = 0
@@ -38,17 +39,16 @@ def validate_pid(pid: str):
         previous_remainder = num
 
     if not (11 - previous_remainder) % 10 == control:
-        raise ValidationError('PID is invalid, please check your input')
+        raise ValidationError(_('PID is invalid, please check your input'))
 
 
 def validate_bid(bid):
-    
     bid = bid.strip()
-    
+
     if len(bid) != 8:
-        raise ValidationError('Business ID number is of an invalid length')
+        raise ValidationError(_('Business ID number is of an invalid length'))
     if re.search('[^0-9]', bid):
-        raise ValidationError('Businnes ID number is not entirely numeric')
+        raise ValidationError(_('Businnes ID number is not entirely numeric'))
 
     control = int(bid[-1])
 
@@ -57,14 +57,14 @@ def validate_bid(bid):
     res = 0
     i = 8
     while i >= 2:
-        res += (int(_bid[8-i]) * i)
+        res += (int(_bid[8 - i]) * i)
 
         i -= 1
 
     res %= 11
 
     if not (11 - res) % 10 == control:
-        raise ValidationError('Business ID number is invalid')
+        raise ValidationError(_('Business ID number is invalid'))
 
 
 def validate_iban(iban):
@@ -78,37 +78,36 @@ def validate_iban(iban):
         PL=28, PT=25, RO=24, SM=27, SA=24, RS=22, SK=24, SI=19,
         ES=24, SE=24, CH=21, TN=24, TR=26, AE=23, GB=22, VG=24)
 
-    
     _iban = iban.replace(' ', '').replace('\t', '')
-    
+
     _iban = _iban.strip()
-    
+
     if _iban[:2] not in _country2length.keys():
-        raise ValidationError('IBAN country code invalid')
-    
+        raise ValidationError(_('IBAN country code invalid'))
+
     if not re.match(r'^[\dA-Z]+$', _iban):
-        raise ValidationError('IBAN is not properly formatted')
-    
+        raise ValidationError(_('IBAN is not properly formatted'))
+
     if len(_iban) != _country2length[_iban[:2]]:
-        raise ValidationError('IBAN country code is not the correct length')
+        raise ValidationError(_('IBAN country code is not the correct length'))
 
     _iban = _iban[4:] + _iban[:4]
 
     digits = int(''.join(str(int(ch, 36)) for ch in _iban))
 
     if not digits % 97 == 1:
-        raise ValidationError('IBAN is invalid')
+        raise ValidationError(_('IBAN is invalid'))
 
 
 def validate_city_id(city_id):
     # City ID VALIDATION
-    
+
     city_id = city_id.strip()
-    
+
     if len(city_id) != 5:
-        raise ValidationError('City ID number is of an invalid length')
+        raise ValidationError(_('City ID number is of an invalid length'))
     if re.search('[^0-9]', city_id):
-        raise ValidationError('City ID number is not entirely numeric')
+        raise ValidationError(_('City ID number is not entirely numeric'))
 
     control = int(city_id[-1])
 
@@ -117,11 +116,11 @@ def validate_city_id(city_id):
     res = 0
     i = 4
     while i >= 2:
-        res += (int(_city_id[4-i]) * i)
+        res += (int(_city_id[4 - i]) * i)
 
         i -= 1
 
     res %= 11
 
     if not (11 - res) % 10 == control:
-        raise ValidationError('City ID number is invalid')
+        raise ValidationError(_('City ID number is invalid'))
