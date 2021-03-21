@@ -3,18 +3,11 @@ from django.test import TestCase
 
 from apps.calculation_data_app.services.deductibles_calculation import DeductibleCalculated, get_deductibles_model
 from apps.employee_data_app.employee_app.models import Employee
-from . import setUp
+from . import setUp, load_fixtures
 
 
 class TestDeductibles(TestCase):
-    fixtures = [
-        'apps/calculation_data_app/fixtures/deductibles_model_fixtures.json',
-        'apps/calculation_data_app/fixtures/contributions_model_fixtures.json',
-        'apps/third_parties_app/fixtures/bank_fixtures.json',
-        'apps/third_parties_app/fixtures/city_fixtures.json',
-        'apps/employee_data_app/employment_app/fixtures/position_fixtures.json',
-        'apps/employee_data_app/employment_app/fixtures/contract_type_fixtures.json',
-    ]
+    fixtures = load_fixtures.load_fixtures()
 
     def setUp(self) -> None:
         setUp._set_up()

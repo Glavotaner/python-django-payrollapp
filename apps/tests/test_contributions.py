@@ -3,10 +3,11 @@ from django.test import TestCase
 from apps.calculation_data_app.models import ContributionsModel
 from apps.calculation_data_app.services.contributions_calculation import ContributionsModelCalculated, \
     get_contributions_model
+from apps.tests import load_fixtures
 
 
 class TestContributions(TestCase):
-    fixtures = ['apps/calculation_data_app/fixtures/contributions_model_fixtures.json']
+    fixtures = load_fixtures.load_fixtures()
 
     def test_regular(self):
         model: ContributionsModel = get_contributions_model('REG')

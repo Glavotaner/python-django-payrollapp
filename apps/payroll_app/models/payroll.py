@@ -1,8 +1,11 @@
+from typing import List, TYPE_CHECKING
+
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from apps.calculation_data_app.models import DeductiblesModel
-from apps.employee_data_app.employee_app.models import Employee
+if TYPE_CHECKING:
+    from apps.payroll_app.models import Payroll, Labour
+
 from .labour import Labour
 from ..services.calculations import var_calculation
 
@@ -25,13 +28,13 @@ class Payroll(models.Model):
         verbose_name=_('Accounted period end')
     )
 
-    current_deductibles_model = models.ForeignKey(
+    """current_deductibles_model = models.ForeignKey(
         DeductiblesModel,
         on_delete=models.DO_NOTHING,
         editable=False,
         verbose_name=_('Current deductibles model')
     )
-
+    """
     accounted_period_id = models.CharField(
         verbose_name=_('Accounted period ID'),
         editable=False,
@@ -45,13 +48,13 @@ class Payroll(models.Model):
         primary_key=True
     )
 
-    employee = models.ForeignKey(
+    """employee = models.ForeignKey(
         Employee,
         on_delete=models.DO_NOTHING,
         db_index=True,
         verbose_name=_('Employee')
     )
-
+    """
     work_data = models.OneToOneField(
         Labour,
         on_delete=models.DO_NOTHING,
@@ -134,17 +137,15 @@ class Payroll(models.Model):
     labour_cost = models.FloatField(
         verbose_name=_('Labour cost'), editable=False)
 
-    def calculate_all(self):
+    def calculate_all(self, period_labour: List['Labour']) -> List['Payroll']:
         pass
 
     def save(self, *args, **kwargs):
-        self.current_deductibles_model = DeductiblesModel.objects.latest()
-
         self.accounted_period_id = var_calculation.get_accounted_period_id(self)
 
-        self.months_hours_fund = var_calculation.get_months_hours_fund(self)
+        self.months_hours_fund = var_calculation.get_months_hours_fund(self.accounted_period_start)
 
         super(Payroll, self).save()
 
     def __str__(self):
-        return f"""{self.accounted_period_id} | {self.current_deductibles_model}"""
+        return f"""{self.accounted_period_id}"""

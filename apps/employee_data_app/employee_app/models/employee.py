@@ -1,9 +1,9 @@
-from datetime import datetime
+from datetime import datetime, date
 
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, List
 
 if TYPE_CHECKING:
-    pass
+    from . import Employee
 
 from django.db import models
 from django.utils.translation import gettext_lazy as _
@@ -86,6 +86,15 @@ class Employee(Person, Address):
         verbose_name=_('Contract'),
         on_delete=models.CASCADE
     )
+
+    @staticmethod
+    def get_eligible_employees(start_date: date, end_date: date) -> List['Employee']:
+        sql: str = """SELECT e.* FROM employee_app_employee AS e
+        INNER JOIN employment_app_contract AS c
+            ON c.id = e.signed_contract_id
+        WHERE c.sign_date <= %s AND (c.expiration_date >= %s OR c.expiration_date IS NULL)"""
+
+        return Employee.objects.raw(sql, [start_date, end_date])
 
     @property
     def employment_duration(self):

@@ -2,10 +2,11 @@ from django.test import TestCase
 
 from apps.calculation_data_app.models import TaxModel
 from apps.calculation_data_app.services.tax_calculation import get_tax_bracket, get_city_tax_rate, TaxCalculated
+from apps.tests import load_fixtures
 
 
 class TaxTest(TestCase):
-    fixtures = ['apps/third_parties_app/fixtures/city_fixtures.json']
+    fixtures = load_fixtures.load_fixtures()
 
     def setUp(self) -> None:
         TaxModel.objects.create(
