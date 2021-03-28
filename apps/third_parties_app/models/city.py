@@ -40,8 +40,9 @@ class City(models.Model):
     def clean(self):
         # validate_city_id(self.joppd)
         # validate_iban(self.iban)
-        validate_gte(self.tax_rate, 'Tax rate')
-        validate_gte(self.tax_rate, 0, '0')
+        # validate_gte(self.tax_rate, 'Tax rate')
+        # validate_gte(self.tax_rate, 0, '0')
+        pass
 
     def __str__(self):
         return f"""{self.city_name}"""

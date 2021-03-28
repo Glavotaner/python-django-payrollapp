@@ -19,7 +19,8 @@ class EmployeeAdmin(admin.ModelAdmin):
                     'first_name',
                     'last_name',
                     'date_of_birth',
-                    'disability'
+                    'disability',
+                    'HRVI'
                 ],
             }),
         (
@@ -35,7 +36,9 @@ class EmployeeAdmin(admin.ModelAdmin):
             _('Payment info'), {
                 'fields': [
                     'employee_bank',
-                    'iban'
+                    'iban',
+                    'employee_protected_bank',
+                    'protected_iban'
                 ]
             }
         ),
@@ -49,9 +52,10 @@ class EmployeeAdmin(admin.ModelAdmin):
             }
         ),
         (
-            None, {
+            'Accounting data', {
                 'fields': [
-                    'contributions_model'
+                    'contributions_model',
+                    'tax_breaks'
                 ]
             }
         )

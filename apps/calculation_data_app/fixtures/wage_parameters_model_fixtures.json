@@ -3,10 +3,13 @@
     "model": "calculation_data_app.WageParametersModel",
     "pk": 1,
     "fields": {
+      "min_base": 3321.96,
+      "max_base": 55086,
+
       "min_wage": 4250,
-      "night_work_coef": 2,
-      "sunday_work_coef": 2,
-      "special_work_coef": 2
+      "night_hours": 2,
+      "sunday_hours": 2,
+      "special_hours": 2
     }
   }
 ]

@@ -1,0 +1,25 @@
+[
+  {
+    "model": "calculation_data_app.DeductiblesModel",
+    "pk": 1,
+    "fields": {
+      "base_deductible": 2500,
+      "personal_deductible_coef": 1.6,
+      "dependent": 0.7,
+      "first_child": 0.7,
+      "second_child": 1,
+      "third_child": 1.4,
+      "fourth_child": 1.9,
+      "fifth_child": 2.5,
+      "sixth_child": 3.2,
+      "seventh_child": 4.0,
+      "eighth_child": 4.9,
+      "ninth_child": 5.9,
+      "multiplication_coef": 1.1,
+      "disabled_dependent": 0.4,
+      "disabled_dependent_100": 1.5,
+      "valid_from": "2021-01-01"
+    }
+  }
+]
+

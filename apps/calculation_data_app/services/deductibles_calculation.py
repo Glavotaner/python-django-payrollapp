@@ -2,7 +2,7 @@ from typing import List
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from ...employee_data_app.employee_app.models import Employee, Dependent
+    from apps.employee_data_app.employee_app.models import Employee, Dependent
 
 from django.utils.timezone import datetime
 
@@ -14,24 +14,22 @@ def get_deductibles_model(accounting_date: datetime) -> DeductiblesModel:
 
 
 def get_dependents(employee: 'Employee') -> List:
-    from ...employee_data_app.employee_app.models import Dependent
+    from apps.employee_data_app.employee_app.models import Dependent
     return Dependent.objects.filter(dependent_of=employee.pid)
 
 
 def get_children(dependents: List['Dependent']) -> List:
-    return [person for person in dependents if person.child_in_line]
+    return [] if not dependents else [person for person in dependents if person.child_in_line]
 
 
 def get_adult_dependents(dependents: List['Dependent']) -> int:
-    return len(
-        [
-            person for person in dependents if
-            (not person.disability or person.disability == 'N') and not person.child_in_line
-        ]
-    )
+    return 0 if not dependents else len([person for person in dependents if not person.child_in_line])
 
 
 def get_disabled_dependents(dependents: List['Dependent'], employee=None) -> int:
+    if not dependents:
+        return 0
+
     dependents: List['Dependent'] = [person for person in dependents if person.disability and person.disability == 'D']
 
     if not employee and len(dependents) > 0: employee = dependents[0].dependent_of
@@ -40,9 +38,10 @@ def get_disabled_dependents(dependents: List['Dependent'], employee=None) -> int
 
 
 def get_disabled_dependents_100(dependents: List['Dependent'], employee=None) -> int:
-    dependents: List['Dependent'] = [
-        person for person in dependents if person.disability and person.disability == 'D100'
-    ]
+    if not dependents:
+        return 0
+
+    dependents = [person for person in dependents if person.disability and person.disability == 'D100']
 
     if not employee and len(dependents) > 0: employee = dependents[0].dependent_of
 

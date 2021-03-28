@@ -31,7 +31,6 @@ class BankAdmin(admin.ModelAdmin):
         (
             _('Bank data'), {
                 "fields": [
-                    'business_id',
                     'oib',
                     'bank_name'
                 ],
@@ -41,7 +40,6 @@ class BankAdmin(admin.ModelAdmin):
                 'fields': [
                     'city',
                     'street_address',
-                    'phone_number'
                 ]
             }
         )

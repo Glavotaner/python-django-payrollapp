@@ -21,11 +21,3 @@ class Address(models.Model):
         on_delete=models.DO_NOTHING
     )
 
-    phone_number = models.CharField(
-        max_length=15,
-        verbose_name=_('Phone number'),
-        null=True
-    )
-
-    def clean(self):
-        validate_phone_number(self.phone_number)

@@ -35,19 +35,32 @@ class Labour(models.Model):
     overtime_hours = models.PositiveIntegerField(
         verbose_name=_('Overtime hours'), default=0
     )
+    night_hours = models.PositiveIntegerField(
+        verbose_name=_('Night hours'), default=0
+    )
+    sunday_hours = models.PositiveIntegerField(
+        verbose_name=_('Sunday hours'), default=0
+    )
     special_hours = models.PositiveIntegerField(
-        verbose_name=_('Holiday hours'), default=0
+        verbose_name=_('Special hours'), default=0
     )
 
+    @property
+    def hours_dict(self) -> dict:
+        hours: dict = {}
+
+        for field in self._meta.fields:
+            if field.name.endswith('hours'):
+                hours[field.name] = getattr(self, field.name)
+
+        return hours
+
     @staticmethod
-    def set_labour(_date: date, start_date: date, end_date: date, overtime: float, special: float):
+    def set_labour(_date: date, start_date: date, end_date: date,
+                   overtime: float, night: float, sunday: float, special: float):
         eligible_employees = Employee.get_eligible_employees(start_date, end_date)
 
-        period_id = str(_date.year) + str(_date.month)
-
         hours_fund = get_months_hours_fund(start_date)
-
-        # print(period_id)
 
         for emp in eligible_employees:
             Labour.objects.create(
@@ -58,6 +71,8 @@ class Labour(models.Model):
 
                 regular_hours=hours_fund,
                 overtime_hours=overtime,
+                night_hours=night,
+                sunday_hours=sunday,
                 special_hours=special,
             ).save()
 

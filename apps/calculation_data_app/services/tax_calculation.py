@@ -1,7 +1,7 @@
 from django.db.models import Q
 
-from ..models import TaxModel
-from ...third_parties_app.models import City
+from apps.calculation_data_app.models import TaxModel
+from apps.third_parties_app.models import City
 
 
 def get_tax_bracket(income: float) -> TaxModel:
@@ -51,6 +51,9 @@ class TaxCalculated:
 
     @property
     def city_tax(self) -> float:
+        if self.income_tax == 0:
+            return 0
+
         return round(self.income_tax * (self.city_tax_rate / 100), 2) if self.city_tax_rate else 0
 
     @property

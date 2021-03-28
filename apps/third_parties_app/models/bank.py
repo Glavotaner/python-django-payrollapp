@@ -9,12 +9,6 @@ class Bank(Address):
         verbose_name = _('Bank')
         verbose_name_plural = _('Banks')
 
-    business_id = models.CharField(
-        verbose_name=_('Business ID'),
-        max_length=8,
-        help_text=_('Input valid business ID')
-    )
-
     oib = models.CharField(
         primary_key=True,
         max_length=11,

@@ -34,6 +34,8 @@ class TestPayroll(TestCase):
         Labour.set_labour(
             date(2021, 3, 22), date(2021, 3, 22), date(2021, 5, 1),
             overtime=16,
+            sunday=6,
+            night=0,
             special=0
         )
 

@@ -8,7 +8,7 @@ if TYPE_CHECKING:
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from apps.calculation_data_app.models import ContributionsModel
+from apps.calculation_data_app.models import ContributionsModel, TaxBreakModel
 from apps.employee_data_app.employment_app.models import Contract
 # from apps.general_services.validators.id_validators import validate_iban, validate_bid
 from apps.general_services.validators.person_validation import validate_age
@@ -24,7 +24,11 @@ class Employee(Person, Address):
 
         get_latest_by = 'employee_since'
 
+    HRVI = models.FloatField(default=0)
+
     iban = models.CharField(unique=True, verbose_name='IBAN', max_length=34)
+
+    protected_iban = models.CharField(unique=True, verbose_name='Protected IBAN', max_length=34)
 
     # EmployeeS
     no_children = models.IntegerField(
@@ -71,7 +75,14 @@ class Employee(Person, Address):
 
     # FOREIGN KEYS
     employee_bank = models.ForeignKey(
+        related_name='bank',
         to=Bank, verbose_name=_('Bank'),
+        on_delete=models.DO_NOTHING
+    )
+
+    employee_protected_bank = models.ForeignKey(
+        related_name='protected_bank',
+        to=Bank, verbose_name=_('Protected account bank'),
         on_delete=models.DO_NOTHING
     )
 
@@ -86,6 +97,8 @@ class Employee(Person, Address):
         verbose_name=_('Contract'),
         on_delete=models.CASCADE
     )
+
+    tax_breaks = models.ManyToManyField(TaxBreakModel)
 
     @staticmethod
     def get_eligible_employees(start_date: date, end_date: date) -> List['Employee']:

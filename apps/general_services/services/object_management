@@ -1,2 +1,0 @@
-def get_object(model: str, pk: object, city_name: str = None):
-    pass

@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from apps.general_services.validators.general_validation import validate_phone_number
 from ..services.calculations.var_calculation import get_age
 
 
@@ -13,8 +14,8 @@ class Person(models.Model):
 
     # DISABILITY ENUM
     disability = (
-        (_('D'), _('Disabled')),
-        (_('D100'), _('100% disabled')),
+        (_('I'), _('Disabled')),
+        (_('I*'), _('100% disabled')),
         (_('N'), _('None'))
     )
 
@@ -41,9 +42,15 @@ class Person(models.Model):
 
     disability = models.CharField(
         choices=disability,
-        max_length=4,
+        max_length=2,
         verbose_name=_('Disability'),
         default='N'
+    )
+
+    phone_number = models.CharField(
+        max_length=15,
+        verbose_name=_('Phone number'),
+        null=True
     )
 
     @property
@@ -52,6 +59,8 @@ class Person(models.Model):
 
     def clean(self):
         # validate_pid(self.pid)
+        # validate_phone_number(self.phone_number)
+
         pass
 
     def save(self, *args, **kwargs):

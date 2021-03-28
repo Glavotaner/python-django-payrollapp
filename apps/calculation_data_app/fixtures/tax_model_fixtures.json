@@ -1,0 +1,19 @@
+[
+  {
+    "model": "calculation_data_app.TaxModel",
+    "pk": 1,
+    "fields": {
+      "tax_from": 0,
+      "tax_to": 36000,
+      "tax_rate": 0.20
+    }
+  },
+  {
+    "model": "calculation_data_app.TaxModel",
+    "pk": 2,
+    "fields": {
+      "tax_from": 36000.01,
+      "tax_rate": 0.30
+    }
+  }
+]
