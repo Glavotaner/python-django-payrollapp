@@ -14,6 +14,10 @@ class Dependent(Person):
         verbose_name = _('Dependent')
         verbose_name_plural = _('Dependents')
 
+        db_table = 'dependents'
+
+    dependent_id = models.AutoField(primary_key=True)
+
     child_in_line = models.IntegerField(
         verbose_name=_('Child in line'),
         help_text=_('Number of child in order of birth, eg. 1st child = 1'),

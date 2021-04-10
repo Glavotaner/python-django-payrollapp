@@ -1,6 +1,6 @@
 from django.test import TestCase
 
-from apps.calculation_data_app.models import TaxModel
+from apps.calculation_data_app.models import TaxBracket
 from apps.calculation_data_app.services.tax_calculation import get_tax_bracket, get_city_tax_rate, TaxCalculated
 from apps.tests import load_fixtures
 
@@ -9,19 +9,19 @@ class TaxTest(TestCase):
     fixtures = load_fixtures.load_fixtures()
 
     def setUp(self) -> None:
-        TaxModel.objects.create(
+        TaxBracket.objects.create(
             tax_from=0,
             tax_to=30000,
             tax_rate=0.20
         ).save()
 
-        TaxModel.objects.create(
+        TaxBracket.objects.create(
             tax_from=30000.01,
             tax_to=50000,
             tax_rate=0.30
         ).save()
 
-        TaxModel.objects.create(
+        TaxBracket.objects.create(
             tax_from=50000.01,
             tax_to=None,
             tax_rate=0.40
@@ -29,7 +29,7 @@ class TaxTest(TestCase):
 
     def test_lowest(self):
         income: float = 10000
-        tax_model: TaxModel = get_tax_bracket(income)
+        tax_model: TaxBracket = get_tax_bracket(income)
 
         tax_rate: float = tax_model.tax_rate
 
@@ -37,7 +37,7 @@ class TaxTest(TestCase):
 
     def test_highest(self):
         income: float = 30000.02
-        tax_model: TaxModel = get_tax_bracket(income)
+        tax_model: TaxBracket = get_tax_bracket(income)
 
         tax_rate: float = tax_model.tax_rate
 

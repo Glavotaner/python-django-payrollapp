@@ -39,7 +39,8 @@ class BankAdmin(admin.ModelAdmin):
             _('Address and contact data'), {
                 'fields': [
                     'city',
-                    'street_address',
+                    'street_name',
+                    'street_number'
                 ]
             }
         )

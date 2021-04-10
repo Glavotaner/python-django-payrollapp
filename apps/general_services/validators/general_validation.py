@@ -9,8 +9,7 @@ def validate_phone_number(phone_number):
 
     if re.search('^[^0-9+-/]{17}$', phone_number):
         raise ValidationError(
-            _('Phone number must only contain numbers and +, () or \
-                characters'))
+            _('Phone number must not contain letters!'))
 
 
 def validate_gte(value, validator, value_name_1, value_name_2=None):

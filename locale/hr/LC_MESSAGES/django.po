@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-15 10:37+0200\n"
+"POT-Creation-Date: 2021-04-10 20:08+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,480 +19,2105 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
-#: .\apps\calculation_data_app\models\contributions_modality.py:9
-msgid "Modality mark"
-msgstr "ID modaliteta doprinosa"
-
-#: .\apps\calculation_data_app\models\contributions_modality.py:9
-msgid "Up to 10 characters long textual ID of this modality"
-msgstr "Tekstualni ID navedenog modaliteta. Do 10 znakova"
-
-#: .\apps\calculation_data_app\models\contributions_modality.py:12
-msgid "Pension fund minimal base"
-msgstr "Minimalna osnovica za obračun doprinosa za mirovinski fond"
-
-#: .\apps\calculation_data_app\models\contributions_modality.py:12
-msgid "The year's legal minimum pension fund base. Use '.' as decimal point"
+#: apps/calculation_data_app/models/contribution.py:10
+msgid "Name"
 msgstr ""
-"Ako bruto plaća da ovog koraka bude manja od navedene osnovice, doprinosi za "
-"mirovinsko osiguranje obračunat će se po minimalnoj osnovici"
 
-#: .\apps\calculation_data_app\models\contributions_modality.py:15
-msgid "Pension fund - generational"
-msgstr "Doprinos za mirovinsko osiguranje - stup generacijske solidarnosti"
-
-#: .\apps\calculation_data_app\models\contributions_modality.py:15
-msgid ""
-"Legal rate for the generational pension fund. Expressed as a decimal number"
+#: apps/calculation_data_app/models/contribution.py:12
+msgid "Out of pay"
 msgstr ""
-"Zakonski određena stopa obračuna doprinosa za mirovinsko osiguranje na "
-"temelju generacijske solidarnosti. Izražena kao decimalan broj"
 
-#: .\apps\calculation_data_app\models\contributions_modality.py:17
-msgid "Pension fund - individual"
-msgstr "Doprinos za mirovinsko osiguranje - individualni stup"
-
-#: .\apps\calculation_data_app\models\contributions_modality.py:17
-msgid ""
-"Legal rate for the individual pension fund. Expressed as a decimal number"
+#: apps/calculation_data_app/models/contribution.py:14
+#: apps/calculation_data_app/models/hour_type.py:12
+#: apps/calculation_data_app/models/reimbursement.py:12
+#: apps/calculation_data_app/models/tax_break.py:10
+msgid "Retired"
 msgstr ""
-"Zakonski određena stopa obračuna doprinosa za individualno mirovinsko "
-"osiguranje. Izražena kao decimalan broj"
 
-#: .\apps\calculation_data_app\models\contributions_modality.py:20
-msgid "Health fund"
-msgstr "Stopa doprinosa za zdravstveno osiguranje"
-
-#: .\apps\calculation_data_app\models\contributions_modality.py:20
-msgid "Legal rate for the health insurance fund. Expressed as a decimal number"
-msgstr ""
-"Zakonski određena stopa obračuna doprinosa za zdravstveno osiguranje. "
-"Izražena kao decimalan broj"
-
-#: .\apps\calculation_data_app\models\contributions_modality.py:24
-#: .\apps\employee_data_app\employee_app\models\employee.py:59
-msgid "Contributions model"
+#: apps/calculation_data_app/models/contribution.py:21
+#: apps/calculation_data_app/models/contribution_rate.py:14
+#: apps/payroll_app/models/contribution_amount.py:10
+#, fuzzy
+#| msgid "Contributions model"
+msgid "Contribution"
 msgstr "Model doprinosa"
 
-#: .\apps\calculation_data_app\models\contributions_modality.py:25
-msgid "Contributions models"
-msgstr "Modeli doprinosa"
+#: apps/calculation_data_app/models/contribution.py:22
+#: apps/calculation_data_app/models/contributions_model.py:25
+#, fuzzy
+#| msgid "Contributions model"
+msgid "Contributions"
+msgstr "Model doprinosa"
 
-#: .\apps\calculation_data_app\models\deductible.py:8
-msgid "Base deductible"
-msgstr "Osnovni odbitak"
+#: apps/calculation_data_app/models/contribution_rate.py:15
+#: apps/calculation_data_app/models/tax_break.py:8
+msgid "Rate"
+msgstr ""
 
-#: .\apps\calculation_data_app\models\deductible.py:8
-msgid "Legal base deductible amount"
-msgstr "Zakonski određen osnovni odbitak"
-
-#: .\apps\calculation_data_app\models\deductible.py:10
-msgid "Personal deductible coef"
-msgstr "Koeficijent osobnog odbitka"
-
-#: .\apps\calculation_data_app\models\deductible.py:10
-msgid "Legal personal deductible coefficient"
-msgstr "Zakonski određen koeficijent osobnog odbitka"
-
-#: .\apps\calculation_data_app\models\deductible.py:12
-#: .\apps\calculation_data_app\models\tax_model.py:11
+#: apps/calculation_data_app/models/contribution_rate.py:17
+#: apps/calculation_data_app/models/deductibles_model.py:65
+#: apps/calculation_data_app/models/hour_type_coef.py:18
+#: apps/calculation_data_app/models/reimbursement_value.py:17
+#: apps/payroll_app/models/wage_parameters.py:32
 msgid "Valid from"
 msgstr "Vrijedi od"
 
-#: .\apps\calculation_data_app\models\deductible.py:15
+#: apps/calculation_data_app/models/contribution_rate.py:30
+#, fuzzy
+#| msgid "Contributions model"
+msgid "Contribution rate"
+msgstr "Model doprinosa"
+
+#: apps/calculation_data_app/models/contribution_rate.py:31
+#, fuzzy
+#| msgid "Contributions models"
+msgid "Contribution rates"
+msgstr "Modeli doprinosa"
+
+#: apps/calculation_data_app/models/contributions_model.py:11
+#: apps/employee_data_app/employee_app/models/employee.py:93
+msgid "Contributions model"
+msgstr "Model doprinosa"
+
+#: apps/calculation_data_app/models/contributions_model.py:12
+msgid "Contributions models"
+msgstr "Modeli doprinosa"
+
+#: apps/calculation_data_app/models/contributions_model.py:19
+#, fuzzy
+#| msgid "Modality mark"
+msgid "Model mark"
+msgstr "ID modaliteta doprinosa"
+
+#: apps/calculation_data_app/models/contributions_model.py:22
+#, fuzzy
+#| msgid "Up to 10 characters long textual ID of this modality"
+msgid "Up to 10 characters long textual ID of this model"
+msgstr "Tekstualni ID navedenog modaliteta. Do 10 znakova"
+
+#: apps/calculation_data_app/models/deductibles_model.py:11
 msgid "Deductible"
 msgstr "Odbitak"
 
-#: .\apps\calculation_data_app\models\deductible.py:16
+#: apps/calculation_data_app/models/deductibles_model.py:12
 msgid "Deductibles"
 msgstr "Odbici"
 
-#: .\apps\calculation_data_app\models\hour_fund.py:7
-msgid "Year"
-msgstr "Godina"
+#: apps/calculation_data_app/models/deductibles_model.py:20
+msgid "Base deductible"
+msgstr "Osnovni odbitak"
 
-#: .\apps\calculation_data_app\models\hour_fund.py:8
-msgid "Month"
-msgstr "Mjesec"
+#: apps/calculation_data_app/models/deductibles_model.py:21
+msgid "Legal base deductible amount"
+msgstr "Zakonski određen osnovni odbitak"
 
-#: .\apps\calculation_data_app\models\hour_fund.py:9
-msgid "Total hours"
-msgstr "Ukupno sati"
+#: apps/calculation_data_app/models/deductibles_model.py:26
+msgid "Personal deductible coef"
+msgstr "Koeficijent osobnog odbitka"
 
-#: .\apps\calculation_data_app\models\hour_fund.py:19
+#: apps/calculation_data_app/models/deductibles_model.py:27
+msgid "Legal personal deductible coefficient"
+msgstr "Zakonski određen koeficijent osobnog odbitka"
+
+#: apps/calculation_data_app/models/deductibles_model.py:32
+#, fuzzy
+#| msgid "Personal deductible coef"
+msgid "Dependent deductible coef"
+msgstr "Koeficijent osobnog odbitka"
+
+#: apps/calculation_data_app/models/deductibles_model.py:33
+#, fuzzy
+#| msgid "Legal personal deductible coefficient"
+msgid "Dependent deductible coefficient"
+msgstr "Zakonski određen koeficijent osobnog odbitka"
+
+#: apps/calculation_data_app/models/deductibles_model.py:37
+msgid "First child"
+msgstr ""
+
+#: apps/calculation_data_app/models/deductibles_model.py:39
+msgid "Second child"
+msgstr ""
+
+#: apps/calculation_data_app/models/deductibles_model.py:40
+msgid "Third child"
+msgstr ""
+
+#: apps/calculation_data_app/models/deductibles_model.py:42
+msgid "Fourth child"
+msgstr ""
+
+#: apps/calculation_data_app/models/deductibles_model.py:43
+msgid "Fifth child"
+msgstr ""
+
+#: apps/calculation_data_app/models/deductibles_model.py:44
+msgid "Sixth child"
+msgstr ""
+
+#: apps/calculation_data_app/models/deductibles_model.py:46
+msgid "Seventh child"
+msgstr ""
+
+#: apps/calculation_data_app/models/deductibles_model.py:49
+msgid "Eighth child"
+msgstr ""
+
+#: apps/calculation_data_app/models/deductibles_model.py:51
+msgid "Ninth child"
+msgstr ""
+
+#: apps/calculation_data_app/models/deductibles_model.py:54
+msgid "Multiplication coef"
+msgstr ""
+
+#: apps/calculation_data_app/models/deductibles_model.py:58
+#, fuzzy
+#| msgid "Number of children"
+msgid "Disabled dependent"
+msgstr "Broj djece"
+
+#: apps/calculation_data_app/models/deductibles_model.py:61
+#, fuzzy, python-format
+#| msgid "Number of children"
+msgid "100% disabled dependent"
+msgstr "Broj djece"
+
+#: apps/calculation_data_app/models/hour_fund.py:7
 msgid "Hour fund"
 msgstr "Fond sati"
 
-#: .\apps\calculation_data_app\models\hour_fund.py:20
+#: apps/calculation_data_app/models/hour_fund.py:8
 msgid "Hour funds"
 msgstr "Fondovi sati"
 
-#: .\apps\calculation_data_app\models\tax_model.py:7
-msgid "High tax bracket"
-msgstr "Porezna granica"
+#: apps/calculation_data_app/models/hour_fund.py:14
+#: apps/payroll_app/models/labour.py:22
+msgid "Year"
+msgstr "Godina"
 
-#: .\apps\calculation_data_app\models\tax_model.py:8
-msgid "Low tax rate"
-msgstr "Niža porezna stopa"
+#: apps/calculation_data_app/models/hour_fund.py:15
+#: apps/payroll_app/models/labour.py:23
+msgid "Month"
+msgstr "Mjesec"
 
-#: .\apps\calculation_data_app\models\tax_model.py:9
-msgid "High tax rate"
-msgstr "Viša porezna stopa"
+#: apps/calculation_data_app/models/hour_fund.py:16
+msgid "Total hours"
+msgstr "Ukupno sati"
 
-#: .\apps\calculation_data_app\models\tax_model.py:14
+#: apps/calculation_data_app/models/hour_type.py:10
+#, fuzzy
+#| msgid "City name"
+msgid "Hour type name"
+msgstr "Naziv grada"
+
+#: apps/calculation_data_app/models/hour_type_coef.py:14
+#: apps/payroll_app/models/hour_type_amount.py:10
+#, fuzzy
+#| msgid "Contract type"
+msgid "Hour type"
+msgstr "Vrste ugovora"
+
+#: apps/calculation_data_app/models/hour_type_coef.py:16
+msgid "Hour coefficient"
+msgstr ""
+
+#: apps/calculation_data_app/models/hour_type_coef.py:31
+msgid "Hour type coef."
+msgstr ""
+
+#: apps/calculation_data_app/models/hour_type_coef.py:32
+msgid "Hour type coefs."
+msgstr ""
+
+#: apps/calculation_data_app/models/reimbursement.py:10
+#, fuzzy
+#| msgid "First name"
+msgid "Reimbursement name"
+msgstr "Ime"
+
+#: apps/calculation_data_app/models/reimbursement.py:19
+#: apps/calculation_data_app/models/reimbursement_value.py:13
+#: apps/payroll_app/models/reimbursement_amount.py:12
+msgid "Reimbursement"
+msgstr ""
+
+#: apps/calculation_data_app/models/reimbursement.py:20
+#: apps/payroll_app/models/payroll.py:34
+msgid "Reimbursements"
+msgstr ""
+
+#: apps/calculation_data_app/models/reimbursement_value.py:15
+#: apps/payroll_app/models/contribution_amount.py:12
+#: apps/payroll_app/models/hour_type_amount.py:12
+#: apps/payroll_app/models/reimbursement_amount.py:14
+msgid "Amount"
+msgstr ""
+
+#: apps/calculation_data_app/models/reimbursement_value.py:30
+msgid "Reimbursement value"
+msgstr ""
+
+#: apps/calculation_data_app/models/reimbursement_value.py:31
+msgid "Reimbursement values"
+msgstr ""
+
+#: apps/calculation_data_app/models/tax_bracket.py:7
 msgid "Tax model"
 msgstr "Porezni model"
 
-#: .\apps\calculation_data_app\models\tax_model.py:15
+#: apps/calculation_data_app/models/tax_bracket.py:8
 msgid "Tax models"
 msgstr "Porezni modeli"
 
-#: .\apps\employee_data_app\employee_app\admin.py:11
+#: apps/calculation_data_app/models/tax_bracket.py:14
+#, fuzzy
+#| msgid "Valid from"
+msgid "Tax from"
+msgstr "Vrijedi od"
+
+#: apps/calculation_data_app/models/tax_bracket.py:15
+#, fuzzy
+#| msgid "Tax data"
+msgid "Tax to"
+msgstr "Podaci o porezu"
+
+#: apps/calculation_data_app/models/tax_bracket.py:18
+#: apps/third_parties_app/models/city.py:35
+msgid "Tax rate"
+msgstr "Stopa prireza"
+
+#: apps/calculation_data_app/models/tax_bracket.py:19
+#, fuzzy
+#| msgid "Input city tax rate as a decimal number"
+msgid "Expressed as a decimal number"
+msgstr "Unos stope prireza kao decimalni broj"
+
+#: apps/calculation_data_app/models/tax_break.py:7
+#, fuzzy
+#| msgid "Tax break"
+msgid "Tax break name"
+msgstr "Stopa porezne olakšice"
+
+#: apps/calculation_data_app/models/tax_model.py:13
+#, fuzzy
+#| msgid "Tax break"
+msgid "Tax brackets"
+msgstr "Stopa porezne olakšice"
+
+#: apps/employee_data_app/employee_app/admin.py:16
 #, fuzzy
 #| msgid "Person"
 msgid "Personal data"
 msgstr "Osobni podaci"
 
-#: .\apps\employee_data_app\employee_app\admin.py:21
-#: .\apps\third_parties_app\admin.py:20
+#: apps/employee_data_app/employee_app/admin.py:27
+#: apps/third_parties_app/admin.py:39
 msgid "Address and contact data"
 msgstr "Adresa i kontakt podaci"
 
-#: .\apps\employee_data_app\employee_app\admin.py:31
+#: apps/employee_data_app/employee_app/admin.py:36
 msgid "Payment info"
 msgstr "Podaci o plaćanju"
 
-#: .\apps\employee_data_app\employee_app\admin.py:39
+#: apps/employee_data_app/employee_app/admin.py:46
 #, fuzzy
 #| msgid "Employee"
 msgid "Employment data"
 msgstr "Podaci o zaposlenju"
 
-#: .\apps\employee_data_app\employee_app\models\address.py:18
-msgid "Street name"
-msgstr "Naziv ulice"
-
-#: .\apps\employee_data_app\employee_app\models\address.py:19
-msgid "Street number"
-msgstr "Kućni broj"
-
-#: .\apps\employee_data_app\employee_app\models\address.py:21
-#: .\apps\third_parties_app\models\city.py:14
-msgid "City name"
-msgstr "Naziv grada"
-
-#: .\apps\employee_data_app\employee_app\models\address.py:23
-msgid "Phone number"
-msgstr "Telefonski broj"
-
-#: .\apps\employee_data_app\employee_app\models\address.py:33
-msgid "Address"
-msgstr "Adresa"
-
-#: .\apps\employee_data_app\employee_app\models\address.py:34
-msgid "Addresses"
-msgstr "Adrese"
-
-#: .\apps\employee_data_app\employee_app\models\dependent.py:7
-msgid "Child"
-msgstr "Dijete"
-
-#: .\apps\employee_data_app\employee_app\models\dependent.py:10
-msgid "Dependent of"
-msgstr "Uzdržavana osoba zaposlenika"
-
-#: .\apps\employee_data_app\employee_app\models\dependent.py:13
+#: apps/employee_data_app/employee_app/models/dependent.py:14
 msgid "Dependent"
 msgstr "Uzdržavana osoba"
 
-#: .\apps\employee_data_app\employee_app\models\dependent.py:14
+#: apps/employee_data_app/employee_app/models/dependent.py:15
 msgid "Dependents"
 msgstr "Uzdržavane osobe"
 
-#: .\apps\employee_data_app\employee_app\models\employee.py:28
-msgid "Number of children"
-msgstr "Broj djece"
-
-#: .\apps\employee_data_app\employee_app\models\employee.py:33
-#, fuzzy
-#| msgid "Number of children"
-msgid "Number of dependents"
-msgstr "Broj djece"
-
-#: .\apps\employee_data_app\employee_app\models\employee.py:37
-#, fuzzy
-#| msgid "Number of children"
-msgid "Number of disabled dependents"
-msgstr "Broj djece"
-
-#: .\apps\employee_data_app\employee_app\models\employee.py:41
-#, python-format
-msgid "Number of 100% disabled dependents"
+#: apps/employee_data_app/employee_app/models/dependent.py:22
+msgid "Child in line"
 msgstr ""
 
-#: .\apps\employee_data_app\employee_app\models\employee.py:47
-msgid "First employment"
-msgstr "Prvo zaposlenje"
+#: apps/employee_data_app/employee_app/models/dependent.py:23
+msgid "Number of child in order of birth, eg. 1st child = 1"
+msgstr ""
 
-#: .\apps\employee_data_app\employee_app\models\employee.py:49
-msgid "First employment with company"
-msgstr "Prvo zaposlenje u poslovnom subjektu"
+#: apps/employee_data_app/employee_app/models/dependent.py:32
+msgid "Dependent of"
+msgstr "Uzdržavana osoba zaposlenika"
 
-#: .\apps\employee_data_app\employee_app\models\employee.py:52
-msgid "Employee since"
-msgstr "Zaposlenik od"
-
-#: .\apps\employee_data_app\employee_app\models\employee.py:56
-#: .\apps\third_parties_app\models\bank.py:22
-msgid "Bank"
-msgstr "Banka"
-
-#: .\apps\employee_data_app\employee_app\models\employee.py:62
-#: .\apps\employee_data_app\employment_app\models\contract.py:17
-msgid "Contract"
-msgstr "Ugovor"
-
-#: .\apps\employee_data_app\employee_app\models\employee.py:70
-#: .\apps\payroll_app\models\labour.py:11
-#: .\apps\payroll_app\models\payroll.py:33
+#: apps/employee_data_app/employee_app/models/employee.py:19
+#: apps/payroll_app/models/labour.py:29
 msgid "Employee"
 msgstr "Zaposlenik"
 
-#: .\apps\employee_data_app\employee_app\models\employee.py:71
+#: apps/employee_data_app/employee_app/models/employee.py:20
 msgid "Employees"
 msgstr "Zaposlenici"
 
-#: .\apps\employee_data_app\employee_app\models\person.py:21
-msgid "D"
-msgstr "I"
+#: apps/employee_data_app/employee_app/models/employee.py:36
+msgid "Number of children"
+msgstr "Broj djece"
 
-#: .\apps\employee_data_app\employee_app\models\person.py:21
-msgid "Disabled"
-msgstr "Invalid"
+#: apps/employee_data_app/employee_app/models/employee.py:42
+#, fuzzy
+#| msgid "Number of children"
+msgid "Number of Employees"
+msgstr "Broj djece"
 
-#: .\apps\employee_data_app\employee_app\models\person.py:22
-msgid "D100"
-msgstr "I100"
+#: apps/employee_data_app/employee_app/models/employee.py:47
+#, fuzzy
+#| msgid "Number of children"
+msgid "Number of disabled Employees"
+msgstr "Broj djece"
 
-#: .\apps\employee_data_app\employee_app\models\person.py:22
-#, python-format
-msgid "100% disabled"
-msgstr "100% invalid"
+#: apps/employee_data_app/employee_app/models/employee.py:53
+#, fuzzy, python-format
+#| msgid "Number of children"
+msgid "Number of 100% disabled Employees"
+msgstr "Broj djece"
 
-#: .\apps\employee_data_app\employee_app\models\person.py:23
-msgid "N"
-msgstr "N"
+#: apps/employee_data_app/employee_app/models/employee.py:61
+msgid "First employment"
+msgstr "Prvo zaposlenje"
 
-#: .\apps\employee_data_app\employee_app\models\person.py:23
-msgid "None"
-msgstr "Nema"
+#: apps/employee_data_app/employee_app/models/employee.py:68
+msgid "First employment with company"
+msgstr "Prvo zaposlenje u poslovnom subjektu"
 
-#: .\apps\employee_data_app\employee_app\models\person.py:27
-msgid "PID"
-msgstr "OIB"
+#: apps/employee_data_app/employee_app/models/employee.py:74
+msgid "Employee since"
+msgstr "Zaposlenik od"
 
-#: .\apps\employee_data_app\employee_app\models\person.py:28
-msgid "First name"
-msgstr "Ime"
+#: apps/employee_data_app/employee_app/models/employee.py:80
+#: apps/third_parties_app/models/bank.py:9
+msgid "Bank"
+msgstr "Banka"
 
-#: .\apps\employee_data_app\employee_app\models\person.py:29
-msgid "Last name"
-msgstr "Prezime"
-
-#: .\apps\employee_data_app\employee_app\models\person.py:30
-msgid "Date of birth"
-msgstr "Datum rođenja"
-
-#: .\apps\employee_data_app\employee_app\models\person.py:45
-msgid "Age"
+#: apps/employee_data_app/employee_app/models/employee.py:86
+msgid "Protected account bank"
 msgstr ""
 
-#: .\apps\employee_data_app\employee_app\models\person.py:48
-msgid "Disability"
-msgstr "Invaliditet"
+#: apps/employee_data_app/employee_app/models/employee.py:98
+#: apps/employee_data_app/employment_app/models/contract.py:11
+msgid "Contract"
+msgstr "Ugovor"
 
-#: .\apps\employee_data_app\employee_app\models\person.py:59
+#: apps/employee_data_app/employee_app/models/person.py:11
 msgid "Person"
 msgstr "Osoba"
 
-#: .\apps\employee_data_app\employee_app\models\person.py:60
+#: apps/employee_data_app/employee_app/models/person.py:12
 msgid "Persons"
 msgstr "Osobe"
 
-#: .\apps\employee_data_app\employment_app\models\contract.py:9
-#: .\apps\employee_data_app\employment_app\models\contract_type.py:10
-#: .\apps\employee_data_app\employment_app\models\contract_type.py:13
-msgid "Contract type"
-msgstr "Vrste ugovora"
+#: apps/employee_data_app/employee_app/models/person.py:16
+msgid "I"
+msgstr ""
 
-#: .\apps\employee_data_app\employment_app\models\contract.py:11
-#: .\apps\employee_data_app\employment_app\models\position.py:11
-msgid "Position"
-msgstr "Radno mjesto"
+#: apps/employee_data_app/employee_app/models/person.py:17
+msgid "I*"
+msgstr ""
 
-#: .\apps\employee_data_app\employment_app\models\contract.py:12
-msgid "Sign date"
-msgstr "Datum potpisivanja"
+#: apps/employee_data_app/employee_app/models/person.py:18
+msgid "N"
+msgstr "N"
 
-#: .\apps\employee_data_app\employment_app\models\contract.py:14
-msgid "Expiration date"
-msgstr "Datum isteka ugovora"
+#: apps/employee_data_app/employee_app/models/person.py:18
+msgid "None"
+msgstr "Nema"
 
-#: .\apps\employee_data_app\employment_app\models\contract.py:18
+#: apps/employee_data_app/employee_app/models/person.py:23
+#: apps/third_parties_app/models/bank.py:18
+msgid "OIB"
+msgstr ""
+
+#: apps/employee_data_app/employee_app/models/person.py:24
+#: apps/third_parties_app/models/bank.py:19
+#, fuzzy
+#| msgid "Input valid OID ID"
+msgid "Input valid PID"
+msgstr "Unos valjanog OIB-a"
+
+#: apps/employee_data_app/employee_app/models/person.py:30
+msgid "First name"
+msgstr "Ime"
+
+#: apps/employee_data_app/employee_app/models/person.py:35
+msgid "Last name"
+msgstr "Prezime"
+
+#: apps/employee_data_app/employee_app/models/person.py:38
+msgid "Date of birth"
+msgstr "Datum rođenja"
+
+#: apps/employee_data_app/employee_app/models/person.py:43
+msgid "Disability"
+msgstr "Invaliditet"
+
+#: apps/employee_data_app/employee_app/services/validation/validate_dependent.py:11
+msgid ""
+"A dependent cannot have birth order data                     if they are not "
+"a child"
+msgstr ""
+
+#: apps/employee_data_app/employee_app/services/validation/validate_dependent.py:17
+msgid "A dependent cannot be labeled a child without birth order data"
+msgstr ""
+
+#: apps/employee_data_app/employee_app/services/validation/validate_dependent.py:30
+#, python-brace-format
+msgid ""
+"Employee already has a child dependent            marked as their {order}. "
+"child"
+msgstr ""
+
+#: apps/employee_data_app/employment_app/models/contract.py:12
 msgid "Contracts"
 msgstr "Ugovori"
 
-#: .\apps\employee_data_app\employment_app\models\contract_type.py:8
-msgid "Contract ID"
-msgstr "ID ugovora"
+#: apps/employee_data_app/employment_app/models/contract.py:22
+#: apps/employee_data_app/employment_app/models/contract_type.py:9
+msgid "Contract type"
+msgstr "Vrste ugovora"
 
-#: .\apps\employee_data_app\employment_app\models\contract_type.py:14
+#: apps/employee_data_app/employment_app/models/contract.py:27
+#: apps/employee_data_app/employment_app/models/position.py:9
+msgid "Position"
+msgstr "Radno mjesto"
+
+#: apps/employee_data_app/employment_app/models/contract.py:32
+msgid "Multiplier"
+msgstr ""
+
+#: apps/employee_data_app/employment_app/models/contract.py:36
+#, fuzzy
+#| msgid "Sign date"
+msgid "Start date"
+msgstr "Datum potpisivanja"
+
+#: apps/employee_data_app/employment_app/models/contract.py:39
+msgid "Expiration date"
+msgstr "Datum isteka ugovora"
+
+#: apps/employee_data_app/employment_app/models/contract.py:45
+msgid "Multiplier cannot be less than 0"
+msgstr ""
+
+#: apps/employee_data_app/employment_app/models/contract.py:47
+msgid "Indefinite"
+msgstr ""
+
+#: apps/employee_data_app/employment_app/models/contract.py:48
+msgid "An indefinite contract cannot have an expiration date"
+msgstr ""
+
+#: apps/employee_data_app/employment_app/models/contract.py:51
+msgid "The contract cannot expire before it is signed"
+msgstr ""
+
+#: apps/employee_data_app/employment_app/models/contract_type.py:10
 msgid "Contract types"
 msgstr "Vrste ugovora"
 
-#: .\apps\employee_data_app\employment_app\models\position.py:7
-msgid "Position name"
-msgstr "Naziv radnog mjesta"
+#: apps/employee_data_app/employment_app/models/contract_type.py:17
+#, fuzzy
+#| msgid "Contract type"
+msgid "Contract type name"
+msgstr "Vrste ugovora"
 
-#: .\apps\employee_data_app\employment_app\models\position.py:8
-msgid "Salary"
-msgstr "Plaća"
-
-#: .\apps\employee_data_app\employment_app\models\position.py:12
+#: apps/employee_data_app/employment_app/models/position.py:10
 msgid "Positions"
 msgstr "Radna mjesta"
 
-#: .\apps\payroll_app\admin.py:16 .\apps\payroll_app\admin.py:40
+#: apps/employee_data_app/employment_app/models/position.py:17
+msgid "Position name"
+msgstr "Naziv radnog mjesta"
+
+#: apps/employee_data_app/employment_app/models/position.py:19
+msgid "Salary"
+msgstr "Plaća"
+
+#: apps/general_services/validators/general_validation.py:12
+msgid "Phone number must not contain letters!"
+msgstr ""
+
+#: apps/general_services/validators/general_validation.py:18
+#, python-brace-format
+msgid ""
+"{value_name_1} has to be equal to or greater                 than "
+"{value_name_2}"
+msgstr ""
+
+#: apps/general_services/validators/id_validators.py:11
+msgid "PID is of an invalid length"
+msgstr ""
+
+#: apps/general_services/validators/id_validators.py:14
+msgid "PID is not entirely numeric"
+msgstr ""
+
+#: apps/general_services/validators/id_validators.py:42
+msgid "PID is invalid, please check your input"
+msgstr ""
+
+#: apps/general_services/validators/id_validators.py:49
+msgid "Business ID number is of an invalid length"
+msgstr ""
+
+#: apps/general_services/validators/id_validators.py:51
+msgid "Businnes ID number is not entirely numeric"
+msgstr ""
+
+#: apps/general_services/validators/id_validators.py:67
+msgid "Business ID number is invalid"
+msgstr ""
+
+#: apps/general_services/validators/id_validators.py:86
+msgid "IBAN country code invalid"
+msgstr ""
+
+#: apps/general_services/validators/id_validators.py:89
+msgid "IBAN is not properly formatted"
+msgstr ""
+
+#: apps/general_services/validators/id_validators.py:92
+msgid "IBAN country code is not the correct length"
+msgstr ""
+
+#: apps/general_services/validators/id_validators.py:99
+msgid "IBAN is invalid"
+msgstr ""
+
+#: apps/general_services/validators/id_validators.py:108
+msgid "City ID number is of an invalid length"
+msgstr ""
+
+#: apps/general_services/validators/id_validators.py:110
+msgid "City ID number is not entirely numeric"
+msgstr ""
+
+#: apps/general_services/validators/id_validators.py:126
+msgid "City ID number is invalid"
+msgstr ""
+
+#: apps/general_services/validators/person_validation.py:22
+#, fuzzy
+#| msgid "Employee and labour data"
+msgid "Employee cannot be underage"
+msgstr "Podaci o zaposleniku i obračunu rada"
+
+#: apps/general_services/validators/person_validation.py:25
+msgid "Date of birth cannot be in the future"
+msgstr ""
+
+#: apps/payroll_app/admin.py:25 apps/payroll_app/admin.py:49
 #, fuzzy
 #| msgid "Accounted period start"
 msgid "Accounted period data"
 msgstr "Podaci o obračunskom razdoblju"
 
-#: .\apps\payroll_app\admin.py:24
+#: apps/payroll_app/admin.py:33
 #, fuzzy
 #| msgid "Accounted period start"
 msgid "Accounted hours data"
 msgstr "Podaci o obračunatim radnim satima"
 
-#: .\apps\payroll_app\admin.py:48
+#: apps/payroll_app/admin.py:56
 msgid "Employee and labour data"
 msgstr "Podaci o zaposleniku i obračunu rada"
 
-#: .\apps\payroll_app\models\labour.py:17
-msgid "Labour start date"
-msgstr "Datum početka obračuna rada"
+#: apps/payroll_app/models/contribution_amount.py:15
+#, fuzzy
+#| msgid "Contributions model"
+msgid "Contribution amount"
+msgstr "Model doprinosa"
 
-#: .\apps\payroll_app\models\labour.py:18
-msgid "Labour end date"
-msgstr "Datum završetka obračuna rada"
+#: apps/payroll_app/models/contribution_amount.py:16
+#, fuzzy
+#| msgid "Contributions models"
+msgid "Contribution amounts"
+msgstr "Modeli doprinosa"
 
-#: .\apps\payroll_app\models\labour.py:19
-msgid "Regular hours"
-msgstr "Redovni sati"
+#: apps/payroll_app/models/hour_type_amount.py:15
+msgid "Hour type amount"
+msgstr ""
 
-#: .\apps\payroll_app\models\labour.py:20
-msgid "Overtime hours"
-msgstr "Prekovremeni sati"
+#: apps/payroll_app/models/hour_type_amount.py:16
+msgid "Hour type amounts"
+msgstr ""
 
-#: .\apps\payroll_app\models\labour.py:21
-msgid "Holiday hours"
-msgstr "Sati rada tokom praznika"
-
-#: .\apps\payroll_app\models\labour.py:24
-#: .\apps\payroll_app\models\labour.py:25
+#: apps/payroll_app/models/labour.py:15 apps/payroll_app/models/labour.py:16
 msgid "Labour data"
 msgstr "Podaci o radu"
 
-#: .\apps\payroll_app\models\payroll.py:15
-msgid "Date of accounting"
-msgstr "Datum obračuna"
+#: apps/payroll_app/models/labour.py:33
+msgid "Regular hours"
+msgstr "Redovni sati"
 
-#: .\apps\payroll_app\models\payroll.py:17
-msgid "Accounted period start"
-msgstr "Datum početka razdoblja obračuna"
+#: apps/payroll_app/models/labour.py:36
+#, fuzzy
+#| msgid "Regular hours"
+msgid "Other hours"
+msgstr "Redovni sati"
 
-#: .\apps\payroll_app\models\payroll.py:19
-msgid "Accounted period end"
-msgstr "Datum završetka razdoblja obračuna"
-
-#: .\apps\payroll_app\models\payroll.py:34
-msgid "Work data"
-msgstr "Podaci o radu"
-
-#: .\apps\payroll_app\models\payroll.py:182
+#: apps/payroll_app/models/payroll.py:13
 msgid "Payroll"
 msgstr "Platna lista"
 
-#: .\apps\payroll_app\models\payroll.py:183
+#: apps/payroll_app/models/payroll.py:14
 msgid "Payrolls"
 msgstr "Platne liste"
 
-#: .\apps\third_parties_app\admin.py:12
-msgid "Bank data"
-msgstr "Bankovni podaci"
+#: apps/payroll_app/models/payroll.py:21
+msgid "Date of accounting"
+msgstr "Datum obračuna"
 
-#: .\apps\third_parties_app\admin.py:36
+#: apps/payroll_app/models/payroll.py:29
+msgid "Work data"
+msgstr "Podaci o radu"
+
+#: apps/payroll_app/models/payroll.py:32
+#, fuzzy
+#| msgid "Contributions model"
+msgid "Valid contributions"
+msgstr "Model doprinosa"
+
+#: apps/payroll_app/models/payroll.py:37
+msgid "Wage"
+msgstr ""
+
+#: apps/payroll_app/models/payroll.py:41
+msgid "Gross salary"
+msgstr ""
+
+#: apps/payroll_app/models/payroll.py:45
+#, fuzzy
+#| msgid "Contributions model"
+msgid "Contributions base"
+msgstr "Model doprinosa"
+
+#: apps/payroll_app/models/payroll.py:48
+#, fuzzy
+#| msgid "Contributions model"
+msgid "Total contributions out-of-pay"
+msgstr "Model doprinosa"
+
+#: apps/payroll_app/models/payroll.py:50
+msgid "Income"
+msgstr ""
+
+#: apps/payroll_app/models/payroll.py:53
+#, fuzzy
+#| msgid "Personal deductible coef"
+msgid "Personal deductible amount"
+msgstr "Koeficijent osobnog odbitka"
+
+#: apps/payroll_app/models/payroll.py:57
+#, fuzzy
+#| msgid "Legal base deductible amount"
+msgid "Dependents deductible amount"
+msgstr "Zakonski određen osnovni odbitak"
+
+#: apps/payroll_app/models/payroll.py:60
+#, fuzzy
+#| msgid "Legal base deductible amount"
+msgid "Children deductible amount"
+msgstr "Zakonski određen osnovni odbitak"
+
+#: apps/payroll_app/models/payroll.py:63
+#, fuzzy
+#| msgid "Legal base deductible amount"
+msgid "Disabled dependents deductible amount"
+msgstr "Zakonski određen osnovni odbitak"
+
+#: apps/payroll_app/models/payroll.py:66
+#, fuzzy, python-format
+#| msgid "Legal base deductible amount"
+msgid "100% disabled dependents deductible amount"
+msgstr "Zakonski određen osnovni odbitak"
+
+#: apps/payroll_app/models/payroll.py:70
+#, fuzzy
+#| msgid "Legal base deductible amount"
+msgid "Total deductibles amount"
+msgstr "Zakonski određen osnovni odbitak"
+
+#: apps/payroll_app/models/payroll.py:73
+#, fuzzy
+#| msgid "Tax rate"
+msgid "Tax base"
+msgstr "Stopa prireza"
+
+#: apps/payroll_app/models/payroll.py:76
+msgid "Income tax amount"
+msgstr ""
+
+#: apps/payroll_app/models/payroll.py:79
+msgid "City tax amount"
+msgstr ""
+
+#: apps/payroll_app/models/payroll.py:82
+msgid "Total tax amount"
+msgstr ""
+
+#: apps/payroll_app/models/payroll.py:86
+#, fuzzy
+#| msgid "Salary"
+msgid "Net salary"
+msgstr "Plaća"
+
+#: apps/payroll_app/models/payroll.py:88
+#, fuzzy
+#| msgid "Contributions model"
+msgid "Other contributions total"
+msgstr "Model doprinosa"
+
+#: apps/payroll_app/models/payroll.py:91
+#, fuzzy
+#| msgid "Labour data"
+msgid "Labour cost"
+msgstr "Podaci o radu"
+
+#: apps/payroll_app/models/reimbursement_amount.py:17
+msgid "Reimbursement amount"
+msgstr ""
+
+#: apps/payroll_app/models/reimbursement_amount.py:18
+msgid "Reimbursement amounts"
+msgstr ""
+
+#: apps/payroll_app/models/wage_parameters.py:11
+msgid "Wage parameters model"
+msgstr ""
+
+#: apps/payroll_app/models/wage_parameters.py:12
+msgid "Wage parameters models"
+msgstr ""
+
+#: apps/payroll_app/models/wage_parameters.py:19
+#, fuzzy
+#| msgid "Contributions models"
+msgid "Contributions minimal base"
+msgstr "Modeli doprinosa"
+
+#: apps/payroll_app/models/wage_parameters.py:20
+#, fuzzy
+#| msgid "The year's legal minimum pension fund base. Use '.' as decimal point"
+msgid "The year's legal minimum contributions base. Use '.' as decimal point"
+msgstr ""
+"Ako bruto plaća da ovog koraka bude manja od navedene osnovice, doprinosi za "
+"mirovinsko osiguranje obračunat će se po minimalnoj osnovici"
+
+#: apps/payroll_app/models/wage_parameters.py:25
+#, fuzzy
+#| msgid "Contributions model"
+msgid "Contributions maximum base"
+msgstr "Model doprinosa"
+
+#: apps/payroll_app/models/wage_parameters.py:26
+#, fuzzy
+#| msgid "The year's legal minimum pension fund base. Use '.' as decimal point"
+msgid "The year's legal maximum contributions base. Use '.' as decimal point"
+msgstr ""
+"Ako bruto plaća da ovog koraka bude manja od navedene osnovice, doprinosi za "
+"mirovinsko osiguranje obračunat će se po minimalnoj osnovici"
+
+#: apps/payroll_app/models/wage_parameters.py:30
+msgid "Minimum wage"
+msgstr ""
+
+#: apps/third_parties_app/admin.py:11
 msgid "City data"
 msgstr "Podaci o gradu"
 
-#: .\apps\third_parties_app\admin.py:44
+#: apps/third_parties_app/admin.py:19
 msgid "Tax data"
 msgstr "Podaci o porezu"
 
-#: .\apps\third_parties_app\models\bank.py:12
-msgid "Business ID"
-msgstr "Matični broj poslovnog subjekta"
+#: apps/third_parties_app/admin.py:32
+msgid "Bank data"
+msgstr "Bankovni podaci"
 
-#: .\apps\third_parties_app\models\bank.py:12
-msgid "Input valid business ID"
-msgstr "Unos valjanog matičnog broja"
+#: apps/third_parties_app/models/address.py:11
+msgid "Address"
+msgstr "Adresa"
 
-#: .\apps\third_parties_app\models\bank.py:13
-msgid "Input valid OID ID"
-msgstr "Unos valjanog OIB-a"
+#: apps/third_parties_app/models/address.py:12
+msgid "Addresses"
+msgstr "Adrese"
 
-#: .\apps\third_parties_app\models\bank.py:14
-msgid "Bank name"
-msgstr "Naziv banke"
+#: apps/third_parties_app/models/address.py:17
+#, fuzzy
+#| msgid "Street name"
+msgid "Street name"
+msgstr "Naziv ulice"
 
-#: .\apps\third_parties_app\models\bank.py:23
+#: apps/third_parties_app/models/address.py:21
+#, fuzzy
+#| msgid "Phone number"
+msgid "Street number"
+msgstr "Telefonski broj"
+
+#: apps/third_parties_app/models/address.py:25
+#: apps/third_parties_app/models/city.py:26
+msgid "City name"
+msgstr "Naziv grada"
+
+#: apps/third_parties_app/models/bank.py:10
 msgid "Banks"
 msgstr "Banke"
 
-#: .\apps\third_parties_app\models\city.py:15
-msgid "Postal code"
-msgstr "Poštanski broj"
+#: apps/third_parties_app/models/bank.py:23
+msgid "Bank name"
+msgstr "Naziv banke"
 
-#: .\apps\third_parties_app\models\city.py:16
-msgid "Tax rate"
-msgstr "Stopa prireza"
-
-#: .\apps\third_parties_app\models\city.py:16
-msgid "Input city tax rate as a decimal number"
-msgstr "Unos stope prireza kao decimalni broj"
-
-#: .\apps\third_parties_app\models\city.py:17
-msgid "Tax break"
-msgstr "Stopa porezne olakšice"
-
-#: .\apps\third_parties_app\models\city.py:17
-msgid ""
-"Input city tax break as a decimal number eg. tax_rate = 0.13, tax_break = "
-"0.06: tax_rate = 0.07"
+#: apps/third_parties_app/models/bank.py:25
+msgid "IBAN"
 msgstr ""
 
-#: .\apps\third_parties_app\models\city.py:28
+#: apps/third_parties_app/models/city.py:7
 msgid "City"
 msgstr "Grad"
 
-#: .\apps\third_parties_app\models\city.py:29
+#: apps/third_parties_app/models/city.py:8
 msgid "Cities"
 msgstr "Gradovi"
 
-#: .\python_django_payrollapp\settings.py:129
-msgid "Croatian"
-msgstr "Hrvatski"
+#: apps/third_parties_app/models/city.py:30
+msgid "Postal code"
+msgstr "Poštanski broj"
 
-#: .\python_django_payrollapp\settings.py:130
+#: apps/third_parties_app/models/city.py:37
+#, fuzzy
+#| msgid "High tax rate"
+msgid "City tax rate"
+msgstr "Viša porezna stopa"
+
+#: python_django_payrollapp/settings.py:130
+msgid "Croatian"
+msgstr ""
+
+#: python_django_payrollapp/settings.py:131
 msgid "English"
-msgstr "Engleski"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/contrib/messages/apps.py:7
+msgid "Messages"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/contrib/sitemaps/apps.py:7
+msgid "Site Maps"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/contrib/staticfiles/apps.py:9
+msgid "Static Files"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/contrib/syndication/apps.py:7
+msgid "Syndication"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/core/paginator.py:45
+msgid "That page number is not an integer"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/core/paginator.py:47
+msgid "That page number is less than 1"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/core/paginator.py:52
+msgid "That page contains no results"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/core/validators.py:31
+msgid "Enter a valid value."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/core/validators.py:102
+#: venv/lib/python3.8/site-packages/django/forms/fields.py:658
+msgid "Enter a valid URL."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/core/validators.py:154
+msgid "Enter a valid integer."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/core/validators.py:165
+msgid "Enter a valid email address."
+msgstr ""
+
+#. Translators: "letters" means latin letters: a-z and A-Z.
+#: venv/lib/python3.8/site-packages/django/core/validators.py:239
+msgid ""
+"Enter a valid 'slug' consisting of letters, numbers, underscores or hyphens."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/core/validators.py:246
+msgid ""
+"Enter a valid 'slug' consisting of Unicode letters, numbers, underscores, or "
+"hyphens."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/core/validators.py:255
+#: venv/lib/python3.8/site-packages/django/core/validators.py:275
+msgid "Enter a valid IPv4 address."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/core/validators.py:260
+#: venv/lib/python3.8/site-packages/django/core/validators.py:276
+msgid "Enter a valid IPv6 address."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/core/validators.py:270
+#: venv/lib/python3.8/site-packages/django/core/validators.py:274
+msgid "Enter a valid IPv4 or IPv6 address."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/core/validators.py:304
+msgid "Enter only digits separated by commas."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/core/validators.py:310
+#, python-format
+msgid "Ensure this value is %(limit_value)s (it is %(show_value)s)."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/core/validators.py:342
+#, python-format
+msgid "Ensure this value is less than or equal to %(limit_value)s."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/core/validators.py:351
+#, python-format
+msgid "Ensure this value is greater than or equal to %(limit_value)s."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/core/validators.py:361
+#, python-format
+msgid ""
+"Ensure this value has at least %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at least %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: venv/lib/python3.8/site-packages/django/core/validators.py:376
+#, python-format
+msgid ""
+"Ensure this value has at most %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at most %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: venv/lib/python3.8/site-packages/django/core/validators.py:395
+#: venv/lib/python3.8/site-packages/django/forms/fields.py:290
+#: venv/lib/python3.8/site-packages/django/forms/fields.py:325
+#, fuzzy
+#| msgid "Phone number"
+msgid "Enter a number."
+msgstr "Telefonski broj"
+
+#: venv/lib/python3.8/site-packages/django/core/validators.py:397
+#, python-format
+msgid "Ensure that there are no more than %(max)s digit in total."
+msgid_plural "Ensure that there are no more than %(max)s digits in total."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: venv/lib/python3.8/site-packages/django/core/validators.py:402
+#, python-format
+msgid "Ensure that there are no more than %(max)s decimal place."
+msgid_plural "Ensure that there are no more than %(max)s decimal places."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: venv/lib/python3.8/site-packages/django/core/validators.py:407
+#, python-format
+msgid ""
+"Ensure that there are no more than %(max)s digit before the decimal point."
+msgid_plural ""
+"Ensure that there are no more than %(max)s digits before the decimal point."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: venv/lib/python3.8/site-packages/django/core/validators.py:469
+#, python-format
+msgid ""
+"File extension '%(extension)s' is not allowed. Allowed extensions are: "
+"'%(allowed_extensions)s'."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/core/validators.py:521
+msgid "Null characters are not allowed."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/db/models/base.py:1165
+#: venv/lib/python3.8/site-packages/django/forms/models.py:756
+msgid "and"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/db/models/base.py:1167
+#, python-format
+msgid "%(model_name)s with this %(field_labels)s already exists."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:104
+#, python-format
+msgid "Value %(value)r is not a valid choice."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:105
+msgid "This field cannot be null."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:106
+msgid "This field cannot be blank."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:107
+#, python-format
+msgid "%(model_name)s with this %(field_label)s already exists."
+msgstr ""
+
+#. Translators: The 'lookup_type' is one of 'date', 'year' or 'month'.
+#. Eg: "Title must be unique for pub_date year"
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:111
+#, python-format
+msgid ""
+"%(field_label)s must be unique for %(date_field_label)s %(lookup_type)s."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:128
+#, python-format
+msgid "Field of type: %(field_type)s"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:905
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1772
+msgid "Integer"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:909
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1770
+#, python-format
+msgid "'%(value)s' value must be an integer."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:984
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1850
+msgid "Big (8 byte) integer"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:996
+#, python-format
+msgid "'%(value)s' value must be either True or False."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:997
+#, python-format
+msgid "'%(value)s' value must be either True, False, or None."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:999
+msgid "Boolean (Either True or False)"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1040
+#, python-format
+msgid "String (up to %(max_length)s)"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1104
+msgid "Comma-separated integers"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1153
+#, python-format
+msgid ""
+"'%(value)s' value has an invalid date format. It must be in YYYY-MM-DD "
+"format."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1155
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1298
+#, python-format
+msgid ""
+"'%(value)s' value has the correct format (YYYY-MM-DD) but it is an invalid "
+"date."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1158
+msgid "Date (without time)"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1296
+#, python-format
+msgid ""
+"'%(value)s' value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[."
+"uuuuuu]][TZ] format."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1300
+#, python-format
+msgid ""
+"'%(value)s' value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]]"
+"[TZ]) but it is an invalid date/time."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1304
+msgid "Date (with time)"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1452
+#, fuzzy, python-format
+#| msgid "Input city tax rate as a decimal number"
+msgid "'%(value)s' value must be a decimal number."
+msgstr "Unos stope prireza kao decimalni broj"
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1454
+#, fuzzy
+#| msgid "Input city tax rate as a decimal number"
+msgid "Decimal number"
+msgstr "Unos stope prireza kao decimalni broj"
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1593
+#, python-format
+msgid ""
+"'%(value)s' value has an invalid format. It must be in [DD] [HH:[MM:]]ss[."
+"uuuuuu] format."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1596
+#, fuzzy
+#| msgid "Position"
+msgid "Duration"
+msgstr "Radno mjesto"
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1646
+#, fuzzy
+#| msgid "Address"
+msgid "Email address"
+msgstr "Adresa"
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1669
+msgid "File path"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1735
+#, python-format
+msgid "'%(value)s' value must be a float."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1737
+msgid "Floating point number"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1866
+#, fuzzy
+#| msgid "Address"
+msgid "IPv4 address"
+msgstr "Adresa"
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1897
+#, fuzzy
+#| msgid "Address"
+msgid "IP address"
+msgstr "Adresa"
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1977
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1978
+#, python-format
+msgid "'%(value)s' value must be either None, True or False."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1980
+msgid "Boolean (Either True, False or None)"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:2015
+#, fuzzy
+#| msgid "Position name"
+msgid "Positive integer"
+msgstr "Naziv radnog mjesta"
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:2028
+msgid "Positive small integer"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:2042
+#, python-format
+msgid "Slug (up to %(max_length)s)"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:2074
+msgid "Small integer"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:2081
+msgid "Text"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:2109
+#, python-format
+msgid ""
+"'%(value)s' value has an invalid format. It must be in HH:MM[:ss[.uuuuuu]] "
+"format."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:2111
+#, python-format
+msgid ""
+"'%(value)s' value has the correct format (HH:MM[:ss[.uuuuuu]]) but it is an "
+"invalid time."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:2114
+msgid "Time"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:2240
+msgid "URL"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:2262
+#, fuzzy
+#| msgid "Labour data"
+msgid "Raw binary data"
+msgstr "Podaci o radu"
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:2312
+#, python-format
+msgid "'%(value)s' is not a valid UUID."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:2314
+msgid "Universally unique identifier"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/files.py:221
+msgid "File"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/files.py:360
+msgid "Image"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/related.py:778
+#, python-format
+msgid "%(model)s instance with %(field)s %(value)r does not exist."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/related.py:780
+msgid "Foreign Key (type determined by related field)"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/related.py:1007
+msgid "One-to-one relationship"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/related.py:1057
+#, python-format
+msgid "%(from)s-%(to)s relationship"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/related.py:1058
+#, python-format
+msgid "%(from)s-%(to)s relationships"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/db/models/fields/related.py:1100
+msgid "Many-to-many relationship"
+msgstr ""
+
+#. Translators: If found as last label character, these punctuation
+#. characters will prevent the default label_suffix to be appended to the label
+#: venv/lib/python3.8/site-packages/django/forms/boundfield.py:146
+msgid ":?.!"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/forms/fields.py:53
+msgid "This field is required."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/forms/fields.py:245
+msgid "Enter a whole number."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/forms/fields.py:396
+#: venv/lib/python3.8/site-packages/django/forms/fields.py:1126
+msgid "Enter a valid date."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/forms/fields.py:420
+#: venv/lib/python3.8/site-packages/django/forms/fields.py:1127
+msgid "Enter a valid time."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/forms/fields.py:442
+msgid "Enter a valid date/time."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/forms/fields.py:471
+msgid "Enter a valid duration."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/forms/fields.py:472
+#, python-brace-format
+msgid "The number of days must be between {min_days} and {max_days}."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/forms/fields.py:532
+msgid "No file was submitted. Check the encoding type on the form."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/forms/fields.py:533
+msgid "No file was submitted."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/forms/fields.py:534
+msgid "The submitted file is empty."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/forms/fields.py:536
+#, python-format
+msgid "Ensure this filename has at most %(max)d character (it has %(length)d)."
+msgid_plural ""
+"Ensure this filename has at most %(max)d characters (it has %(length)d)."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: venv/lib/python3.8/site-packages/django/forms/fields.py:539
+msgid "Please either submit a file or check the clear checkbox, not both."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/forms/fields.py:600
+msgid ""
+"Upload a valid image. The file you uploaded was either not an image or a "
+"corrupted image."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/forms/fields.py:762
+#: venv/lib/python3.8/site-packages/django/forms/fields.py:852
+#: venv/lib/python3.8/site-packages/django/forms/models.py:1270
+#, python-format
+msgid "Select a valid choice. %(value)s is not one of the available choices."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/forms/fields.py:853
+#: venv/lib/python3.8/site-packages/django/forms/fields.py:968
+#: venv/lib/python3.8/site-packages/django/forms/models.py:1269
+msgid "Enter a list of values."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/forms/fields.py:969
+msgid "Enter a complete value."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/forms/fields.py:1185
+#, fuzzy
+#| msgid "Input valid OID ID"
+msgid "Enter a valid UUID."
+msgstr "Unos valjanog OIB-a"
+
+#. Translators: This is the default suffix added to form field labels
+#: venv/lib/python3.8/site-packages/django/forms/forms.py:86
+msgid ":"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/forms/forms.py:212
+#, python-format
+msgid "(Hidden field %(name)s) %(error)s"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/forms/formsets.py:91
+msgid "ManagementForm data is missing or has been tampered with"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/forms/formsets.py:338
+#, python-format
+msgid "Please submit %d or fewer forms."
+msgid_plural "Please submit %d or fewer forms."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: venv/lib/python3.8/site-packages/django/forms/formsets.py:345
+#, python-format
+msgid "Please submit %d or more forms."
+msgid_plural "Please submit %d or more forms."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: venv/lib/python3.8/site-packages/django/forms/formsets.py:371
+#: venv/lib/python3.8/site-packages/django/forms/formsets.py:373
+msgid "Order"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/forms/formsets.py:375
+msgid "Delete"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/forms/models.py:751
+#, python-format
+msgid "Please correct the duplicate data for %(field)s."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/forms/models.py:755
+#, python-format
+msgid "Please correct the duplicate data for %(field)s, which must be unique."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/forms/models.py:761
+#, python-format
+msgid ""
+"Please correct the duplicate data for %(field_name)s which must be unique "
+"for the %(lookup)s in %(date_field)s."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/forms/models.py:770
+msgid "Please correct the duplicate values below."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/forms/models.py:1091
+msgid "The inline value did not match the parent instance."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/forms/models.py:1158
+msgid "Select a valid choice. That choice is not one of the available choices."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/forms/models.py:1272
+#, python-format
+msgid "\"%(pk)s\" is not a valid value."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/forms/utils.py:162
+#, python-format
+msgid ""
+"%(datetime)s couldn't be interpreted in time zone %(current_timezone)s; it "
+"may be ambiguous or it may not exist."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/forms/widgets.py:395
+msgid "Clear"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/forms/widgets.py:396
+msgid "Currently"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/forms/widgets.py:397
+msgid "Change"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/forms/widgets.py:709
+msgid "Unknown"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/forms/widgets.py:710
+msgid "Yes"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/forms/widgets.py:711
+#, fuzzy
+#| msgid "N"
+msgid "No"
+msgstr "N"
+
+#: venv/lib/python3.8/site-packages/django/template/defaultfilters.py:788
+msgid "yes,no,maybe"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/template/defaultfilters.py:817
+#: venv/lib/python3.8/site-packages/django/template/defaultfilters.py:834
+#, python-format
+msgid "%(size)d byte"
+msgid_plural "%(size)d bytes"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: venv/lib/python3.8/site-packages/django/template/defaultfilters.py:836
+#, python-format
+msgid "%s KB"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/template/defaultfilters.py:838
+#, python-format
+msgid "%s MB"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/template/defaultfilters.py:840
+#, python-format
+msgid "%s GB"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/template/defaultfilters.py:842
+#, python-format
+msgid "%s TB"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/template/defaultfilters.py:844
+#, python-format
+msgid "%s PB"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dateformat.py:62
+msgid "p.m."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dateformat.py:63
+msgid "a.m."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dateformat.py:68
+msgid "PM"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dateformat.py:69
+msgid "AM"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dateformat.py:150
+msgid "midnight"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dateformat.py:152
+msgid "noon"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:6
+msgid "Monday"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:6
+msgid "Tuesday"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:6
+msgid "Wednesday"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:6
+msgid "Thursday"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:6
+msgid "Friday"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:7
+msgid "Saturday"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:7
+msgid "Sunday"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:10
+#, fuzzy
+#| msgid "Month"
+msgid "Mon"
+msgstr "Mjesec"
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:10
+msgid "Tue"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:10
+msgid "Wed"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:10
+msgid "Thu"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:10
+msgid "Fri"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:11
+msgid "Sat"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:11
+msgid "Sun"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:14
+msgid "January"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:14
+msgid "February"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:14
+msgid "March"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:14
+msgid "April"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:14
+msgid "May"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:14
+msgid "June"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:15
+msgid "July"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:15
+msgid "August"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:15
+#, fuzzy
+#| msgid "Phone number"
+msgid "September"
+msgstr "Telefonski broj"
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:15
+msgid "October"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:15
+msgid "November"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:16
+msgid "December"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:19
+msgid "jan"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:19
+msgid "feb"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:19
+msgid "mar"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:19
+msgid "apr"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:19
+msgid "may"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:19
+msgid "jun"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:20
+msgid "jul"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:20
+msgid "aug"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:20
+msgid "sep"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:20
+msgid "oct"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:20
+msgid "nov"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:20
+msgid "dec"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:23
+msgctxt "abbrev. month"
+msgid "Jan."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:24
+msgctxt "abbrev. month"
+msgid "Feb."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:25
+msgctxt "abbrev. month"
+msgid "March"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:26
+msgctxt "abbrev. month"
+msgid "April"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:27
+msgctxt "abbrev. month"
+msgid "May"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:28
+msgctxt "abbrev. month"
+msgid "June"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:29
+msgctxt "abbrev. month"
+msgid "July"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:30
+msgctxt "abbrev. month"
+msgid "Aug."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:31
+msgctxt "abbrev. month"
+msgid "Sept."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:32
+msgctxt "abbrev. month"
+msgid "Oct."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:33
+msgctxt "abbrev. month"
+msgid "Nov."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:34
+msgctxt "abbrev. month"
+msgid "Dec."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:37
+msgctxt "alt. month"
+msgid "January"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:38
+msgctxt "alt. month"
+msgid "February"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:39
+msgctxt "alt. month"
+msgid "March"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:40
+msgctxt "alt. month"
+msgid "April"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:41
+msgctxt "alt. month"
+msgid "May"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:42
+msgctxt "alt. month"
+msgid "June"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:43
+msgctxt "alt. month"
+msgid "July"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:44
+msgctxt "alt. month"
+msgid "August"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:45
+#, fuzzy
+#| msgid "Phone number"
+msgctxt "alt. month"
+msgid "September"
+msgstr "Telefonski broj"
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:46
+msgctxt "alt. month"
+msgid "October"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:47
+msgctxt "alt. month"
+msgid "November"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/dates.py:48
+msgctxt "alt. month"
+msgid "December"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/ipv6.py:8
+msgid "This is not a valid IPv6 address."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/text.py:67
+#, python-format
+msgctxt "String to return when truncating text"
+msgid "%(truncated_text)s…"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/text.py:233
+msgid "or"
+msgstr ""
+
+#. Translators: This string is used as a separator between list elements
+#: venv/lib/python3.8/site-packages/django/utils/text.py:252
+#: venv/lib/python3.8/site-packages/django/utils/timesince.py:83
+msgid ", "
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/utils/timesince.py:9
+#, python-format
+msgid "%d year"
+msgid_plural "%d years"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: venv/lib/python3.8/site-packages/django/utils/timesince.py:10
+#, fuzzy, python-format
+#| msgid "Month"
+msgid "%d month"
+msgid_plural "%d months"
+msgstr[0] "Mjesec"
+msgstr[1] "Mjesec"
+msgstr[2] "Mjesec"
+
+#: venv/lib/python3.8/site-packages/django/utils/timesince.py:11
+#, python-format
+msgid "%d week"
+msgid_plural "%d weeks"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: venv/lib/python3.8/site-packages/django/utils/timesince.py:12
+#, python-format
+msgid "%d day"
+msgid_plural "%d days"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: venv/lib/python3.8/site-packages/django/utils/timesince.py:13
+#, python-format
+msgid "%d hour"
+msgid_plural "%d hours"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: venv/lib/python3.8/site-packages/django/utils/timesince.py:14
+#, python-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: venv/lib/python3.8/site-packages/django/utils/timesince.py:72
+msgid "0 minutes"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/views/csrf.py:110
+msgid "Forbidden"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/views/csrf.py:111
+msgid "CSRF verification failed. Request aborted."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/views/csrf.py:115
+msgid ""
+"You are seeing this message because this HTTPS site requires a 'Referer "
+"header' to be sent by your Web browser, but none was sent. This header is "
+"required for security reasons, to ensure that your browser is not being "
+"hijacked by third parties."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/views/csrf.py:120
+msgid ""
+"If you have configured your browser to disable 'Referer' headers, please re-"
+"enable them, at least for this site, or for HTTPS connections, or for 'same-"
+"origin' requests."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/views/csrf.py:124
+msgid ""
+"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or "
+"including the 'Referrer-Policy: no-referrer' header, please remove them. The "
+"CSRF protection requires the 'Referer' header to do strict referer checking. "
+"If you're concerned about privacy, use alternatives like <a rel=\"noreferrer"
+"\" ...> for links to third-party sites."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/views/csrf.py:132
+msgid ""
+"You are seeing this message because this site requires a CSRF cookie when "
+"submitting forms. This cookie is required for security reasons, to ensure "
+"that your browser is not being hijacked by third parties."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/views/csrf.py:137
+msgid ""
+"If you have configured your browser to disable cookies, please re-enable "
+"them, at least for this site, or for 'same-origin' requests."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/views/csrf.py:142
+msgid "More information is available with DEBUG=True."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/views/generic/dates.py:41
+msgid "No year specified"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/views/generic/dates.py:61
+#: venv/lib/python3.8/site-packages/django/views/generic/dates.py:111
+#: venv/lib/python3.8/site-packages/django/views/generic/dates.py:208
+#, fuzzy
+#| msgid "Date of accounting"
+msgid "Date out of range"
+msgstr "Datum obračuna"
+
+#: venv/lib/python3.8/site-packages/django/views/generic/dates.py:90
+msgid "No month specified"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/views/generic/dates.py:142
+msgid "No day specified"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/views/generic/dates.py:188
+msgid "No week specified"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/views/generic/dates.py:338
+#: venv/lib/python3.8/site-packages/django/views/generic/dates.py:367
+#, python-format
+msgid "No %(verbose_name_plural)s available"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/views/generic/dates.py:589
+#, python-format
+msgid ""
+"Future %(verbose_name_plural)s not available because %(class_name)s."
+"allow_future is False."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/views/generic/dates.py:623
+#, python-format
+msgid "Invalid date string '%(datestr)s' given format '%(format)s'"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/views/generic/detail.py:54
+#, python-format
+msgid "No %(verbose_name)s found matching the query"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/views/generic/list.py:67
+msgid "Page is not 'last', nor can it be converted to an int."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/views/generic/list.py:72
+#, python-format
+msgid "Invalid page (%(page_number)s): %(message)s"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/views/generic/list.py:154
+#, python-format
+msgid "Empty list and '%(class_name)s.allow_empty' is False."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/views/static.py:40
+msgid "Directory indexes are not allowed here."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/views/static.py:42
+#, python-format
+msgid "\"%(path)s\" does not exist"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/views/static.py:80
+#, python-format
+msgid "Index of %(directory)s"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/views/templates/default_urlconf.html:6
+msgid "Django: the Web framework for perfectionists with deadlines."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/views/templates/default_urlconf.html:345
+#, python-format
+msgid ""
+"View <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
+"target=\"_blank\" rel=\"noopener\">release notes</a> for Django %(version)s"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/views/templates/default_urlconf.html:367
+msgid "The install worked successfully! Congratulations!"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/views/templates/default_urlconf.html:368
+#, python-format
+msgid ""
+"You are seeing this page because <a href=\"https://docs.djangoproject.com/en/"
+"%(version)s/ref/settings/#debug\" target=\"_blank\" rel=\"noopener"
+"\">DEBUG=True</a> is in your settings file and you have not configured any "
+"URLs."
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/views/templates/default_urlconf.html:383
+msgid "Django Documentation"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/views/templates/default_urlconf.html:384
+msgid "Topics, references, &amp; how-to's"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/views/templates/default_urlconf.html:395
+msgid "Tutorial: A Polling App"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/views/templates/default_urlconf.html:396
+msgid "Get started with Django"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/views/templates/default_urlconf.html:407
+msgid "Django Community"
+msgstr ""
+
+#: venv/lib/python3.8/site-packages/django/views/templates/default_urlconf.html:408
+msgid "Connect, get help, or contribute"
+msgstr ""

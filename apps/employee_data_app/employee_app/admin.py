@@ -5,30 +5,30 @@ from .models import Employee, Dependent
 
 
 class EmployeeAdmin(admin.ModelAdmin):
-    list_display = ('pid', 'first_name', 'last_name', 'date_of_birth', 'employee_since', 'first_employment',
+    list_display = ('oib', 'first_name', 'last_name', 'date_of_birth', 'employee_since', 'first_employment',
                     'first_employment_with_company', 'no_dependents', 'no_children', 'no_dependents_disabled',
                     'no_dependents_disabled_100')
 
-    search_fields = ['pid']
+    search_fields = ['oib']
 
     fieldsets = (
         (
             _('Personal data'), {
                 "fields": [
-                    'pid',
+                    'oib',
                     'first_name',
                     'last_name',
                     'date_of_birth',
                     'disability',
-                    'HRVI'
+                    'hrvi'
                 ],
             }),
         (
             _('Address and contact data'), {
                 'fields': [
                     'city',
-                    'street_address',
-                    'phone_number'
+                    'street_name',
+                    'street_number'
                 ]
             }
         ),
@@ -64,7 +64,7 @@ class EmployeeAdmin(admin.ModelAdmin):
 
 class DependentAdmin(admin.ModelAdmin):
     fields = [
-        'pid',
+        'oib',
         'first_name',
         'last_name',
         'date_of_birth',
@@ -73,8 +73,8 @@ class DependentAdmin(admin.ModelAdmin):
         'dependent_of'
     ]
 
-    search_fields = ['pid']
-    list_display = ('pid', 'first_name', 'last_name', 'date_of_birth', 'child_in_line', 'disability')
+    search_fields = ['oib']
+    list_display = ('oib', 'first_name', 'last_name', 'date_of_birth', 'child_in_line', 'disability')
 
 
 admin.site.register(Employee, EmployeeAdmin)

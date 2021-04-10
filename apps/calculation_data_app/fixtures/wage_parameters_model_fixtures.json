@@ -5,7 +5,6 @@
     "fields": {
       "min_base": 3321.96,
       "max_base": 55086,
-
       "min_wage": 4250,
       "night_hours": 2,
       "sunday_hours": 2,

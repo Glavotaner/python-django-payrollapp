@@ -10,7 +10,12 @@ class Contract(models.Model):
     class Meta:
         verbose_name = _('Contract')
         verbose_name_plural = _('Contracts')
+
         get_latest_by = 'sign_date'
+
+        db_table = 'contracts'
+
+    contract_id = models.AutoField(primary_key=True)
 
     contract_type = models.ForeignKey(
         ContractType,
@@ -28,9 +33,9 @@ class Contract(models.Model):
         default=1.00
     )
 
-    sign_date = models.DateField(verbose_name=_('Sign date'))
+    start_date = models.DateField(verbose_name=_('Start date'))
 
-    expiration_date = models.DateField(
+    end_date = models.DateField(
         verbose_name=_('Expiration date'),
         null=True, blank=True
     )
@@ -39,15 +44,16 @@ class Contract(models.Model):
         if self.multiplier < 0:
             raise ValidationError(_('Multiplier cannot be less than 0'))
 
-        if self.expiration_date and self.contract_type.contract_type == _('Indefinite'):
+        if self.start_date and self.contract_type.contract_type_name == _('Indefinite'):
             raise ValidationError(_('An indefinite contract cannot have an expiration date'))
 
-        if self.expiration_date and self.expiration_date < self.sign_date:
+        if self.end_date and self.end_date < self.start_date:
             raise ValidationError(_('The contract cannot expire before it is signed'))
 
     def __str__(self):
 
-        if self.expiration_date:
-            return f"{self.contract_type.contract_type} contract | Signed: {self.sign_date} - Expires on: {self.expiration_date}"
+        if self.end_date:
+            return f"{self.contract_type.contract_type_name} contract | Signed: {self.start_date} \
+            - Expires on: {self.end_date}"
 
-        return f"{self.contract_type.contract_type} contract | Signed: {self.sign_date}"
+        return f"{self.contract_type.contract_type_name} contract | Signed: {self.start_date}"

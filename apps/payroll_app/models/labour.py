@@ -3,14 +3,24 @@ from datetime import date
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from apps.general_services.data.data_service import get_period_id
+
+from apps.calculation_data_app.models import HourFund
 from apps.employee_data_app.employee_app.models import Employee
-from apps.payroll_app.services.calculations.var_calculation import get_months_hours_fund
+from apps.payroll_app.models import HourTypeAmount
 
 
 class Labour(models.Model):
     class Meta:
         verbose_name = _("Labour data")
         verbose_name_plural = _("Labour data")
+
+        db_table = 'labours'
+
+    labour_id = models.AutoField(primary_key=True)
+
+    year = models.IntegerField(default=2021, verbose_name=_('Year'))
+    month = models.IntegerField(default=1, verbose_name=_('Month'))
 
     employee = models.ForeignKey(
         Employee,
@@ -19,66 +29,35 @@ class Labour(models.Model):
         verbose_name=_('Employee')
     )
 
-    labour_period = models.CharField(
-        verbose_name=_('Labour period ID'),
-        editable=False,
-        unique=True,
-        max_length=15
-    )
-
-    labour_start_date = models.DateField(verbose_name=_('Labour start date'))
-    labour_end_date = models.DateField(verbose_name=_('Labour end date'))
-
     regular_hours = models.PositiveIntegerField(
         verbose_name=_('Regular hours'), default=0
     )
-    overtime_hours = models.PositiveIntegerField(
-        verbose_name=_('Overtime hours'), default=0
-    )
-    night_hours = models.PositiveIntegerField(
-        verbose_name=_('Night hours'), default=0
-    )
-    sunday_hours = models.PositiveIntegerField(
-        verbose_name=_('Sunday hours'), default=0
-    )
-    special_hours = models.PositiveIntegerField(
-        verbose_name=_('Special hours'), default=0
-    )
+
+    hour_type_amounts = models.ManyToManyField(HourTypeAmount, verbose_name=_('Other hours'))
 
     @property
-    def hours_dict(self) -> dict:
-        hours: dict = {}
+    def get_hours_fund(self) -> int:
+        return HourFund.objects.get(year=self.year, month=self.month)
 
-        for field in self._meta.fields:
-            if field.name.endswith('hours'):
-                hours[field.name] = getattr(self, field.name)
-
-        return hours
+    @property
+    def period_id(self):
+        return get_period_id(self.year, self.month)
 
     @staticmethod
-    def set_labour(_date: date, start_date: date, end_date: date,
-                   overtime: float, night: float, sunday: float, special: float):
-        eligible_employees = Employee.get_eligible_employees(start_date, end_date)
+    def set_labour(_date: date, year: int, month: int):
+        eligible_employees = Employee.get_eligible_employees(year, month)
 
-        hours_fund = get_months_hours_fund(start_date)
+        hours_fund = HourFund.get_hour_fund_for_period(year, month)
 
         for emp in eligible_employees:
             Labour.objects.create(
                 employee=emp,
 
-                labour_start_date=start_date,
-                labour_end_date=end_date,
+                year=year,
+                month=month,
 
-                regular_hours=hours_fund,
-                overtime_hours=overtime,
-                night_hours=night,
-                sunday_hours=sunday,
-                special_hours=special,
+                regular_hours=hours_fund
             ).save()
 
-    def save(self, *args, **kwargs):
-        self.labour_period = str(self.employee.pid[:11]) + ' - ' + str(self.labour_end_date)
-        super(Labour, self).save()
-
     def __str__(self):
-        return f"{_('Employee ID')}: {self.employee.pid} | {_('Labour period')}: {self.labour_period}"
+        return f"{_('Employee ID')}: {self.employee.oib} | {_('Period ')}: {self.period_id}"

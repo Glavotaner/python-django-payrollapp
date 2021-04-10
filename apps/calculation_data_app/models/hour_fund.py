@@ -7,19 +7,21 @@ class HourFund(models.Model):
         verbose_name = _('Hour fund')
         verbose_name_plural = _('Hour funds')
 
-    period_id = models.IntegerField(
-        verbose_name=_('Period ID'),
-        editable=False,
-        primary_key=True
-    )
+        db_table = 'hour_funds'
+
+    hour_fund_id = models.AutoField(primary_key=True)
 
     year = models.IntegerField(verbose_name=_('Year'), default=2020)
     month = models.IntegerField(verbose_name=_('Month'))
     total_hours = models.IntegerField(verbose_name=_('Total hours'))
 
-    def save(self, *args, **kwargs):
-        self.period_id = str(self.year) + str(self.month)
-        super(HourFund, self).save()
+    @staticmethod
+    def get_hour_fund_for_period(year: int, month: int) -> 'HourFund':
+        return HourFund.objects.raw("SELECT * FROM hour_funds WHERE year = %s AND month = %s", [year, month])
+
+    @property
+    def period_id(self):
+        return str(self.year) + ('0' + str(self.month))[1:]
 
     def __str__(self):
         return f"{self.period_id}"

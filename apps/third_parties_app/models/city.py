@@ -1,28 +1,28 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from apps.general_services.validators.general_validation import validate_gte
-
 
 class City(models.Model):
     class Meta:
         verbose_name = _('City')
         verbose_name_plural = _('Cities')
 
+        db_table = 'cities'
+
+    city_id = models.AutoField(primary_key=True)
+
     iban = models.CharField(
-        max_length=34,
-        verbose_name='IBAN',
-        null=True
+        max_length=22,
+        verbose_name='IBAN'
     )
 
     joppd = models.CharField(
         max_length=5,
-        verbose_name='JOPPD',
-        primary_key=True
+        verbose_name='JOPPD'
     )
 
     city_name = models.CharField(
-        max_length=80,
+        max_length=200,
         verbose_name=_('City name')
     )
 
@@ -34,7 +34,7 @@ class City(models.Model):
     tax_rate = models.FloatField(
         verbose_name=_('Tax rate'),
         default=0.00,
-        help_text=_('Input city tax rate as a decimal number')
+        help_text=_('City tax rate')
     )
 
     def clean(self):

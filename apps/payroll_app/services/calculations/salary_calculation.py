@@ -1,12 +1,13 @@
+from datetime import date
+
+from apps.calculation_data_app.models import WageParameters
 from apps.payroll_app.models import Labour
 from apps.payroll_app.services.calculations.var_calculation import get_months_hours_fund
-from datetime import date
-from apps.calculation_data_app.models import WageParametersModel
 
 
 class SalaryCalculated:
 
-    def __init__(self, hours: dict, labour_data: Labour, accounting_date: date, wage_parameters: WageParametersModel):
+    def __init__(self, hours: dict, labour_data: Labour, accounting_date: date, wage_parameters: WageParameters):
         self.hours = hours
         self.labour_data: Labour = labour_data
         self.accounting_date: date = accounting_date

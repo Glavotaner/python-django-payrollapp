@@ -1,7 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from apps.general_services.validators.general_validation import validate_phone_number
 from ..services.calculations.var_calculation import get_age
 
 
@@ -14,28 +13,26 @@ class Person(models.Model):
 
     # DISABILITY ENUM
     disability = (
-        (_('I'), _('Disabled')),
-        (_('I*'), _('100% disabled')),
+        (_('I'), _('I')),
+        (_('I*'), _('I*')),
         (_('N'), _('None'))
     )
 
-    pid = models.CharField(
-        primary_key=True,
+    oib = models.CharField(
         max_length=11,
-        verbose_name=_('PID')
+        verbose_name=_('OIB'),
+        help_text=_('Input valid PID'),
+        unique=True
     )
 
     first_name = models.CharField(
-        max_length=30,
-        verbose_name=_('First name'),
-        blank=True, null=True
+        max_length=120,
+        verbose_name=_('First name')
     )
 
     last_name = models.CharField(
-        max_length=20,
-        verbose_name=_('Last name'),
-        blank=True,
-        null=True
+        max_length=120,
+        verbose_name=_('Last name')
     )
 
     date_of_birth = models.DateField(verbose_name=_('Date of birth'))
@@ -47,12 +44,6 @@ class Person(models.Model):
         default='N'
     )
 
-    phone_number = models.CharField(
-        max_length=15,
-        verbose_name=_('Phone number'),
-        null=True
-    )
-
     @property
     def age(self):
         return get_age(self)
@@ -62,6 +53,3 @@ class Person(models.Model):
         # validate_phone_number(self.phone_number)
 
         pass
-
-    def save(self, *args, **kwargs):
-        super(Person, self).save(*args, **kwargs)

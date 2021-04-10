@@ -1,13 +1,11 @@
-from typing import List, TYPE_CHECKING
+from typing import List
 
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-if TYPE_CHECKING:
-    from apps.payroll_app.models import Payroll, Labour
-
 from .labour import Labour
-from ..services.calculations import var_calculation
+from .reimbursement_amount import ReimbursementAmount
+from ...calculation_data_app.models import Contribution
 
 
 class Payroll(models.Model):
@@ -15,46 +13,15 @@ class Payroll(models.Model):
         verbose_name = _('Payroll')
         verbose_name_plural = _('Payrolls')
 
-    date_of_accounting = models.DateTimeField(
-        auto_now=True,
+        db_table = 'payrolls'
+
+    payroll_id = models.AutoField(primary_key=True)
+
+    date_of_accounting = models.DateField(
         verbose_name=_('Date of accounting'),
         db_index=True
     )
 
-    accounted_period_start = models.DateField(
-        verbose_name=_('Accounted period start')
-    )
-    accounted_period_end = models.DateField(
-        verbose_name=_('Accounted period end')
-    )
-
-    """current_deductibles_model = models.ForeignKey(
-        DeductiblesModel,
-        on_delete=models.DO_NOTHING,
-        editable=False,
-        verbose_name=_('Current deductibles model')
-    )
-    """
-    accounted_period_id = models.CharField(
-        verbose_name=_('Accounted period ID'),
-        editable=False,
-        max_length=15,
-        unique=True
-    )
-
-    months_hours_fund = models.IntegerField(
-        verbose_name=_("Month's hours fund"),
-        editable=False,
-        primary_key=True
-    )
-
-    """employee = models.ForeignKey(
-        Employee,
-        on_delete=models.DO_NOTHING,
-        db_index=True,
-        verbose_name=_('Employee')
-    )
-    """
     work_data = models.OneToOneField(
         Labour,
         on_delete=models.DO_NOTHING,
@@ -62,16 +29,14 @@ class Payroll(models.Model):
         verbose_name=_('Work data')
     )
 
+    valid_contributions = models.ManyToManyField(Contribution, editable=False, verbose_name=_('Valid contributions'))
+
+    reimbursements = models.ManyToManyField(ReimbursementAmount, verbose_name=_('Reimbursements'))
+
     wage = models.FloatField(
         verbose_name=_('Wage'), editable=False
     )
 
-    overtime_hours_gross = models.FloatField(
-        verbose_name=_('Overtime hours gross'), editable=False
-    )
-    special_hours_gross = models.FloatField(
-        verbose_name=_('Special hours gross'), editable=False
-    )
     gross_salary = models.FloatField(
         verbose_name=_('Gross salary'), editable=False
     )
@@ -80,21 +45,7 @@ class Payroll(models.Model):
         verbose_name=_('Contributions base'), editable=False
     )
 
-    health_insurance_amount = models.FloatField(
-        verbose_name=_('Health insurance amount'), editable=False
-    )
-
-    pension_fund_gen_amount = models.FloatField(
-        verbose_name=_('Generational pension fund\
-            contribution amount'),
-        editable=False
-    )
-    pension_fund_ind_amount = models.FloatField(
-        verbose_name=_('Individual pension fund amount'), editable=False
-    )
-    pension_fund_total = models.FloatField(verbose_name=_(
-        'Total pension fund contribution amount'), editable=False
-    )
+    contributions_outofpay_total = models.FloatField(verbose_name=_('Total contributions out-of-pay'))
 
     income = models.FloatField(verbose_name=_('Income'), editable=False)
 
@@ -134,6 +85,8 @@ class Payroll(models.Model):
     net_salary = models.FloatField(
         verbose_name=_('Net salary'), editable=False)
 
+    contributions_other_total = models.FloatField(verbose_name=_('Other contributions total'))
+
     labour_cost = models.FloatField(
         verbose_name=_('Labour cost'), editable=False)
 
@@ -141,11 +94,8 @@ class Payroll(models.Model):
         pass
 
     def save(self, *args, **kwargs):
-        self.accounted_period_id = var_calculation.get_accounted_period_id(self)
-
-        self.months_hours_fund = var_calculation.get_months_hours_fund(self.accounted_period_start)
 
         super(Payroll, self).save()
 
     def __str__(self):
-        return f"""{self.accounted_period_id}"""
+        return f"""{self.date_of_accounting}"""

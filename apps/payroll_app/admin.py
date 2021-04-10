@@ -1,7 +1,16 @@
 from django.contrib import admin
 from django.utils.translation import gettext as _
 
-from .models import Labour, Payroll
+from .models import Labour, Payroll, WageParameters
+
+
+class WageParametersAdmin(admin.ModelAdmin):
+    fields = (
+                'min_wage',
+                'min_base',
+                'max_base',
+                'valid_from'
+    )
 
 
 class LabourAdmin(admin.ModelAdmin):
@@ -15,8 +24,8 @@ class LabourAdmin(admin.ModelAdmin):
         (
             _('Accounted period data'), {
                 'fields': [
-                    'labour_start_date',
-                    'labour_end_date'
+                    'year',
+                    'month'
                 ]
             }
         ),
@@ -24,8 +33,6 @@ class LabourAdmin(admin.ModelAdmin):
             _('Accounted hours data'), {
                 'fields': [
                     'regular_hours',
-                    'overtime_hours',
-                    'special_hours'
                 ]
             }
         )
@@ -33,23 +40,21 @@ class LabourAdmin(admin.ModelAdmin):
 
 
 class PayrollAdmin(admin.ModelAdmin):
-    list_display = ('months_hours_fund', 'gross_salary', 'health_insurance_amount', 'pension_fund_total', 'income',
+    list_display = ('gross_salary', 'contributions_outofpay_total', 'income',
                     'personal_deductible_amount', 'total_deductibles', 'tax_base', 'income_tax_amount',
-                    'city_tax_amount', 'total_tax', 'net_salary')
+                    'city_tax_amount', 'total_tax', 'net_salary', 'contributions_other_total')
 
     fieldsets = (
         (
             _('Accounted period data'), {
                 'fields': [
-                    'accounted_period_start',
-                    'accounted_period_end'
+                    'date_of_accounting'
                 ]
             }
         ),
         (
             _('Employee and labour data'), {
                 'fields': [
-                    'employee',
                     'work_data'
                 ]
             }
@@ -59,3 +64,4 @@ class PayrollAdmin(admin.ModelAdmin):
 
 admin.site.register(Labour, LabourAdmin)
 admin.site.register(Payroll, PayrollAdmin)
+admin.site.register(WageParameters, WageParametersAdmin)

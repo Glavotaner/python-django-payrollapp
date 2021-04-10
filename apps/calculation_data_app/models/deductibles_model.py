@@ -1,3 +1,6 @@
+from datetime import date
+from typing import List
+
 from django.db import models
 from django.utils.timezone import now
 from django.utils.translation import gettext_lazy as _
@@ -8,6 +11,10 @@ class DeductiblesModel(models.Model):
         verbose_name = _('Deductible')
         verbose_name_plural = _('Deductibles')
         get_latest_by = 'valid_from'
+
+        db_table = 'deductibles_models'
+
+    deductibles_model_id = models.AutoField(primary_key=True)
 
     base_deductible = models.FloatField(
         verbose_name=_('Base deductible'),
@@ -22,7 +29,8 @@ class DeductiblesModel(models.Model):
     )
 
     dependent = models.FloatField(
-        verbose_name=_('Dependent'),
+        verbose_name=_('Dependent deductible coef'),
+        help_text=_('Dependent deductible coefficient'),
         default=0.7
     )
 
@@ -46,16 +54,22 @@ class DeductiblesModel(models.Model):
         verbose_name=_('Multiplication coef'), default=1.1
     )
 
-    disabled_dependent = models.FloatField(
+    disabled_dependent_i = models.FloatField(
         verbose_name=_('Disabled dependent'), default=0.4
     )
-    disabled_dependent_100 = models.FloatField(
+    disabled_dependent_i100 = models.FloatField(
         verbose_name=_('100% disabled dependent'), default=1.5
     )
 
-    valid_from = models.DateTimeField(
+    valid_from = models.DateField(
         verbose_name=_('Valid from'), default=now
     )
+
+    @staticmethod
+    def get_valid_deductibles_model(target_date: date) -> List['DeductiblesModel']:
+        return DeductiblesModel.objects.raw("""SELECT * FROM deductibles_models 
+                                                WHERE valid_from = (SELECT MAX(valid_from) FROM deductibles_models
+                                                WHERE valid_from <= %s)""", target_date)
 
     def __str__(self):
         return f"{self.base_deductible} | {self.personal_deductible_coef} || \

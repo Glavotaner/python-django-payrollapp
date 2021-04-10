@@ -1,12 +1,12 @@
 from django.db.models import Q
 
-from apps.calculation_data_app.models import TaxModel
+from apps.calculation_data_app.models import TaxBracket
 from apps.third_parties_app.models import City
 
 
-def get_tax_bracket(income: float) -> TaxModel:
-    return TaxModel.objects.filter(Q(tax_from__lte=income), (Q(tax_to__gte=income) |
-                                                             Q(tax_to__isnull=True))).order_by('tax_from').get()
+def get_tax_bracket(income: float) -> TaxBracket:
+    return TaxBracket.objects.filter(Q(tax_from__lte=income), (Q(tax_to__gte=income) |
+                                                               Q(tax_to__isnull=True))).order_by('tax_from').get()
 
 
 def get_city_tax_rate(joppd: str) -> float:
@@ -30,7 +30,7 @@ class TaxCalculated:
         taxable: float = 0
 
         while True:
-            highest_bracket: TaxModel = get_tax_bracket(reduced_income)
+            highest_bracket: TaxBracket = get_tax_bracket(reduced_income)
 
             if not highest_bracket.tax_to:
                 taxable = (self.tax_base - highest_bracket.tax_from) + 0.01

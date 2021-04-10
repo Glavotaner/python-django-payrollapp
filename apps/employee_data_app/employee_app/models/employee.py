@@ -1,14 +1,11 @@
-from datetime import datetime, date
-
-from typing import TYPE_CHECKING, List
-
-if TYPE_CHECKING:
-    from . import Employee
+from datetime import date
+from calendar import monthrange
+from typing import List
 
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from apps.calculation_data_app.models import ContributionsModel, TaxBreakModel
+from apps.calculation_data_app.models import ContributionsModel, TaxBreak
 from apps.employee_data_app.employment_app.models import Contract
 # from apps.general_services.validators.id_validators import validate_iban, validate_bid
 from apps.general_services.validators.person_validation import validate_age
@@ -24,13 +21,17 @@ class Employee(Person, Address):
 
         get_latest_by = 'employee_since'
 
-    HRVI = models.FloatField(default=0)
+        db_table = 'employees'
 
-    iban = models.CharField(unique=True, verbose_name='IBAN', max_length=34)
+    employee_id = models.AutoField(primary_key=True)
 
-    protected_iban = models.CharField(unique=True, verbose_name='Protected IBAN', max_length=34)
+    hrvi = models.FloatField(default=0)
 
-    # EmployeeS
+    iban = models.CharField(unique=True, verbose_name='IBAN', max_length=22)
+
+    protected_iban = models.CharField(unique=True, verbose_name='Protected IBAN', max_length=22)
+
+    # Dependents
     no_children = models.IntegerField(
         verbose_name=_('Number of children'),
         default=0,
@@ -98,10 +99,13 @@ class Employee(Person, Address):
         on_delete=models.CASCADE
     )
 
-    tax_breaks = models.ManyToManyField(TaxBreakModel)
+    tax_breaks = models.ManyToManyField(TaxBreak)
 
     @staticmethod
-    def get_eligible_employees(start_date: date, end_date: date) -> List['Employee']:
+    def get_eligible_employees(year: int, month: int) -> List['Employee']:
+        start_date: date = date(year, month, 1)
+        end_date: date = date(year, month, monthrange(year, month)[1])
+
         sql: str = """SELECT e.* FROM employee_app_employee AS e
         INNER JOIN employment_app_contract AS c
             ON c.id = e.signed_contract_id
@@ -111,7 +115,7 @@ class Employee(Person, Address):
 
     @property
     def employment_duration(self):
-        return datetime.now() - self.employee_since
+        return date.today() - self.employee_since
 
     @property
     def employee_bank_name(self):
@@ -122,4 +126,4 @@ class Employee(Person, Address):
         # validate_iban(self.iban)
 
     def __str__(self):
-        return f"{self.pid}"
+        return f"{self.oib}"
