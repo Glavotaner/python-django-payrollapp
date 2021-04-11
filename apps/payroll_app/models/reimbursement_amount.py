@@ -1,5 +1,4 @@
 from django.db import models
-
 from django.utils.translation import gettext_lazy as _
 
 from apps.calculation_data_app.models import Reimbursement
@@ -10,6 +9,7 @@ class ReimbursementAmount(models.Model):
     reimbursement_amount_id = models.AutoField(primary_key=True)
 
     reimbursement = models.ForeignKey(Reimbursement, on_delete=models.PROTECT, verbose_name=_('Reimbursement'))
+    payroll = models.ForeignKey('Payroll', on_delete=models.PROTECT, verbose_name=_('Payroll'))
 
     amount = models.FloatField(verbose_name=_('Amount'))
 

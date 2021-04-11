@@ -6,10 +6,10 @@ from .models import Labour, Payroll, WageParameters
 
 class WageParametersAdmin(admin.ModelAdmin):
     fields = (
-                'min_wage',
-                'min_base',
-                'max_base',
-                'valid_from'
+        'min_wage',
+        'min_base',
+        'max_base',
+        'valid_from'
     )
 
 

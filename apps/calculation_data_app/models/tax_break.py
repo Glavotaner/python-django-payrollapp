@@ -3,15 +3,12 @@ from django.utils.translation import gettext_lazy as _
 
 
 class TaxBreak(models.Model):
+
     tax_break_id = models.AutoField(primary_key=True)
     tax_break_name = models.CharField(max_length=250, verbose_name=_('Tax break name'))
     rate = models.FloatField(verbose_name=_('Rate'), default=0.5)
-
     retired = models.BooleanField(verbose_name=_('Retired'))
 
-    @staticmethod
-    def get_valid_tax_breaks():
-        return TaxBreak.objects.filter(retired=False)
 
     class Meta:
         verbose_name = 'Tax break'
@@ -21,3 +18,7 @@ class TaxBreak(models.Model):
 
     def __str__(self):
         return f"{self.tax_break_name}"
+
+    @staticmethod
+    def get_valid_tax_breaks():
+        return TaxBreak.objects.filter(retired=False)

@@ -1,18 +1,12 @@
-from django.utils.translation import gettext_lazy as _
-from django.db import models
-
+from datetime import date
 from typing import List
 
-from datetime import date
+from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 
 class WageParameters(models.Model):
-    class Meta:
-        verbose_name = _('Wage parameters model')
-        verbose_name_plural = _('Wage parameters models')
 
-        db_table = 'wage_parameters'
-    
     wage_parameters_id = models.AutoField(primary_key=True)
 
     min_base = models.FloatField(
@@ -30,6 +24,15 @@ class WageParameters(models.Model):
     min_wage = models.FloatField(verbose_name=_('Minimum wage'))
 
     valid_from = models.DateField(verbose_name=_('Valid from'))
+
+    class Meta:
+        verbose_name = _('Wage parameters')
+        verbose_name_plural = _('Wage parameters')
+
+        db_table = 'wage_parameters'
+
+    def __str__(self):
+        return f'Valid from: {self.valid_from}'
 
     @staticmethod
     def get_valid_wage_parameters(target_date: date) -> List['WageParameters']:

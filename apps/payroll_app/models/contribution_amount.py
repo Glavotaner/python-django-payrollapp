@@ -5,9 +5,11 @@ from apps.calculation_data_app.models import Contribution
 
 
 class ContributionAmount(models.Model):
+
     contribution_amount_id = models.AutoField(primary_key=True)
 
     contribution = models.ForeignKey(Contribution, on_delete=models.PROTECT, verbose_name=_('Contribution'))
+    payroll = models.ForeignKey('Payroll', on_delete=models.PROTECT, verbose_name=_('Payroll'))
 
     amount = models.FloatField(default=0, editable=False, verbose_name=_('Amount'))
 

@@ -5,9 +5,11 @@ from apps.calculation_data_app.models.hour_type import HourType
 
 
 class HourTypeAmount(models.Model):
+
     hour_type_amount_id = models.AutoField(primary_key=True)
 
     hour_type = models.ForeignKey(HourType, on_delete=models.PROTECT, verbose_name=_('Hour type'))
+    labour = models.ForeignKey('Labour', on_delete=models.PROTECT, verbose_name=_('Labour'))
 
     amount = models.IntegerField(verbose_name=_('Amount'))
 

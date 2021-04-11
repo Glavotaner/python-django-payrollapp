@@ -3,33 +3,36 @@
     "model": "calculation_data_app.Contribution",
     "pk": 1,
     "fields": {
-      "name": "Pension fund Gen.",
-      "out_of_pay": "True"
+      "contribution_name": "Pension fund Gen.",
+      "out_of_pay": "True",
+      "retired": "False"
     }
   },
   {
     "model": "calculation_data_app.Contribution",
     "pk": 2,
     "fields": {
-      "name": "Pension fund Ind.",
-      "out_of_pay": "True"
+      "contribution_name": "Pension fund Ind.",
+      "out_of_pay": "True",
+      "retired": "False"
     }
   },
   {
     "model": "calculation_data_app.Contribution",
     "pk": 3,
     "fields": {
-      "name": "Health insurance fund",
-      "out_of_pay": "False"
+      "contribution_name": "Health insurance fund",
+      "out_of_pay": "False",
+      "retired": "False"
     }
   },
   {
     "model": "calculation_data_app.Contribution",
     "pk": 4,
     "fields": {
-      "name": "Employment contribution",
+      "contribution_name": "Employment contribution",
       "out_of_pay": "True",
-      "retired_from": "2018-01-01"
+      "retired": "True"
     }
   }
 ]

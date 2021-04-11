@@ -4,7 +4,8 @@
     "pk": 1,
     "fields": {
       "position_name": "CONSULTANT",
-      "salary": 5600
+      "salary": 5600,
+      "retired": "False"
     }
   },
   {
@@ -12,15 +13,17 @@
     "pk": 2,
     "fields": {
       "position_name": "DEVELOPER",
-      "salary": 7000
+      "salary": 7000,
+      "retired": "False"
     }
   },
   {
     "model": "employment_app.Position",
     "pk": 3,
     "fields": {
-      "position_name": "PROJEKT MANAGER",
-      "salary": 8000
+      "position_name": "PROJECT MANAGER",
+      "salary": 8000,
+      "retired": "False"
     }
   }
 ]

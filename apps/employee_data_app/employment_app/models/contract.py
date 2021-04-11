@@ -7,13 +7,6 @@ from .position import Position
 
 
 class Contract(models.Model):
-    class Meta:
-        verbose_name = _('Contract')
-        verbose_name_plural = _('Contracts')
-
-        get_latest_by = 'sign_date'
-
-        db_table = 'contracts'
 
     contract_id = models.AutoField(primary_key=True)
 
@@ -34,11 +27,26 @@ class Contract(models.Model):
     )
 
     start_date = models.DateField(verbose_name=_('Start date'))
-
     end_date = models.DateField(
         verbose_name=_('Expiration date'),
         null=True, blank=True
     )
+
+    class Meta:
+        verbose_name = _('Contract')
+        verbose_name_plural = _('Contracts')
+
+        get_latest_by = 'sign_date'
+
+        db_table = 'contracts'
+
+    def __str__(self):
+
+        if self.end_date:
+            return f"{self.contract_type.contract_type_name} contract | Signed: {self.start_date} \
+            - Expires on: {self.end_date}"
+
+        return f"{self.contract_type.contract_type_name} contract | Signed: {self.start_date}"
 
     def clean(self):
         if self.multiplier < 0:
@@ -49,11 +57,3 @@ class Contract(models.Model):
 
         if self.end_date and self.end_date < self.start_date:
             raise ValidationError(_('The contract cannot expire before it is signed'))
-
-    def __str__(self):
-
-        if self.end_date:
-            return f"{self.contract_type.contract_type_name} contract | Signed: {self.start_date} \
-            - Expires on: {self.end_date}"
-
-        return f"{self.contract_type.contract_type_name} contract | Signed: {self.start_date}"

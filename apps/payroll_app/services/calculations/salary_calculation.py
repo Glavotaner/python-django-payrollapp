@@ -1,8 +1,8 @@
 from datetime import date
 
-from apps.calculation_data_app.models import WageParameters
+from apps.payroll_app.models import WageParameters
 from apps.payroll_app.models import Labour
-from apps.payroll_app.services.calculations.var_calculation import get_months_hours_fund
+from apps.calculation_data_app.models import HourFund
 
 
 class SalaryCalculated:
@@ -20,7 +20,9 @@ class SalaryCalculated:
 
         if self.hours == 'regular_hours':
 
-            hours_fund: int = get_months_hours_fund(self.accounting_date)
+            hours_fund: int = HourFund.get_hour_fund_for_period(
+                self.labour_data.year, self.labour_data.month
+            ).total_hours
 
             if self.labour_data.regular_hours < hours_fund:
                 return round((self.labour_data.regular_hours / hours_fund) * self.contracted_salary, 2)

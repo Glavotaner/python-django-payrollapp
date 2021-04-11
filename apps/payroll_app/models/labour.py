@@ -3,19 +3,12 @@ from datetime import date
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from apps.general_services.data.data_service import get_period_id
-
 from apps.calculation_data_app.models import HourFund
 from apps.employee_data_app.employee_app.models import Employee
-from apps.payroll_app.models import HourTypeAmount
+from apps.general_services.data.data_service import get_period_id
 
 
 class Labour(models.Model):
-    class Meta:
-        verbose_name = _("Labour data")
-        verbose_name_plural = _("Labour data")
-
-        db_table = 'labours'
 
     labour_id = models.AutoField(primary_key=True)
 
@@ -33,15 +26,14 @@ class Labour(models.Model):
         verbose_name=_('Regular hours'), default=0
     )
 
-    hour_type_amounts = models.ManyToManyField(HourTypeAmount, verbose_name=_('Other hours'))
+    class Meta:
+        verbose_name = _("Labour data")
+        verbose_name_plural = _("Labour data")
 
-    @property
-    def get_hours_fund(self) -> int:
-        return HourFund.objects.get(year=self.year, month=self.month)
+        db_table = 'labours'
 
-    @property
-    def period_id(self):
-        return get_period_id(self.year, self.month)
+    def __str__(self):
+        return f"{_('Employee ID')}: {self.employee.oib} | {_('Period ')}: {self.period_id}"
 
     @staticmethod
     def set_labour(_date: date, year: int, month: int):
@@ -59,5 +51,10 @@ class Labour(models.Model):
                 regular_hours=hours_fund
             ).save()
 
-    def __str__(self):
-        return f"{_('Employee ID')}: {self.employee.oib} | {_('Period ')}: {self.period_id}"
+    @property
+    def get_hours_fund(self) -> int:
+        return HourFund.objects.get(year=self.year, month=self.month)
+
+    @property
+    def period_id(self):
+        return get_period_id(self.year, self.month)

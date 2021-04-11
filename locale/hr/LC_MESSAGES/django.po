@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-10 20:08+0200\n"
+"POT-Creation-Date: 2021-04-11 12:32+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,7 +35,7 @@ msgid "Retired"
 msgstr ""
 
 #: apps/calculation_data_app/models/contribution.py:21
-#: apps/calculation_data_app/models/contribution_rate.py:14
+#: apps/calculation_data_app/models/contribution_rate.py:13
 #: apps/payroll_app/models/contribution_amount.py:10
 #, fuzzy
 #| msgid "Contributions model"
@@ -49,26 +49,26 @@ msgstr "Model doprinosa"
 msgid "Contributions"
 msgstr "Model doprinosa"
 
-#: apps/calculation_data_app/models/contribution_rate.py:15
+#: apps/calculation_data_app/models/contribution_rate.py:14
 #: apps/calculation_data_app/models/tax_break.py:8
 msgid "Rate"
 msgstr ""
 
-#: apps/calculation_data_app/models/contribution_rate.py:17
+#: apps/calculation_data_app/models/contribution_rate.py:16
 #: apps/calculation_data_app/models/deductibles_model.py:65
-#: apps/calculation_data_app/models/hour_type_coef.py:18
+#: apps/calculation_data_app/models/hour_type_coef.py:17
 #: apps/calculation_data_app/models/reimbursement_value.py:17
-#: apps/payroll_app/models/wage_parameters.py:32
+#: apps/payroll_app/models/wage_parameters.py:31
 msgid "Valid from"
 msgstr "Vrijedi od"
 
-#: apps/calculation_data_app/models/contribution_rate.py:30
+#: apps/calculation_data_app/models/contribution_rate.py:29
 #, fuzzy
 #| msgid "Contributions model"
 msgid "Contribution rate"
 msgstr "Model doprinosa"
 
-#: apps/calculation_data_app/models/contribution_rate.py:31
+#: apps/calculation_data_app/models/contribution_rate.py:30
 #, fuzzy
 #| msgid "Contributions models"
 msgid "Contribution rates"
@@ -192,12 +192,12 @@ msgid "Hour funds"
 msgstr "Fondovi sati"
 
 #: apps/calculation_data_app/models/hour_fund.py:14
-#: apps/payroll_app/models/labour.py:22
+#: apps/payroll_app/models/labour.py:21
 msgid "Year"
 msgstr "Godina"
 
 #: apps/calculation_data_app/models/hour_fund.py:15
-#: apps/payroll_app/models/labour.py:23
+#: apps/payroll_app/models/labour.py:22
 msgid "Month"
 msgstr "Mjesec"
 
@@ -211,22 +211,22 @@ msgstr "Ukupno sati"
 msgid "Hour type name"
 msgstr "Naziv grada"
 
-#: apps/calculation_data_app/models/hour_type_coef.py:14
+#: apps/calculation_data_app/models/hour_type_coef.py:13
 #: apps/payroll_app/models/hour_type_amount.py:10
 #, fuzzy
 #| msgid "Contract type"
 msgid "Hour type"
 msgstr "Vrste ugovora"
 
-#: apps/calculation_data_app/models/hour_type_coef.py:16
+#: apps/calculation_data_app/models/hour_type_coef.py:15
 msgid "Hour coefficient"
 msgstr ""
 
-#: apps/calculation_data_app/models/hour_type_coef.py:31
+#: apps/calculation_data_app/models/hour_type_coef.py:30
 msgid "Hour type coef."
 msgstr ""
 
-#: apps/calculation_data_app/models/hour_type_coef.py:32
+#: apps/calculation_data_app/models/hour_type_coef.py:31
 msgid "Hour type coefs."
 msgstr ""
 
@@ -238,19 +238,19 @@ msgstr "Ime"
 
 #: apps/calculation_data_app/models/reimbursement.py:19
 #: apps/calculation_data_app/models/reimbursement_value.py:13
-#: apps/payroll_app/models/reimbursement_amount.py:12
+#: apps/payroll_app/models/reimbursement_amount.py:10
 msgid "Reimbursement"
 msgstr ""
 
 #: apps/calculation_data_app/models/reimbursement.py:20
-#: apps/payroll_app/models/payroll.py:34
+#: apps/payroll_app/models/payroll.py:84
 msgid "Reimbursements"
 msgstr ""
 
 #: apps/calculation_data_app/models/reimbursement_value.py:15
 #: apps/payroll_app/models/contribution_amount.py:12
 #: apps/payroll_app/models/hour_type_amount.py:12
-#: apps/payroll_app/models/reimbursement_amount.py:14
+#: apps/payroll_app/models/reimbursement_amount.py:12
 msgid "Amount"
 msgstr ""
 
@@ -347,7 +347,7 @@ msgid "Dependent of"
 msgstr "Uzdržavana osoba zaposlenika"
 
 #: apps/employee_data_app/employee_app/models/employee.py:19
-#: apps/payroll_app/models/labour.py:29
+#: apps/payroll_app/models/labour.py:28
 msgid "Employee"
 msgstr "Zaposlenik"
 
@@ -429,7 +429,7 @@ msgstr "Nema"
 
 #: apps/employee_data_app/employee_app/models/person.py:23
 #: apps/third_parties_app/models/bank.py:18
-msgid "OIB"
+msgid "PID"
 msgstr ""
 
 #: apps/employee_data_app/employee_app/models/person.py:24
@@ -647,125 +647,131 @@ msgstr ""
 msgid "Hour type amounts"
 msgstr ""
 
-#: apps/payroll_app/models/labour.py:15 apps/payroll_app/models/labour.py:16
+#: apps/payroll_app/models/labour.py:14 apps/payroll_app/models/labour.py:15
 msgid "Labour data"
 msgstr "Podaci o radu"
 
-#: apps/payroll_app/models/labour.py:33
+#: apps/payroll_app/models/labour.py:32
 msgid "Regular hours"
 msgstr "Redovni sati"
 
-#: apps/payroll_app/models/labour.py:36
+#: apps/payroll_app/models/labour.py:35
 #, fuzzy
 #| msgid "Regular hours"
 msgid "Other hours"
 msgstr "Redovni sati"
 
-#: apps/payroll_app/models/payroll.py:13
+#: apps/payroll_app/models/payroll.py:11
 msgid "Payroll"
 msgstr "Platna lista"
 
-#: apps/payroll_app/models/payroll.py:14
+#: apps/payroll_app/models/payroll.py:12
 msgid "Payrolls"
 msgstr "Platne liste"
 
-#: apps/payroll_app/models/payroll.py:21
+#: apps/payroll_app/models/payroll.py:19
 msgid "Date of accounting"
 msgstr "Datum obračuna"
 
-#: apps/payroll_app/models/payroll.py:29
+#: apps/payroll_app/models/payroll.py:27
 msgid "Work data"
 msgstr "Podaci o radu"
 
-#: apps/payroll_app/models/payroll.py:32
+#: apps/payroll_app/models/payroll.py:30
 #, fuzzy
 #| msgid "Contributions model"
 msgid "Valid contributions"
 msgstr "Model doprinosa"
 
-#: apps/payroll_app/models/payroll.py:37
+#: apps/payroll_app/models/payroll.py:33
 msgid "Wage"
 msgstr ""
 
-#: apps/payroll_app/models/payroll.py:41
+#: apps/payroll_app/models/payroll.py:37
 msgid "Gross salary"
 msgstr ""
 
-#: apps/payroll_app/models/payroll.py:45
+#: apps/payroll_app/models/payroll.py:41
 #, fuzzy
 #| msgid "Contributions model"
 msgid "Contributions base"
 msgstr "Model doprinosa"
 
-#: apps/payroll_app/models/payroll.py:48
+#: apps/payroll_app/models/payroll.py:44
 #, fuzzy
 #| msgid "Contributions model"
 msgid "Total contributions out-of-pay"
 msgstr "Model doprinosa"
 
-#: apps/payroll_app/models/payroll.py:50
+#: apps/payroll_app/models/payroll.py:46
 msgid "Income"
 msgstr ""
 
-#: apps/payroll_app/models/payroll.py:53
+#: apps/payroll_app/models/payroll.py:49
 #, fuzzy
 #| msgid "Personal deductible coef"
 msgid "Personal deductible amount"
 msgstr "Koeficijent osobnog odbitka"
 
-#: apps/payroll_app/models/payroll.py:57
+#: apps/payroll_app/models/payroll.py:53
 #, fuzzy
 #| msgid "Legal base deductible amount"
 msgid "Dependents deductible amount"
 msgstr "Zakonski određen osnovni odbitak"
 
-#: apps/payroll_app/models/payroll.py:60
+#: apps/payroll_app/models/payroll.py:56
 #, fuzzy
 #| msgid "Legal base deductible amount"
 msgid "Children deductible amount"
 msgstr "Zakonski određen osnovni odbitak"
 
-#: apps/payroll_app/models/payroll.py:63
+#: apps/payroll_app/models/payroll.py:59
 #, fuzzy
 #| msgid "Legal base deductible amount"
 msgid "Disabled dependents deductible amount"
 msgstr "Zakonski određen osnovni odbitak"
 
-#: apps/payroll_app/models/payroll.py:66
+#: apps/payroll_app/models/payroll.py:62
 #, fuzzy, python-format
 #| msgid "Legal base deductible amount"
 msgid "100% disabled dependents deductible amount"
 msgstr "Zakonski određen osnovni odbitak"
 
-#: apps/payroll_app/models/payroll.py:70
+#: apps/payroll_app/models/payroll.py:66
 #, fuzzy
 #| msgid "Legal base deductible amount"
 msgid "Total deductibles amount"
 msgstr "Zakonski određen osnovni odbitak"
 
-#: apps/payroll_app/models/payroll.py:73
+#: apps/payroll_app/models/payroll.py:69
 #, fuzzy
 #| msgid "Tax rate"
 msgid "Tax base"
 msgstr "Stopa prireza"
 
-#: apps/payroll_app/models/payroll.py:76
+#: apps/payroll_app/models/payroll.py:72
 msgid "Income tax amount"
 msgstr ""
 
-#: apps/payroll_app/models/payroll.py:79
+#: apps/payroll_app/models/payroll.py:75
 msgid "City tax amount"
 msgstr ""
 
-#: apps/payroll_app/models/payroll.py:82
+#: apps/payroll_app/models/payroll.py:78
 msgid "Total tax amount"
 msgstr ""
 
-#: apps/payroll_app/models/payroll.py:86
+#: apps/payroll_app/models/payroll.py:82
 #, fuzzy
 #| msgid "Salary"
 msgid "Net salary"
 msgstr "Plaća"
+
+#: apps/payroll_app/models/payroll.py:86
+#, fuzzy
+#| msgid "First name"
+msgid "Reimbursements total"
+msgstr "Ime"
 
 #: apps/payroll_app/models/payroll.py:88
 #, fuzzy
@@ -779,29 +785,29 @@ msgstr "Model doprinosa"
 msgid "Labour cost"
 msgstr "Podaci o radu"
 
-#: apps/payroll_app/models/reimbursement_amount.py:17
+#: apps/payroll_app/models/reimbursement_amount.py:15
 msgid "Reimbursement amount"
 msgstr ""
 
-#: apps/payroll_app/models/reimbursement_amount.py:18
+#: apps/payroll_app/models/reimbursement_amount.py:16
 msgid "Reimbursement amounts"
 msgstr ""
 
-#: apps/payroll_app/models/wage_parameters.py:11
+#: apps/payroll_app/models/wage_parameters.py:10
 msgid "Wage parameters model"
 msgstr ""
 
-#: apps/payroll_app/models/wage_parameters.py:12
+#: apps/payroll_app/models/wage_parameters.py:11
 msgid "Wage parameters models"
 msgstr ""
 
-#: apps/payroll_app/models/wage_parameters.py:19
+#: apps/payroll_app/models/wage_parameters.py:18
 #, fuzzy
 #| msgid "Contributions models"
 msgid "Contributions minimal base"
 msgstr "Modeli doprinosa"
 
-#: apps/payroll_app/models/wage_parameters.py:20
+#: apps/payroll_app/models/wage_parameters.py:19
 #, fuzzy
 #| msgid "The year's legal minimum pension fund base. Use '.' as decimal point"
 msgid "The year's legal minimum contributions base. Use '.' as decimal point"
@@ -809,13 +815,13 @@ msgstr ""
 "Ako bruto plaća da ovog koraka bude manja od navedene osnovice, doprinosi za "
 "mirovinsko osiguranje obračunat će se po minimalnoj osnovici"
 
-#: apps/payroll_app/models/wage_parameters.py:25
+#: apps/payroll_app/models/wage_parameters.py:24
 #, fuzzy
 #| msgid "Contributions model"
 msgid "Contributions maximum base"
 msgstr "Model doprinosa"
 
-#: apps/payroll_app/models/wage_parameters.py:26
+#: apps/payroll_app/models/wage_parameters.py:25
 #, fuzzy
 #| msgid "The year's legal minimum pension fund base. Use '.' as decimal point"
 msgid "The year's legal maximum contributions base. Use '.' as decimal point"
@@ -823,7 +829,7 @@ msgstr ""
 "Ako bruto plaća da ovog koraka bude manja od navedene osnovice, doprinosi za "
 "mirovinsko osiguranje obračunat će se po minimalnoj osnovici"
 
-#: apps/payroll_app/models/wage_parameters.py:30
+#: apps/payroll_app/models/wage_parameters.py:29
 msgid "Minimum wage"
 msgstr ""
 
@@ -871,10 +877,6 @@ msgstr "Banke"
 #: apps/third_parties_app/models/bank.py:23
 msgid "Bank name"
 msgstr "Naziv banke"
-
-#: apps/third_parties_app/models/bank.py:25
-msgid "IBAN"
-msgstr ""
 
 #: apps/third_parties_app/models/city.py:7
 msgid "City"
@@ -1199,10 +1201,8 @@ msgid ""
 msgstr ""
 
 #: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1596
-#, fuzzy
-#| msgid "Position"
 msgid "Duration"
-msgstr "Radno mjesto"
+msgstr ""
 
 #: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1646
 #, fuzzy

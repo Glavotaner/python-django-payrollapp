@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reimbursements</title>
+</head>
+<body>
+
+<form method="post">
+    {% csrf_token %}
+    <label>Reimbursement: </label>
+    {{ form.reimbursement }}
+    <label>Amount: </label>
+    {{ form.amount }}
+    <label>Valid from: </label>
+    {{ form.valid_from }}
+    <br>
+    <button type="submit">Save</button>
+</form>
+
+</body>
+</html>

@@ -5,11 +5,7 @@ from ..services.calculations.var_calculation import get_age
 
 
 class Person(models.Model):
-    class Meta:
-        abstract = True
 
-        verbose_name = _('Person')
-        verbose_name_plural = _('Persons')
 
     # DISABILITY ENUM
     disability = (
@@ -20,7 +16,7 @@ class Person(models.Model):
 
     oib = models.CharField(
         max_length=11,
-        verbose_name=_('OIB'),
+        verbose_name=_('PID'),
         help_text=_('Input valid PID'),
         unique=True
     )
@@ -44,12 +40,18 @@ class Person(models.Model):
         default='N'
     )
 
-    @property
-    def age(self):
-        return get_age(self)
+    class Meta:
+        abstract = True
+
+        verbose_name = _('Person')
+        verbose_name_plural = _('Persons')
 
     def clean(self):
         # validate_pid(self.pid)
         # validate_phone_number(self.phone_number)
 
         pass
+
+    @property
+    def age(self):
+        return get_age(self)

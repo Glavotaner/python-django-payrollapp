@@ -6,5 +6,5 @@ class ContributionsModelCalculated:
 
         hours_fund: int = self.labour_data.get_hours_fund()
 
-    @property
-    def return_calculated_contributions(self) -> dict:
+    # @property
+    # def return_calculated_contributions(self) -> dict:

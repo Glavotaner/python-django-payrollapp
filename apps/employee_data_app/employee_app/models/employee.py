@@ -1,5 +1,5 @@
-from datetime import date
 from calendar import monthrange
+from datetime import date
 from typing import List
 
 from django.db import models
@@ -15,13 +15,6 @@ from .person import Person
 
 
 class Employee(Person, Address):
-    class Meta:
-        verbose_name = _('Employee')
-        verbose_name_plural = _('Employees')
-
-        get_latest_by = 'employee_since'
-
-        db_table = 'employees'
 
     employee_id = models.AutoField(primary_key=True)
 
@@ -37,18 +30,15 @@ class Employee(Person, Address):
         default=0,
         editable=False
     )
-
     no_dependents = models.IntegerField(
         verbose_name=_('Number of Employees'),
         default=0, editable=False
     )
-
     no_dependents_disabled = models.IntegerField(
         verbose_name=_('Number of disabled Employees'),
         default=0,
         editable=False
     )
-
     no_dependents_disabled_100 = models.IntegerField(
         verbose_name=_('Number of 100% disabled Employees'),
         default=0,
@@ -62,7 +52,6 @@ class Employee(Person, Address):
         db_index=True,
         blank=True, null=True
     )
-
     first_employment_with_company = models.BooleanField(
         default=True,
         verbose_name=_('First employment with company'),
@@ -80,7 +69,6 @@ class Employee(Person, Address):
         to=Bank, verbose_name=_('Bank'),
         on_delete=models.DO_NOTHING
     )
-
     employee_protected_bank = models.ForeignKey(
         related_name='protected_bank',
         to=Bank, verbose_name=_('Protected account bank'),
@@ -101,15 +89,30 @@ class Employee(Person, Address):
 
     tax_breaks = models.ManyToManyField(TaxBreak)
 
+    class Meta:
+        verbose_name = _('Employee')
+        verbose_name_plural = _('Employees')
+
+        get_latest_by = 'employee_since'
+
+        db_table = 'employees'
+
+    def __str__(self):
+        return f"{self.oib}"
+
+    def clean(self):
+        validate_age(self.date_of_birth)
+        # validate_iban(self.iban)
+
     @staticmethod
     def get_eligible_employees(year: int, month: int) -> List['Employee']:
         start_date: date = date(year, month, 1)
         end_date: date = date(year, month, monthrange(year, month)[1])
 
-        sql: str = """SELECT e.* FROM employee_app_employee AS e
-        INNER JOIN employment_app_contract AS c
-            ON c.id = e.signed_contract_id
-        WHERE c.sign_date <= %s AND (c.expiration_date >= %s OR c.expiration_date IS NULL)"""
+        sql: str = """SELECT e.* FROM employees AS e
+        INNER JOIN contracts AS c
+            ON c.contract_id = e.signed_contract_id
+        WHERE c.start_date <= %s AND (c.end_date >= %s OR c.end_date IS NULL)"""
 
         return Employee.objects.raw(sql, [start_date, end_date])
 
@@ -120,10 +123,3 @@ class Employee(Person, Address):
     @property
     def employee_bank_name(self):
         return self.employee_bank.bank_name
-
-    def clean(self):
-        validate_age(self.date_of_birth)
-        # validate_iban(self.iban)
-
-    def __str__(self):
-        return f"{self.oib}"

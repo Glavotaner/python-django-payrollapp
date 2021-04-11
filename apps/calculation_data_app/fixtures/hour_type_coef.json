@@ -1,0 +1,31 @@
+[
+    {
+      "model": "calculation_data_app.HourTypeCoef",
+      "pk": 1,
+      "fields": {
+        "hour_type": 1,
+        "coef": 0.5,
+        "valid_from": "2020-01-01"
+      }
+    },
+    {
+      "model": "calculation_data_app.HourTypeCoef",
+      "pk": 2,
+      "fields": {
+        "hour_type": 2,
+        "coef": 0.5,
+        "valid_from": "2020-01-01"
+      }
+    },
+    {
+      "model": "calculation_data_app.HourTypeCoef",
+      "pk": 3,
+      "fields": {
+        "hour_type": 3,
+        "coef": 0.5,
+        "valid_from": "2020-01-01"
+      }
+    }
+  ]
+  
+  

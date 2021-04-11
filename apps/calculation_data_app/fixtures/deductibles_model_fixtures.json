@@ -16,8 +16,8 @@
       "eighth_child": 4.9,
       "ninth_child": 5.9,
       "multiplication_coef": 1.1,
-      "disabled_dependent": 0.4,
-      "disabled_dependent_100": 1.5,
+      "disabled_dependent_i": 0.4,
+      "disabled_dependent_i100": 1.5,
       "valid_from": "2021-01-01"
     }
   }

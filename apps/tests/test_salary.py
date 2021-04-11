@@ -2,7 +2,8 @@ from datetime import date
 
 from django.test import TestCase
 
-from apps.calculation_data_app.models import WageParameters, HourFund
+from apps.payroll_app.models import WageParameters
+from apps.calculation_data_app.models import HourFund
 from apps.employee_data_app.employee_app.models import Employee
 from apps.payroll_app.models import Labour
 from .load_fixtures import load_fixtures
@@ -22,11 +23,7 @@ class TestSalary(TestCase):
         ).save()
 
         Labour.set_labour(
-            date(2021, 3, 22), date(2021, 3, 22), date(2021, 5, 1),
-            overtime=16,
-            night=0,
-            sunday=6,
-            special=0
+            date(2021, 3, 22), date(2021, 3, 22), date(2021, 5, 1)
         )
 
         self.labour_data = Labour.objects.get(id=1)

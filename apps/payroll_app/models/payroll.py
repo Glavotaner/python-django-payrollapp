@@ -1,5 +1,3 @@
-from typing import List
-
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
@@ -9,11 +7,6 @@ from ...calculation_data_app.models import Contribution
 
 
 class Payroll(models.Model):
-    class Meta:
-        verbose_name = _('Payroll')
-        verbose_name_plural = _('Payrolls')
-
-        db_table = 'payrolls'
 
     payroll_id = models.AutoField(primary_key=True)
 
@@ -24,14 +17,12 @@ class Payroll(models.Model):
 
     work_data = models.OneToOneField(
         Labour,
-        on_delete=models.DO_NOTHING,
+        on_delete=models.PROTECT,
         db_index=True,
         verbose_name=_('Work data')
     )
 
     valid_contributions = models.ManyToManyField(Contribution, editable=False, verbose_name=_('Valid contributions'))
-
-    reimbursements = models.ManyToManyField(ReimbursementAmount, verbose_name=_('Reimbursements'))
 
     wage = models.FloatField(
         verbose_name=_('Wage'), editable=False
@@ -85,17 +76,24 @@ class Payroll(models.Model):
     net_salary = models.FloatField(
         verbose_name=_('Net salary'), editable=False)
 
+    reimbursements_total = models.FloatField(verbose_name=_('Reimbursements total'))
+
     contributions_other_total = models.FloatField(verbose_name=_('Other contributions total'))
 
     labour_cost = models.FloatField(
         verbose_name=_('Labour cost'), editable=False)
 
-    def calculate_all(self, period_labour: List['Labour']) -> List['Payroll']:
-        pass
+    class Meta:
+        verbose_name = _('Payroll')
+        verbose_name_plural = _('Payrolls')
 
-    def save(self, *args, **kwargs):
-
-        super(Payroll, self).save()
+        db_table = 'payrolls'
 
     def __str__(self):
         return f"""{self.date_of_accounting}"""
+
+    def save(self, *args, **kwargs):
+        super(Payroll, self).save()
+
+    def calculate_all(self, year: int, month: int):
+        pass

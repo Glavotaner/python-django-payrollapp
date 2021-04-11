@@ -5,13 +5,6 @@ from .city import City
 
 
 class Address(models.Model):
-    class Meta:
-        abstract = True
-
-        verbose_name = _('Address')
-        verbose_name_plural = _('Addresses')
-
-        db_table = 'addresses'
 
     street_name = models.CharField(
         verbose_name=_('Street name'), max_length=200
@@ -25,3 +18,11 @@ class Address(models.Model):
         City, verbose_name=_('City name'),
         on_delete=models.CASCADE
     )
+
+    class Meta:
+        abstract = True
+
+        verbose_name = _('Address')
+        verbose_name_plural = _('Addresses')
+
+        db_table = 'addresses'

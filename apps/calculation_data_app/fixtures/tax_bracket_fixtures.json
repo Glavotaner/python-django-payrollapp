@@ -1,0 +1,36 @@
+[
+  {
+    "model": "calculation_data_app.TaxBracket",
+    "pk": 1,
+    "fields": {
+      "tax_from": 0,
+      "tax_to": 30000,
+      "tax_rate": 20
+    }
+  },
+  {
+    "model": "calculation_data_app.TaxBracket",
+    "pk": 2,
+    "fields": {
+      "tax_from": 30000.01,
+      "tax_rate": 30
+    }
+  },
+  {
+    "model": "calculation_data_app.TaxBracket",
+    "pk": 3,
+    "fields": {
+      "tax_from": 0,
+      "tax_to": 30000,
+      "tax_rate": 24
+    }
+  },
+  {
+    "model": "calculation_data_app.TaxBracket",
+    "pk": 4,
+    "fields": {
+      "tax_from": 30000.01,
+      "tax_rate": 36
+    }
+  }
+]

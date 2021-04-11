@@ -7,12 +7,6 @@ from django.utils.translation import gettext_lazy as _
 
 
 class DeductiblesModel(models.Model):
-    class Meta:
-        verbose_name = _('Deductible')
-        verbose_name_plural = _('Deductibles')
-        get_latest_by = 'valid_from'
-
-        db_table = 'deductibles_models'
 
     deductibles_model_id = models.AutoField(primary_key=True)
 
@@ -65,12 +59,19 @@ class DeductiblesModel(models.Model):
         verbose_name=_('Valid from'), default=now
     )
 
+    class Meta:
+        verbose_name = _('Deductible')
+        verbose_name_plural = _('Deductibles')
+        get_latest_by = 'valid_from'
+
+        db_table = 'deductibles_models'
+
+    def __str__(self):
+        return f"{self.base_deductible} | {self.personal_deductible_coef} || \
+            {self.valid_from}"
+
     @staticmethod
     def get_valid_deductibles_model(target_date: date) -> List['DeductiblesModel']:
         return DeductiblesModel.objects.raw("""SELECT * FROM deductibles_models 
                                                 WHERE valid_from = (SELECT MAX(valid_from) FROM deductibles_models
                                                 WHERE valid_from <= %s)""", target_date)
-
-    def __str__(self):
-        return f"{self.base_deductible} | {self.personal_deductible_coef} || \
-            {self.valid_from}"

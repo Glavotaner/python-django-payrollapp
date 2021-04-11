@@ -5,11 +5,6 @@ from django.utils.translation import gettext_lazy as _
 
 
 class Position(models.Model):
-    class Meta:
-        verbose_name = _('Position')
-        verbose_name_plural = _('Positions')
-
-        db_table = 'positions'
 
     position_id = models.AutoField(primary_key=True)
 
@@ -20,9 +15,15 @@ class Position(models.Model):
 
     retired = models.BooleanField()
 
-    @staticmethod
-    def get_valid_positions() -> List['Position']:
-        return Position.objects.filter(retired=False)
+    class Meta:
+        verbose_name = _('Position')
+        verbose_name_plural = _('Positions')
+
+        db_table = 'positions'
 
     def __str__(self):
         return f'{self.position_name} - {self.salary}kn'
+
+    @staticmethod
+    def get_valid_positions() -> List['Position']:
+        return Position.objects.filter(retired=False)

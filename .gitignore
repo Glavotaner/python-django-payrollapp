@@ -23,3 +23,6 @@ media
 
 ### Data ###
 /data
+
+### Secrets ###
+python_django_payrollapp/settings.py
