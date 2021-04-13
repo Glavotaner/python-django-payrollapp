@@ -9,9 +9,9 @@ class Person(models.Model):
 
     # DISABILITY ENUM
     disability = (
-        (_('I'), _('I')),
-        (_('I*'), _('I*')),
-        (_('N'), _('None'))
+        ('I', _('I')),
+        ('I*', _('I*')),
+        ('N', _('None'))
     )
 
     oib = models.CharField(

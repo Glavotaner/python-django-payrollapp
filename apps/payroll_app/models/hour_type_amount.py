@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from apps.calculation_data_app.models.hour_type import HourType
+from apps.calculation_data_app.models import HourType, HourTypeCoef
 
 
 class HourTypeAmount(models.Model):
@@ -21,3 +21,11 @@ class HourTypeAmount(models.Model):
 
     def __str__(self):
         return f'{self.hour_type.hour_type_name} - {self.amount}'
+
+    @staticmethod
+    def get_payroll_hour_amounts(target_labour):
+        return HourTypeAmount.objects.filter(labour=target_labour)
+
+    @property
+    def hour_type_name(self):
+        return self.hour_type.hour_type_name

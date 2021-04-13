@@ -21,3 +21,18 @@ class ContributionAmount(models.Model):
 
     def __str__(self):
         return f'{self.contribution.contribution_name} - {self.amount}'
+
+    @staticmethod
+    def get_payroll_contribution_amounts(target_payroll):
+        return ContributionAmount.objects.filter(payroll=target_payroll)
+
+    @property
+    def contribution_name(self):
+        return self.contribution.contribution_name
+
+    @property
+    def contribution_rate(self):
+        if self.contribution.out_of_pay:
+            return round(self.amount / self.payroll.contributions_base * 100, 2)
+        else:
+            return round(self.amount / self.payroll.gross_salary * 100, 2)

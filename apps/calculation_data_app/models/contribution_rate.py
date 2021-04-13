@@ -4,13 +4,13 @@ from typing import List
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from apps.calculation_data_app.models import Contribution
+# from apps.calculation_data_app.models import Contribution
 
 
 class ContributionRate(models.Model):
 
     contribution_rate_id = models.AutoField(primary_key=True)
-    contribution = models.ForeignKey(Contribution, on_delete=models.CASCADE, verbose_name=_('Contribution'))
+    contribution = models.ForeignKey('Contribution', on_delete=models.CASCADE, verbose_name=_('Contribution'))
     rate = models.FloatField(default=0, verbose_name=_('Rate'))
     valid_from = models.DateField(verbose_name=_('Valid from'))
 

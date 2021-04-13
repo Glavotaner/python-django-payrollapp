@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from .models import TaxBracket, HourFund, ContributionsModel, DeductiblesModel, TaxBreak, ContributionRate, \
-    Contribution, HourType, HourTypeCoef, Reimbursement, ReimbursementValue
+    Contribution, HourType, HourTypeCoef, Reimbursement, ReimbursementValue, TaxModel
 
 
 class ContributionAdmin(admin.ModelAdmin):
@@ -42,6 +42,10 @@ class TaxBracketAdmin(admin.ModelAdmin):
     list_display = ('tax_from', 'tax_to', 'tax_rate')
 
 
+class TaxModelAdmin(admin.ModelAdmin):
+    list_display = (['valid_from'])
+
+
 class TaxBreakAdmin(admin.ModelAdmin):
     list_display = ('tax_break_name', 'rate')
 
@@ -67,6 +71,7 @@ admin.site.register(HourTypeCoef, HourTypeCoefAdmin)
 
 admin.site.register(TaxBracket, TaxBracketAdmin)
 admin.site.register(TaxBreak, TaxBreakAdmin)
+admin.site.register(TaxModel, TaxModelAdmin)
 
 admin.site.register(Reimbursement, ReimbursementAdmin)
 admin.site.register(ReimbursementValue, ReimbursementValueAdmin)

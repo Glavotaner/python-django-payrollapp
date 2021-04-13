@@ -7,6 +7,6 @@ from .hour_type import HourType
 from .hour_type_coef import HourTypeCoef
 from .reimbursement import Reimbursement
 from .reimbursement_value import ReimbursementValue
-from .tax_bracket import TaxBracket
 from .tax_break import TaxBreak
+from .tax_bracket import TaxBracket
 from .tax_model import TaxModel

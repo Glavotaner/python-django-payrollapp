@@ -9,7 +9,6 @@ class TaxBreak(models.Model):
     rate = models.FloatField(verbose_name=_('Rate'), default=0.5)
     retired = models.BooleanField(verbose_name=_('Retired'))
 
-
     class Meta:
         verbose_name = 'Tax break'
         verbose_name_plural = 'Tax breaks'

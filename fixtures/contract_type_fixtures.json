@@ -3,7 +3,7 @@
     "model": "employment_app.ContractType",
     "pk": 1,
     "fields": {
-      "contract_type": "DEFINITE",
+      "contract_type_name": "DEFINITE",
       "retired": "False"
     }
   },
@@ -11,7 +11,7 @@
     "model": "employment_app.ContractType",
     "pk": 2,
     "fields": {
-      "contract_type": "INDEFINITE",
+      "contract_type_name": "INDEFINITE",
       "retired": "False"
     }
   }

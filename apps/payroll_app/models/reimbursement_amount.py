@@ -21,3 +21,11 @@ class ReimbursementAmount(models.Model):
 
     def __str__(self):
         return f'{self.reimbursement.reimbursement_name} - {self.amount}'
+
+    @staticmethod
+    def get_payroll_reimbursement_amounts(target_payroll):
+        return ReimbursementAmount.objects.filter(payroll=target_payroll)
+
+    @property
+    def reimbursement_name(self):
+        return self.reimbursement.reimbursement_name

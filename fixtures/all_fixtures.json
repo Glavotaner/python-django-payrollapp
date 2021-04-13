@@ -1,0 +1,6850 @@
+[
+  {
+    "model": "calculation_data_app.Contribution",
+    "pk": 1,
+    "fields": {
+      "contribution_name": "MIO 1",
+      "out_of_pay": "True",
+      "retired": "False"
+    }
+  },
+  {
+    "model": "calculation_data_app.Contribution",
+    "pk": 2,
+    "fields": {
+      "contribution_name": "MIO 2",
+      "out_of_pay": "True",
+      "retired": "False"
+    }
+  },
+  {
+    "model": "calculation_data_app.Contribution",
+    "pk": 3,
+    "fields": {
+      "contribution_name": "Obvezno zdravstveno osiguranje",
+      "out_of_pay": "False",
+      "retired": "False"
+    }
+  },
+  {
+    "model": "calculation_data_app.Contribution",
+    "pk": 4,
+    "fields": {
+      "contribution_name": "Doprinos za zapošljavanje",
+      "out_of_pay": "True",
+      "retired": "True"
+    }
+  },
+  {
+    "model": "calculation_data_app.ContributionRate",
+    "pk": 1,
+    "fields": {
+      "contribution": 1,
+      "rate": 15,
+      "valid_from": "2018-01-01"
+    }
+  },
+  {
+    "model": "calculation_data_app.ContributionRate",
+    "pk": 2,
+    "fields": {
+      "contribution": 1,
+      "rate": 20,
+      "valid_from": "2018-01-01"
+    }
+  },
+  {
+    "model": "calculation_data_app.ContributionRate",
+    "pk": 3,
+    "fields": {
+      "contribution": 2,
+      "rate": 5,
+      "valid_from": "2018-01-01"
+    }
+  },
+  {
+    "model": "calculation_data_app.ContributionRate",
+    "pk": 4,
+    "fields": {
+      "contribution": 3,
+      "rate": 16.5,
+      "valid_from": "2018-01-01"
+    }
+  },
+  {
+    "model": "calculation_data_app.ContributionRate",
+    "pk": 5,
+    "fields": {
+      "contribution": 4,
+      "rate": 0.5,
+      "valid_from": "2018-01-01"
+    }
+  },
+  {
+    "model": "calculation_data_app.ContributionsModel",
+    "pk": 1,
+    "fields": {
+      "model_mark": "REG",
+      "contributions": [
+        1,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "model": "calculation_data_app.ContributionsModel",
+    "pk": 2,
+    "fields": {
+      "model_mark": "NOIND",
+      "contributions": [
+        2,
+        4
+      ]
+    }
+  },
+  {
+    "model": "calculation_data_app.ContributionsModel",
+    "pk": 3,
+    "fields": {
+      "model_mark": "Y30",
+      "contributions": [
+        1,
+        3
+      ]
+    }
+  },
+  {
+    "model": "calculation_data_app.DeductiblesModel",
+    "pk": 1,
+    "fields": {
+      "base_deductible": 2500,
+      "personal_deductible_coef": 1.6,
+      "dependent": 0.7,
+      "first_child": 0.7,
+      "second_child": 1,
+      "third_child": 1.4,
+      "fourth_child": 1.9,
+      "fifth_child": 2.5,
+      "sixth_child": 3.2,
+      "seventh_child": 4.0,
+      "eighth_child": 4.9,
+      "ninth_child": 5.9,
+      "multiplication_coef": 1.1,
+      "disabled_dependent_i": 0.4,
+      "disabled_dependent_i100": 1.5,
+      "valid_from": "2021-01-01"
+    }
+  },
+  {
+    "model": "calculation_data_app.HourFund",
+    "pk": 1,
+    "fields": {
+      "year": 2021,
+      "month": 1,
+      "total_hours": 168
+    }
+  },
+  {
+    "model": "calculation_data_app.HourFund",
+    "pk": 2,
+    "fields": {
+      "year": 2021,
+      "month": 2,
+      "total_hours": 160
+    }
+  },
+  {
+    "model": "calculation_data_app.HourFund",
+    "pk": 3,
+    "fields": {
+      "year": 2021,
+      "month": 3,
+      "total_hours": 176
+    }
+  },
+  {
+    "model": "calculation_data_app.HourFund",
+    "pk": 4,
+    "fields": {
+      "year": 2021,
+      "month": 4,
+      "total_hours": 168
+    }
+  },
+  {
+    "model": "calculation_data_app.HourFund",
+    "pk": 5,
+    "fields": {
+      "year": 2021,
+      "month": 5,
+      "total_hours": 160
+    }
+  },
+  {
+    "model": "calculation_data_app.HourFund",
+    "pk": 6,
+    "fields": {
+      "year": 2021,
+      "month": 6,
+      "total_hours": 160
+    }
+  },
+  {
+    "model": "calculation_data_app.HourFund",
+    "pk": 7,
+    "fields": {
+      "year": 2021,
+      "month": 7,
+      "total_hours": 184
+    }
+  },
+  {
+    "model": "calculation_data_app.HourFund",
+    "pk": 8,
+    "fields": {
+      "year": 2021,
+      "month": 8,
+      "total_hours": 160
+    }
+  },
+  {
+    "model": "calculation_data_app.HourFund",
+    "pk": 9,
+    "fields": {
+      "year": 2021,
+      "month": 9,
+      "total_hours": 176
+    }
+  },
+  {
+    "model": "calculation_data_app.HourFund",
+    "pk": 10,
+    "fields": {
+      "year": 2021,
+      "month": 10,
+      "total_hours": 176
+    }
+  },
+  {
+    "model": "calculation_data_app.HourFund",
+    "pk": 11,
+    "fields": {
+      "year": 2021,
+      "month": 11,
+      "total_hours": 160
+    }
+  },
+  {
+    "model": "calculation_data_app.HourFund",
+    "pk": 12,
+    "fields": {
+      "year": 2021,
+      "month": 12,
+      "total_hours": 176
+    }
+  },
+  {
+    "model": "calculation_data_app.HourType",
+    "pk": 1,
+    "fields": {
+      "hour_type_name": "Noć sati",
+      "retired": "False"
+    }
+  },
+  {
+    "model": "calculation_data_app.HourType",
+    "pk": 2,
+    "fields": {
+      "hour_type_name": "Nedjelja sati",
+      "retired": "False"
+    }
+  },
+  {
+    "model": "calculation_data_app.HourType",
+    "pk": 3,
+    "fields": {
+      "hour_type_name": "Prekovremeni sati",
+      "retired": "False"
+    }
+  },
+  {
+    "model": "calculation_data_app.HourTypeCoef",
+    "pk": 1,
+    "fields": {
+      "hour_type": 1,
+      "coef": 0.5,
+      "valid_from": "2020-01-01"
+    }
+  },
+  {
+    "model": "calculation_data_app.HourTypeCoef",
+    "pk": 2,
+    "fields": {
+      "hour_type": 2,
+      "coef": 0.5,
+      "valid_from": "2020-01-01"
+    }
+  },
+  {
+    "model": "calculation_data_app.HourTypeCoef",
+    "pk": 3,
+    "fields": {
+      "hour_type": 3,
+      "coef": 0.5,
+      "valid_from": "2020-01-01"
+    }
+  },
+  {
+    "model": "calculation_data_app.Reimbursement",
+    "pk": 1,
+    "fields": {
+      "reimbursement_name": "Troškovi prijevoza",
+      "retired": "False"
+    }
+  },
+  {
+    "model": "calculation_data_app.Reimbursement",
+    "pk": 2,
+    "fields": {
+      "reimbursement_name": "Topli obrok",
+      "retired": "False"
+    }
+  },
+  {
+    "model": "calculation_data_app.Reimbursement",
+    "pk": 3,
+    "fields": {
+      "reimbursement_name": "Božićnica",
+      "retired": "False"
+    }
+  },
+  {
+    "model": "calculation_data_app.ReimbursementValue",
+    "pk": 1,
+    "fields": {
+      "reimbursement": 1,
+      "amount": 500,
+      "valid_from": "2020-01-01"
+    }
+  },
+  {
+    "model": "calculation_data_app.ReimbursementValue",
+    "pk": 2,
+    "fields": {
+      "reimbursement": 2,
+      "amount": 500,
+      "valid_from": "2020-01-01"
+    }
+  },
+  {
+    "model": "calculation_data_app.ReimbursementValue",
+    "pk": 3,
+    "fields": {
+      "reimbursement": 3,
+      "amount": 500,
+      "valid_from": "2020-01-01"
+    }
+  },
+  {
+    "model": "calculation_data_app.TaxBracket",
+    "pk": 1,
+    "fields": {
+      "tax_from": 0,
+      "tax_to": 30000,
+      "tax_rate": 20
+    }
+  },
+  {
+    "model": "calculation_data_app.TaxBracket",
+    "pk": 2,
+    "fields": {
+      "tax_from": 30000.01,
+      "tax_rate": 30
+    }
+  },
+  {
+    "model": "calculation_data_app.TaxBracket",
+    "pk": 3,
+    "fields": {
+      "tax_from": 0,
+      "tax_to": 30000,
+      "tax_rate": 24
+    }
+  },
+  {
+    "model": "calculation_data_app.TaxBracket",
+    "pk": 4,
+    "fields": {
+      "tax_from": 30000.01,
+      "tax_rate": 36
+    }
+  },
+  {
+    "model": "calculation_data_app.TaxModel",
+    "pk": 1,
+    "fields": {
+      "tax_brackets": [
+        1,
+        2
+      ],
+      "valid_from": "2021-01-01"
+    }
+  },
+  {
+    "model": "calculation_data_app.TaxModel",
+    "pk": 2,
+    "fields": {
+      "tax_brackets": [
+        3,
+        4
+      ],
+      "valid_from": "2018-01-01"
+    }
+  },
+  {
+    "model": "calculation_data_app.TaxBreak",
+    "pk": 1,
+    "fields": {
+      "tax_break_name": "PORJLS",
+      "rate": 100,
+      "retired": "False"
+    }
+  },
+  {
+    "model": "employment_app.ContractType",
+    "pk": 1,
+    "fields": {
+      "contract_type_name": "Neodređeno",
+      "retired": "False"
+    }
+  },
+  {
+    "model": "employment_app.ContractType",
+    "pk": 2,
+    "fields": {
+      "contract_type_name": "Određeno",
+      "retired": "False"
+    }
+  },
+  {
+    "model": "employment_app.Position",
+    "pk": 1,
+    "fields": {
+      "position_name": "Konzultant",
+      "salary": 5600,
+      "retired": "False"
+    }
+  },
+  {
+    "model": "employment_app.Position",
+    "pk": 2,
+    "fields": {
+      "position_name": "Developer",
+      "salary": 7000,
+      "retired": "False"
+    }
+  },
+  {
+    "model": "employment_app.Position",
+    "pk": 3,
+    "fields": {
+      "position_name": "Projekt menadžer",
+      "salary": 8000,
+      "retired": "False"
+    }
+  },
+  {
+    "model": "payroll_app.WageParameters",
+    "pk": 1,
+    "fields": {
+      "min_base": 3321.96,
+      "max_base": 55086,
+      "min_wage": 4250,
+      "valid_from": "2021-01-01"
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 1,
+    "fields": {
+      "city_name": "ANDRIJA\u0160EVCI",
+      "joppd": "00019",
+      "iban": "HR1910010051700112008",
+      "tax_rate": 8.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 2,
+    "fields": {
+      "city_name": "ANTUNOVAC",
+      "joppd": "00027",
+      "postal_code": "31216",
+      "iban": "HR8410010051700212009",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 3,
+    "fields": {
+      "city_name": "BABINA GREDA",
+      "joppd": "00035",
+      "postal_code": "32276",
+      "iban": "HR3110010051700312000",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 4,
+    "fields": {
+      "city_name": "BAKAR",
+      "joppd": "00043",
+      "postal_code": "51222",
+      "iban": "HR4210010051700412003",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 5,
+    "fields": {
+      "city_name": "BALE-VALLE",
+      "joppd": "00051",
+      "postal_code": "52211",
+      "iban": "HR6410010051700512002",
+      "tax_rate": 1.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 6,
+    "fields": {
+      "city_name": "BARBAN",
+      "joppd": "00060",
+      "postal_code": "52207",
+      "iban": "HR4810010051700612006",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 7,
+    "fields": {
+      "city_name": "BARILOVI\u0106",
+      "joppd": "00078",
+      "postal_code": "47252",
+      "iban": "HR9710010051700712004",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 8,
+    "fields": {
+      "city_name": "BA\u0160KA",
+      "joppd": "00086",
+      "postal_code": "51523",
+      "iban": "HR6510010051700812005",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 9,
+    "fields": {
+      "city_name": "BA\u0160KA VODA",
+      "joppd": "00094",
+      "postal_code": "21320",
+      "iban": "HR7110010051700912001",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 10,
+    "fields": {
+      "city_name": "BEBRINA",
+      "joppd": "00108",
+      "postal_code": "35254",
+      "iban": "HR4410010051701012009",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 11,
+    "fields": {
+      "city_name": "BEDEKOV\u010cINA",
+      "joppd": "00116",
+      "postal_code": "49221",
+      "iban": "HR8810010051701112000",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 12,
+    "fields": {
+      "city_name": "BEDENICA",
+      "joppd": "05509",
+      "postal_code": "10381",
+      "iban": "HR8710010051755012008",
+      "tax_rate": 3.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 13,
+    "fields": {
+      "city_name": "BEDNJA",
+      "joppd": "00124",
+      "postal_code": "42253",
+      "iban": "HR0210010051701212003",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 14,
+    "fields": {
+      "city_name": "BELI MANASTIR",
+      "joppd": "00132",
+      "postal_code": "31300",
+      "iban": "HR2410010051701312002",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 15,
+    "fields": {
+      "city_name": "BELICA",
+      "joppd": "00159",
+      "postal_code": "40319",
+      "iban": "HR5710010051701512004",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 16,
+    "fields": {
+      "city_name": "BELI\u0160\u0106E",
+      "joppd": "00167",
+      "postal_code": "31551",
+      "iban": "HR2510010051701612005",
+      "tax_rate": 7.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 17,
+    "fields": {
+      "city_name": "BENKOVAC",
+      "joppd": "00175",
+      "postal_code": "23420",
+      "iban": "HR3110010051701712001",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 18,
+    "fields": {
+      "city_name": "BEREK",
+      "joppd": "00183",
+      "postal_code": "43232",
+      "iban": "HR5810010051701812007",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 19,
+    "fields": {
+      "city_name": "BERETINEC",
+      "joppd": "00191",
+      "postal_code": "42201",
+      "iban": "HR2610010051701912008",
+      "tax_rate": 7.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 20,
+    "fields": {
+      "city_name": "BIBINJE",
+      "joppd": "00205",
+      "postal_code": "23205",
+      "iban": "HR5910010051702012003",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 21,
+    "fields": {
+      "city_name": "BILICE",
+      "joppd": "06211",
+      "iban": "HR5010010051762112007",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 22,
+    "fields": {
+      "city_name": "BILJE",
+      "joppd": "00213",
+      "postal_code": "31327",
+      "iban": "HR8110010051702112002",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 23,
+    "fields": {
+      "city_name": "BIOGRAD NA MORU",
+      "joppd": "00221",
+      "postal_code": "23210",
+      "iban": "HR6510010051702212006",
+      "tax_rate": 12.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 24,
+    "fields": {
+      "city_name": "BISKUPIJA",
+      "joppd": "03107",
+      "iban": "HR4810010051731012000",
+      "tax_rate": 4.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 25,
+    "fields": {
+      "city_name": "BISTRA",
+      "joppd": "05479",
+      "postal_code": "10298",
+      "iban": "HR5910010051754712006",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 26,
+    "fields": {
+      "city_name": "BIZOVAC",
+      "joppd": "00230",
+      "postal_code": "31222",
+      "iban": "HR1710010051702312004",
+      "tax_rate": 3.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 27,
+    "fields": {
+      "city_name": "BJELOVAR",
+      "joppd": "00248",
+      "postal_code": "43000",
+      "iban": "HR8210010051702412005",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 28,
+    "fields": {
+      "city_name": "BLATO",
+      "joppd": "00256",
+      "postal_code": "20271",
+      "iban": "HR8810010051702512001",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 29,
+    "fields": {
+      "city_name": "BOGDANOVCI",
+      "joppd": "00264",
+      "iban": "HR1810010051702612007",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 30,
+    "fields": {
+      "city_name": "BOL",
+      "joppd": "00272",
+      "postal_code": "21420",
+      "iban": "HR8310010051702712008",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 31,
+    "fields": {
+      "city_name": "BOROVO",
+      "joppd": "00299",
+      "postal_code": "32227",
+      "iban": "HR9510010051702912000",
+      "tax_rate": 6.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 32,
+    "fields": {
+      "city_name": "BOSILJEVO",
+      "joppd": "00302",
+      "postal_code": "47251",
+      "iban": "HR3610010051703012002",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 33,
+    "fields": {
+      "city_name": "BO\u0160NJACI",
+      "joppd": "00329",
+      "postal_code": "32275",
+      "iban": "HR6910010051703212004",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 34,
+    "fields": {
+      "city_name": "BRCKOVLJANI",
+      "joppd": "00337",
+      "iban": "HR3710010051703312005",
+      "tax_rate": 3.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 35,
+    "fields": {
+      "city_name": "BRDOVEC",
+      "joppd": "00345",
+      "iban": "HR4310010051703412001",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 36,
+    "fields": {
+      "city_name": "BRELA",
+      "joppd": "00779",
+      "postal_code": "21322",
+      "iban": "HR5410010051707712007",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 37,
+    "fields": {
+      "city_name": "BRESTOVAC",
+      "joppd": "00353",
+      "postal_code": "34322",
+      "iban": "HR7010010051703512007",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 38,
+    "fields": {
+      "city_name": "BREZNICA",
+      "joppd": "00361",
+      "iban": "HR3810010051703612008",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 39,
+    "fields": {
+      "city_name": "BREZNI\u010cKI HUM",
+      "joppd": "01511",
+      "postal_code": "42225",
+      "iban": "HR8310010051715112003",
+      "tax_rate": 3.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 40,
+    "fields": {
+      "city_name": "BRINJE",
+      "joppd": "00370",
+      "postal_code": "53260",
+      "iban": "HR0610010051703712009",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 41,
+    "fields": {
+      "city_name": "BROD MORAVICE",
+      "joppd": "00388",
+      "postal_code": "51312",
+      "iban": "HR5010010051703812000",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 42,
+    "fields": {
+      "city_name": "BRODSKI STUPNIK",
+      "joppd": "00396",
+      "postal_code": "35253",
+      "iban": "HR6110010051703912003",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 43,
+    "fields": {
+      "city_name": "BRTONIGLA-VERTENEGLIO",
+      "joppd": "00400",
+      "postal_code": "52474",
+      "iban": "HR2910010051704012004",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 44,
+    "fields": {
+      "city_name": "BUDIN\u0160\u010cINA",
+      "joppd": "00418",
+      "iban": "HR9410010051704112005",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 45,
+    "fields": {
+      "city_name": "BUJE-BUIE",
+      "joppd": "00426",
+      "postal_code": "52460",
+      "iban": "HR0310010051704212001",
+      "tax_rate": 6.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 46,
+    "fields": {
+      "city_name": "BUKOVLJE",
+      "joppd": "05673",
+      "postal_code": "35209",
+      "iban": "HR2910010051756712007",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 47,
+    "fields": {
+      "city_name": "BUZET",
+      "joppd": "00434",
+      "postal_code": "52420",
+      "iban": "HR3010010051704312007",
+      "tax_rate": 6.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 48,
+    "fields": {
+      "city_name": "CERNA",
+      "joppd": "00442",
+      "postal_code": "32272",
+      "iban": "HR9510010051704412008",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 49,
+    "fields": {
+      "city_name": "CERNIK",
+      "joppd": "00469",
+      "postal_code": "35404",
+      "iban": "HR1010010051704612000",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 50,
+    "fields": {
+      "city_name": "CEROVLJE",
+      "joppd": "00477",
+      "postal_code": "52402",
+      "iban": "HR2110010051704712003",
+      "tax_rate": 2.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 51,
+    "fields": {
+      "city_name": "CESTICA",
+      "joppd": "00485",
+      "postal_code": "42208",
+      "iban": "HR4310010051704812002",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 52,
+    "fields": {
+      "city_name": "CETINGRAD",
+      "joppd": "00493",
+      "postal_code": "47222",
+      "iban": "HR2710010051704912006",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 53,
+    "fields": {
+      "city_name": "CISTA PROVO",
+      "joppd": "00507",
+      "postal_code": "21256",
+      "iban": "HR6010010051705012001",
+      "tax_rate": 3.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 54,
+    "fields": {
+      "city_name": "CIVLJANE",
+      "joppd": "00515",
+      "iban": "HR8710010051705112007",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 55,
+    "fields": {
+      "city_name": "CRES",
+      "joppd": "00523",
+      "postal_code": "51557",
+      "iban": "HR5510010051705212008",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 56,
+    "fields": {
+      "city_name": "CRIKVENICA",
+      "joppd": "00531",
+      "postal_code": "51260",
+      "iban": "HR2310010051705312009",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 57,
+    "fields": {
+      "city_name": "CRNAC",
+      "joppd": "00540",
+      "postal_code": "33507",
+      "iban": "HR6710010051705412000",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 58,
+    "fields": {
+      "city_name": "\u010cABAR",
+      "joppd": "00558",
+      "postal_code": "51306",
+      "iban": "HR7810010051705512003",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 59,
+    "fields": {
+      "city_name": "\u010cA\u010cINCI",
+      "joppd": "00566",
+      "postal_code": "33514",
+      "iban": "HR0310010051705612002",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 60,
+    "fields": {
+      "city_name": "\u010cA\u0110AVICA",
+      "joppd": "00574",
+      "postal_code": "33523",
+      "iban": "HR8410010051705712006",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 61,
+    "fields": {
+      "city_name": "\u010cAGLIN",
+      "joppd": "00582",
+      "postal_code": "34350",
+      "iban": "HR3610010051705812004",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 62,
+    "fields": {
+      "city_name": "\u010cAKOVEC",
+      "joppd": "00604",
+      "postal_code": "40000",
+      "iban": "HR1510010051706012008",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 63,
+    "fields": {
+      "city_name": "\u010cAVLE",
+      "joppd": "00612",
+      "postal_code": "51219",
+      "iban": "HR8010010051706112009",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 64,
+    "fields": {
+      "city_name": "\u010cAZMA",
+      "joppd": "00639",
+      "postal_code": "43240",
+      "iban": "HR3810010051706312003",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 65,
+    "fields": {
+      "city_name": "\u010cEMINAC",
+      "joppd": "00647",
+      "postal_code": "31325",
+      "iban": "HR6010010051706412002",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 66,
+    "fields": {
+      "city_name": "\u010cEPIN",
+      "joppd": "00655",
+      "postal_code": "31431",
+      "iban": "HR4410010051706512006",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 67,
+    "fields": {
+      "city_name": "DARDA",
+      "joppd": "00663",
+      "postal_code": "31326",
+      "iban": "HR9310010051706612004",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 68,
+    "fields": {
+      "city_name": "DARUVAR",
+      "joppd": "00671",
+      "postal_code": "43500",
+      "iban": "HR6110010051706712005",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 69,
+    "fields": {
+      "city_name": "DAVOR",
+      "joppd": "00680",
+      "postal_code": "35425",
+      "iban": "HR6710010051706812001",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 70,
+    "fields": {
+      "city_name": "DEKANOVEC",
+      "joppd": "06033",
+      "postal_code": "40318",
+      "iban": "HR9710010051760312005",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 71,
+    "fields": {
+      "city_name": "DELNICE",
+      "joppd": "00698",
+      "postal_code": "51300",
+      "iban": "HR9410010051706912007",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 72,
+    "fields": {
+      "city_name": "DESINI\u0106",
+      "joppd": "00701",
+      "postal_code": "49216",
+      "iban": "HR8410010051707012000",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 73,
+    "fields": {
+      "city_name": "DE\u017dANOVAC",
+      "joppd": "00710",
+      "postal_code": "43506",
+      "iban": "HR9510010051707112003",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 74,
+    "fields": {
+      "city_name": "DICMO",
+      "joppd": "00728",
+      "postal_code": "21232",
+      "iban": "HR2010010051707212002",
+      "tax_rate": 8.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 75,
+    "fields": {
+      "city_name": "DOBRINJ",
+      "joppd": "00744",
+      "postal_code": "51514",
+      "iban": "HR5310010051707412004",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 76,
+    "fields": {
+      "city_name": "DOMA\u0160INEC",
+      "joppd": "00752",
+      "iban": "HR2110010051707512005",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 77,
+    "fields": {
+      "city_name": "DONJA DUBRAVA",
+      "joppd": "00787",
+      "postal_code": "40328",
+      "iban": "HR2210010051707812008",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 78,
+    "fields": {
+      "city_name": "DONJA MOTI\u010cINA",
+      "joppd": "05762",
+      "postal_code": "31513",
+      "iban": "HR2710010051757612009",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 79,
+    "fields": {
+      "city_name": "DONJA STUBICA",
+      "joppd": "00795",
+      "postal_code": "49240",
+      "iban": "HR8710010051707912009",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 80,
+    "fields": {
+      "city_name": "DONJA VO\u0106A",
+      "joppd": "00809",
+      "postal_code": "42245",
+      "iban": "HR6610010051708012006",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 81,
+    "fields": {
+      "city_name": "DONJI ANDRIJEVCI",
+      "joppd": "00817",
+      "postal_code": "35214",
+      "iban": "HR1810010051708112004",
+      "tax_rate": 8.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 82,
+    "fields": {
+      "city_name": "DONJI KRALJEVEC",
+      "joppd": "00825",
+      "postal_code": "40320",
+      "iban": "HR8310010051708212005",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 83,
+    "fields": {
+      "city_name": "DONJI KUKURUZARI",
+      "joppd": "00833",
+      "iban": "HR8910010051708312001",
+      "tax_rate": 6.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 84,
+    "fields": {
+      "city_name": "DONJI LAPAC",
+      "joppd": "00841",
+      "postal_code": "53250",
+      "iban": "HR1910010051708412007",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 85,
+    "fields": {
+      "city_name": "DONJI MIHOLJAC",
+      "joppd": "00868",
+      "postal_code": "31540",
+      "iban": "HR5210010051708612009",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 86,
+    "fields": {
+      "city_name": "DONJI VIDOVEC",
+      "joppd": "00892",
+      "postal_code": "40327",
+      "iban": "HR3210010051708912002",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 87,
+    "fields": {
+      "city_name": "DRAGALI\u0106",
+      "joppd": "05681",
+      "postal_code": "35428",
+      "iban": "HR9410010051756812008",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 88,
+    "fields": {
+      "city_name": "DRAGANI\u0106",
+      "joppd": "00906",
+      "postal_code": "47201",
+      "iban": "HR4310010051709012005",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 89,
+    "fields": {
+      "city_name": "DRA\u017d",
+      "joppd": "00914",
+      "postal_code": "31305",
+      "iban": "HR4910010051709112001",
+      "tax_rate": 2.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 90,
+    "fields": {
+      "city_name": "DRENOVCI",
+      "joppd": "00922",
+      "postal_code": "32257",
+      "iban": "HR7610010051709212007",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 91,
+    "fields": {
+      "city_name": "DRENJE",
+      "joppd": "00949",
+      "postal_code": "31418",
+      "iban": "HR1210010051709412009",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 92,
+    "fields": {
+      "city_name": "DRNI\u0160",
+      "joppd": "00957",
+      "postal_code": "22320",
+      "iban": "HR5610010051709512000",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 93,
+    "fields": {
+      "city_name": "DRNJE",
+      "joppd": "00965",
+      "postal_code": "48322",
+      "iban": "HR6710010051709612003",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 94,
+    "fields": {
+      "city_name": "DUBRAVA",
+      "joppd": "00973",
+      "postal_code": "10342",
+      "iban": "HR8910010051709712002",
+      "tax_rate": 6.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 95,
+    "fields": {
+      "city_name": "DUBRAVICA",
+      "joppd": "05495",
+      "postal_code": "10293",
+      "iban": "HR7610010051754912005",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 96,
+    "fields": {
+      "city_name": "DUBROVA\u010cKO PRIMORJE",
+      "joppd": "05983",
+      "iban": "HR2510010051759812005",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 97,
+    "fields": {
+      "city_name": "DUBROVNIK",
+      "joppd": "00981",
+      "postal_code": "20000",
+      "iban": "HR7310010051709812006",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 98,
+    "fields": {
+      "city_name": "DUGA RESA",
+      "joppd": "00990",
+      "postal_code": "47250",
+      "iban": "HR2510010051709912004",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 99,
+    "fields": {
+      "city_name": "DUGI RAT",
+      "joppd": "01007",
+      "postal_code": "21315",
+      "iban": "HR4710010051710012003",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 100,
+    "fields": {
+      "city_name": "DUGO SELO",
+      "joppd": "01015",
+      "postal_code": "10370",
+      "iban": "HR6910010051710112002",
+      "tax_rate": 9.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 101,
+    "fields": {
+      "city_name": "DUGOPOLJE",
+      "joppd": "05851",
+      "postal_code": "21204",
+      "iban": "HR3110010051758512000",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 102,
+    "fields": {
+      "city_name": "DVOR",
+      "joppd": "01023",
+      "postal_code": "44440",
+      "iban": "HR5310010051710212006",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 103,
+    "fields": {
+      "city_name": "\u0110AKOVO",
+      "joppd": "01031",
+      "postal_code": "31400",
+      "iban": "HR0510010051710312004",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 104,
+    "fields": {
+      "city_name": "\u0110ELEKOVEC",
+      "joppd": "01040",
+      "postal_code": "48316",
+      "iban": "HR7010010051710412005",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 105,
+    "fields": {
+      "city_name": "\u0110ULOVAC",
+      "joppd": "01058",
+      "postal_code": "43532",
+      "iban": "HR7610010051710512001",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 106,
+    "fields": {
+      "city_name": "\u0110UR\u0110ENOVAC",
+      "joppd": "01066",
+      "postal_code": "31511",
+      "iban": "HR0610010051710612007",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 107,
+    "fields": {
+      "city_name": "\u0110UR\u0110EVAC",
+      "joppd": "01074",
+      "postal_code": "48350",
+      "iban": "HR7110010051710712008",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 108,
+    "fields": {
+      "city_name": "\u0110URMANEC",
+      "joppd": "01082",
+      "postal_code": "49225",
+      "iban": "HR3910010051710812009",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 109,
+    "fields": {
+      "city_name": "ERDUT",
+      "joppd": "01104",
+      "postal_code": "31206",
+      "iban": "HR2410010051711012002",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 110,
+    "fields": {
+      "city_name": "ERNESTINOVO",
+      "joppd": "01112",
+      "postal_code": "31215",
+      "iban": "HR0810010051711112006",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 111,
+    "fields": {
+      "city_name": "ERVENIK",
+      "joppd": "01139",
+      "iban": "HR2510010051711312005",
+      "tax_rate": 3.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 112,
+    "fields": {
+      "city_name": "FARKA\u0160EVAC",
+      "joppd": "01147",
+      "postal_code": "10344",
+      "iban": "HR3110010051711412001",
+      "tax_rate": 3.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 113,
+    "fields": {
+      "city_name": "FA\u017dANA-FASANA",
+      "joppd": "06190",
+      "postal_code": "52212",
+      "iban": "HR8710010051761912006",
+      "tax_rate": 3.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 114,
+    "fields": {
+      "city_name": "FERDINANDOVAC",
+      "joppd": "01155",
+      "postal_code": "48356",
+      "iban": "HR5810010051711512007",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 115,
+    "fields": {
+      "city_name": "FERI\u010cANCI",
+      "joppd": "01163",
+      "postal_code": "31512",
+      "iban": "HR2610010051711612008",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 116,
+    "fields": {
+      "city_name": "FUNTANA-FONTANE",
+      "joppd": "06297",
+      "postal_code": "52452",
+      "iban": "HR6410010051762912005",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 117,
+    "fields": {
+      "city_name": "FU\u017dINE",
+      "joppd": "01171",
+      "postal_code": "51322",
+      "iban": "HR9110010051711712009",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 118,
+    "fields": {
+      "city_name": "GALOVAC",
+      "joppd": "05711",
+      "iban": "HR9010010051757112004",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 119,
+    "fields": {
+      "city_name": "GAR\u010cIN",
+      "joppd": "01180",
+      "postal_code": "35212",
+      "iban": "HR3810010051711812000",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 120,
+    "fields": {
+      "city_name": "GARE\u0160NICA",
+      "joppd": "01198",
+      "postal_code": "43280",
+      "iban": "HR4910010051711912003",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 121,
+    "fields": {
+      "city_name": "GENERALSKI STOL",
+      "joppd": "01201",
+      "postal_code": "47262",
+      "iban": "HR1710010051712012004",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 122,
+    "fields": {
+      "city_name": "GLINA",
+      "joppd": "01210",
+      "postal_code": "44400",
+      "iban": "HR8210010051712112005",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 123,
+    "fields": {
+      "city_name": "GOLA",
+      "joppd": "01228",
+      "postal_code": "48331",
+      "iban": "HR8810010051712212001",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 124,
+    "fields": {
+      "city_name": "GORI\u010cAN",
+      "joppd": "01236",
+      "postal_code": "40324",
+      "iban": "HR1810010051712312007",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 125,
+    "fields": {
+      "city_name": "GORJANI",
+      "joppd": "01244",
+      "postal_code": "31422",
+      "iban": "HR8310010051712412008",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 126,
+    "fields": {
+      "city_name": "GORNJA RIJEKA",
+      "joppd": "06181",
+      "postal_code": "48268",
+      "iban": "HR0610010051761812002",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 127,
+    "fields": {
+      "city_name": "GORNJA STUBICA",
+      "joppd": "01252",
+      "postal_code": "49245",
+      "iban": "HR5110010051712512009",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 128,
+    "fields": {
+      "city_name": "GORNJA VRBA",
+      "joppd": "05690",
+      "iban": "HR6210010051756912009",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 129,
+    "fields": {
+      "city_name": "GORNJI BOGI\u0106EVCI",
+      "joppd": "01279",
+      "postal_code": "35429",
+      "iban": "HR0910010051712712003",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 130,
+    "fields": {
+      "city_name": "GORNJI KNEGINEC",
+      "joppd": "01295",
+      "iban": "HR1510010051712912006",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 131,
+    "fields": {
+      "city_name": "GORNJI MIHALJEVEC",
+      "joppd": "06041",
+      "iban": "HR0610010051760412001",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 132,
+    "fields": {
+      "city_name": "GOSPI\u0106",
+      "joppd": "01309",
+      "postal_code": "53000",
+      "iban": "HR4810010051713012001",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 133,
+    "fields": {
+      "city_name": "GRA\u010cAC",
+      "joppd": "01317",
+      "postal_code": "23440",
+      "iban": "HR7510010051713112007",
+      "tax_rate": 7.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 134,
+    "fields": {
+      "city_name": "GRA\u010cI\u0160\u0106E",
+      "joppd": "01325",
+      "postal_code": "52403",
+      "iban": "HR4310010051713212008",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 135,
+    "fields": {
+      "city_name": "GRADAC",
+      "joppd": "01341",
+      "postal_code": "21330",
+      "iban": "HR5510010051713412000",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 136,
+    "fields": {
+      "city_name": "GRADEC",
+      "joppd": "01350",
+      "postal_code": "10345",
+      "iban": "HR6610010051713512003",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 137,
+    "fields": {
+      "city_name": "GRADINA",
+      "joppd": "01368",
+      "postal_code": "33411",
+      "iban": "HR8810010051713612002",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 138,
+    "fields": {
+      "city_name": "GRADI\u0160TE",
+      "joppd": "01376",
+      "postal_code": "32273",
+      "iban": "HR7210010051713712006",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 139,
+    "fields": {
+      "city_name": "GRO\u017dNJAN-GRISIGNANA",
+      "joppd": "01384",
+      "postal_code": "52429",
+      "iban": "HR2410010051713812004",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 140,
+    "fields": {
+      "city_name": "GRUBI\u0160NO POLJE",
+      "joppd": "01392",
+      "postal_code": "43290",
+      "iban": "HR8910010051713912005",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 141,
+    "fields": {
+      "city_name": "GUNDINCI",
+      "joppd": "01406",
+      "postal_code": "35222",
+      "iban": "HR0310010051714012008",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 142,
+    "fields": {
+      "city_name": "GUNJA",
+      "joppd": "01414",
+      "postal_code": "32259",
+      "iban": "HR6810010051714112009",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 143,
+    "fields": {
+      "city_name": "GVOZD",
+      "joppd": "05100",
+      "iban": "HR3410010051751012003",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 144,
+    "fields": {
+      "city_name": "HERCEGOVAC",
+      "joppd": "01449",
+      "postal_code": "43284",
+      "iban": "HR4810010051714412002",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 145,
+    "fields": {
+      "city_name": "HLEBINE",
+      "joppd": "01457",
+      "postal_code": "48323",
+      "iban": "HR3210010051714512006",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 146,
+    "fields": {
+      "city_name": "HRA\u0160\u0106INA",
+      "joppd": "01465",
+      "iban": "HR8110010051714612004",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 147,
+    "fields": {
+      "city_name": "HRVACE",
+      "joppd": "01481",
+      "postal_code": "21233",
+      "iban": "HR5510010051714812001",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 148,
+    "fields": {
+      "city_name": "HRVATSKA DUBICA",
+      "joppd": "01490",
+      "postal_code": "44450",
+      "iban": "HR8210010051714912007",
+      "tax_rate": 3.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 149,
+    "fields": {
+      "city_name": "HRVATSKA KOSTAJNICA",
+      "joppd": "01503",
+      "postal_code": "44430",
+      "iban": "HR7210010051715012000",
+      "tax_rate": 6.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 150,
+    "fields": {
+      "city_name": "HUM NA SUTLI",
+      "joppd": "01520",
+      "postal_code": "49231",
+      "iban": "HR0810010051715212002",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 151,
+    "fields": {
+      "city_name": "HVAR",
+      "joppd": "01538",
+      "postal_code": "21450",
+      "iban": "HR8910010051715312006",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 152,
+    "fields": {
+      "city_name": "ILOK",
+      "joppd": "01546",
+      "postal_code": "32236",
+      "iban": "HR4110010051715412004",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 153,
+    "fields": {
+      "city_name": "IMOTSKI",
+      "joppd": "01554",
+      "postal_code": "21260",
+      "iban": "HR0910010051715512005",
+      "tax_rate": 6.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 154,
+    "fields": {
+      "city_name": "IVANEC",
+      "joppd": "01562",
+      "postal_code": "42240",
+      "iban": "HR1510010051715612001",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 155,
+    "fields": {
+      "city_name": "IVANI\u0106-GRAD",
+      "joppd": "01589",
+      "iban": "HR1010010051715812008",
+      "tax_rate": 6.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 156,
+    "fields": {
+      "city_name": "IVANKOVO",
+      "joppd": "01597",
+      "postal_code": "32281",
+      "iban": "HR7510010051715912009",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 157,
+    "fields": {
+      "city_name": "IVANSKA",
+      "joppd": "01619",
+      "postal_code": "43231",
+      "iban": "HR0610010051716112004",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 158,
+    "fields": {
+      "city_name": "JAGODNJAK",
+      "joppd": "06092",
+      "postal_code": "31324",
+      "iban": "HR2410010051760912003",
+      "tax_rate": 3.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 159,
+    "fields": {
+      "city_name": "JAKOVLJE",
+      "joppd": "01635",
+      "postal_code": "10297",
+      "iban": "HR7710010051716312001",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 160,
+    "fields": {
+      "city_name": "JAK\u0160I\u0106",
+      "joppd": "01643",
+      "postal_code": "34308",
+      "iban": "HR0710010051716412007",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 161,
+    "fields": {
+      "city_name": "JAL\u017dABET",
+      "joppd": "01651",
+      "postal_code": "42203",
+      "iban": "HR7210010051716512008",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 162,
+    "fields": {
+      "city_name": "JANJINA",
+      "joppd": "05991",
+      "postal_code": "20246",
+      "iban": "HR3110010051759912001",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 163,
+    "fields": {
+      "city_name": "JARMINA",
+      "joppd": "01660",
+      "postal_code": "32280",
+      "iban": "HR4010010051716612009",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 164,
+    "fields": {
+      "city_name": "JASENICE",
+      "joppd": "01678",
+      "postal_code": "23243",
+      "iban": "HR8410010051716712000",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 165,
+    "fields": {
+      "city_name": "JASENOVAC",
+      "joppd": "01686",
+      "postal_code": "44324",
+      "iban": "HR9510010051716812003",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 166,
+    "fields": {
+      "city_name": "JASTREBARSKO",
+      "joppd": "01694",
+      "postal_code": "10450",
+      "iban": "HR2010010051716912002",
+      "tax_rate": 9.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 167,
+    "fields": {
+      "city_name": "JELENJE",
+      "joppd": "01708",
+      "iban": "HR3110010051717012005",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 168,
+    "fields": {
+      "city_name": "JELSA",
+      "joppd": "01716",
+      "postal_code": "21465",
+      "iban": "HR3710010051717112001",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 169,
+    "fields": {
+      "city_name": "JESENJE",
+      "joppd": "05525",
+      "iban": "HR0210010051755212000",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 170,
+    "fields": {
+      "city_name": "JOSIPDOL",
+      "joppd": "01724",
+      "postal_code": "47303",
+      "iban": "HR6410010051717212007",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 171,
+    "fields": {
+      "city_name": "KALI",
+      "joppd": "01732",
+      "postal_code": "23272",
+      "iban": "HR3210010051717312008",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 172,
+    "fields": {
+      "city_name": "KALINOVAC",
+      "joppd": "05592",
+      "postal_code": "48361",
+      "iban": "HR6910010051755912007",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 173,
+    "fields": {
+      "city_name": "KALNIK",
+      "joppd": "05606",
+      "iban": "HR5910010051756012000",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 174,
+    "fields": {
+      "city_name": "KAMANJE",
+      "joppd": "06238",
+      "postal_code": "47282",
+      "iban": "HR8310010051762312009",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 175,
+    "fields": {
+      "city_name": "KANFANAR",
+      "joppd": "01759",
+      "postal_code": "52352",
+      "iban": "HR4410010051717512000",
+      "tax_rate": 3.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 176,
+    "fields": {
+      "city_name": "KAPELA",
+      "joppd": "01767",
+      "postal_code": "43203",
+      "iban": "HR5510010051717612003",
+      "tax_rate": 8.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 177,
+    "fields": {
+      "city_name": "KAPTOL",
+      "joppd": "01775",
+      "postal_code": "34334",
+      "iban": "HR7710010051717712002",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 178,
+    "fields": {
+      "city_name": "KARLOBAG",
+      "joppd": "01783",
+      "postal_code": "53288",
+      "iban": "HR6110010051717812006",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 179,
+    "fields": {
+      "city_name": "KARLOVAC",
+      "joppd": "01791",
+      "postal_code": "47000",
+      "iban": "HR1310010051717912004",
+      "tax_rate": 12.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 180,
+    "fields": {
+      "city_name": "KAROJBA",
+      "joppd": "05967",
+      "iban": "HR0810010051759612006",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 181,
+    "fields": {
+      "city_name": "KASTAV",
+      "joppd": "01805",
+      "postal_code": "51215",
+      "iban": "HR2410010051718012007",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 182,
+    "fields": {
+      "city_name": "KA\u0160TELA",
+      "joppd": "01813",
+      "iban": "HR8910010051718112008",
+      "tax_rate": 12.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 183,
+    "fields": {
+      "city_name": "KA\u0160TELIR-LABINCI-CASTELLIERE-S.DOMENICA",
+      "joppd": "05975",
+      "postal_code": "52464",
+      "iban": "HR5710010051759712004",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 184,
+    "fields": {
+      "city_name": "KIJEVO",
+      "joppd": "01830",
+      "postal_code": "22310",
+      "iban": "HR0410010051718312000",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 185,
+    "fields": {
+      "city_name": "KISTANJE",
+      "joppd": "01848",
+      "postal_code": "22305",
+      "iban": "HR1510010051718412003",
+      "tax_rate": 3.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 186,
+    "fields": {
+      "city_name": "KLAKAR",
+      "joppd": "01856",
+      "iban": "HR3710010051718512002",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 187,
+    "fields": {
+      "city_name": "KLANA",
+      "joppd": "01864",
+      "postal_code": "51217",
+      "iban": "HR2110010051718612006",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 188,
+    "fields": {
+      "city_name": "KLANJEC",
+      "joppd": "01872",
+      "postal_code": "49290",
+      "iban": "HR7010010051718712004",
+      "tax_rate": 12.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 189,
+    "fields": {
+      "city_name": "KLENOVNIK",
+      "joppd": "01899",
+      "postal_code": "42244",
+      "iban": "HR4410010051718912001",
+      "tax_rate": 7.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 190,
+    "fields": {
+      "city_name": "KLIN\u010cA SELA",
+      "joppd": "01902",
+      "postal_code": "10452",
+      "iban": "HR1710010051719012009",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 191,
+    "fields": {
+      "city_name": "KLIS",
+      "joppd": "01929",
+      "postal_code": "21231",
+      "iban": "HR7210010051719212003",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 192,
+    "fields": {
+      "city_name": "KLO\u0160TAR IVANI\u0106",
+      "joppd": "01937",
+      "postal_code": "10312",
+      "iban": "HR9410010051719312002",
+      "tax_rate": 2.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 193,
+    "fields": {
+      "city_name": "KLO\u0160TAR PODRAVSKI",
+      "joppd": "01945",
+      "postal_code": "48362",
+      "iban": "HR7810010051719412006",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 194,
+    "fields": {
+      "city_name": "KNE\u017dEVI VINOGRADI",
+      "joppd": "01953",
+      "postal_code": "31309",
+      "iban": "HR3010010051719512004",
+      "tax_rate": 4.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 195,
+    "fields": {
+      "city_name": "KNIN",
+      "joppd": "01961",
+      "postal_code": "22300",
+      "iban": "HR9510010051719612005",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 196,
+    "fields": {
+      "city_name": "KOLAN",
+      "joppd": "06220",
+      "postal_code": "23251",
+      "iban": "HR1810010051762212008",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 197,
+    "fields": {
+      "city_name": "KOMI\u017dA",
+      "joppd": "01970",
+      "postal_code": "21485",
+      "iban": "HR0410010051719712001",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 198,
+    "fields": {
+      "city_name": "KONAVLE",
+      "joppd": "01988",
+      "iban": "HR3110010051719812007",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 199,
+    "fields": {
+      "city_name": "KON\u010cANICA",
+      "joppd": "01996",
+      "postal_code": "43505",
+      "iban": "HR9610010051719912008",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 200,
+    "fields": {
+      "city_name": "KONJ\u0160\u010cINA",
+      "joppd": "02003",
+      "postal_code": "49282",
+      "iban": "HR0510010051720012004",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 201,
+    "fields": {
+      "city_name": "KOPRIVNICA",
+      "joppd": "02011",
+      "postal_code": "48000",
+      "iban": "HR7010010051720112005",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 202,
+    "fields": {
+      "city_name": "KOPRIVNI\u010cKI BREGI",
+      "joppd": "02020",
+      "iban": "HR7610010051720212001",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 203,
+    "fields": {
+      "city_name": "KOPRIVNI\u010cKI IVANEC",
+      "joppd": "02038",
+      "postal_code": "48314",
+      "iban": "HR0610010051720312007",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 204,
+    "fields": {
+      "city_name": "KOR\u010cULA",
+      "joppd": "02046",
+      "postal_code": "20260",
+      "iban": "HR7110010051720412008",
+      "tax_rate": 6.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 205,
+    "fields": {
+      "city_name": "KOSTRENA",
+      "joppd": "05380",
+      "postal_code": "51221",
+      "iban": "HR1810010051753812002",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 206,
+    "fields": {
+      "city_name": "KO\u0160KA",
+      "joppd": "02054",
+      "postal_code": "31224",
+      "iban": "HR3910010051720512009",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 207,
+    "fields": {
+      "city_name": "KOTORIBA",
+      "joppd": "02062",
+      "postal_code": "40329",
+      "iban": "HR8310010051720612000",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 208,
+    "fields": {
+      "city_name": "KRALJEVEC NA SUTLI",
+      "joppd": "02089",
+      "postal_code": "49294",
+      "iban": "HR1910010051720812002",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 209,
+    "fields": {
+      "city_name": "KRALJEVICA",
+      "joppd": "02097",
+      "postal_code": "51262",
+      "iban": "HR0310010051720912006",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 210,
+    "fields": {
+      "city_name": "KRAPINA",
+      "joppd": "02119",
+      "postal_code": "49000",
+      "iban": "HR6310010051721112007",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 211,
+    "fields": {
+      "city_name": "KRAPINSKE TOPLICE",
+      "joppd": "02127",
+      "postal_code": "49217",
+      "iban": "HR3110010051721212008",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 212,
+    "fields": {
+      "city_name": "KRA\u0160I\u0106",
+      "joppd": "05339",
+      "postal_code": "10454",
+      "iban": "HR0510010051753312007",
+      "tax_rate": 6.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 213,
+    "fields": {
+      "city_name": "KRAVARSKO",
+      "joppd": "05452",
+      "postal_code": "10413",
+      "iban": "HR5310010051754512003",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 214,
+    "fields": {
+      "city_name": "KRI\u017d",
+      "joppd": "02135",
+      "postal_code": "10314",
+      "iban": "HR9610010051721312009",
+      "tax_rate": 2.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 215,
+    "fields": {
+      "city_name": "KRI\u017dEVCI",
+      "joppd": "02143",
+      "postal_code": "48260",
+      "iban": "HR4310010051721412000",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 216,
+    "fields": {
+      "city_name": "KRK",
+      "joppd": "02151",
+      "postal_code": "51500",
+      "iban": "HR5410010051721512003",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 217,
+    "fields": {
+      "city_name": "KRNJAK",
+      "joppd": "02160",
+      "postal_code": "47242",
+      "iban": "HR7610010051721612002",
+      "tax_rate": 8.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 218,
+    "fields": {
+      "city_name": "KR\u0160AN",
+      "joppd": "02178",
+      "postal_code": "52232",
+      "iban": "HR6010010051721712006",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 219,
+    "fields": {
+      "city_name": "KUKLJICA",
+      "joppd": "05720",
+      "postal_code": "23271",
+      "iban": "HR5810010051757212005",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 220,
+    "fields": {
+      "city_name": "KULA NORINSKA",
+      "joppd": "02194",
+      "postal_code": "20341",
+      "iban": "HR7710010051721912005",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 221,
+    "fields": {
+      "city_name": "KUMROVEC",
+      "joppd": "05533",
+      "postal_code": "49295",
+      "iban": "HR1310010051755312003",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 222,
+    "fields": {
+      "city_name": "KUTINA",
+      "joppd": "02208",
+      "postal_code": "44320",
+      "iban": "HR8810010051722012008",
+      "tax_rate": 12.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 223,
+    "fields": {
+      "city_name": "KUTJEVO",
+      "joppd": "02216",
+      "postal_code": "34340",
+      "iban": "HR5610010051722112009",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 224,
+    "fields": {
+      "city_name": "LABIN",
+      "joppd": "02224",
+      "postal_code": "52220",
+      "iban": "HR0310010051722212000",
+      "tax_rate": 6.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 225,
+    "fields": {
+      "city_name": "LANI\u0160\u0106E",
+      "joppd": "02232",
+      "iban": "HR1410010051722312003",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 226,
+    "fields": {
+      "city_name": "LASINJA",
+      "joppd": "02259",
+      "postal_code": "47206",
+      "iban": "HR2010010051722512006",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 227,
+    "fields": {
+      "city_name": "LASTOVO",
+      "joppd": "02267",
+      "postal_code": "20290",
+      "iban": "HR6910010051722612004",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 228,
+    "fields": {
+      "city_name": "LE\u0106EVICA",
+      "joppd": "05860",
+      "iban": "HR4210010051758612003",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 229,
+    "fields": {
+      "city_name": "LEGRAD",
+      "joppd": "02275",
+      "postal_code": "48317",
+      "iban": "HR3710010051722712005",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 230,
+    "fields": {
+      "city_name": "LEKENIK",
+      "joppd": "02283",
+      "postal_code": "44272",
+      "iban": "HR4310010051722812001",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 231,
+    "fields": {
+      "city_name": "LEPOGLAVA",
+      "joppd": "02291",
+      "postal_code": "42250",
+      "iban": "HR7010010051722912007",
+      "tax_rate": 8.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 232,
+    "fields": {
+      "city_name": "LEVANJSKA VARO\u0160",
+      "joppd": "02305",
+      "postal_code": "31416",
+      "iban": "HR6010010051723012000",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 233,
+    "fields": {
+      "city_name": "LIPIK",
+      "joppd": "02313",
+      "postal_code": "34551",
+      "iban": "HR7110010051723112003",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 234,
+    "fields": {
+      "city_name": "LIPOVLJANI",
+      "joppd": "02321",
+      "postal_code": "44322",
+      "iban": "HR9310010051723212002",
+      "tax_rate": 6.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 235,
+    "fields": {
+      "city_name": "LI\u0160ANE OSTROVI\u010cKE",
+      "joppd": "02348",
+      "iban": "HR2910010051723412004",
+      "tax_rate": 6.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 236,
+    "fields": {
+      "city_name": "LI\u017dNJAN-LISIGNANO",
+      "joppd": "02356",
+      "postal_code": "52204",
+      "iban": "HR9410010051723512005",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 237,
+    "fields": {
+      "city_name": "LOBOR",
+      "joppd": "02364",
+      "postal_code": "49253",
+      "iban": "HR0310010051723612001",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 238,
+    "fields": {
+      "city_name": "LOKVE",
+      "joppd": "02372",
+      "postal_code": "51316",
+      "iban": "HR3010010051723712007",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 239,
+    "fields": {
+      "city_name": "LOKVI\u010cI\u0106I",
+      "joppd": "05878",
+      "iban": "HR6410010051758712002",
+      "tax_rate": 7.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 240,
+    "fields": {
+      "city_name": "LOPAR",
+      "joppd": "06246",
+      "postal_code": "51281",
+      "iban": "HR3010010051762412000",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 241,
+    "fields": {
+      "city_name": "LOVAS",
+      "joppd": "02399",
+      "postal_code": "32237",
+      "iban": "HR6310010051723912009",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 242,
+    "fields": {
+      "city_name": "LOVINAC",
+      "joppd": "02402",
+      "postal_code": "53244",
+      "iban": "HR4210010051724012006",
+      "tax_rate": 8.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 243,
+    "fields": {
+      "city_name": "LOVRAN",
+      "joppd": "02429",
+      "postal_code": "51415",
+      "iban": "HR5910010051724212005",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 244,
+    "fields": {
+      "city_name": "LOVRE\u0106",
+      "joppd": "02437",
+      "postal_code": "21257",
+      "iban": "HR6510010051724312001",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 245,
+    "fields": {
+      "city_name": "LUDBREG",
+      "joppd": "02445",
+      "postal_code": "42230",
+      "iban": "HR9210010051724412007",
+      "tax_rate": 12.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 246,
+    "fields": {
+      "city_name": "LUKA",
+      "joppd": "05487",
+      "postal_code": "10296",
+      "iban": "HR1110010051754812004",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 247,
+    "fields": {
+      "city_name": "LUKA\u010c",
+      "joppd": "02453",
+      "postal_code": "33406",
+      "iban": "HR6010010051724512008",
+      "tax_rate": 8.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 248,
+    "fields": {
+      "city_name": "LUMBARDA",
+      "joppd": "06009",
+      "postal_code": "20263",
+      "iban": "HR9610010051760012002",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 249,
+    "fields": {
+      "city_name": "LUPOGLAV",
+      "joppd": "02461",
+      "postal_code": "52426",
+      "iban": "HR2810010051724612009",
+      "tax_rate": 1.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 250,
+    "fields": {
+      "city_name": "LJUBE\u0160\u0106ICA",
+      "joppd": "02470",
+      "postal_code": "42222",
+      "iban": "HR7210010051724712000",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 251,
+    "fields": {
+      "city_name": "MA\u010cE",
+      "joppd": "02488",
+      "postal_code": "49251",
+      "iban": "HR8310010051724812003",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 252,
+    "fields": {
+      "city_name": "MAGADENOVAC",
+      "joppd": "05789",
+      "postal_code": "31542",
+      "iban": "HR8210010051757812003",
+      "tax_rate": 2.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 253,
+    "fields": {
+      "city_name": "MAJUR",
+      "joppd": "05550",
+      "iban": "HR1910010051755512006",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 254,
+    "fields": {
+      "city_name": "MAKARSKA",
+      "joppd": "02496",
+      "postal_code": "21300",
+      "iban": "HR0810010051724912002",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 255,
+    "fields": {
+      "city_name": "MALA SUBOTICA",
+      "joppd": "02500",
+      "postal_code": "40321",
+      "iban": "HR1910010051725012005",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 256,
+    "fields": {
+      "city_name": "MALI BUKOVEC",
+      "joppd": "02518",
+      "postal_code": "42231",
+      "iban": "HR2510010051725112001",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 257,
+    "fields": {
+      "city_name": "MALI LO\u0160INJ",
+      "joppd": "02526",
+      "postal_code": "51550",
+      "iban": "HR5210010051725212007",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 258,
+    "fields": {
+      "city_name": "MALINSKA-DUBA\u0160NICA",
+      "joppd": "02534",
+      "iban": "HR2010010051725312008",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 259,
+    "fields": {
+      "city_name": "MAR\u010cANA",
+      "joppd": "02542",
+      "postal_code": "52206",
+      "iban": "HR8510010051725412009",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 260,
+    "fields": {
+      "city_name": "MARIJA BISTRICA",
+      "joppd": "02569",
+      "postal_code": "49246",
+      "iban": "HR4310010051725612003",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 261,
+    "fields": {
+      "city_name": "MARIJA GORICA",
+      "joppd": "05398",
+      "postal_code": "10299",
+      "iban": "HR0210010051753912006",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 262,
+    "fields": {
+      "city_name": "MARIJANCI",
+      "joppd": "02577",
+      "postal_code": "31555",
+      "iban": "HR6510010051725712002",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 263,
+    "fields": {
+      "city_name": "MARINA",
+      "joppd": "02585",
+      "postal_code": "21222",
+      "iban": "HR4910010051725812006",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 264,
+    "fields": {
+      "city_name": "MARKU\u0160ICA",
+      "joppd": "06106",
+      "postal_code": "32213",
+      "iban": "HR8910010051761012004",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 265,
+    "fields": {
+      "city_name": "MARTIJANEC",
+      "joppd": "00850",
+      "postal_code": "42232",
+      "iban": "HR8410010051708512008",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 266,
+    "fields": {
+      "city_name": "MARTINSKA VES",
+      "joppd": "02593",
+      "postal_code": "44201",
+      "iban": "HR9810010051725912004",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 267,
+    "fields": {
+      "city_name": "MARU\u0160EVEC",
+      "joppd": "02607",
+      "postal_code": "42243",
+      "iban": "HR1210010051726012007",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 268,
+    "fields": {
+      "city_name": "MATULJI",
+      "joppd": "02615",
+      "postal_code": "51211",
+      "iban": "HR7710010051726112008",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 269,
+    "fields": {
+      "city_name": "MEDULIN",
+      "joppd": "02631",
+      "postal_code": "52203",
+      "iban": "HR8910010051726312000",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 270,
+    "fields": {
+      "city_name": "METKOVI\u0106",
+      "joppd": "02640",
+      "postal_code": "20350",
+      "iban": "HR0310010051726412003",
+      "tax_rate": 8.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 271,
+    "fields": {
+      "city_name": "MIHOVLJAN",
+      "joppd": "02658",
+      "postal_code": "49252",
+      "iban": "HR2510010051726512002",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 272,
+    "fields": {
+      "city_name": "MIKLEU\u0160",
+      "joppd": "02666",
+      "postal_code": "33517",
+      "iban": "HR0910010051726612006",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 273,
+    "fields": {
+      "city_name": "MILNA",
+      "joppd": "02674",
+      "postal_code": "21405",
+      "iban": "HR5810010051726712004",
+      "tax_rate": 3.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 274,
+    "fields": {
+      "city_name": "MLJET",
+      "joppd": "02682",
+      "iban": "HR2610010051726812005",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 275,
+    "fields": {
+      "city_name": "MOLVE",
+      "joppd": "02704",
+      "postal_code": "48327",
+      "iban": "HR0510010051727012009",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 276,
+    "fields": {
+      "city_name": "MO\u0160\u0106ENI\u010cKA DRAGA",
+      "joppd": "02739",
+      "postal_code": "51417",
+      "iban": "HR8210010051727312002",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 277,
+    "fields": {
+      "city_name": "MOTOVUN-MONTONA",
+      "joppd": "02747",
+      "postal_code": "52424",
+      "iban": "HR6610010051727412006",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 278,
+    "fields": {
+      "city_name": "MRKOPALJ",
+      "joppd": "02755",
+      "postal_code": "51315",
+      "iban": "HR1810010051727512004",
+      "tax_rate": 7.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 279,
+    "fields": {
+      "city_name": "MU\u0106",
+      "joppd": "00876",
+      "iban": "HR9610010051708712000",
+      "tax_rate": 7.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 280,
+    "fields": {
+      "city_name": "MURSKO SREDI\u0160\u0106E",
+      "joppd": "02763",
+      "postal_code": "40315",
+      "iban": "HR8310010051727612005",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 281,
+    "fields": {
+      "city_name": "MURTER-KORNATI",
+      "joppd": "06173",
+      "postal_code": "22243",
+      "iban": "HR8110010051761712003",
+      "tax_rate": 8.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 282,
+    "fields": {
+      "city_name": "NA\u0160ICE",
+      "joppd": "02780",
+      "postal_code": "31500",
+      "iban": "HR1910010051727812007",
+      "tax_rate": 8.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 283,
+    "fields": {
+      "city_name": "NEDELI\u0160\u0106E",
+      "joppd": "02798",
+      "postal_code": "40305",
+      "iban": "HR8410010051727912008",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 284,
+    "fields": {
+      "city_name": "NEGOSLAVCI",
+      "joppd": "06122",
+      "postal_code": "32239",
+      "iban": "HR6310010051761212001",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 285,
+    "fields": {
+      "city_name": "NERE\u017dI\u0160\u0106A",
+      "joppd": "02801",
+      "postal_code": "21423",
+      "iban": "HR2010010051728012003",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 286,
+    "fields": {
+      "city_name": "NETRETI\u0106",
+      "joppd": "02810",
+      "postal_code": "47271",
+      "iban": "HR4210010051728112002",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 287,
+    "fields": {
+      "city_name": "NIJEMCI",
+      "joppd": "02950",
+      "postal_code": "32245",
+      "iban": "HR3110010051729512007",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 288,
+    "fields": {
+      "city_name": "NIN",
+      "joppd": "02828",
+      "postal_code": "23232",
+      "iban": "HR2610010051728212006",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 289,
+    "fields": {
+      "city_name": "NOVA BUKOVICA",
+      "joppd": "02836",
+      "postal_code": "33518",
+      "iban": "HR7510010051728312004",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 290,
+    "fields": {
+      "city_name": "NOVA GRADI\u0160KA",
+      "joppd": "02844",
+      "postal_code": "35400",
+      "iban": "HR4310010051728412005",
+      "tax_rate": 12.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 291,
+    "fields": {
+      "city_name": "NOVA KAPELA",
+      "joppd": "02852",
+      "postal_code": "35410",
+      "iban": "HR4910010051728512001",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 292,
+    "fields": {
+      "city_name": "NOVA RA\u010cA",
+      "joppd": "02879",
+      "postal_code": "43272",
+      "iban": "HR4410010051728712008",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 293,
+    "fields": {
+      "city_name": "NOVALJA",
+      "joppd": "02887",
+      "postal_code": "53291",
+      "iban": "HR1210010051728812009",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 294,
+    "fields": {
+      "city_name": "NOVI GOLUBOVEC",
+      "joppd": "05541",
+      "postal_code": "49255",
+      "iban": "HR3510010051755412002",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 295,
+    "fields": {
+      "city_name": "NOVI MAROF",
+      "joppd": "02895",
+      "postal_code": "42220",
+      "iban": "HR5610010051728912000",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 296,
+    "fields": {
+      "city_name": "NOVI VINODOLSKI",
+      "joppd": "02909",
+      "postal_code": "51250",
+      "iban": "HR9410010051729012002",
+      "tax_rate": 7.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 297,
+    "fields": {
+      "city_name": "NOVIGRAD",
+      "joppd": "05371",
+      "postal_code": "23312",
+      "iban": "HR9310010051753712003",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 298,
+    "fields": {
+      "city_name": "NOVIGRAD PODRAVSKI",
+      "joppd": "02925",
+      "postal_code": "48325",
+      "iban": "HR3010010051729212004",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 299,
+    "fields": {
+      "city_name": "NOVIGRAD-CITTANOVA",
+      "joppd": "02917",
+      "postal_code": "52466",
+      "iban": "HR7810010051729112006",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 300,
+    "fields": {
+      "city_name": "NOVO VIRJE",
+      "joppd": "05614",
+      "postal_code": "48355",
+      "iban": "HR7010010051756112003",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 301,
+    "fields": {
+      "city_name": "NOVSKA",
+      "joppd": "02933",
+      "postal_code": "44330",
+      "iban": "HR9510010051729312005",
+      "tax_rate": 8.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 302,
+    "fields": {
+      "city_name": "NU\u0160TAR",
+      "joppd": "02941",
+      "postal_code": "32221",
+      "iban": "HR0410010051729412001",
+      "tax_rate": 6.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 303,
+    "fields": {
+      "city_name": "OBROVAC",
+      "joppd": "02968",
+      "postal_code": "23450",
+      "iban": "HR9610010051729612008",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 304,
+    "fields": {
+      "city_name": "OGULIN",
+      "joppd": "02976",
+      "postal_code": "47300",
+      "iban": "HR6410010051729712009",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 305,
+    "fields": {
+      "city_name": "OKRUG",
+      "joppd": "05886",
+      "iban": "HR4810010051758812006",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 306,
+    "fields": {
+      "city_name": "OKU\u010cANI",
+      "joppd": "02992",
+      "postal_code": "35430",
+      "iban": "HR2210010051729912003",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 307,
+    "fields": {
+      "city_name": "OMI\u0160",
+      "joppd": "03000",
+      "postal_code": "21310",
+      "iban": "HR7610010051730012008",
+      "tax_rate": 8.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 308,
+    "fields": {
+      "city_name": "OMI\u0160ALJ",
+      "joppd": "03018",
+      "postal_code": "51513",
+      "iban": "HR4410010051730112009",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 309,
+    "fields": {
+      "city_name": "OPATIJA",
+      "joppd": "03026",
+      "postal_code": "51410",
+      "iban": "HR8810010051730212000",
+      "tax_rate": 7.5
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 310,
+    "fields": {
+      "city_name": "OPRISAVCI",
+      "joppd": "03034",
+      "postal_code": "35213",
+      "iban": "HR0210010051730312003",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 311,
+    "fields": {
+      "city_name": "OPRTALJ-PORTOLE",
+      "joppd": "03042",
+      "postal_code": "52428",
+      "iban": "HR2410010051730412002",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 312,
+    "fields": {
+      "city_name": "OPUZEN",
+      "joppd": "03069",
+      "postal_code": "20355",
+      "iban": "HR5710010051730612004",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 313,
+    "fields": {
+      "city_name": "ORAHOVICA",
+      "joppd": "03077",
+      "postal_code": "33515",
+      "iban": "HR2510010051730712005",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 314,
+    "fields": {
+      "city_name": "OREBI\u0106",
+      "joppd": "03085",
+      "postal_code": "20250",
+      "iban": "HR3110010051730812001",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 315,
+    "fields": {
+      "city_name": "OREHOVICA",
+      "joppd": "06050",
+      "postal_code": "40322",
+      "iban": "HR3310010051760512007",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 316,
+    "fields": {
+      "city_name": "ORIOVAC",
+      "joppd": "03093",
+      "postal_code": "35250",
+      "iban": "HR5810010051730912007",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 317,
+    "fields": {
+      "city_name": "ORLE",
+      "joppd": "05428",
+      "postal_code": "10411",
+      "iban": "HR3010010051754212008",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 318,
+    "fields": {
+      "city_name": "OROSLAVJE",
+      "joppd": "03115",
+      "postal_code": "49243",
+      "iban": "HR5910010051731112003",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 319,
+    "fields": {
+      "city_name": "OSIJEK",
+      "joppd": "03123",
+      "postal_code": "31000",
+      "iban": "HR8110010051731212002",
+      "tax_rate": 13.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 320,
+    "fields": {
+      "city_name": "OTO\u010cAC",
+      "joppd": "03131",
+      "postal_code": "53220",
+      "iban": "HR6510010051731312006",
+      "tax_rate": 9.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 321,
+    "fields": {
+      "city_name": "OTOK (SINJ)",
+      "joppd": "03140",
+      "postal_code": "21238",
+      "iban": "HR1710010051731412004",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 322,
+    "fields": {
+      "city_name": "OTOK (VINKOVCI)",
+      "joppd": "05355",
+      "postal_code": "32252",
+      "iban": "HR3810010051753512009",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 323,
+    "fields": {
+      "city_name": "OZALJ",
+      "joppd": "03158",
+      "postal_code": "47280",
+      "iban": "HR8210010051731512005",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 324,
+    "fields": {
+      "city_name": "PAG",
+      "joppd": "03166",
+      "postal_code": "23250",
+      "iban": "HR8810010051731612001",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 325,
+    "fields": {
+      "city_name": "PAKO\u0160TANE",
+      "joppd": "03174",
+      "postal_code": "23211",
+      "iban": "HR1810010051731712007",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 326,
+    "fields": {
+      "city_name": "PAKRAC",
+      "joppd": "03182",
+      "postal_code": "34550",
+      "iban": "HR8310010051731812008",
+      "tax_rate": 7.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 327,
+    "fields": {
+      "city_name": "PA\u0160MAN",
+      "joppd": "03204",
+      "postal_code": "23262",
+      "iban": "HR3010010051732012006",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 328,
+    "fields": {
+      "city_name": "PAZIN",
+      "joppd": "03212",
+      "postal_code": "52000",
+      "iban": "HR7910010051732112004",
+      "tax_rate": 9.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 329,
+    "fields": {
+      "city_name": "PERU\u0160I\u0106",
+      "joppd": "03239",
+      "postal_code": "53202",
+      "iban": "HR5310010051732312001",
+      "tax_rate": 4.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 330,
+    "fields": {
+      "city_name": "PETERANEC",
+      "joppd": "03247",
+      "postal_code": "48321",
+      "iban": "HR8010010051732412007",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 331,
+    "fields": {
+      "city_name": "PETLOVAC",
+      "joppd": "03255",
+      "postal_code": "31321",
+      "iban": "HR4810010051732512008",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 332,
+    "fields": {
+      "city_name": "PETRIJANEC",
+      "joppd": "03263",
+      "postal_code": "42206",
+      "iban": "HR1610010051732612009",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 333,
+    "fields": {
+      "city_name": "PETRIJEVCI",
+      "joppd": "03271",
+      "postal_code": "31208",
+      "iban": "HR6010010051732712000",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 334,
+    "fields": {
+      "city_name": "PETRINJA",
+      "joppd": "03280",
+      "postal_code": "44250",
+      "iban": "HR7110010051732812003",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 335,
+    "fields": {
+      "city_name": "PETROVSKO",
+      "joppd": "03298",
+      "postal_code": "49234",
+      "iban": "HR9310010051732912002",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 336,
+    "fields": {
+      "city_name": "PI\u0106AN",
+      "joppd": "03301",
+      "postal_code": "52332",
+      "iban": "HR0710010051733012005",
+      "tax_rate": 2.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 337,
+    "fields": {
+      "city_name": "PIROVAC",
+      "joppd": "05819",
+      "postal_code": "22213",
+      "iban": "HR2410010051758112001",
+      "tax_rate": 6.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 338,
+    "fields": {
+      "city_name": "PISAROVINA",
+      "joppd": "03310",
+      "postal_code": "10451",
+      "iban": "HR1310010051733112001",
+      "tax_rate": 6.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 339,
+    "fields": {
+      "city_name": "PITOMA\u010cA",
+      "joppd": "03328",
+      "postal_code": "33405",
+      "iban": "HR4010010051733212007",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 340,
+    "fields": {
+      "city_name": "PLA\u0160KI",
+      "joppd": "03336",
+      "postal_code": "47304",
+      "iban": "HR0810010051733312008",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 341,
+    "fields": {
+      "city_name": "PLETERNICA",
+      "joppd": "03344",
+      "postal_code": "34310",
+      "iban": "HR7310010051733412009",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 342,
+    "fields": {
+      "city_name": "PLITVI\u010cKA JEZERA",
+      "joppd": "04553",
+      "postal_code": "53231",
+      "iban": "HR5010010051745512009",
+      "tax_rate": 8.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 343,
+    "fields": {
+      "city_name": "PLO\u010cE",
+      "joppd": "03352",
+      "postal_code": "20340",
+      "iban": "HR2010010051733512000",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 344,
+    "fields": {
+      "city_name": "PODBABLJE",
+      "joppd": "03379",
+      "iban": "HR5310010051733712002",
+      "tax_rate": 6.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 345,
+    "fields": {
+      "city_name": "PODCRKAVLJE",
+      "joppd": "03387",
+      "postal_code": "35201",
+      "iban": "HR3710010051733812006",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 346,
+    "fields": {
+      "city_name": "PODGORA",
+      "joppd": "03395",
+      "postal_code": "21327",
+      "iban": "HR8610010051733912004",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 347,
+    "fields": {
+      "city_name": "PODGORA\u010c",
+      "joppd": "03409",
+      "postal_code": "31433",
+      "iban": "HR9710010051734012007",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 348,
+    "fields": {
+      "city_name": "PODRAVSKA MOSLAVINA",
+      "joppd": "02712",
+      "postal_code": "31530",
+      "iban": "HR4910010051727112000",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 349,
+    "fields": {
+      "city_name": "PODRAVSKE SESVETE",
+      "joppd": "06165",
+      "postal_code": "48363",
+      "iban": "HR7010010051761612000",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 350,
+    "fields": {
+      "city_name": "PODSTRANA",
+      "joppd": "03417",
+      "postal_code": "21312",
+      "iban": "HR6510010051734112008",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 351,
+    "fields": {
+      "city_name": "PODTUREN",
+      "joppd": "03425",
+      "postal_code": "40317",
+      "iban": "HR3310010051734212009",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 352,
+    "fields": {
+      "city_name": "POJEZERJE",
+      "joppd": "03433",
+      "iban": "HR7710010051734312000",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 353,
+    "fields": {
+      "city_name": "POKUPSKO",
+      "joppd": "05444",
+      "postal_code": "10414",
+      "iban": "HR4210010051754412000",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 354,
+    "fields": {
+      "city_name": "POLA\u010cA",
+      "joppd": "03441",
+      "postal_code": "23423",
+      "iban": "HR8810010051734412003",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 355,
+    "fields": {
+      "city_name": "POLI\u010cNIK",
+      "joppd": "03450",
+      "postal_code": "23241",
+      "iban": "HR1310010051734512002",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 356,
+    "fields": {
+      "city_name": "POPOVAC",
+      "joppd": "03468",
+      "postal_code": "31303",
+      "iban": "HR9410010051734612006",
+      "tax_rate": 3.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 357,
+    "fields": {
+      "city_name": "POPOVA\u010cA",
+      "joppd": "03476",
+      "postal_code": "44317",
+      "iban": "HR4610010051734712004",
+      "tax_rate": 6.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 358,
+    "fields": {
+      "city_name": "PORE\u010c-PARENZO",
+      "joppd": "03484",
+      "postal_code": "52440",
+      "iban": "HR1410010051734812005",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 359,
+    "fields": {
+      "city_name": "POSEDARJE",
+      "joppd": "03492",
+      "postal_code": "23242",
+      "iban": "HR2010010051734912001",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 360,
+    "fields": {
+      "city_name": "POSTIRA",
+      "joppd": "03506",
+      "postal_code": "21410",
+      "iban": "HR9010010051735012009",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 361,
+    "fields": {
+      "city_name": "POVLJANA",
+      "joppd": "05738",
+      "postal_code": "23249",
+      "iban": "HR6410010051757312001",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 362,
+    "fields": {
+      "city_name": "PO\u017dEGA",
+      "joppd": "03514",
+      "postal_code": "34000",
+      "iban": "HR3710010051735112000",
+      "tax_rate": 7.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 363,
+    "fields": {
+      "city_name": "PREGRADA",
+      "joppd": "03522",
+      "postal_code": "49218",
+      "iban": "HR4810010051735212003",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 364,
+    "fields": {
+      "city_name": "PREKO",
+      "joppd": "03549",
+      "postal_code": "23273",
+      "iban": "HR5410010051735412006",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 365,
+    "fields": {
+      "city_name": "PRELOG",
+      "joppd": "03557",
+      "postal_code": "40323",
+      "iban": "HR0610010051735512004",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 366,
+    "fields": {
+      "city_name": "PRESEKA",
+      "joppd": "03565",
+      "postal_code": "10346",
+      "iban": "HR7110010051735612005",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 367,
+    "fields": {
+      "city_name": "PRGOMET",
+      "joppd": "05894",
+      "postal_code": "21201",
+      "iban": "HR9710010051758912004",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 368,
+    "fields": {
+      "city_name": "PRIBISLAVEC",
+      "joppd": "06203",
+      "iban": "HR2310010051762012001",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 369,
+    "fields": {
+      "city_name": "PRIMORSKI DOLAC",
+      "joppd": "05908",
+      "postal_code": "21227",
+      "iban": "HR1110010051759012007",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 370,
+    "fields": {
+      "city_name": "PRIMO\u0160TEN",
+      "joppd": "03573",
+      "postal_code": "22202",
+      "iban": "HR7710010051735712001",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 371,
+    "fields": {
+      "city_name": "PRIVLAKA (VUKOVAR)",
+      "joppd": "05835",
+      "postal_code": "32251",
+      "iban": "HR1910010051758312008",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 372,
+    "fields": {
+      "city_name": "PRIVLAKA (ZADAR)",
+      "joppd": "05746",
+      "postal_code": "23233",
+      "iban": "HR9110010051757412007",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 373,
+    "fields": {
+      "city_name": "PROLO\u017dAC",
+      "joppd": "00884",
+      "iban": "HR1010010051708812003",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 374,
+    "fields": {
+      "city_name": "PROMINA",
+      "joppd": "02984",
+      "iban": "HR1110010051729812000",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 375,
+    "fields": {
+      "city_name": "PU\u010cI\u0160\u0106A",
+      "joppd": "03581",
+      "postal_code": "21412",
+      "iban": "HR0710010051735812007",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 376,
+    "fields": {
+      "city_name": "PULA-POLA",
+      "joppd": "03590",
+      "postal_code": "52100",
+      "iban": "HR7210010051735912008",
+      "tax_rate": 12.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 377,
+    "fields": {
+      "city_name": "PUNAT",
+      "joppd": "03603",
+      "postal_code": "51521",
+      "iban": "HR0810010051736012003",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 378,
+    "fields": {
+      "city_name": "PUNITOVCI",
+      "joppd": "03611",
+      "postal_code": "31424",
+      "iban": "HR3010010051736112002",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 379,
+    "fields": {
+      "city_name": "PU\u0160\u0106A",
+      "joppd": "03620",
+      "postal_code": "10294",
+      "iban": "HR1410010051736212006",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 380,
+    "fields": {
+      "city_name": "RAB",
+      "joppd": "03638",
+      "postal_code": "51280",
+      "iban": "HR6310010051736312004",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 381,
+    "fields": {
+      "city_name": "RADOBOJ",
+      "joppd": "03646",
+      "postal_code": "49232",
+      "iban": "HR3110010051736412005",
+      "tax_rate": 8.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 382,
+    "fields": {
+      "city_name": "RAKOVEC",
+      "joppd": "05363",
+      "postal_code": "10347",
+      "iban": "HR8210010051753612000",
+      "tax_rate": 3.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 383,
+    "fields": {
+      "city_name": "RAKOVICA",
+      "joppd": "03654",
+      "postal_code": "47245",
+      "iban": "HR3710010051736512001",
+      "tax_rate": 8.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 384,
+    "fields": {
+      "city_name": "RASINJA",
+      "joppd": "03662",
+      "postal_code": "48312",
+      "iban": "HR6410010051736612007",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 385,
+    "fields": {
+      "city_name": "RA\u0160A",
+      "joppd": "03689",
+      "postal_code": "52223",
+      "iban": "HR9710010051736812009",
+      "tax_rate": 6.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 386,
+    "fields": {
+      "city_name": "RAVNA GORA",
+      "joppd": "03697",
+      "postal_code": "51314",
+      "iban": "HR4410010051736912000",
+      "tax_rate": 7.5
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 387,
+    "fields": {
+      "city_name": "RA\u017dANAC",
+      "joppd": "03719",
+      "postal_code": "23248",
+      "iban": "HR6610010051737112006",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 388,
+    "fields": {
+      "city_name": "RE\u0160ETARI",
+      "joppd": "03727",
+      "postal_code": "35403",
+      "iban": "HR1810010051737212004",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 389,
+    "fields": {
+      "city_name": "RIBNIK",
+      "joppd": "05568",
+      "postal_code": "47272",
+      "iban": "HR6810010051755612004",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 390,
+    "fields": {
+      "city_name": "RIJEKA",
+      "joppd": "03735",
+      "postal_code": "51000",
+      "iban": "HR8310010051737312005",
+      "tax_rate": 15.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 391,
+    "fields": {
+      "city_name": "ROGOZNICA",
+      "joppd": "05827",
+      "postal_code": "22203",
+      "iban": "HR5110010051758212007",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 392,
+    "fields": {
+      "city_name": "ROVINJ-ROVIGNO",
+      "joppd": "03743",
+      "postal_code": "52210",
+      "iban": "HR8910010051737412001",
+      "tax_rate": 6.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 393,
+    "fields": {
+      "city_name": "ROVI\u0160\u0106E",
+      "joppd": "03751",
+      "postal_code": "43212",
+      "iban": "HR1910010051737512007",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 394,
+    "fields": {
+      "city_name": "RUGVICA",
+      "joppd": "03760",
+      "postal_code": "10372",
+      "iban": "HR8410010051737612008",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 395,
+    "fields": {
+      "city_name": "RUNOVI\u0106I",
+      "joppd": "05916",
+      "postal_code": "21261",
+      "iban": "HR7610010051759112008",
+      "tax_rate": 6.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 396,
+    "fields": {
+      "city_name": "RU\u017dI\u0106",
+      "joppd": "03778",
+      "postal_code": "22322",
+      "iban": "HR5210010051737712009",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 397,
+    "fields": {
+      "city_name": "SABORSKO",
+      "joppd": "03786",
+      "postal_code": "47306",
+      "iban": "HR9610010051737812000",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 398,
+    "fields": {
+      "city_name": "SALI",
+      "joppd": "03794",
+      "postal_code": "23281",
+      "iban": "HR1010010051737912003",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 399,
+    "fields": {
+      "city_name": "SAMOBOR",
+      "joppd": "03808",
+      "postal_code": "10430",
+      "iban": "HR7510010051738012004",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 400,
+    "fields": {
+      "city_name": "SATNICA \u0110AKOVA\u010cKA",
+      "joppd": "03816",
+      "postal_code": "31421",
+      "iban": "HR4310010051738112005",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 401,
+    "fields": {
+      "city_name": "SEGET",
+      "joppd": "03824",
+      "iban": "HR4910010051738212001",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 402,
+    "fields": {
+      "city_name": "SELCA",
+      "joppd": "03832",
+      "postal_code": "21425",
+      "iban": "HR7610010051738312007",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 403,
+    "fields": {
+      "city_name": "SELNICA",
+      "joppd": "03859",
+      "postal_code": "40314",
+      "iban": "HR1210010051738512009",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 404,
+    "fields": {
+      "city_name": "SEMELJCI",
+      "joppd": "03867",
+      "postal_code": "31402",
+      "iban": "HR5610010051738612000",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 405,
+    "fields": {
+      "city_name": "SENJ",
+      "joppd": "03875",
+      "postal_code": "53270",
+      "iban": "HR6710010051738712003",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 406,
+    "fields": {
+      "city_name": "SEVERIN",
+      "joppd": "05622",
+      "postal_code": "43274",
+      "iban": "HR9210010051756212002",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 407,
+    "fields": {
+      "city_name": "SIBINJ",
+      "joppd": "03883",
+      "postal_code": "35252",
+      "iban": "HR8910010051738812002",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 408,
+    "fields": {
+      "city_name": "SIKIREVCI",
+      "joppd": "05703",
+      "postal_code": "35224",
+      "iban": "HR4110010051757012006",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 409,
+    "fields": {
+      "city_name": "SINJ",
+      "joppd": "03891",
+      "postal_code": "21230",
+      "iban": "HR7310010051738912006",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 410,
+    "fields": {
+      "city_name": "SIRA\u010c",
+      "joppd": "03905",
+      "postal_code": "43541",
+      "iban": "HR0910010051739012001",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 411,
+    "fields": {
+      "city_name": "SISAK",
+      "joppd": "03913",
+      "postal_code": "44000",
+      "iban": "HR3610010051739112007",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 412,
+    "fields": {
+      "city_name": "SKRAD",
+      "joppd": "03930",
+      "postal_code": "51311",
+      "iban": "HR6910010051739312009",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 413,
+    "fields": {
+      "city_name": "SKRADIN",
+      "joppd": "03948",
+      "postal_code": "22222",
+      "iban": "HR1610010051739412000",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 414,
+    "fields": {
+      "city_name": "SLATINA",
+      "joppd": "03956",
+      "postal_code": "33520",
+      "iban": "HR2710010051739512003",
+      "tax_rate": 6.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 415,
+    "fields": {
+      "city_name": "SLAVONSKI BROD",
+      "joppd": "03964",
+      "postal_code": "35000",
+      "iban": "HR4910010051739612002",
+      "tax_rate": 6.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 416,
+    "fields": {
+      "city_name": "SLAVONSKI \u0160AMAC",
+      "joppd": "03972",
+      "postal_code": "35220",
+      "iban": "HR3310010051739712006",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 417,
+    "fields": {
+      "city_name": "SLIVNO",
+      "joppd": "03999",
+      "postal_code": "21272",
+      "iban": "HR5010010051739912005",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 418,
+    "fields": {
+      "city_name": "SLUNJ",
+      "joppd": "04006",
+      "postal_code": "47240",
+      "iban": "HR4510010051740012005",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 419,
+    "fields": {
+      "city_name": "SMOKVICA",
+      "joppd": "04022",
+      "postal_code": "20272",
+      "iban": "HR7810010051740212007",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 420,
+    "fields": {
+      "city_name": "SOKOLOVAC",
+      "joppd": "04057",
+      "postal_code": "48306",
+      "iban": "HR5810010051740512000",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 421,
+    "fields": {
+      "city_name": "SOLIN",
+      "joppd": "04065",
+      "postal_code": "21209",
+      "iban": "HR6910010051740612003",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 422,
+    "fields": {
+      "city_name": "SOPJE",
+      "joppd": "04073",
+      "postal_code": "33525",
+      "iban": "HR9110010051740712002",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 423,
+    "fields": {
+      "city_name": "SPLIT",
+      "joppd": "04090",
+      "postal_code": "21000",
+      "iban": "HR2710010051740912004",
+      "tax_rate": 15.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 424,
+    "fields": {
+      "city_name": "SRA\u010cINEC",
+      "joppd": "04103",
+      "postal_code": "42209",
+      "iban": "HR3810010051741012007",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 425,
+    "fields": {
+      "city_name": "STANKOVCI",
+      "joppd": "04111",
+      "postal_code": "23422",
+      "iban": "HR0610010051741112008",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 426,
+    "fields": {
+      "city_name": "STARA GRADI\u0160KA",
+      "joppd": "04120",
+      "postal_code": "35435",
+      "iban": "HR7110010051741212009",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 427,
+    "fields": {
+      "city_name": "STARI GRAD",
+      "joppd": "04138",
+      "postal_code": "21460",
+      "iban": "HR1810010051741312000",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 428,
+    "fields": {
+      "city_name": "STARI JANKOVCI",
+      "joppd": "04146",
+      "postal_code": "32241",
+      "iban": "HR2910010051741412003",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 429,
+    "fields": {
+      "city_name": "STARI MIKANOVCI",
+      "joppd": "04154",
+      "postal_code": "32284",
+      "iban": "HR5110010051741512002",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 430,
+    "fields": {
+      "city_name": "STARIGRAD",
+      "joppd": "04162",
+      "postal_code": "23244",
+      "iban": "HR3510010051741612006",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 431,
+    "fields": {
+      "city_name": "STARO PETROVO SELO",
+      "joppd": "04189",
+      "postal_code": "35420",
+      "iban": "HR5210010051741812005",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 432,
+    "fields": {
+      "city_name": "STON",
+      "joppd": "04197",
+      "postal_code": "20230",
+      "iban": "HR5810010051741912001",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 433,
+    "fields": {
+      "city_name": "STRAHONINEC",
+      "joppd": "06068",
+      "iban": "HR0110010051760612008",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 434,
+    "fields": {
+      "city_name": "STRIZIVOJNA",
+      "joppd": "04219",
+      "postal_code": "31410",
+      "iban": "HR7510010051742112000",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 435,
+    "fields": {
+      "city_name": "STUBI\u010cKE TOPLICE",
+      "joppd": "04227",
+      "postal_code": "49244",
+      "iban": "HR8610010051742212003",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 436,
+    "fields": {
+      "city_name": "STUPNIK",
+      "joppd": "05517",
+      "iban": "HR5510010051755112009",
+      "tax_rate": 6.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 437,
+    "fields": {
+      "city_name": "SU\u0106URAJ",
+      "joppd": "04235",
+      "postal_code": "21469",
+      "iban": "HR1110010051742312002",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 438,
+    "fields": {
+      "city_name": "SUHOPOLJE",
+      "joppd": "04243",
+      "postal_code": "33410",
+      "iban": "HR9210010051742412006",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 439,
+    "fields": {
+      "city_name": "SUKO\u0160AN",
+      "joppd": "04251",
+      "postal_code": "23206",
+      "iban": "HR4410010051742512004",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 440,
+    "fields": {
+      "city_name": "SUNJA",
+      "joppd": "04260",
+      "postal_code": "44210",
+      "iban": "HR1210010051742612005",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 441,
+    "fields": {
+      "city_name": "SUPETAR",
+      "joppd": "04278",
+      "postal_code": "21400",
+      "iban": "HR1810010051742712001",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 442,
+    "fields": {
+      "city_name": "SUTIVAN",
+      "joppd": "05924",
+      "postal_code": "21403",
+      "iban": "HR4410010051759212009",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 443,
+    "fields": {
+      "city_name": "SVETA MARIJA",
+      "joppd": "06076",
+      "postal_code": "40326",
+      "iban": "HR6610010051760712009",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 444,
+    "fields": {
+      "city_name": "SVETA NEDELJA (LABIN)",
+      "joppd": "04324",
+      "iban": "HR5210010051743212006",
+      "tax_rate": 6.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 445,
+    "fields": {
+      "city_name": "SVETA NEDELJA (SAMOBOR)",
+      "joppd": "04367",
+      "postal_code": "10431",
+      "iban": "HR0510010051743612007",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 446,
+    "fields": {
+      "city_name": "SVETI \u0110UR\u0110",
+      "joppd": "04375",
+      "postal_code": "42233",
+      "iban": "HR7010010051743712008",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 447,
+    "fields": {
+      "city_name": "SVETI FILIP I JAKOV",
+      "joppd": "04286",
+      "postal_code": "23207",
+      "iban": "HR4510010051742812007",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 448,
+    "fields": {
+      "city_name": "SVETI ILIJA",
+      "joppd": "04383",
+      "postal_code": "42214",
+      "iban": "HR3810010051743812009",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 449,
+    "fields": {
+      "city_name": "SVETI IVAN ZELINA",
+      "joppd": "04294",
+      "postal_code": "10380",
+      "iban": "HR1310010051742912008",
+      "tax_rate": 12.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 450,
+    "fields": {
+      "city_name": "SVETI IVAN \u017dABNO",
+      "joppd": "04391",
+      "postal_code": "48214",
+      "iban": "HR8210010051743912000",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 451,
+    "fields": {
+      "city_name": "SVETI JURAJ NA BREGU",
+      "joppd": "04405",
+      "postal_code": "53284",
+      "iban": "HR2310010051744012002",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 452,
+    "fields": {
+      "city_name": "SVETI KRI\u017d ZA\u010cRETJE",
+      "joppd": "04308",
+      "postal_code": "49223",
+      "iban": "HR4610010051743012003",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 453,
+    "fields": {
+      "city_name": "SVETI LOVRE\u010c",
+      "joppd": "04316",
+      "postal_code": "52448",
+      "iban": "HR6810010051743112002",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 454,
+    "fields": {
+      "city_name": "SVETI MARTIN NA MURI",
+      "joppd": "04413",
+      "postal_code": "40313",
+      "iban": "HR0710010051744112006",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 455,
+    "fields": {
+      "city_name": "SVETI PETAR OREHOVEC",
+      "joppd": "04421",
+      "iban": "HR5610010051744212004",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 456,
+    "fields": {
+      "city_name": "SVETI PETAR U \u0160UMI",
+      "joppd": "04332",
+      "postal_code": "52404",
+      "iban": "HR0410010051743312004",
+      "tax_rate": 7.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 457,
+    "fields": {
+      "city_name": "SVETVIN\u010cENAT",
+      "joppd": "04359",
+      "postal_code": "52342",
+      "iban": "HR7510010051743512001",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 458,
+    "fields": {
+      "city_name": "\u0160ANDROVAC",
+      "joppd": "05649",
+      "postal_code": "43227",
+      "iban": "HR2810010051756412004",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 459,
+    "fields": {
+      "city_name": "\u0160ENKOVEC",
+      "joppd": "06084",
+      "postal_code": "10292",
+      "iban": "HR1310010051760812000",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 460,
+    "fields": {
+      "city_name": "\u0160ESTANOVAC",
+      "joppd": "04430",
+      "postal_code": "21250",
+      "iban": "HR2410010051744312005",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 461,
+    "fields": {
+      "city_name": "\u0160IBENIK",
+      "joppd": "04448",
+      "postal_code": "22000",
+      "iban": "HR3010010051744412001",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 462,
+    "fields": {
+      "city_name": "\u0160KABRNJA",
+      "joppd": "04456",
+      "postal_code": "23223",
+      "iban": "HR5710010051744512007",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 463,
+    "fields": {
+      "city_name": "\u0160ODOLOVCI",
+      "joppd": "06149",
+      "iban": "HR5810010051761412008",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 464,
+    "fields": {
+      "city_name": "\u0160OLTA",
+      "joppd": "04472",
+      "iban": "HR9010010051744712009",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 465,
+    "fields": {
+      "city_name": "\u0160PI\u0160I\u0106 BUKOVICA",
+      "joppd": "04499",
+      "postal_code": "33404",
+      "iban": "HR4810010051744912003",
+      "tax_rate": 9.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 466,
+    "fields": {
+      "city_name": "\u0160TEFANJE",
+      "joppd": "04502",
+      "postal_code": "43246",
+      "iban": "HR1610010051745012004",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 467,
+    "fields": {
+      "city_name": "\u0160TITAR",
+      "joppd": "06289",
+      "postal_code": "32274",
+      "iban": "HR9610010051762812004",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 468,
+    "fields": {
+      "city_name": "\u0160TRIGOVA",
+      "joppd": "04529",
+      "postal_code": "40312",
+      "iban": "HR8710010051745212001",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 469,
+    "fields": {
+      "city_name": "TAR-VABRIGA-TORRE-ABREGA",
+      "joppd": "06319",
+      "iban": "HR4310010051763112009",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 470,
+    "fields": {
+      "city_name": "TINJAN",
+      "joppd": "04537",
+      "postal_code": "52444",
+      "iban": "HR1710010051745312007",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 471,
+    "fields": {
+      "city_name": "TISNO",
+      "joppd": "04545",
+      "postal_code": "22240",
+      "iban": "HR8210010051745412008",
+      "tax_rate": 9.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 472,
+    "fields": {
+      "city_name": "TKON",
+      "joppd": "05754",
+      "postal_code": "23212",
+      "iban": "HR5910010051757512008",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 473,
+    "fields": {
+      "city_name": "TOMPOJEVCI",
+      "joppd": "04561",
+      "iban": "HR9410010051745612000",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 474,
+    "fields": {
+      "city_name": "TOPUSKO",
+      "joppd": "04570",
+      "postal_code": "44415",
+      "iban": "HR0810010051745712003",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 475,
+    "fields": {
+      "city_name": "TORDINCI",
+      "joppd": "04588",
+      "postal_code": "32214",
+      "iban": "HR3010010051745812002",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 476,
+    "fields": {
+      "city_name": "TOUNJ",
+      "joppd": "05576",
+      "postal_code": "47264",
+      "iban": "HR3610010051755712005",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 477,
+    "fields": {
+      "city_name": "TOVARNIK",
+      "joppd": "04596",
+      "postal_code": "32249",
+      "iban": "HR1410010051745912006",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 478,
+    "fields": {
+      "city_name": "TRIBUNJ",
+      "joppd": "06262",
+      "postal_code": "22212",
+      "iban": "HR6310010051762612002",
+      "tax_rate": 6.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 479,
+    "fields": {
+      "city_name": "TRILJ",
+      "joppd": "04600",
+      "postal_code": "21240",
+      "iban": "HR4710010051746012001",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 480,
+    "fields": {
+      "city_name": "TRNAVA",
+      "joppd": "04618",
+      "postal_code": "31411",
+      "iban": "HR7410010051746112007",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 481,
+    "fields": {
+      "city_name": "TRNOVEC BARTOLOVE\u010cKI",
+      "joppd": "04626",
+      "postal_code": "42202",
+      "iban": "HR4210010051746212008",
+      "tax_rate": 7.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 482,
+    "fields": {
+      "city_name": "TROGIR",
+      "joppd": "04634",
+      "postal_code": "21219",
+      "iban": "HR1010010051746312009",
+      "tax_rate": 8.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 483,
+    "fields": {
+      "city_name": "TRPANJ",
+      "joppd": "06017",
+      "postal_code": "20240",
+      "iban": "HR8010010051760112006",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 484,
+    "fields": {
+      "city_name": "TRPINJA",
+      "joppd": "04642",
+      "postal_code": "32224",
+      "iban": "HR5410010051746412000",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 485,
+    "fields": {
+      "city_name": "TU\u010cEPI",
+      "joppd": "05932",
+      "postal_code": "21325",
+      "iban": "HR8810010051759312000",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 486,
+    "fields": {
+      "city_name": "TUHELJ",
+      "joppd": "04669",
+      "postal_code": "49215",
+      "iban": "HR8710010051746612002",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 487,
+    "fields": {
+      "city_name": "UDBINA",
+      "joppd": "04677",
+      "postal_code": "53234",
+      "iban": "HR7110010051746712006",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 488,
+    "fields": {
+      "city_name": "UMAG-UMAGO",
+      "joppd": "04685",
+      "postal_code": "52470",
+      "iban": "HR2310010051746812004",
+      "tax_rate": 6.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 489,
+    "fields": {
+      "city_name": "UNE\u0160I\u0106",
+      "joppd": "04693",
+      "postal_code": "22323",
+      "iban": "HR8810010051746912005",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 490,
+    "fields": {
+      "city_name": "VALPOVO",
+      "joppd": "04715",
+      "postal_code": "31550",
+      "iban": "HR6710010051747112009",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 491,
+    "fields": {
+      "city_name": "VARA\u017dDIN",
+      "joppd": "04723",
+      "postal_code": "42000",
+      "iban": "HR1410010051747212000",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 492,
+    "fields": {
+      "city_name": "VARA\u017dDINSKE TOPLICE",
+      "joppd": "04731",
+      "postal_code": "42223",
+      "iban": "HR2510010051747312003",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 493,
+    "fields": {
+      "city_name": "VELA LUKA",
+      "joppd": "04740",
+      "postal_code": "20270",
+      "iban": "HR4710010051747412002",
+      "tax_rate": 9.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 494,
+    "fields": {
+      "city_name": "VELIKA",
+      "joppd": "04758",
+      "postal_code": "34330",
+      "iban": "HR3110010051747512006",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 495,
+    "fields": {
+      "city_name": "VELIKA GORICA",
+      "joppd": "05410",
+      "postal_code": "10409",
+      "iban": "HR6210010051754112007",
+      "tax_rate": 12.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 496,
+    "fields": {
+      "city_name": "VELIKA KOPANICA",
+      "joppd": "04766",
+      "postal_code": "35221",
+      "iban": "HR8010010051747612004",
+      "tax_rate": 7.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 497,
+    "fields": {
+      "city_name": "VELIKA LUDINA",
+      "joppd": "04774",
+      "postal_code": "44316",
+      "iban": "HR4810010051747712005",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 498,
+    "fields": {
+      "city_name": "VELIKA PISANICA",
+      "joppd": "04782",
+      "postal_code": "43271",
+      "iban": "HR5410010051747812001",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 499,
+    "fields": {
+      "city_name": "VELIKA TRNOVITICA",
+      "joppd": "05657",
+      "postal_code": "43285",
+      "iban": "HR9310010051756512005",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 500,
+    "fields": {
+      "city_name": "VELIKI BUKOVEC",
+      "joppd": "05584",
+      "iban": "HR4210010051755812001",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 501,
+    "fields": {
+      "city_name": "VELIKI GR\u0110EVAC",
+      "joppd": "04804",
+      "postal_code": "43270",
+      "iban": "HR7110010051748012000",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 502,
+    "fields": {
+      "city_name": "VELIKO TRGOVI\u0160\u0106E",
+      "joppd": "04812",
+      "postal_code": "49214",
+      "iban": "HR8210010051748112003",
+      "tax_rate": 7.5
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 503,
+    "fields": {
+      "city_name": "VELIKO TROJSTVO",
+      "joppd": "04839",
+      "postal_code": "43226",
+      "iban": "HR8810010051748312006",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 504,
+    "fields": {
+      "city_name": "VIDOVEC",
+      "joppd": "04847",
+      "postal_code": "42205",
+      "iban": "HR4010010051748412004",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 505,
+    "fields": {
+      "city_name": "VILJEVO",
+      "joppd": "04855",
+      "postal_code": "31531",
+      "iban": "HR0810010051748512005",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 506,
+    "fields": {
+      "city_name": "VINICA",
+      "joppd": "04863",
+      "postal_code": "42207",
+      "iban": "HR1410010051748612001",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 507,
+    "fields": {
+      "city_name": "VINKOVCI",
+      "joppd": "04871",
+      "postal_code": "32100",
+      "iban": "HR4110010051748712007",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 508,
+    "fields": {
+      "city_name": "VINODOLSKA OP\u0106INA",
+      "joppd": "04880",
+      "iban": "HR0910010051748812008",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 509,
+    "fields": {
+      "city_name": "VIR",
+      "joppd": "04898",
+      "postal_code": "23234",
+      "iban": "HR7410010051748912009",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 510,
+    "fields": {
+      "city_name": "VIRJE",
+      "joppd": "04901",
+      "postal_code": "48326",
+      "iban": "HR5310010051749012006",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 511,
+    "fields": {
+      "city_name": "VIROVITICA",
+      "joppd": "04910",
+      "postal_code": "33000",
+      "iban": "HR0510010051749112004",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 512,
+    "fields": {
+      "city_name": "VIS",
+      "joppd": "04928",
+      "postal_code": "21480",
+      "iban": "HR7010010051749212005",
+      "tax_rate": 3.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 513,
+    "fields": {
+      "city_name": "VISOKO",
+      "joppd": "04936",
+      "postal_code": "42224",
+      "iban": "HR7610010051749312001",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 514,
+    "fields": {
+      "city_name": "VI\u0160KOVCI",
+      "joppd": "04944",
+      "postal_code": "31401",
+      "iban": "HR0610010051749412007",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 515,
+    "fields": {
+      "city_name": "VI\u0160KOVO",
+      "joppd": "04952",
+      "postal_code": "51216",
+      "iban": "HR7110010051749512008",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 516,
+    "fields": {
+      "city_name": "VI\u0160NJAN-VISIGNANO",
+      "joppd": "04979",
+      "postal_code": "52463",
+      "iban": "HR8310010051749712000",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 517,
+    "fields": {
+      "city_name": "VI\u017dINADA-VISINADA",
+      "joppd": "04987",
+      "postal_code": "52447",
+      "iban": "HR9410010051749812003",
+      "tax_rate": 3.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 518,
+    "fields": {
+      "city_name": "VLADISLAVCI",
+      "joppd": "05797",
+      "postal_code": "31404",
+      "iban": "HR0710010051757912002",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 519,
+    "fields": {
+      "city_name": "VO\u0106IN",
+      "joppd": "04995",
+      "postal_code": "33522",
+      "iban": "HR1910010051749912002",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 520,
+    "fields": {
+      "city_name": "VODICE",
+      "joppd": "05002",
+      "postal_code": "22211",
+      "iban": "HR1910010051750012009",
+      "tax_rate": 6.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 521,
+    "fields": {
+      "city_name": "VODNJAN-DIGNANO",
+      "joppd": "05029",
+      "postal_code": "52215",
+      "iban": "HR7410010051750212003",
+      "tax_rate": 7.5
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 522,
+    "fields": {
+      "city_name": "VO\u0110INCI",
+      "joppd": "05843",
+      "postal_code": "32283",
+      "iban": "HR8410010051758412009",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 523,
+    "fields": {
+      "city_name": "VOJNI\u0106",
+      "joppd": "05037",
+      "postal_code": "47220",
+      "iban": "HR9610010051750312002",
+      "tax_rate": 7.5
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 524,
+    "fields": {
+      "city_name": "VRATI\u0160INEC",
+      "joppd": "05045",
+      "postal_code": "40316",
+      "iban": "HR8010010051750412006",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 525,
+    "fields": {
+      "city_name": "VRBANJA",
+      "joppd": "05053",
+      "postal_code": "32254",
+      "iban": "HR3210010051750512004",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 526,
+    "fields": {
+      "city_name": "VRBJE",
+      "joppd": "05061",
+      "postal_code": "35423",
+      "iban": "HR9710010051750612005",
+      "tax_rate": 3.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 527,
+    "fields": {
+      "city_name": "VRBNIK",
+      "joppd": "05070",
+      "postal_code": "51516",
+      "iban": "HR0610010051750712001",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 528,
+    "fields": {
+      "city_name": "VRBOVEC",
+      "joppd": "05088",
+      "postal_code": "10340",
+      "iban": "HR3310010051750812007",
+      "tax_rate": 12.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 529,
+    "fields": {
+      "city_name": "VRBOVSKO",
+      "joppd": "05096",
+      "postal_code": "51326",
+      "iban": "HR9810010051750912008",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 530,
+    "fields": {
+      "city_name": "VRGORAC",
+      "joppd": "05118",
+      "postal_code": "21276",
+      "iban": "HR5610010051751112002",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 531,
+    "fields": {
+      "city_name": "VRHOVINE",
+      "joppd": "05126",
+      "postal_code": "53223",
+      "iban": "HR4010010051751212006",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 532,
+    "fields": {
+      "city_name": "VRLIKA",
+      "joppd": "05134",
+      "postal_code": "21236",
+      "iban": "HR8910010051751312004",
+      "tax_rate": 7.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 533,
+    "fields": {
+      "city_name": "VRPOLJE",
+      "joppd": "05142",
+      "postal_code": "35210",
+      "iban": "HR5710010051751412005",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 534,
+    "fields": {
+      "city_name": "VRSAR-ORSERA",
+      "joppd": "05169",
+      "postal_code": "52450",
+      "iban": "HR9010010051751612007",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 535,
+    "fields": {
+      "city_name": "VRSI",
+      "joppd": "06254",
+      "postal_code": "23235",
+      "iban": "HR4110010051762512003",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 536,
+    "fields": {
+      "city_name": "VUKA",
+      "joppd": "05177",
+      "postal_code": "31403",
+      "iban": "HR5810010051751712008",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 537,
+    "fields": {
+      "city_name": "VUKOVAR",
+      "joppd": "05185",
+      "postal_code": "32000",
+      "iban": "HR2610010051751812009",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 538,
+    "fields": {
+      "city_name": "ZABOK",
+      "joppd": "05193",
+      "postal_code": "49210",
+      "iban": "HR7010010051751912000",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 539,
+    "fields": {
+      "city_name": "ZADAR",
+      "joppd": "05207",
+      "postal_code": "23000",
+      "iban": "HR1110010051752012002",
+      "tax_rate": 12.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 540,
+    "fields": {
+      "city_name": "ZADVARJE",
+      "joppd": "05959",
+      "postal_code": "21255",
+      "iban": "HR2410010051759512002",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 541,
+    "fields": {
+      "city_name": "ZAGORSKA SELA",
+      "joppd": "05215",
+      "postal_code": "49296",
+      "iban": "HR9210010051752112006",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 542,
+    "fields": {
+      "city_name": "ZAGREB",
+      "joppd": "01333",
+      "postal_code": "10000",
+      "iban": "HR1110010051713312009",
+      "tax_rate": 18.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 543,
+    "fields": {
+      "city_name": "ZAGVOZD",
+      "joppd": "05223",
+      "postal_code": "21270",
+      "iban": "HR4410010051752212004",
+      "tax_rate": 6.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 544,
+    "fields": {
+      "city_name": "ZAPRE\u0160I\u0106",
+      "joppd": "05436",
+      "postal_code": "10290",
+      "iban": "HR9510010051754312009",
+      "tax_rate": 12.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 545,
+    "fields": {
+      "city_name": "ZA\u017dABLJE",
+      "joppd": "05231",
+      "iban": "HR1210010051752312005",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 546,
+    "fields": {
+      "city_name": "ZDENCI",
+      "joppd": "05240",
+      "postal_code": "33513",
+      "iban": "HR1810010051752412001",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 547,
+    "fields": {
+      "city_name": "ZEMUNIK DONJI",
+      "joppd": "05258",
+      "iban": "HR4510010051752512007",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 548,
+    "fields": {
+      "city_name": "ZLATAR",
+      "joppd": "05266",
+      "postal_code": "49250",
+      "iban": "HR1310010051752612008",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 549,
+    "fields": {
+      "city_name": "ZLATAR BISTRICA",
+      "joppd": "05274",
+      "postal_code": "49247",
+      "iban": "HR7810010051752712009",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 550,
+    "fields": {
+      "city_name": "ZMIJAVCI",
+      "joppd": "05282",
+      "postal_code": "21266",
+      "iban": "HR2510010051752812000",
+      "tax_rate": 8.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 551,
+    "fields": {
+      "city_name": "ZRINSKI TOPOLOVAC",
+      "joppd": "05665",
+      "postal_code": "43202",
+      "iban": "HR0210010051756612001",
+      "tax_rate": 0.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 552,
+    "fields": {
+      "city_name": "\u017dAKANJE",
+      "joppd": "05304",
+      "postal_code": "47276",
+      "iban": "HR0410010051753012004",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 553,
+    "fields": {
+      "city_name": "\u017dMINJ",
+      "joppd": "05312",
+      "postal_code": "52341",
+      "iban": "HR6910010051753112005",
+      "tax_rate": 5.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 554,
+    "fields": {
+      "city_name": "\u017dUMBERAK",
+      "joppd": "05401",
+      "iban": "HR3510010051754012001",
+      "tax_rate": 3.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 555,
+    "fields": {
+      "city_name": "\u017dUPA DUBROVA\u010cKA",
+      "joppd": "06025",
+      "iban": "HR3210010051760212004",
+      "tax_rate": 10.0
+    }
+  },
+  {
+    "model": "third_parties_app.city",
+    "pk": 556,
+    "fields": {
+      "city_name": "\u017dUPANJA",
+      "joppd": "05347",
+      "postal_code": "32270",
+      "iban": "HR7010010051753412008",
+      "tax_rate": 9.0
+    }
+  },
+  {
+    "model": "third_parties_app.bank",
+    "pk": 1,
+    "fields": {
+      "bank_name": "ADDIKO BANK d.d.",
+      "iban": "HR6025000091000000013",
+      "oib": "14036333877",
+      "city": 542,
+      "street_name": "Slavonska avenija",
+      "street_number": "6"
+    }
+  },
+  {
+    "model": "third_parties_app.bank",
+    "pk": 2,
+    "fields": {
+      "bank_name": "AGRAM BANKA d.d. Zagreb",
+      "iban": "HR4424810001011111116",
+      "oib": "70663193635",
+      "city": 542,
+      "street_name": "Ulica grada Vukovara",
+      "street_number": "74"
+    }
+  },
+  {
+    "model": "third_parties_app.bank",
+    "pk": 3,
+    "fields": {
+      "bank_name": "CROATIA BANKA d.d.",
+      "iban": "HR0324850031000009027",
+      "oib": "32247795989",
+      "city": 542,
+      "street_name": "Roberta Frange\u0161a Mihanovi\u0107a",
+      "street_number": "9"
+    }
+  },
+  {
+    "model": "third_parties_app.bank",
+    "pk": 4,
+    "fields": {
+      "bank_name": "HRVATSKA PO\u0160TANSKA BANKA d.d. Zagreb",
+      "iban": "HR4623900011070000029",
+      "oib": "87939104217",
+      "city": 542,
+      "street_name": "Juri\u0161i\u0107eva",
+      "street_number": "4"
+    }
+  },
+  {
+    "model": "third_parties_app.bank",
+    "pk": 5,
+    "fields": {
+      "bank_name": "KENTBANK d.d. Zagreb",
+      "iban": "HR5741240031011111116",
+      "oib": "73656725926",
+      "city": 542,
+      "street_name": "Gunduli\u0107eva",
+      "street_number": "1"
+    }
+  },
+  {
+    "model": "third_parties_app.bank",
+    "pk": 6,
+    "fields": {
+      "bank_name": "PARTNER BANKA d.d. Zagreb",
+      "iban": "HR9424080021000002870",
+      "oib": "71221608291",
+      "city": 542,
+      "street_name": "Von\u010dinina",
+      "street_number": "2"
+    }
+  },
+  {
+    "model": "third_parties_app.bank",
+    "pk": 7,
+    "fields": {
+      "bank_name": "PRIVREDNA BANKA ZAGREB d.d. Zagreb",
+      "iban": "HR6423400091000000013",
+      "oib": "02535697732",
+      "city": 542,
+      "street_name": "Radni\u010dka cesta",
+      "street_number": "50"
+    }
+  },
+  {
+    "model": "third_parties_app.bank",
+    "pk": 8,
+    "fields": {
+      "bank_name": "RAIFFEISENBANK AUSTRIA d.d. Zagreb",
+      "iban": "HR0624840081000000013",
+      "oib": "53056966535",
+      "city": 542,
+      "street_name": "Magazinska cesta",
+      "street_number": "69"
+    }
+  },
+  {
+    "model": "third_parties_app.bank",
+    "pk": 9,
+    "fields": {
+      "bank_name": "SBERBANK d.d. Zagreb",
+      "iban": "HR1225030071011111116",
+      "oib": "78427478595",
+      "city": 542,
+      "street_name": "Var\u0161avska",
+      "street_number": "9"
+    }
+  },
+  {
+    "model": "third_parties_app.bank",
+    "pk": 10,
+    "fields": {
+      "bank_name": "\u0160TEDBANKA d.d. u likvidaciji",
+      "iban": "HR9724020061100854774",
+      "oib": "58063088591",
+      "city": 542,
+      "street_name": "Slavonska avenija",
+      "street_number": "3"
+    }
+  },
+  {
+    "model": "third_parties_app.bank",
+    "pk": 11,
+    "fields": {
+      "bank_name": "TESLA \u0160TEDNA BANKA d.d. Zagreb u ste\u010daju",
+      "iban": "HR0367170021000000013",
+      "oib": "82901735413",
+      "city": 542,
+      "street_name": "Trg J. F. Kennedyja",
+      "street_number": "6B"
+    }
+  },
+  {
+    "model": "third_parties_app.bank",
+    "pk": 12,
+    "fields": {
+      "bank_name": "VENETO BANKA d.d. Zagreb",
+      "iban": "",
+      "oib": "81712716992",
+      "city": 542,
+      "street_name": "Dra\u0161kovi\u0107eva",
+      "street_number": "58a"
+    }
+  },
+  {
+    "model": "third_parties_app.bank",
+    "pk": 13,
+    "fields": {
+      "bank_name": "ZAGREBA\u010cKA BANKA d.d. Zagreb",
+      "iban": "HR8823600001000000013",
+      "oib": "92963223473",
+      "city": 542,
+      "street_name": "Trg bana Josipa Jela\u010di\u0107a",
+      "street_number": "10"
+    }
+  },
+  {
+    "model": "third_parties_app.bank",
+    "pk": 14,
+    "fields": {
+      "bank_name": "BANKA KOVANICA d.d.",
+      "iban": "HR0941330061011111116",
+      "oib": "33039197637",
+      "city": 491,
+      "street_name": "Petra Preradovi\u0107a",
+      "street_number": "29"
+    }
+  },
+  {
+    "model": "third_parties_app.bank",
+    "pk": 15,
+    "fields": {
+      "bank_name": "J&amp;T BANKA d.d. Vara\u017edin",
+      "iban": "HR7724890041006755391",
+      "oib": "38182927268",
+      "city": 491,
+      "street_name": "Aleja kralja Zvonimira",
+      "street_number": "1"
+    }
+  },
+  {
+    "model": "third_parties_app.bank",
+    "pk": 16,
+    "fields": {
+      "bank_name": "BKS BANK AG",
+      "iban": "HR5724880011011111116",
+      "oib": "02138784111",
+      "city": 390,
+      "street_name": "Mljekarski trg",
+      "street_number": "3"
+    }
+  },
+  {
+    "model": "third_parties_app.bank",
+    "pk": 17,
+    "fields": {
+      "bank_name": "ERSTE &amp; STEIERM\u00c4RKISCHE BANK d.d.",
+      "iban": "HR9524020061031262160",
+      "oib": "23057039320",
+      "city": 390,
+      "street_name": "Jadranski trg",
+      "street_number": "3A"
+    }
+  },
+  {
+    "model": "third_parties_app.bank",
+    "pk": 18,
+    "fields": {
+      "bank_name": "PRIMORSKA BANKA d.d. Rijeka u likvidaciji",
+      "iban": "HR1841320031011111116",
+      "oib": "96675880337",
+      "city": 390,
+      "street_name": "Scarpina",
+      "street_number": "7"
+    }
+  },
+  {
+    "model": "third_parties_app.bank",
+    "pk": 19,
+    "fields": {
+      "bank_name": "IMEX BANKA d.d. Split",
+      "iban": "HR4024920081011111116",
+      "oib": "99326633206",
+      "city": 423,
+      "street_name": "Tolstojeva",
+      "street_number": "6"
+    }
+  },
+  {
+    "model": "third_parties_app.bank",
+    "pk": 20,
+    "fields": {
+      "bank_name": "SPLITSKA BANKA d.d. Split (OTP Grupa)",
+      "iban": "HR2423300031000000013",
+      "oib": "69326397242",
+      "city": 423,
+      "street_name": "Ulica Domovinskog rata",
+      "street_number": "61"
+    }
+  },
+  {
+    "model": "third_parties_app.bank",
+    "pk": 21,
+    "fields": {
+      "bank_name": "ISTARSKA KREDITNA BANKA UMAG d.d. Umag",
+      "iban": "HR7723800061000000005",
+      "oib": "65723536010",
+      "city": 488,
+      "street_name": "Ernesta Milo\u0161a",
+      "street_number": "1"
+    }
+  },
+  {
+    "model": "third_parties_app.bank",
+    "pk": 22,
+    "fields": {
+      "bank_name": "JADRANSKA BANKA d.d. \u0160ibenik",
+      "iban": "HR8624110061011111116",
+      "oib": "02899494784",
+      "city": 461,
+      "street_name": "Ante Star\u010devi\u0107a",
+      "street_number": "4"
+    }
+  },
+  {
+    "model": "third_parties_app.bank",
+    "pk": 23,
+    "fields": {
+      "bank_name": "KARLOVA\u010cKA BANKA d.d. Karlovac",
+      "iban": "HR5224000081011111116",
+      "oib": "08106331075",
+      "city": 179,
+      "street_name": "Ivana Gorana Kova\u010di\u0107a",
+      "street_number": "1"
+    }
+  },
+  {
+    "model": "third_parties_app.bank",
+    "pk": 24,
+    "fields": {
+      "bank_name": "OTP BANKA HRVATSKA d.d. Zadar",
+      "iban": "HR5324070001024070003",
+      "oib": "52508873833",
+      "city": 539,
+      "street_name": "Domovinskog rata",
+      "street_number": "3"
+    }
+  },
+  {
+    "model": "third_parties_app.bank",
+    "pk": 25,
+    "fields": {
+      "bank_name": "PODRAVSKA BANKA d.d. Koprivnica",
+      "iban": "HR6323860021000010160",
+      "oib": "97326283154",
+      "city": 201,
+      "street_name": "Opati\u010dka",
+      "street_number": "3"
+    }
+  },
+  {
+    "model": "third_parties_app.bank",
+    "pk": 26,
+    "fields": {
+      "bank_name": "SAMOBORSKA BANKA d.d. Samobor",
+      "iban": "HR3624030091011111116",
+      "oib": "13806526186",
+      "city": 399,
+      "street_name": "Trg kralja Tomislava",
+      "street_number": "8"
+    }
+  },
+  {
+    "model": "third_parties_app.bank",
+    "pk": 27,
+    "fields": {
+      "bank_name": "SLATINSKA BANKA d.d. Slatina",
+      "iban": "HR2324120091039990928",
+      "oib": "42252496579",
+      "city": 414,
+      "street_name": "V.Nazora",
+      "street_number": "2"
+    }
+  }
+]

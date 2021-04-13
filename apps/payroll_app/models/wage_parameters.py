@@ -25,6 +25,8 @@ class WageParameters(models.Model):
 
     valid_from = models.DateField(verbose_name=_('Valid from'))
 
+    poo = _('stinky poopoooo')
+
     class Meta:
         verbose_name = _('Wage parameters')
         verbose_name_plural = _('Wage parameters')

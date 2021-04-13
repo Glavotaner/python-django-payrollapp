@@ -1,0 +1,326 @@
+[
+    {
+        "model": "third_parties_app.bank", 
+        "pk": 1, 
+        "fields": {
+            "bank_name": "ADDIKO BANK d.d.", 
+            "iban": "HR6025000091000000013",
+            "oib": "14036333877",
+            "city": 542,
+            "street_name": "Slavonska avenija", 
+            "street_number": "6"
+        }
+    }, 
+    {
+        "model": "third_parties_app.bank", 
+        "pk": 2, 
+        "fields": {
+            "bank_name": "AGRAM BANKA d.d. Zagreb", 
+            "iban": "HR4424810001011111116",
+            "oib": "70663193635",
+            "city": 542,
+            "street_name": "Ulica grada Vukovara", 
+            "street_number": "74"
+        }
+    }, 
+    {
+        "model": "third_parties_app.bank", 
+        "pk": 3, 
+        "fields": {
+            "bank_name": "CROATIA BANKA d.d.", 
+            "iban": "HR0324850031000009027",
+            "oib": "32247795989",
+            "city": 542,
+            "street_name": "Roberta Frange\u0161a Mihanovi\u0107a", 
+            "street_number": "9"
+        }
+    }, 
+    {
+        "model": "third_parties_app.bank", 
+        "pk": 4, 
+        "fields": {
+            "bank_name": "HRVATSKA PO\u0160TANSKA BANKA d.d. Zagreb", 
+            "iban": "HR4623900011070000029",
+            "oib": "87939104217",
+            "city": 542,
+            "street_name": "Juri\u0161i\u0107eva", 
+            "street_number": "4"
+        }
+    }, 
+    {
+        "model": "third_parties_app.bank", 
+        "pk": 5, 
+        "fields": {
+            "bank_name": "KENTBANK d.d. Zagreb", 
+            "iban": "HR5741240031011111116",
+            "oib": "73656725926",
+            "city": 542,
+            "street_name": "Gunduli\u0107eva", 
+            "street_number": "1"
+        }
+    }, 
+    {
+        "model": "third_parties_app.bank", 
+        "pk": 6, 
+        "fields": {
+            "bank_name": "PARTNER BANKA d.d. Zagreb", 
+            "iban": "HR9424080021000002870",
+            "oib": "71221608291",
+            "city": 542,
+            "street_name": "Von\u010dinina", 
+            "street_number": "2"
+        }
+    }, 
+    {
+        "model": "third_parties_app.bank", 
+        "pk": 7, 
+        "fields": {
+            "bank_name": "PRIVREDNA BANKA ZAGREB d.d. Zagreb", 
+            "iban": "HR6423400091000000013",
+            "oib": "02535697732",
+            "city": 542,
+            "street_name": "Radni\u010dka cesta", 
+            "street_number": "50"
+        }
+    }, 
+    {
+        "model": "third_parties_app.bank", 
+        "pk": 8, 
+        "fields": {
+            "bank_name": "RAIFFEISENBANK AUSTRIA d.d. Zagreb", 
+            "iban": "HR0624840081000000013",
+            "oib": "53056966535",
+            "city": 542,
+            "street_name": "Magazinska cesta", 
+            "street_number": "69"
+        }
+    }, 
+    {
+        "model": "third_parties_app.bank", 
+        "pk": 9, 
+        "fields": {
+            "bank_name": "SBERBANK d.d. Zagreb", 
+            "iban": "HR1225030071011111116",
+            "oib": "78427478595",
+            "city": 542,
+            "street_name": "Var\u0161avska", 
+            "street_number": "9"
+        }
+    }, 
+    {
+        "model": "third_parties_app.bank", 
+        "pk": 10, 
+        "fields": {
+            "bank_name": "\u0160TEDBANKA d.d. u likvidaciji", 
+            "iban": "HR9724020061100854774",
+            "oib": "58063088591",
+            "city": 542,
+            "street_name": "Slavonska avenija", 
+            "street_number": "3"
+        }
+    }, 
+    {
+        "model": "third_parties_app.bank", 
+        "pk": 11, 
+        "fields": {
+            "bank_name": "TESLA \u0160TEDNA BANKA d.d. Zagreb u ste\u010daju", 
+            "iban": "HR0367170021000000013",
+            "oib": "82901735413",
+            "city": 542,
+            "street_name": "Trg J. F. Kennedyja", 
+            "street_number": "6B"
+        }
+    }, 
+    {
+        "model": "third_parties_app.bank", 
+        "pk": 12, 
+        "fields": {
+            "bank_name": "VENETO BANKA d.d. Zagreb", 
+            "iban": "",
+            "oib": "81712716992",
+            "city": 542,
+            "street_name": "Dra\u0161kovi\u0107eva", 
+            "street_number": "58a"
+        }
+    }, 
+    {
+        "model": "third_parties_app.bank", 
+        "pk": 13, 
+        "fields": {
+            "bank_name": "ZAGREBA\u010cKA BANKA d.d. Zagreb", 
+            "iban": "HR8823600001000000013",
+            "oib": "92963223473",
+            "city": 542,
+            "street_name": "Trg bana Josipa Jela\u010di\u0107a", 
+            "street_number": "10"
+        }
+    }, 
+    {
+        "model": "third_parties_app.bank", 
+        "pk": 14, 
+        "fields": {
+            "bank_name": "BANKA KOVANICA d.d.", 
+            "iban": "HR0941330061011111116",
+            "oib": "33039197637",
+            "city": 491,
+            "street_name": "Petra Preradovi\u0107a", 
+            "street_number": "29"
+        }
+    }, 
+    {
+        "model": "third_parties_app.bank", 
+        "pk": 15, 
+        "fields": {
+            "bank_name": "J&amp;T BANKA d.d. Vara\u017edin", 
+            "iban": "HR7724890041006755391",
+            "oib": "38182927268",
+            "city": 491,
+            "street_name": "Aleja kralja Zvonimira", 
+            "street_number": "1"
+        }
+    }, 
+    {
+        "model": "third_parties_app.bank", 
+        "pk": 16, 
+        "fields": {
+            "bank_name": "BKS BANK AG", 
+            "iban": "HR5724880011011111116",
+            "oib": "02138784111",
+            "city": 390,
+            "street_name": "Mljekarski trg", 
+            "street_number": "3"
+        }
+    }, 
+    {
+        "model": "third_parties_app.bank", 
+        "pk": 17, 
+        "fields": {
+            "bank_name": "ERSTE &amp; STEIERM\u00c4RKISCHE BANK d.d.", 
+            "iban": "HR9524020061031262160",
+            "oib": "23057039320",
+            "city": 390,
+            "street_name": "Jadranski trg", 
+            "street_number": "3A"
+        }
+    }, 
+    {
+        "model": "third_parties_app.bank", 
+        "pk": 18, 
+        "fields": {
+            "bank_name": "PRIMORSKA BANKA d.d. Rijeka u likvidaciji", 
+            "iban": "HR1841320031011111116",
+            "oib": "96675880337",
+            "city": 390,
+            "street_name": "Scarpina", 
+            "street_number": "7"
+        }
+    }, 
+    {
+        "model": "third_parties_app.bank", 
+        "pk": 19, 
+        "fields": {
+            "bank_name": "IMEX BANKA d.d. Split", 
+            "iban": "HR4024920081011111116",
+            "oib": "99326633206",
+            "city": 423,
+            "street_name": "Tolstojeva", 
+            "street_number": "6"
+        }
+    }, 
+    {
+        "model": "third_parties_app.bank", 
+        "pk": 20, 
+        "fields": {
+            "bank_name": "SPLITSKA BANKA d.d. Split (OTP Grupa)", 
+            "iban": "HR2423300031000000013",
+            "oib": "69326397242",
+            "city": 423,
+            "street_name": "Ulica Domovinskog rata", 
+            "street_number": "61"
+        }
+    }, 
+    {
+        "model": "third_parties_app.bank", 
+        "pk": 21, 
+        "fields": {
+            "bank_name": "ISTARSKA KREDITNA BANKA UMAG d.d. Umag", 
+            "iban": "HR7723800061000000005",
+            "oib": "65723536010",
+            "city": 488,
+            "street_name": "Ernesta Milo\u0161a", 
+            "street_number": "1"
+        }
+    }, 
+    {
+        "model": "third_parties_app.bank", 
+        "pk": 22, 
+        "fields": {
+            "bank_name": "JADRANSKA BANKA d.d. \u0160ibenik", 
+            "iban": "HR8624110061011111116",
+            "oib": "02899494784",
+            "city": 461,
+            "street_name": "Ante Star\u010devi\u0107a", 
+            "street_number": "4"
+        }
+    }, 
+    {
+        "model": "third_parties_app.bank", 
+        "pk": 23, 
+        "fields": {
+            "bank_name": "KARLOVA\u010cKA BANKA d.d. Karlovac", 
+            "iban": "HR5224000081011111116",
+            "oib": "08106331075",
+            "city": 179,
+            "street_name": "Ivana Gorana Kova\u010di\u0107a", 
+            "street_number": "1"
+        }
+    }, 
+    {
+        "model": "third_parties_app.bank", 
+        "pk": 24, 
+        "fields": {
+            "bank_name": "OTP BANKA HRVATSKA d.d. Zadar", 
+            "iban": "HR5324070001024070003",
+            "oib": "52508873833",
+            "city": 539,
+            "street_name": "Domovinskog rata", 
+            "street_number": "3"
+        }
+    }, 
+    {
+        "model": "third_parties_app.bank", 
+        "pk": 25, 
+        "fields": {
+            "bank_name": "PODRAVSKA BANKA d.d. Koprivnica", 
+            "iban": "HR6323860021000010160",
+            "oib": "97326283154",
+            "city": 201,
+            "street_name": "Opati\u010dka", 
+            "street_number": "3"
+        }
+    }, 
+    {
+        "model": "third_parties_app.bank", 
+        "pk": 26, 
+        "fields": {
+            "bank_name": "SAMOBORSKA BANKA d.d. Samobor", 
+            "iban": "HR3624030091011111116",
+            "oib": "13806526186",
+            "city": 399,
+            "street_name": "Trg kralja Tomislava", 
+            "street_number": "8"
+        }
+    }, 
+    {
+        "model": "third_parties_app.bank", 
+        "pk": 27, 
+        "fields": {
+            "bank_name": "SLATINSKA BANKA d.d. Slatina", 
+            "iban": "HR2324120091039990928",
+            "oib": "42252496579",
+            "city": 414,
+            "street_name": "V.Nazora", 
+            "street_number": "2"
+        }
+    }
+]

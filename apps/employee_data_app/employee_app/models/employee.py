@@ -31,16 +31,16 @@ class Employee(Person, Address):
         editable=False
     )
     no_dependents = models.IntegerField(
-        verbose_name=_('Number of Employees'),
+        verbose_name=_('Number of dependents'),
         default=0, editable=False
     )
     no_dependents_disabled = models.IntegerField(
-        verbose_name=_('Number of disabled Employees'),
+        verbose_name=_('Number of disabled dependents'),
         default=0,
         editable=False
     )
     no_dependents_disabled_100 = models.IntegerField(
-        verbose_name=_('Number of 100% disabled Employees'),
+        verbose_name=_('Number of 100% disabled dependents'),
         default=0,
         editable=False
     )
