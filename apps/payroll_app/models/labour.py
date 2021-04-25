@@ -1,15 +1,15 @@
-from datetime import date
+from typing import List
 
-from django.db import models
+from django.db import models, connection
 from django.utils.translation import gettext_lazy as _
 
 from apps.calculation_data_app.models import HourFund
 from apps.employee_data_app.employee_app.models import Employee
 from apps.general_services.data.data_service import get_period_id
+from apps.payroll_app.models import HourTypeAmount
 
 
 class Labour(models.Model):
-
     labour_id = models.AutoField(primary_key=True)
 
     year = models.IntegerField(default=2021, verbose_name=_('Year'))
@@ -18,8 +18,9 @@ class Labour(models.Model):
     employee = models.ForeignKey(
         Employee,
         on_delete=models.DO_NOTHING,
+        verbose_name=_('Employee'),
         db_index=True,
-        verbose_name=_('Employee')
+        null=True
     )
 
     regular_hours = models.PositiveIntegerField(
@@ -32,29 +33,50 @@ class Labour(models.Model):
 
         db_table = 'labours'
 
-    def __str__(self):
-        return f"{_('Employee ID')}: {self.employee.oib} | {_('Period ')}: {self.period_id}"
+    # def __str__(self) -> str:
+    #     return f"{_('Employee ID')}: {self.employee.oib} | {_('Period ')}: {self.period_id}"
 
     @staticmethod
-    def set_labour(_date: date, year: int, month: int):
-        eligible_employees = Employee.get_eligible_employees(year, month)
+    def set_labour(year: int, month: int, regular_hours: int, other_hours: List[dict] = None,
+                   employees: List['Employee'] = None) -> None:
 
-        hours_fund = HourFund.get_hour_fund_for_period(year, month)
+        if employees:
+            eligible_employees = employees
+        else:
+            eligible_employees = Employee.get_eligible_employees(year, month)
 
         for emp in eligible_employees:
-            Labour.objects.create(
+            labour: Labour = Labour.objects.create(
                 employee=emp,
 
                 year=year,
                 month=month,
 
-                regular_hours=hours_fund
-            ).save()
+                regular_hours=regular_hours
+            )
+
+            labour.save()
+
+            if other_hours:
+                for hour_type in other_hours:
+                    with connection.cursor() as cursor:
+                        cursor.execute("""
+                    INSERT INTO hour_type_amounts (hour_type_id, labour_id, amount)
+                    VALUES (%s, %s, %s)""",
+                                       params=[hour_type['id'], labour.labour_id, hour_type['amount']])
 
     @property
     def get_hours_fund(self) -> int:
-        return HourFund.objects.get(year=self.year, month=self.month)
+        return HourFund.objects.get(year=self.year, month=self.month).total_hours
 
     @property
-    def period_id(self):
+    def hour_type_amounts(self) -> List[HourTypeAmount]:
+        return HourTypeAmount.objects.filter(labour=self)
+
+    @property
+    def period_id(self) -> str:
         return get_period_id(self.year, self.month)
+
+    @property
+    def below_fund(self):
+        return self.regular_hours < self.get_hours_fund

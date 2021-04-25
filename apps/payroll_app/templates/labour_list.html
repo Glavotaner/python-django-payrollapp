@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% csrf_token %}
+    <table class="table-borderless">
+        <thead>
+        <th class="bg-light">
+        <td>Year</td>
+        <td>Month</td>
+        <td>Regular hours</td>
+        {% if data %}
+            {% for hours in labour.hours_data %}
+                <td>{{ hours.hour_type_name }}</td>
+            {% endfor %}
+        {% endif %}
+        </th>
+        </thead>
+        {% if data %}
+            {% for labour in data %}
+                <tr>
+                    <td>{{ labour.labour_data.year }}</td>
+                    <td><{{ labour.labour_data.month }}</td>
+                    <td><{{ labour.labour_data.regular_hours }}</td>
+                    {% for hours in labour.hours_data %}
+                        <td>{{ hours.amount }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        {% endif %}
+    </table>
+
+{% endblock %}

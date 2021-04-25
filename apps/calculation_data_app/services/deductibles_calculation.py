@@ -1,54 +1,13 @@
+from datetime import date
 from typing import List
-from typing import TYPE_CHECKING
-
-if TYPE_CHECKING:
-    from apps.employee_data_app.employee_app.models import Employee, Dependent
-
-from django.utils.timezone import datetime
 
 from ..models import DeductiblesModel
 
 
-def get_deductibles_model(accounting_date: datetime) -> DeductiblesModel:
-    return DeductiblesModel.objects.filter(valid_from__lte=accounting_date).latest()
+def get_children_coefs(deductibles_model: DeductiblesModel = None) -> dict:
+    deductibles_model = deductibles_model if deductibles_model else DeductiblesModel.get_valid_deductibles_model(
+        date.today())
 
-
-def get_dependents(employee: 'Employee') -> List:
-    from apps.employee_data_app.employee_app.models import Dependent
-    return Dependent.objects.filter(dependent_of=employee.pid)
-
-
-def get_children(dependents: List['Dependent']) -> List:
-    return [] if not dependents else [person for person in dependents if person.child_in_line]
-
-
-def get_adult_dependents(dependents: List['Dependent']) -> int:
-    return 0 if not dependents else len([person for person in dependents if not person.child_in_line])
-
-
-def get_disabled_dependents(dependents: List['Dependent'], employee=None) -> int:
-    if not dependents:
-        return 0
-
-    dependents: List['Dependent'] = [person for person in dependents if person.disability and person.disability == 'D']
-
-    if not employee and len(dependents) > 0: employee = dependents[0].dependent_of
-
-    return len(dependents) + 1 if employee.disability == 'D' else len(dependents)
-
-
-def get_disabled_dependents_100(dependents: List['Dependent'], employee=None) -> int:
-    if not dependents:
-        return 0
-
-    dependents = [person for person in dependents if person.disability and person.disability == 'D100']
-
-    if not employee and len(dependents) > 0: employee = dependents[0].dependent_of
-
-    return len(dependents) + 1 if employee.disability == 'D100' else len(dependents)
-
-
-def get_children_coefs(deductibles_model: DeductiblesModel) -> dict:
     return {
         '1': deductibles_model.first_child,
         '2': deductibles_model.second_child,
@@ -63,9 +22,11 @@ def get_children_coefs(deductibles_model: DeductiblesModel) -> dict:
     }
 
 
-def get_children_coef_gt9(child_rn: int, children_coefs: dict = None) -> float:
+def get_children_coef_gt9(
+        child_rn: int, children_coefs: dict = None
+) -> float:
     if not children_coefs:
-        children_coefs: dict = get_children_coefs(get_deductibles_model(datetime.today()))
+        children_coefs: dict = get_children_coefs()
 
     multiplication_coef: float = children_coefs.get('gt')
 
@@ -90,7 +51,7 @@ class DeductibleCalculated:
 
         deductible: float = 0
 
-        children: List = get_children(get_dependents(self.employee))
+        children: List = self.employee.get_children_list
 
         child_coefs: dict = get_children_coefs(self.deductibles_model)
 
@@ -107,21 +68,21 @@ class DeductibleCalculated:
     def adults_deductible(self):
         return round(self.deductibles_model.base_deductible * (
                 self.deductibles_model.dependent *
-                get_adult_dependents(get_dependents(self.employee))
+                self.employee.get_adult_dependents_count
         ), 2)
 
     @property
     def disabled_deductible(self):
         return round(self.deductibles_model.base_deductible * (
-                self.deductibles_model.disabled_dependent *
-                get_disabled_dependents(get_dependents(self.employee))
+                self.deductibles_model.disabled_dependent_i *
+                self.employee.get_disabled_dependents_count
         ), 2)
 
     @property
     def disabled_100_deductible(self):
         return round(self.deductibles_model.base_deductible * (
-                self.deductibles_model.disabled_dependent_100 *
-                get_disabled_dependents_100(get_dependents(self.employee))
+                self.deductibles_model.disabled_dependent_i100 *
+                self.employee.get_disabled_dependents_100_count
         ), 2)
 
     @property

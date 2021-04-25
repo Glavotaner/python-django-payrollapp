@@ -5,7 +5,6 @@ from django.utils.translation import gettext_lazy as _
 
 
 class Reimbursement(models.Model):
-
     reimbursement_id = models.AutoField(primary_key=True)
     reimbursement_name = models.CharField(max_length=120, verbose_name=_('Reimbursement name'))
     retired = models.BooleanField(verbose_name=_('Retired'))
@@ -23,3 +22,6 @@ class Reimbursement(models.Model):
     def get_valid_reimbursements() -> List['Reimbursement']:
         return Reimbursement.objects.filter(retired=False)
 
+    @property
+    def html_id(self):
+        return f'{self.reimbursement_id}id_reimbursement'

@@ -3,11 +3,10 @@ from django.utils.translation import gettext_lazy as _
 
 
 class TaxBracket(models.Model):
-
     tax_bracket_id = models.AutoField(primary_key=True)
 
-    tax_from = models.FloatField(verbose_name=_("Tax from"))
-    tax_to = models.FloatField(verbose_name=_("Tax to"), null=True)
+    amount_from = models.FloatField(verbose_name=_("Amount from"))
+    amount_to = models.FloatField(verbose_name=_("Amount to"), null=True)
 
     tax_rate = models.FloatField(
         verbose_name=_("Tax rate"),

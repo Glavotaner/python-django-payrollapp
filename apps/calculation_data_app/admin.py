@@ -5,7 +5,7 @@ from .models import TaxBracket, HourFund, ContributionsModel, DeductiblesModel, 
 
 
 class ContributionAdmin(admin.ModelAdmin):
-    fields = ('contribution_name', 'out_of_pay', 'retired')
+    fields = ('contribution_name', 'from_pay', 'retired')
 
 
 class ContributionRateAdmin(admin.ModelAdmin):
@@ -39,7 +39,7 @@ class HourTypeCoefAdmin(admin.ModelAdmin):
 
 
 class TaxBracketAdmin(admin.ModelAdmin):
-    list_display = ('tax_from', 'tax_to', 'tax_rate')
+    list_display = ('amount_from', 'amount_to', 'tax_rate')
 
 
 class TaxModelAdmin(admin.ModelAdmin):

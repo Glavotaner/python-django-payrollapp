@@ -1,14 +1,17 @@
+from datetime import date
+from typing import List, Dict
+
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 from .labour import Labour
-from .reimbursement_amount import ReimbursementAmount
 from ...calculation_data_app.models import Contribution
 
 
 class Payroll(models.Model):
-
     payroll_id = models.AutoField(primary_key=True)
+
+    acc_counter = models.IntegerField(verbose_name=_('Accounting counter'))
 
     date_of_accounting = models.DateField(
         verbose_name=_('Date of accounting'),
@@ -95,5 +98,8 @@ class Payroll(models.Model):
     def save(self, *args, **kwargs):
         super(Payroll, self).save()
 
-    def calculate_all(self, year: int, month: int):
-        pass
+    @staticmethod
+    def calculate_all(accounting_date: date, year: int, month: int,
+                      labour: List['Labour'] = None, reimbursement_amounts: List[Dict] = None) -> None:
+        if not labour:
+            labour = Labour.objects.filter(year=year, month=month)

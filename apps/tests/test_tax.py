@@ -1,50 +1,71 @@
+from datetime import date
+
 from django.test import TestCase
 
-from apps.calculation_data_app.models import TaxBracket
-from apps.calculation_data_app.services.tax_calculation import get_tax_bracket, get_city_tax_rate, TaxCalculated
+from apps.calculation_data_app.models import TaxBracket, TaxModel
+from apps.calculation_data_app.services.tax_calculation import TaxCalculated
 from apps.tests import load_fixtures
+from apps.third_parties_app.models import City
 
 
 class TaxTest(TestCase):
     fixtures = load_fixtures.load_fixtures()
 
     def setUp(self) -> None:
-        TaxBracket.objects.create(
-            tax_from=0,
-            tax_to=30000,
+        tbr1 = TaxBracket.objects.create(
+            amount_from=0,
+            amount_to=30000,
             tax_rate=0.20
-        ).save()
+        )
 
-        TaxBracket.objects.create(
-            tax_from=30000.01,
-            tax_to=50000,
+        tbr2 = TaxBracket.objects.create(
+            amount_from=30000.01,
+            amount_to=50000,
             tax_rate=0.30
-        ).save()
+        )
 
-        TaxBracket.objects.create(
-            tax_from=50000.01,
-            tax_to=None,
+        tbr3 = TaxBracket.objects.create(
+            amount_from=50000.01,
+            amount_to=None,
             tax_rate=0.40
-        ).save()
+        )
+
+        tbr1.save()
+        tbr2.save()
+        tbr3.save()
+
+        tax_model = TaxModel.objects.create(
+            valid_from=date.today(),
+        )
+
+        tax_model.save()
+
+        tax_model.tax_brackets.add(tbr1, tbr2, tbr3)
 
     def test_lowest(self):
-        income: float = 10000
-        tax_model: TaxBracket = get_tax_bracket(income)
+        tax_model: TaxModel = TaxModel.get_valid_tax_model(date.today())
 
-        tax_rate: float = tax_model.tax_rate
+        income: float = 10000
+        tax_bracket: TaxBracket = tax_model.get_tax_bracket(income)
+
+        tax_rate: float = tax_bracket.tax_rate
 
         self.assertEqual(tax_rate, 0.20)
 
     def test_highest(self):
-        income: float = 30000.02
-        tax_model: TaxBracket = get_tax_bracket(income)
+        tax_model: TaxModel = TaxModel.get_valid_tax_model(date.today())
 
-        tax_rate: float = tax_model.tax_rate
+        income: float = 30000.02
+        tax_bracket: TaxBracket = tax_model.get_tax_bracket(income)
+
+        tax_rate: float = tax_bracket.tax_rate
 
         self.assertEqual(tax_rate, 0.30)
 
     def test_low_income_tax(self):
-        calculated_tax: TaxCalculated = TaxCalculated(5000)
+        tax_model: TaxModel = TaxModel.get_valid_tax_model(date.today())
+
+        calculated_tax: TaxCalculated = TaxCalculated(tax_model, 5000, 0)
 
         self.assertEqual(
             calculated_tax.income_tax,
@@ -52,7 +73,9 @@ class TaxTest(TestCase):
         )
 
     def test_hi_income_tax(self):
-        calculated_tax: TaxCalculated = TaxCalculated(60000)
+        tax_model: TaxModel = TaxModel.get_valid_tax_model(date.today())
+
+        calculated_tax: TaxCalculated = TaxCalculated(tax_model, 60000, 0)
 
         self.assertEqual(
             calculated_tax.income_tax,
@@ -60,7 +83,9 @@ class TaxTest(TestCase):
         )
 
     def test_zero(self):
-        calculated_tax: TaxCalculated = TaxCalculated(0)
+        tax_model: TaxModel = TaxModel.get_valid_tax_model(date.today())
+
+        calculated_tax: TaxCalculated = TaxCalculated(tax_model, 0, 0)
 
         self.assertEqual(
             calculated_tax.income_tax,
@@ -68,7 +93,9 @@ class TaxTest(TestCase):
         )
 
     def test_negative(self):
-        calculated_tax: TaxCalculated = TaxCalculated(-2000)
+        tax_model: TaxModel = TaxModel.get_valid_tax_model(date.today())
+
+        calculated_tax: TaxCalculated = TaxCalculated(tax_model, -2000, 0)
 
         self.assertEqual(
             calculated_tax.income_tax,
@@ -76,7 +103,9 @@ class TaxTest(TestCase):
         )
 
     def test_multiple(self):
-        calculated_tax: TaxCalculated = TaxCalculated(200000)
+        tax_model: TaxModel = TaxModel.get_valid_tax_model(date.today())
+
+        calculated_tax: TaxCalculated = TaxCalculated(tax_model, 200000, 0)
 
         self.assertEqual(
             calculated_tax.income_tax,
@@ -84,7 +113,9 @@ class TaxTest(TestCase):
         )
 
     def test_city_tax_13(self):
-        calculated_tax: TaxCalculated = TaxCalculated(5000, get_city_tax_rate('03123'))
+        tax_model: TaxModel = TaxModel.get_valid_tax_model(date.today())
+
+        calculated_tax: TaxCalculated = TaxCalculated(tax_model, 5000, City.get_city_tax_rate(joppd='03123'))
 
         self.assertEqual(
             calculated_tax.income_tax,
@@ -100,7 +131,9 @@ class TaxTest(TestCase):
         )
 
     def test_city_tax_0(self):
-        calculated_tax: TaxCalculated = TaxCalculated(5000, get_city_tax_rate('03166'))
+        tax_model: TaxModel = TaxModel.get_valid_tax_model(date.today())
+
+        calculated_tax: TaxCalculated = TaxCalculated(tax_model, 5000, City.get_city_tax_rate(joppd='03166'))
 
         self.assertEqual(
             calculated_tax.income_tax,
@@ -116,7 +149,9 @@ class TaxTest(TestCase):
         )
 
     def test_city_tax_none(self):
-        calculated_tax: TaxCalculated = TaxCalculated(5000)
+        tax_model: TaxModel = TaxModel.get_valid_tax_model(date.today())
+
+        calculated_tax: TaxCalculated = TaxCalculated(tax_model, 5000, 0)
 
         self.assertEqual(
             calculated_tax.income_tax,

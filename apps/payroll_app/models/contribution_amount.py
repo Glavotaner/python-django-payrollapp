@@ -5,7 +5,6 @@ from apps.calculation_data_app.models import Contribution
 
 
 class ContributionAmount(models.Model):
-
     contribution_amount_id = models.AutoField(primary_key=True)
 
     contribution = models.ForeignKey(Contribution, on_delete=models.PROTECT, verbose_name=_('Contribution'))
@@ -32,7 +31,7 @@ class ContributionAmount(models.Model):
 
     @property
     def contribution_rate(self):
-        if self.contribution.out_of_pay:
+        if self.contribution.from_pay:
             return round(self.amount / self.payroll.contributions_base * 100, 2)
         else:
             return round(self.amount / self.payroll.gross_salary * 100, 2)

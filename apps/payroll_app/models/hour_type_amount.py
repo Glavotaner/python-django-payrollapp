@@ -1,11 +1,10 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from apps.calculation_data_app.models import HourType, HourTypeCoef
+from apps.calculation_data_app.models import HourType
 
 
 class HourTypeAmount(models.Model):
-
     hour_type_amount_id = models.AutoField(primary_key=True)
 
     hour_type = models.ForeignKey(HourType, on_delete=models.PROTECT, verbose_name=_('Hour type'))

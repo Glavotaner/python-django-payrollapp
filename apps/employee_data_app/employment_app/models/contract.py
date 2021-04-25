@@ -7,7 +7,6 @@ from .position import Position
 
 
 class Contract(models.Model):
-
     contract_id = models.AutoField(primary_key=True)
 
     contract_type = models.ForeignKey(
@@ -57,3 +56,7 @@ class Contract(models.Model):
 
         if self.end_date and self.end_date < self.start_date:
             raise ValidationError(_('The contract cannot expire before it is signed'))
+
+    @property
+    def total_salary(self) -> float:
+        return round(self.position.salary * self.multiplier, 2)

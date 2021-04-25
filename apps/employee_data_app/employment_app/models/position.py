@@ -5,7 +5,6 @@ from django.utils.translation import gettext_lazy as _
 
 
 class Position(models.Model):
-
     position_id = models.AutoField(primary_key=True)
 
     position_name = models.CharField(

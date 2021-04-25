@@ -1,11 +1,8 @@
-from datetime import date
-
 from django.test import TestCase
 
-from apps.payroll_app.models import WageParameters
-from apps.calculation_data_app.models import HourFund
 from apps.employee_data_app.employee_app.models import Employee
 from apps.payroll_app.models import Labour
+from apps.payroll_app.models import WageParameters
 from .load_fixtures import load_fixtures
 from .setUp import _set_up
 
@@ -16,19 +13,13 @@ class TestSalary(TestCase):
     def setUp(self) -> None:
         _set_up()
 
-        HourFund.objects.create(
-            year=2021,
-            month=3,
-            total_hours=168
-        ).save()
-
         Labour.set_labour(
-            date(2021, 3, 22), date(2021, 3, 22), date(2021, 5, 1)
+            2021, 4, 168
         )
 
-        self.labour_data = Labour.objects.get(id=1)
-        self.employee = Employee.objects.get(pid='38263212114')
-        self.wage_params = WageParameters.objects.get(id=1)
+        self.labour_data = Labour.objects.get(pk=1)
+        self.employee = Employee.objects.get(oib='38263212114')
+        self.wage_params = WageParameters.objects.get(pk=1)
         # self.calculated_salary = SalaryCalculated()
 
     def test_reg_salary(self):

@@ -3,7 +3,6 @@ from django.utils.translation import gettext_lazy as _
 
 
 class HourFund(models.Model):
-
     hour_fund_id = models.AutoField(primary_key=True)
 
     year = models.IntegerField(verbose_name=_('Year'), default=2020)
@@ -20,8 +19,8 @@ class HourFund(models.Model):
         return f"{self.period_id}"
 
     @staticmethod
-    def get_hour_fund_for_period(year: int, month: int) -> 'HourFund':
-        return HourFund.objects.raw("SELECT * FROM hour_funds WHERE year = %s AND month = %s", [year, month])
+    def get_hour_fund_for_period(year: int, month: int) -> int:
+        return HourFund.objects.get(year=year, month=month).total_hours
 
     @property
     def period_id(self):

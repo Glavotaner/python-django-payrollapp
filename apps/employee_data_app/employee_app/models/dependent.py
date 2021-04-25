@@ -4,13 +4,12 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from .employee import Employee
+# from .employee import Employee
 from .person import Person
 from ..services.calculations.dependents_calculation import update_employee
 
 
 class Dependent(Person):
-
     dependent_id = models.AutoField(primary_key=True)
 
     child_in_line = models.IntegerField(
@@ -22,7 +21,7 @@ class Dependent(Person):
 
     # FOREIGN KEYS
     dependent_of = models.ForeignKey(
-        Employee,
+        'Employee',
         on_delete=models.CASCADE,
         verbose_name=_('Dependent of')
     )
@@ -38,7 +37,7 @@ class Dependent(Person):
 
     def save(self, *args, **kwargs):
         super(Dependent, self).save()
-        update_employee(self.parent_employee)
+        update_employee(self.dependent_of)
 
     def clean(self):
         # validate_child_no_order(self)
@@ -47,8 +46,8 @@ class Dependent(Person):
 
     def delete(self, *args, **kwargs):
         super(Dependent, self).delete()
-        update_employee(self.parent_employee)
+        update_employee(self.dependent_of)
 
     @property
-    def parent_employee(self) -> Employee:
+    def parent_employee(self):
         return self.dependent_of

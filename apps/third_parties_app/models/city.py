@@ -3,7 +3,6 @@ from django.utils.translation import gettext_lazy as _
 
 
 class City(models.Model):
-
     city_id = models.AutoField(primary_key=True)
 
     iban = models.CharField(
@@ -43,3 +42,10 @@ class City(models.Model):
         # validate_gte(self.tax_rate, 'Tax rate')
         # validate_gte(self.tax_rate, 0, '0')
         pass
+
+    @staticmethod
+    def get_city_tax_rate(city_id: int = None, joppd: str = None) -> float:
+        if not city_id and not joppd:
+            raise ValueError('Must pass at least one parameter.')
+
+        return City.objects.get(joppd=joppd).tax_rate if joppd else City.objects.get(pk=city_id).tax_rate

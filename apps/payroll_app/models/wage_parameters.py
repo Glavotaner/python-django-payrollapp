@@ -6,7 +6,6 @@ from django.utils.translation import gettext_lazy as _
 
 
 class WageParameters(models.Model):
-
     wage_parameters_id = models.AutoField(primary_key=True)
 
     min_base = models.FloatField(
@@ -25,19 +24,17 @@ class WageParameters(models.Model):
 
     valid_from = models.DateField(verbose_name=_('Valid from'))
 
-    poo = _('stinky poopoooo')
-
     class Meta:
         verbose_name = _('Wage parameters')
         verbose_name_plural = _('Wage parameters')
 
         db_table = 'wage_parameters'
 
+        get_latest_by = 'valid_from'
+
     def __str__(self):
         return f'Valid from: {self.valid_from}'
 
     @staticmethod
     def get_valid_wage_parameters(target_date: date) -> List['WageParameters']:
-        return WageParameters.objects.raw("""SELECT * FROM wage_parameters 
-                                                    WHERE valid_from = (SELECT MAX(valid_from) FROM wage_parameters
-                                                    WHERE valid_from <= %s)""", target_date)
+        return WageParameters.objects.filter(valid_from__lte=target_date).latest()

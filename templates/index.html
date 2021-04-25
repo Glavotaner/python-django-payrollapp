@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="card-group" style="margin: 100px;">
+        <div class="card bg-transparent">
+            <h2 class="card-header">Administrator</h2>
+            <a href="{% url 'admin:index' %}"><img class="card-img-top" height="300" src="{% static "img/admin.png" %}"
+                                                   alt="admin"></a>
+        </div>
+    </div>
+
+    <div class="card-group" style="margin: 100px;">
+        <div class="card">
+            <h2 class="card-header">Podaci o radu</h2>
+            <img class="card-img-top" size="50px" src="{% static "img/shovel.png" %}" alt="work"/>
+
+            <div class="card-body">
+                <h1 class="card-link"><a href="{% url 'payroll:labour_index' %}">Pregled podataka o radu</a></h1>
+            </div>
+            <div class="card-body">
+                <h1 class="card-link"><a href="{% url 'payroll:set_labour' %}">Unos podataka o radu</a></h1>
+            </div>
+        </div>
+        <div class="card">
+            <h2 class="card-header">Obračun plaće</h2>
+            <img class="card-img-top" size="50px" src="{% static "img/money.png" %}" alt="payroll"/>
+
+            <div class="card-body">
+                <div class="card-body">
+                    <h1 class="card-link"><a href="">Pregled obračunatih plaća</a></h1>
+                </div>
+                <div class="card-body">
+                    <h1 class="card-link"><a href="">Unos obračuna</a></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

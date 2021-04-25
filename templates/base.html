@@ -1,0 +1,52 @@
+{% load static %}
+<html lang="en-us">
+<head>
+    <title>Django app</title>
+    {% block css %}
+        <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.css" %}"/>
+    {% endblock %}
+</head>
+
+<body class="bg-dark">
+
+<nav class="navbar navbar-expand-md navbar-light bg-info sticky-top">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active"><a class="nav-link" href="{% url 'index' %}">Početni zaslon<span
+                    class="sr-only">(current)</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'admin:index' %}">Administracija</a></li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown_labour" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Podaci o radu
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown_labour">
+                    <a class="dropdown-item" href="{% url 'payroll:labour_index' %}">Pregled podataka</a>
+                    <a class="dropdown-item" href="{% url 'payroll:set_labour' %}">Unos podataka</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown_payroll" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Podaci o plaćama
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown_payroll">
+                    <a class="dropdown-item" href="{% url 'payroll:labour_index' %}">Pregled podataka</a>
+                    <a class="dropdown-item" href="{% url 'payroll:set_labour' %}">Unos podataka</a>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+</nav>
+
+{% block content %}
+{% endblock %}
+
+</body>
+
+</html>

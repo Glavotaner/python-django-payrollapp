@@ -1,28 +1,31 @@
 from calendar import monthrange
-from datetime import date
+from datetime import date, timedelta
 from typing import List
 
 from django.db import models
+from django.db.models import Q
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 from django.utils.translation import gettext_lazy as _
 
 from apps.calculation_data_app.models import ContributionsModel, TaxBreak
+from apps.employee_data_app.employee_app.models import Dependent
+from apps.employee_data_app.employee_app.services.calculations.dependents_calculation import update_employee
 from apps.employee_data_app.employment_app.models import Contract
 # from apps.general_services.validators.id_validators import validate_iban, validate_bid
 from apps.general_services.validators.person_validation import validate_age
-from apps.third_parties_app.models import Address
-from apps.third_parties_app.models import Bank
+from apps.third_parties_app.models import Address, Bank
 from .person import Person
 
 
 class Employee(Person, Address):
-
     employee_id = models.AutoField(primary_key=True)
 
     hrvi = models.FloatField(default=0)
 
     iban = models.CharField(unique=True, verbose_name='IBAN', max_length=22)
 
-    protected_iban = models.CharField(unique=True, verbose_name='Protected IBAN', max_length=22)
+    protected_iban = models.CharField(unique=True, verbose_name='Protected IBAN', max_length=22, null=True, blank=True)
 
     # Dependents
     no_children = models.IntegerField(
@@ -72,7 +75,8 @@ class Employee(Person, Address):
     employee_protected_bank = models.ForeignKey(
         related_name='protected_bank',
         to=Bank, verbose_name=_('Protected account bank'),
-        on_delete=models.DO_NOTHING
+        on_delete=models.DO_NOTHING,
+        null=True, blank=True
     )
 
     contributions_model = models.ForeignKey(
@@ -109,17 +113,73 @@ class Employee(Person, Address):
         start_date: date = date(year, month, 1)
         end_date: date = date(year, month, monthrange(year, month)[1])
 
-        sql: str = """SELECT e.* FROM employees AS e
-        INNER JOIN contracts AS c
-            ON c.contract_id = e.signed_contract_id
-        WHERE c.start_date <= %s AND (c.end_date >= %s OR c.end_date IS NULL)"""
-
-        return Employee.objects.raw(sql, [start_date, end_date])
+        return Employee.objects.filter(
+            (Q(signed_contract__start_date__lte=start_date) & (
+                    Q(signed_contract__end_date__gte=start_date) | Q(signed_contract__end_date__isnull=True))
+             ) |
+            (Q(signed_contract__start_date__lte=end_date) & (
+                    Q(signed_contract__end_date__gte=start_date) | Q(signed_contract__end_date__isnull=True))
+             )
+        )
 
     @property
-    def employment_duration(self):
+    def employee_bank_name(self) -> str:
+        return self.employee_bank.bank_name
+
+    @property
+    def employment_duration(self) -> timedelta:
         return date.today() - self.employee_since
 
+    # CONTRACT DATA
     @property
-    def employee_bank_name(self):
-        return self.employee_bank.bank_name
+    def contract_expired(self, target_date: date = None) -> bool:
+        if not self.signed_contract.end_date:
+            return False
+
+        if target_date:
+            return self.signed_contract.end_date > target_date
+
+        return self.signed_contract.end_date > date.today()
+
+    @property
+    def employee_position(self) -> str:
+        return self.signed_contract.position.position_name
+
+    @property
+    def employee_salary(self) -> float:
+        return self.signed_contract.total_salary
+
+    # DEPENDENTS
+    @property
+    def get_dependents(self) -> List['Dependent']:
+        return Dependent.objects.filter(dependent_of=self)
+
+    @property
+    def get_children_list(self) -> List['Dependent']:
+        return Dependent.objects.filter(dependent_of=self, child_in_line__isnull=False)
+
+    @property
+    def get_adult_dependents_count(self) -> int:
+        return Dependent.objects.filter(dependent_of=self, child_in_line__isnull=True).count()
+
+    @property
+    def get_disabled_dependents_count(self) -> int:
+        deps_count: int = Dependent.objects.filter(dependent_of=self, disability='I').count()
+
+        return deps_count + 1 if self.disability == 'I' else deps_count
+
+    @property
+    def get_disabled_dependents_100_count(self) -> int:
+        deps_count: int = Dependent.objects.filter(dependent_of=self, disability='I*').count()
+
+        return deps_count + 1 if self.disability == 'I*' else deps_count
+
+
+@receiver(post_save, sender=Employee)
+def signal_update_employee(sender, instance: 'Employee', **kwargs):
+    post_save.disconnect(signal_update_employee, sender=sender)
+    update_employee(instance)
+    post_save.connect(signal_update_employee, sender=sender)
+
+
+post_save.connect(signal_update_employee, sender=Employee)

@@ -5,7 +5,6 @@ from django.utils.translation import gettext_lazy as _
 
 
 class ContractType(models.Model):
-
     contract_type_id = models.AutoField(primary_key=True)
 
     contract_type_name = models.CharField(

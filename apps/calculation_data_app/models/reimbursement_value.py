@@ -8,7 +8,6 @@ from apps.calculation_data_app.models import Reimbursement
 
 
 class ReimbursementValue(models.Model):
-
     reimbursement_value_id = models.AutoField(primary_key=True)
     reimbursement = models.ForeignKey(Reimbursement, on_delete=models.CASCADE, verbose_name=_('Reimbursement'))
     amount = models.FloatField(verbose_name=_('Amount'))
@@ -19,6 +18,8 @@ class ReimbursementValue(models.Model):
         verbose_name_plural = _('Reimbursement values')
 
         db_table = 'reimbursement_values'
+
+        get_latest_by = 'valid_from'
 
     def __str__(self):
         return f'{self.reimbursement_name}: {self.amount}'

@@ -1,5 +1,4 @@
 from datetime import date
-from typing import List
 
 from django.db import models
 from django.utils.timezone import now
@@ -7,7 +6,6 @@ from django.utils.translation import gettext_lazy as _
 
 
 class DeductiblesModel(models.Model):
-
     deductibles_model_id = models.AutoField(primary_key=True)
 
     base_deductible = models.FloatField(
@@ -60,8 +58,8 @@ class DeductiblesModel(models.Model):
     )
 
     class Meta:
-        verbose_name = _('Deductible')
-        verbose_name_plural = _('Deductibles')
+        verbose_name = _('Deductibles model')
+        verbose_name_plural = _('Deductibles models')
         get_latest_by = 'valid_from'
 
         db_table = 'deductibles_models'
@@ -71,7 +69,7 @@ class DeductiblesModel(models.Model):
             {self.valid_from}"
 
     @staticmethod
-    def get_valid_deductibles_model(target_date: date) -> List['DeductiblesModel']:
-        return DeductiblesModel.objects.raw("""SELECT * FROM deductibles_models 
-                                                WHERE valid_from = (SELECT MAX(valid_from) FROM deductibles_models
-                                                WHERE valid_from <= %s)""", target_date)
+    def get_valid_deductibles_model(target_date: date) -> 'DeductiblesModel':
+        return DeductiblesModel.objects.filter(
+            valid_from__lte=target_date
+        ).latest()

@@ -5,7 +5,6 @@ from . import Address
 
 
 class Bank(Address):
-
     bank_id = models.AutoField(primary_key=True)
 
     oib = models.CharField(

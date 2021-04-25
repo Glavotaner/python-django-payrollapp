@@ -5,7 +5,6 @@ from . import City
 
 
 class Address(models.Model):
-
     street_name = models.CharField(
         verbose_name=_('Street name'), max_length=200
     )

@@ -4,7 +4,7 @@
     "pk": 1,
     "fields": {
       "contribution_name": "MIO 1",
-      "out_of_pay": "True",
+      "from_pay": "True",
       "retired": "False"
     }
   },
@@ -13,7 +13,7 @@
     "pk": 2,
     "fields": {
       "contribution_name": "MIO 2",
-      "out_of_pay": "True",
+      "from_pay": "True",
       "retired": "False"
     }
   },
@@ -22,7 +22,7 @@
     "pk": 3,
     "fields": {
       "contribution_name": "Obvezno zdravstveno osiguranje",
-      "out_of_pay": "False",
+      "from_pay": "False",
       "retired": "False"
     }
   },
@@ -31,7 +31,7 @@
     "pk": 4,
     "fields": {
       "contribution_name": "Doprinos za zapošljavanje",
-      "out_of_pay": "True",
+      "from_pay": "True",
       "retired": "True"
     }
   },
@@ -89,7 +89,8 @@
         1,
         3,
         4
-      ]
+      ],
+      "retired": "False"
     }
   },
   {
@@ -100,7 +101,8 @@
       "contributions": [
         2,
         4
-      ]
+      ],
+      "retired": "False"
     }
   },
   {
@@ -111,7 +113,8 @@
       "contributions": [
         1,
         3
-      ]
+      ],
+      "retired": "False"
     }
   },
   {
@@ -350,8 +353,8 @@
     "model": "calculation_data_app.TaxBracket",
     "pk": 1,
     "fields": {
-      "tax_from": 0,
-      "tax_to": 30000,
+      "amount_from": 0,
+      "amount_to": 30000,
       "tax_rate": 20
     }
   },
@@ -359,7 +362,7 @@
     "model": "calculation_data_app.TaxBracket",
     "pk": 2,
     "fields": {
-      "tax_from": 30000.01,
+      "amount_from": 30000.01,
       "tax_rate": 30
     }
   },
@@ -367,8 +370,8 @@
     "model": "calculation_data_app.TaxBracket",
     "pk": 3,
     "fields": {
-      "tax_from": 0,
-      "tax_to": 30000,
+      "amount_from": 0,
+      "amount_to": 30000,
       "tax_rate": 24
     }
   },
@@ -376,7 +379,7 @@
     "model": "calculation_data_app.TaxBracket",
     "pk": 4,
     "fields": {
-      "tax_from": 30000.01,
+      "amount_from": 30000.01,
       "tax_rate": 36
     }
   },
