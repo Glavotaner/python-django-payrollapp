@@ -37,18 +37,8 @@ class ContributionsModel(models.Model):
 
     @property
     def get_contribs_from_pay(self) -> List['ContributionRate']:
-        return ContributionsModel.objects.raw("""
-        SELECT * FROM contribution_rates cr
-        INNER JOIN contributions_models_contributions cmc on cr.contribution_rate_id = cmc.contributionrate_id
-        INNER JOIN contributions c on c.contribution_id = cr.contribution_id
-        WHERE cmc.contributionsmodel_id = %s AND c.from_pay = 1 
-        """, params=[self.contributions_model_id])
+        return self.contributions.filter(contribution__from_pay=True)
 
     @property
     def get_contribs_other(self) -> List['ContributionRate']:
-        return ContributionsModel.objects.raw("""
-            SELECT * FROM contribution_rates cr
-            INNER JOIN contributions_models_contributions cmc on cr.contribution_rate_id = cmc.contributionrate_id
-            INNER JOIN contributions c on c.contribution_id = cr.contribution_id
-            WHERE cmc.contributionsmodel_id = %s AND c.from_pay = 0 
-            """, params=[self.contributions_model_id])
+        return self.contributions.filter(contribution__from_pay=False)

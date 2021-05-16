@@ -7,8 +7,8 @@ from ..services.calculations.var_calculation import get_age
 class Person(models.Model):
     # DISABILITY ENUM
     disability = (
-        ('I', _('I')),
-        ('I*', _('I*')),
+        ('I', 'I'),
+        ('I*', 'I*'),
         ('N', _('None'))
     )
 

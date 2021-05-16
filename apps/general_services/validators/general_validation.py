@@ -15,6 +15,6 @@ def validate_phone_number(phone_number):
 def validate_gte(value, validator, value_name_1, value_name_2=None):
     if value < validator:
         raise ValidationError(
-            _(f'{value_name_1} has to be equal to or greater \
-                than {value_name_2}')
+            _(f'{value_name_1} has to be equal to or greater '
+              f'than {value_name_2}')
         )

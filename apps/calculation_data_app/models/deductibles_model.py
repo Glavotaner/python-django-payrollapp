@@ -70,6 +70,4 @@ class DeductiblesModel(models.Model):
 
     @staticmethod
     def get_valid_deductibles_model(target_date: date) -> 'DeductiblesModel':
-        return DeductiblesModel.objects.filter(
-            valid_from__lte=target_date
-        ).latest()
+        return DeductiblesModel.objects.filter(valid_from__lte=target_date).latest()
