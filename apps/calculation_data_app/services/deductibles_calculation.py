@@ -1,3 +1,5 @@
+from apps.employee_data_app.employee_app.models import Employee, Dependent
+from apps.payroll_app.models import Labour
 from datetime import date
 from typing import List
 
@@ -5,7 +7,7 @@ from ..models import DeductiblesModel
 
 
 def get_children_coefs(deductibles_model: DeductiblesModel = None) -> dict:
-    deductibles_model = deductibles_model if deductibles_model else DeductiblesModel.get_valid_deductibles_model(
+    deductibles_model: DeductiblesModel = deductibles_model if deductibles_model else DeductiblesModel.get_valid_deductibles_model(
         date.today())
 
     return {
@@ -38,9 +40,10 @@ def get_children_coef_gt9(
 
 class DeductibleCalculated:
 
-    def __init__(self, deductibles_model: DeductiblesModel, employee):
-        self.deductibles_model = deductibles_model
-        self.employee = employee
+    def __init__(self, deductibles_model: DeductiblesModel, labour_data: Labour):
+        self.labour_data: Labour = labour_data
+        self.deductibles_model: DeductiblesModel = deductibles_model
+        self.employee: Employee = labour_data.employee
 
     @property
     def personal_deductible(self):
@@ -51,44 +54,48 @@ class DeductibleCalculated:
 
         deductible: float = 0
 
-        children: List = self.employee.get_children_list
+        children: List[Dependent] = self.employee.get_children_list
 
         child_coefs: dict = get_children_coefs(self.deductibles_model)
 
         for child in children:
             if child.child_in_line < 10:
-                deductible += child_coefs.get(str(child.child_in_line)) * self.deductibles_model.base_deductible
+                deductible += child_coefs.get(str(child.child_in_line)) * \
+                    self.deductibles_model.base_deductible
             else:
                 deductible += get_children_coef_gt9(child.child_in_line, child_coefs) * \
-                              self.deductibles_model.base_deductible
+                    self.deductibles_model.base_deductible
 
         return round(deductible, 2)
 
     @property
     def adults_deductible(self):
         return round(self.deductibles_model.base_deductible * (
-                self.deductibles_model.dependent *
-                self.employee.get_adult_dependents_count
+            self.deductibles_model.dependent *
+            self.employee.get_adult_dependents_count
         ), 2)
 
     @property
     def disabled_deductible(self):
         return round(self.deductibles_model.base_deductible * (
-                self.deductibles_model.disabled_dependent_i *
-                self.employee.get_disabled_dependents_count
+            self.deductibles_model.disabled_dependent_i *
+            self.employee.get_disabled_dependents_count
         ), 2)
 
     @property
     def disabled_100_deductible(self):
         return round(self.deductibles_model.base_deductible * (
-                self.deductibles_model.disabled_dependent_i100 *
-                self.employee.get_disabled_dependents_100_count
+            self.deductibles_model.disabled_dependent_i100 *
+            self.employee.get_disabled_dependents_100_count
         ), 2)
 
     @property
     def total_deductible(self):
-        return round(self.children_deductible +
+        return round((self.children_deductible +
                      self.adults_deductible +
                      self.disabled_deductible +
                      self.disabled_100_deductible +
-                     self.personal_deductible, 2)
+                     self.personal_deductible) *
+                     (self.labour_data.regular_hours
+                         / self.labour_data.get_hours_fund
+                      ), 2)

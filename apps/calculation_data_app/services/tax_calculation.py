@@ -27,13 +27,16 @@ class TaxCalculated:
 
         taxable: float = 0
 
+        # calculate through tax brackets
         while True:
-            highest_bracket: TaxBracket = self.tax_model.get_tax_bracket(reduced_income)
+            highest_bracket: TaxBracket = self.tax_model.get_tax_bracket(
+                reduced_income)
 
             if not highest_bracket.amount_to:
                 taxable = (self.tax_base - highest_bracket.amount_from) + 0.01
             elif highest_bracket.amount_to and self.tax_base >= highest_bracket.amount_to:
-                taxable = (highest_bracket.amount_to - highest_bracket.amount_from) + 0.01
+                taxable = (highest_bracket.amount_to -
+                           highest_bracket.amount_from) + 0.01
 
             if (highest_bracket.amount_to
                 and self.tax_base < highest_bracket.amount_to) \
@@ -55,9 +58,11 @@ class TaxCalculated:
         hrvi: float = self.hrvi if self.hrvi else 0
         tax_breaks: List[TaxBreak] = self.tax_breaks if self.tax_breaks else []
 
-        deduction: float = hrvi + sum([tax_break.rate for tax_break in tax_breaks])
+        deduction: float = hrvi + \
+            sum([tax_break.rate for tax_break in tax_breaks])
 
-        total_tax_break: float = round(((deduction * self.income_tax) * 100), 2)
+        total_tax_break: float = round(
+            ((deduction * self.income_tax) * 100), 2)
 
         return total_tax_break if total_tax_break > 0 else 0
 
@@ -65,9 +70,9 @@ class TaxCalculated:
     def city_tax(self) -> float:
         if self.income_tax == 0:
             return 0
-
         return round(self.income_tax * (self.city_tax_rate / 100), 2)
 
     @property
     def total_tax(self):
-        return (self.income_tax - self.tax_break_amount) + self.city_tax
+        return round(
+            (self.income_tax - self.tax_break_amount) + self.city_tax, 2)

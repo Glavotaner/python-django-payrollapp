@@ -10,13 +10,15 @@ class WageParameters(models.Model):
 
     min_base = models.FloatField(
         verbose_name=_('Contributions minimal base'),
-        help_text=_("The year's legal minimum contributions base. Use '.' as decimal point"),
+        help_text=_(
+            "The year's legal minimum contributions base. Use '.' as decimal point"),
         default=3321.96
     )
 
     max_base = models.FloatField(
         verbose_name=_('Contributions maximum base'),
-        help_text=_("The year's legal maximum contributions base. Use '.' as decimal point"),
+        help_text=_(
+            "The year's legal maximum contributions base. Use '.' as decimal point"),
         default=55086
     )
 
@@ -38,3 +40,9 @@ class WageParameters(models.Model):
     @staticmethod
     def get_valid_wage_parameters(target_date: date) -> List['WageParameters']:
         return WageParameters.objects.filter(valid_from__lte=target_date).latest()
+
+    def below_min_wage(self, salary: float) -> bool:
+        return salary < self.min_wage
+
+    def below_min_base(self, contributions_base: float) -> bool:
+        return contributions_base < self.min_base
