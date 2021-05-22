@@ -6,7 +6,7 @@ from django.shortcuts import render
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import TemplateView, ListView
 
-from apps.calculation_data_app.models import HourType, HourFund
+from apps.calculation_data_app.models import HourType, HourFund, Reimbursement
 from apps.payroll_app.models import Labour
 from .forms import LabourForm
 
@@ -79,3 +79,19 @@ def set_labour(request):
         )
 
     return render(request, 'set_labour.html', {'form': form, 'hour_types': hour_types})
+
+
+def set_reimbursements(request):
+    reimbursements = Reimbursement.get_valid_reimbursements()
+
+    if request.method == 'POST':
+        reimbursements_list = []
+
+        for _id in [reimbursement.html_id for reimbursement in reimbursements]:
+            reimbursement_id: int = int(_id[:_id.find('id')])
+            amount: float = int(request.POST[_id])
+
+            if amount < 0:
+                raise ValidationError(_('Reimbursement amount cannot be less than 0!'))
+
+            reimbursements_list.append({'id': reimbursement_id, 'amount': amount})

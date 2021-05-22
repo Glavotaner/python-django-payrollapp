@@ -11,8 +11,8 @@ class ContributionsModelCalculated:
                  wage_parameters: 'WageParameters',
                  contributions_model: 'ContributionsModel',
                  labour_data: 'Labour',
-                 payroll: 'Payroll',
-                 contributions_base: float):
+                 contributions_base: float,
+                 payroll: 'Payroll' = None):
         self.wage_parameters = wage_parameters
         self.contributions_model = contributions_model
         self.labour_data = labour_data
@@ -28,25 +28,27 @@ class ContributionsModelCalculated:
             return self.contributions_base
 
         proportional_base: float = (
-                                           self.contributions_base / self.labour_data.get_hours_fund
-                                   ) * self.labour_data.regular_hours
+            self.contributions_base / self.labour_data.get_hours_fund
+        ) * self.labour_data.regular_hours
 
         proportional_min_base: float = (
-                                               self.wage_parameters.min_base / self.labour_data.get_hours_fund
-                                       ) * self.labour_data.regular_hours
+            self.wage_parameters.min_base / self.labour_data.get_hours_fund
+        ) * self.labour_data.regular_hours
 
         return round(proportional_min_base if proportional_base < proportional_min_base else proportional_base, 2)
 
     @property
     def calculated_contributions_from_pay(self) -> float:
         return round(
-            sum(self.contributions_model.contributions.filter(contribution__from_pay=True).rate)
+            sum(self.contributions_model.contributions.filter(
+                contribution__from_pay=True).rate)
             * self.calculated_contributions_base, 2)
 
     @property
     def calculated_contributions_other(self) -> float:
         return round(
-            sum(self.contributions_model.contributions.filter(contribution__from_pay=False).rate)
+            sum(self.contributions_model.contributions.filter(
+                contribution__from_pay=False).rate)
             * self.calculated_contributions_base, 2)
 
     def save_calculated_contributions(self) -> None:

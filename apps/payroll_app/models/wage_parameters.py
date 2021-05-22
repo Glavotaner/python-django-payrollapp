@@ -1,3 +1,4 @@
+from apps.payroll_app.models.labour import Labour
 from datetime import date
 from typing import List
 
@@ -38,8 +39,18 @@ class WageParameters(models.Model):
         return f'Valid from: {self.valid_from}'
 
     @staticmethod
-    def get_valid_wage_parameters(target_date: date) -> List['WageParameters']:
+    def get_valid_wage_parameters(target_date: date) -> 'WageParameters':
         return WageParameters.objects.filter(valid_from__lte=target_date).latest()
+
+    def get_proportional_min_wage(self, labour_data: Labour) -> float:
+        return round(
+            self.min_wage *
+            (labour_data.regular_hours / labour_data.get_hours_fund), 2)
+
+    def get_proportional_min_base(self, labour_data: Labour) -> float:
+        return round(
+            self.min_base *
+            (labour_data.regular_hours / labour_data.get_hours_fund), 2)
 
     def below_min_wage(self, salary: float) -> bool:
         return salary < self.min_wage

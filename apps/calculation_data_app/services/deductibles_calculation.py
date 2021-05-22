@@ -40,7 +40,9 @@ def get_children_coef_gt9(
 
 class DeductibleCalculated:
 
-    def __init__(self, deductibles_model: DeductiblesModel, labour_data: Labour):
+    def __init__(self,
+                 deductibles_model: DeductiblesModel,
+                 labour_data: Labour):
         self.labour_data: Labour = labour_data
         self.deductibles_model: DeductiblesModel = deductibles_model
         self.employee: Employee = labour_data.employee
@@ -91,11 +93,8 @@ class DeductibleCalculated:
 
     @property
     def total_deductible(self):
-        return round((self.children_deductible +
+        return round(self.children_deductible +
                      self.adults_deductible +
                      self.disabled_deductible +
                      self.disabled_100_deductible +
-                     self.personal_deductible) *
-                     (self.labour_data.regular_hours
-                         / self.labour_data.get_hours_fund
-                      ), 2)
+                     self.personal_deductible, 2)
