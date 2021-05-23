@@ -1,5 +1,7 @@
 from typing import List
 
+from django.db.models import QuerySet
+
 from apps.calculation_data_app.models import TaxBracket, TaxModel, TaxBreak
 
 
@@ -9,7 +11,7 @@ class TaxCalculated:
                  tax_base: float,
                  city_tax_rate: float,
                  hrvi: float = None,
-                 tax_breaks: List[TaxBreak] = None):
+                 tax_breaks: QuerySet[TaxBreak] = None):
         self.city_tax_rate = city_tax_rate
         self.tax_base = tax_base
         self.tax_model = tax_model
@@ -56,15 +58,15 @@ class TaxCalculated:
     def tax_break_amount(self):
 
         hrvi: float = self.hrvi if self.hrvi else 0
-        tax_breaks: List[TaxBreak] = self.tax_breaks if self.tax_breaks else []
+        tax_breaks: QuerySet[TaxBreak] = self.tax_breaks
 
-        deduction: float = hrvi + \
-            sum([tax_break.rate for tax_break in tax_breaks])
+        if tax_breaks:
+            deduction: float = (hrvi * self.tax_base) + \
+                sum([tax_break.rate * self.tax_base for tax_break in tax_breaks.all()])
+        else:
+            deduction = 0
 
-        total_tax_break: float = round(
-            ((deduction * self.income_tax) * 100), 2)
-
-        return total_tax_break if total_tax_break > 0 else 0
+        return round(deduction, 2) if deduction > 0 else 0
 
     @property
     def city_tax(self) -> float:

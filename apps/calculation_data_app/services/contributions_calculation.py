@@ -40,16 +40,18 @@ class ContributionsModelCalculated:
     @property
     def calculated_contributions_from_pay(self) -> float:
         return round(
-            sum(self.contributions_model.contributions.filter(
-                contribution__from_pay=True).rate)
-            * self.calculated_contributions_base, 2)
+            sum([
+                self.contributions_base * (contribution.rate / 100)
+                for contribution in self.contributions_model.get_contribs_from_pay
+            ]), 2)
 
     @property
     def calculated_contributions_other(self) -> float:
         return round(
-            sum(self.contributions_model.contributions.filter(
-                contribution__from_pay=False).rate)
-            * self.calculated_contributions_base, 2)
+            sum([
+                self.contributions_base * (contribution.rate / 100)
+                for contribution in self.contributions_model.get_contribs_other
+            ]), 2)
 
     def save_calculated_contributions(self) -> None:
         contributions: List['ContributionRate'] = self.contributions_model.contributions

@@ -6,7 +6,7 @@ if TYPE_CHECKING:
 
 def update_employee(employee: 'Employee') -> None:
     employee.no_dependents = employee.get_adult_dependents_count
-    employee.no_children = len(employee.get_children_list)
+    employee.no_children = employee.get_children_list.count()
 
     employee.no_dependents_disabled = employee.get_disabled_dependents_count
     employee.no_dependents_disabled_100 = employee.get_disabled_dependents_100_count

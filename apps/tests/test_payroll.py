@@ -1,5 +1,6 @@
 from typing import List, TYPE_CHECKING
 
+from django.db.models import QuerySet
 from django.test import TestCase
 
 if TYPE_CHECKING:
@@ -117,9 +118,9 @@ class TestPayroll(TestCase):
             signed_contract=ctr4
         ).save()
 
-        eligible: List['Employee'] = Employee.get_eligible_employees(2021, 4)
+        eligible: QuerySet['Employee'] = Employee.get_eligible_employees(2021, 4)
 
-        self.assertEqual(len(eligible), 4)
+        self.assertEqual(eligible.count(), 4)
 
     def test_labour(self):
         ctr1: Contract = Contract.objects.create(
@@ -214,5 +215,5 @@ class TestPayroll(TestCase):
             2021, 4, 168
         )
 
-        self.assertEqual(len(Labour.objects.all()), 4)
+        self.assertEqual(Labour.objects.all().count(), 4)
         self.assertEqual(Labour.objects.get(employee=Employee.objects.get(oib='38263212114')).regular_hours, 168)

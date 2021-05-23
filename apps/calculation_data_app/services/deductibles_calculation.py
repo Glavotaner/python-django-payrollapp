@@ -1,5 +1,4 @@
 from apps.employee_data_app.employee_app.models import Employee, Dependent
-from apps.payroll_app.models import Labour
 from datetime import date
 from typing import List
 
@@ -42,10 +41,9 @@ class DeductibleCalculated:
 
     def __init__(self,
                  deductibles_model: DeductiblesModel,
-                 labour_data: Labour):
-        self.labour_data: Labour = labour_data
+                 employee: Employee):
         self.deductibles_model: DeductiblesModel = deductibles_model
-        self.employee: Employee = labour_data.employee
+        self.employee: Employee = employee
 
     @property
     def personal_deductible(self):

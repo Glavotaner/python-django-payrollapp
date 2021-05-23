@@ -15,7 +15,7 @@ def _set_up():
         contract_type=ContractType.objects.get(pk=2),
         position=Position.objects.get(pk=1),
         multiplier=1,
-        start_date=date.today(),
+        start_date=date(2021, 1, 1),
         end_date=None
     ).save()
 

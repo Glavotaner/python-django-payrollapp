@@ -12,7 +12,7 @@ from django.db import models
 from django.db.models.aggregates import Max
 from django.utils.translation import gettext_lazy as _
 
-from apps.payroll_app.models import Labour, ReimbursementAmount
+from apps.payroll_app.models import Labour, ReimbursementAmount, ContributionAmount
 from apps.calculation_data_app.models import Contribution, Reimbursement
 
 
@@ -23,6 +23,13 @@ class Payroll(models.Model):
 
     date_of_accounting = models.DateField(
         verbose_name=_('Date of accounting'), db_index=True)
+
+    year = models.IntegerField(
+        verbose_name=_('Year')
+    )
+    month = models.IntegerField(
+        verbose_name=_('Month')
+    )
 
     work_data = models.OneToOneField(
         Labour, on_delete=models.PROTECT, db_index=True, verbose_name=_('Work data'))
@@ -91,23 +98,21 @@ class Payroll(models.Model):
         if not payrolls:
             payrolls = Payroll.objects.filter(accounting_date=accounting_date)
         payrolls_to_update: List['Payroll'] = []
-        reimbursements_to_save: List = []
         reimbursements_total: float = 0
 
         for payroll in payrolls:
             for reimbursement in reimbursements:
                 reimbursements_total += reimbursement['amount']
-                reimbursements_to_save.append(ReimbursementAmount.objects.create(
+                ReimbursementAmount.objects.create(
                     reimbursement=Reimbursement.objects.get(reimbursement['id']),
                     amount=reimbursement['amount'],
                     payroll=payroll
-                ))
+                ).save()
 
             payroll.reimbursements_total = reimbursements_total
             payroll.net_salary += reimbursements_total
             payrolls_to_update.append(payroll)
 
-        ReimbursementAmount.objects.bulk_create(reimbursements_to_save)
         Payroll.objects.bulk_update(payrolls_to_update, ['reimbursements_total', 'net_salary'])
 
     @staticmethod
@@ -120,6 +125,7 @@ class Payroll(models.Model):
             WageParameters.get_valid_wage_parameters(accounting_date)
 
         labour_to_calculate: List[Labour] = []
+        contributions_to_save: List[ContributionAmount] = []
 
         if not labours:
             labours = Labour.objects.filter(year=year, month=month)
@@ -143,7 +149,7 @@ class Payroll(models.Model):
             income: float = gross_salary - contributions_from_pay
             deductibles_calculated: DeductibleCalculated = DeductibleCalculated(
                 DeductiblesModel.get_valid_deductibles_model(accounting_date),
-                labour
+                employee=labour.employee
             )
             tax_base: float = income - deductibles_calculated.total_deductible
             tax_base = tax_base if tax_base > 0 else 0
@@ -154,14 +160,14 @@ class Payroll(models.Model):
                 labour.employee.hrvi,
                 labour.employee.tax_breaks
             )
-
-            labour_to_calculate.append(Payroll.objects.create(
+            payroll = Payroll.objects.create(
                 acc_counter=Payroll.get_accounting_counter_for_period(
                     year, month
                 ),
+                year=year,
+                month=month,
                 date_of_accounting=accounting_date,
                 work_data=labour,
-                valid_contributions=Contribution.get_current_contributions(),
 
                 wage=wage,
                 gross_salary=gross_salary,
@@ -186,8 +192,16 @@ class Payroll(models.Model):
 
                 net_salary=income - tax_calculated.total_tax,
                 labour_cost=gross_salary + contributions_other
-            ))
-        Payroll.objects.bulk_create(labour_to_calculate)
+            )
+            payroll.valid_contributions.set(Contribution.get_current_contributions())
+            payroll.save()
+            labour_to_calculate.append(payroll)
+            for contribution in labour.employee.contributions_model.contributions.all():
+                contributions_to_save.append(ContributionAmount.objects.create(
+                    contribution=contribution.contribution,
+                    amount=round(contribution.rate * salary_calculated.contributions_base, 2),
+                    payroll=payroll
+                ).save())
 
     @staticmethod
     def get_accounting_counter_for_period(year: int, month: int) -> int:

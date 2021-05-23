@@ -3,7 +3,7 @@ from datetime import date, timedelta
 from typing import List
 
 from django.db import models
-from django.db.models import Q
+from django.db.models import Q, QuerySet
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.utils.translation import gettext_lazy as _
@@ -109,7 +109,7 @@ class Employee(Person, Address):
         # validate_iban(self.iban)
 
     @staticmethod
-    def get_eligible_employees(year: int, month: int) -> List['Employee']:
+    def get_eligible_employees(year: int, month: int) -> QuerySet['Employee']:
         start_date: date = date(year, month, 1)
         end_date: date = date(year, month, monthrange(year, month)[1])
 
@@ -155,7 +155,7 @@ class Employee(Person, Address):
         return Dependent.objects.filter(dependent_of=self)
 
     @property
-    def get_children_list(self) -> List['Dependent']:
+    def get_children_list(self) -> QuerySet['Dependent']:
         return Dependent.objects.filter(dependent_of=self, child_in_line__isnull=False)
 
     @property

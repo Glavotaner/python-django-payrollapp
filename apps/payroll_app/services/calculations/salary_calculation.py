@@ -22,7 +22,10 @@ class SalaryCalculated:
 
     @property
     def wage_real(self) -> float:
-        return round(self.contracted_salary * (self.labour_data.regular_hours / self.labour_data.get_hours_fund), 2)
+        return (
+            (self.contracted_salary / self.labour_data.get_hours_fund) *
+            (self.labour_data.regular_hours / self.labour_data.get_hours_fund)
+            )
 
     @property
     def extra_hours_salary(self) -> float:
