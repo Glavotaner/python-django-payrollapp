@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="post">
+
+    {% csrf_token %}
+
+    <div class="card-group">
+        <div class='card'>
+            <h4 class="card-header">Zaposlenici</h4>
+            <table class="table">
+                <thead>
+                    <th>Odabran</th>
+                    <th>Prezime</th>
+                    <th>Ime</th>
+                    <th>OIB</th>
+                    <th>Radno mjesto</th>
+                    <th>Zaposlen od</th>
+                    <th>Model doprinosa</th>
+                </thead>
+                {% for employee in employees %}
+                <tr style='font-size: 12pt;'>
+                    <td style='text-align: center;'><input type='checkbox' name='employee' id={{ employee.employee_id }} />
+                    </td>
+                    <td>{{ employee.last_name }}
+                    </td>
+                    <td>{{ employee.first_name }}
+                    </td>
+                    <td>{{ employee.oib }}
+                    </td>
+                    <td>{{ employee.employee_position }}
+                    </td>
+                    <td style='font-size: 8pt;'>{{ employee.employee_since }}
+                    </td>
+                    <td>{{ employee.contributions_model.model_mark }}
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+            <div class="card" style="max-width: min-content;">
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <th><strong>Sati</strong></th>
+                            <th><strong>Naknade</strong></th>
+                        </thead>
+                        <td>
+                            <label for='regular_hours'>Redoviti sati</label><br>
+                            <input type='text' style='margin-bottom: 20px;' name='regular_hours' placeholder={{ hour_fund }} value={{ hour_fund }} />
+                            {% for hour_type in hour_types %}
+                            <br>
+                            <label for='hour_type'>{{ hour_type.hour_type_name }}</label><br>
+                            <input type='text' style='margin-bottom: 20px;' name='hour_type' id={{ hour_type.hour_type_id }} placeholder=0 value=0 />
+                            {% endfor %}
+                        </td>
+                        <td>
+                            {% for reimbursement in reimbursements %}
+                            <label for='reimbursement-{{ reimbursement.reimbursement_id }}'>
+                                {{ reimbursement.reimbursement_name }}
+                            </label><br>
+                            <input type='text' style='margin-bottom: 20px;' id={{ reimbursement.reimbursement_id }} name='reimbursement' placeholder={{
+                                reimbursement.amount }} value={{ reimbursement.amount }} />
+                                <br>
+                            {% endfor %}
+                        </td>
+                    </table>
+                </div>
+            </div>
+    </div>
+    <div class="card" style='align-items: center;'>
+        <div class="card-header bg-transparent">
+            <h4>Izvrši obračun za</h4>
+        </div>
+        <button class='btn-block btn-sm' type='submit' value='selected'>
+            <h4>Odabrane</h4>
+        </button>
+        <button class='btn-block btn-sm' type='submit' value='all'>
+            <h4>Sve raspoložive</h4>
+        </button>
+    </div>
+
+    {% block javascript %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        var token = '{{csrf_token}}';
+        $(document).ready(function () {
+            $(document).on('click', 'button[type="submit"]', function (e) {
+                var action = $(this).val();
+                e.preventDefault();
+                var employees = [];
+                var hour_types = [];
+                var regular_hours = $("input[name='regular_hours']").val();
+                var reimbursements = [];
+                $("input[name='employee']").each(function () {
+                    employees.push({
+                        id: this.id,
+                        selected: this.checked
+                    });
+                });
+                $("input[name='hour_type']").each(function () {
+                    hour_types.push({
+                        id: this.id,
+                        amount: this.value
+                    });
+                });
+                $("input[name='reimbursement']").each(function () {
+                    reimbursements.push({
+                        id: this.id,
+                        amount: this.value
+                    });
+                });
+                $.ajax({
+                    type: 'POST',
+                    headers: { "X-CSRFToken": token },
+                    data: {
+                        'employees': JSON.stringify(employees),
+                        'hour_types': JSON.stringify(hour_types),
+                        'reimbursements': JSON.stringify(reimbursements),
+                        regular_hours,
+                        dataType: 'json',
+                        csrfmiddlewaretoken: '{{ csrf_token }}',
+                        action
+                    },
+                })
+            })
+        })
+    </script>
+    {% endblock javascript %}
+</form>
+{% endblock %}

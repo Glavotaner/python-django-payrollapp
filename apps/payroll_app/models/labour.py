@@ -1,6 +1,7 @@
 from typing import List
 
-from django.db import models, connection
+from django.db import models, connection, transaction
+from django.db.models.query import QuerySet
 from django.utils.translation import gettext_lazy as _
 
 from apps.calculation_data_app.models import HourFund
@@ -33,18 +34,22 @@ class Labour(models.Model):
 
         db_table = 'labours'
 
-    # def __str__(self) -> str:
-    #     return f"{_('Employee ID')}: {self.employee.oib} | {_('Period ')}: {self.period_id}"
+    def __str__(self) -> str:
+        emp_id = _('Employee ID')
+        period = _('Period ')
+        return f"{emp_id}: {self.employee.oib} | {period}: {self.period_id}"
 
     @staticmethod
+    @transaction.atomic
     def set_labour(year: int, month: int, regular_hours: int, other_hours: List[dict] = None,
-                   employees: List['Employee'] = None) -> None:
+                   employees: QuerySet['Employee'] = None) -> List['Labour']:
 
         if employees:
             eligible_employees = employees
         else:
             eligible_employees = Employee.get_eligible_employees(year, month)
 
+        labour_data: List[Labour] = []
         for emp in eligible_employees:
             labour: Labour = Labour.objects.create(
                 employee=emp,
@@ -54,23 +59,25 @@ class Labour(models.Model):
 
                 regular_hours=regular_hours
             )
-
             labour.save()
 
             if other_hours:
                 for hour_type in other_hours:
                     with connection.cursor() as cursor:
+                        connection.closed_in_transaction
                         cursor.execute("""
                     INSERT INTO hour_type_amounts (hour_type_id, labour_id, amount)
                     VALUES (%s, %s, %s)""",
                                        params=[hour_type['id'], labour.labour_id, hour_type['amount']])
+            labour_data.append(labour)
+        return labour_data
 
     @property
     def get_hours_fund(self) -> int:
         return HourFund.objects.get(year=self.year, month=self.month).total_hours
 
     @property
-    def hour_type_amounts(self) -> List[HourTypeAmount]:
+    def hour_type_amounts(self) -> QuerySet[HourTypeAmount]:
         return HourTypeAmount.objects.filter(labour=self)
 
     @property

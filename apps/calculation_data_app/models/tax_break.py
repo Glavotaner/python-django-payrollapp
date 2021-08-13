@@ -4,13 +4,14 @@ from django.utils.translation import gettext_lazy as _
 
 class TaxBreak(models.Model):
     tax_break_id = models.AutoField(primary_key=True)
-    tax_break_name = models.CharField(max_length=250, verbose_name=_('Tax break name'))
+    tax_break_name = models.CharField(
+        max_length=250, verbose_name=_('Tax break name'))
     rate = models.FloatField(verbose_name=_('Rate'), default=50)
     retired = models.BooleanField(verbose_name=_('Retired'))
 
     class Meta:
-        verbose_name = 'Tax break'
-        verbose_name_plural = 'Tax breaks'
+        verbose_name = _('Tax break')
+        verbose_name_plural = _('Tax breaks')
 
         db_table = 'tax_breaks'
 

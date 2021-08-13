@@ -9,12 +9,13 @@ from apps.calculation_data_app.models import TaxBracket
 
 class TaxModel(models.Model):
     tax_model_id = models.AutoField(primary_key=True)
-    tax_brackets = models.ManyToManyField(TaxBracket, verbose_name=_('Tax brackets'))
-    valid_from = models.DateField(verbose_name='Valid from')
+    tax_brackets = models.ManyToManyField(
+        TaxBracket, verbose_name=_('Tax brackets'))
+    valid_from = models.DateField(verbose_name=_('Valid from'))
 
     class Meta:
-        verbose_name = 'Tax model'
-        verbose_name_plural = 'Tax models'
+        verbose_name = _('Tax model')
+        verbose_name_plural = _('Tax models')
 
         db_table = 'tax_models'
 

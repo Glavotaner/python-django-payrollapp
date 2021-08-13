@@ -24,6 +24,7 @@ class CityAdmin(admin.ModelAdmin):
             }
         )
     )
+    list_display = ('city_name', 'joppd', 'tax_rate')
 
 
 class BankAdmin(admin.ModelAdmin):
@@ -45,6 +46,7 @@ class BankAdmin(admin.ModelAdmin):
             }
         )
     )
+    list_display = ('bank_name', 'oib', 'city_name')
 
 
 admin.site.register(City, CityAdmin)

@@ -30,3 +30,7 @@ class Bank(Address):
         # validate_bid(self.business_id)
         # validate_pid(self.oib)
         pass
+
+    @property
+    def city_name(self) -> str:
+        return self.city.city_name

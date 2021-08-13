@@ -5,15 +5,20 @@ from .models import TaxBracket, HourFund, ContributionsModel, DeductiblesModel, 
 
 
 class ContributionAdmin(admin.ModelAdmin):
-    fields = ('contribution_name', 'from_pay', 'retired')
+    field_set = ('contribution_name', 'from_pay', 'retired')
+    fields = field_set
+    list_display = field_set
 
 
 class ContributionRateAdmin(admin.ModelAdmin):
-    fields = ('rate', 'valid_from')
+    fields = ('contribution', 'rate', 'valid_from')
+    list_display = ('contribution_name', 'rate', 'valid_from')
 
 
 class ContributionsModelAdmin(admin.ModelAdmin):
-    fields = ('model_mark', 'contributions')
+    field_set = ('model_mark', 'retired')
+    fields = ('model_mark', 'contributions', 'retired')
+    list_display = field_set
 
 
 class DeductiblesModelAdmin(admin.ModelAdmin):

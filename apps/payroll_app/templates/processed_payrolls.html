@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="card">
+        <div class="card-header bg-transparent">
+            <h3>Za razdoblje {{ period.year }}.{{ period.month }}</h3>
+        </div>
+        <div class="card-body" style='max-width: min-content;'>
+            <label for="select_all" style='margin-right: 10px;'>Odaberi sve</label>
+            <input type="checkbox" name="select_all" id="selectAll"/>
+            <table class="table" >
+                <thead>
+                    <th>Odabrana</th>
+                    <th>Datum obračuna</th>
+                    <th>Djelatnik</th>
+                    <th>OIB</th>
+                    <th>Bruto</th>
+                    <th>Ukupno doprinosi iz plaće</th>
+                    <th>Dohodak</th>
+                    <th>Olakšice</th>
+                    <th>Porezna osnovica</th>
+                    <th>Porez na dohodak</th>
+                    <th>Prirez</th>
+                    <th>Porez ukupno</th>
+                    <th>Ukupno doprinosi na plaću</th>
+                    <th>Neto</th>
+                    <th>Trošak poslodavca</th>
+                </thead>
+                {% for payroll in payrolls %}
+                        <td style='text-align: center;'>
+                            <input style='margin-bottom: 10px;' type="checkbox" name="delete" id='{{ payroll.payroll_id }}'/>
+                            <br>
+                            <a style='font-size: smaller;' href="payroll_detail_ID{{ payroll.payroll_id }}">Pregled detalja</a>
+                        </td>
+                        <td>{{ payroll.date_of_accounting }}</td>
+                        <td>{{ payroll.employee.name }}</td>
+                        <td>{{ payroll.employee.oib }}</td>
+                        <td>{{ payroll.gross_salary }}</td>
+                        <td>{{ payroll.contributions_frompay_total }}</td>
+                        <td>{{ payroll.income }}</td>
+                        <td>{{ payroll.total_deductibles }}</td>
+                        <td>{{ payroll.tax_base }}</td>
+                        <td>{{ payroll.income_tax_amount }}</td>
+                        <td>{{ payroll.city_tax_amount }}</td>
+                        <td>{{ payroll.total_tax }}</td>
+                        <td>{{ payroll.contributions_other_total }}</td>
+                        <td>{{ payroll.net_salary }}</td>
+                        <td>{{ payroll.labour_cost }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div class="card-footer">
+            <form action="delete" method="post">
+                {% csrf_token %}
+                <button class='btn-sm btn-danger' type="submit"><h4>Brisanje odabranih obrada</h4></button>
+            </form>
+        </div>
+    </div>
+
+    {% block javascript %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        var token = '{{csrf_token}}';
+        $(document).ready(function () {
+            var select_all = document.querySelector('#selectAll');
+            if (select_all) {
+                select_all.addEventListener('change', function() {
+                    $("input[type='checkbox']").each(function () {
+                    this.checked = select_all.checked;
+                });
+                })
+            }
+            $(document).on('click', 'button[type="submit"]', function (e) {
+                e.preventDefault();
+                var selected = [];
+                $("input[name='delete']").each(function () {
+                    selected.push({
+                        id: this.id,
+                        selected: this.checked
+                    });
+                });
+                $.ajax({
+                    type: 'POST',
+                    headers: { "X-CSRFToken": token },
+                    data: {
+                        selected: JSON.stringify(selected),
+                        dataType: 'json',
+                        csrfmiddlewaretoken: '{{ csrf_token }}',
+                    },
+                })
+            })
+        })
+    </script>
+    {% endblock javascript %}
+
+{% endblock %}

@@ -35,15 +35,15 @@ class ContributionsModelCalculated:
             self.wage_parameters.min_base / self.labour_data.get_hours_fund
         ) * self.labour_data.regular_hours
 
-        return round(proportional_min_base if proportional_base < proportional_min_base else proportional_base, 2)
+        return (proportional_min_base if proportional_base < proportional_min_base else proportional_base)
 
     @property
     def calculated_contributions_from_pay(self) -> float:
-        return round(
+        return (
             sum([
                 self.contributions_base * (contribution.rate / 100)
                 for contribution in self.contributions_model.get_contribs_from_pay
-            ]), 2)
+            ]))
 
     @property
     def calculated_contributions_other(self) -> float:

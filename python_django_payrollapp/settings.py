@@ -54,11 +54,16 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+LOCALE_PATHS = [
+    'locale'
 ]
 
 ROOT_URLCONF = 'python_django_payrollapp.urls'
@@ -113,7 +118,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-def gettext(s):
+def gettext(s: str) -> str:
     return s
 
 
@@ -125,7 +130,6 @@ USE_TZ = True
 
 LANGUAGES = (
     ('hr', gettext('Croatian')),
-    ('en', gettext('English'))
 )
 
 # Static files (CSS, JavaScript, Images)

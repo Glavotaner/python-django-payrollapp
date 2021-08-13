@@ -14,11 +14,17 @@ class ContributionsModel(models.Model):
         max_length=10,
         help_text=_('Up to 10 characters long textual ID of this model')
     )
-    contributions = models.ManyToManyField(ContributionRate, verbose_name=_('Contributions'))
+    contributions = models.ManyToManyField(
+        ContributionRate, verbose_name=_('Contributions'))
 
-    retired = models.BooleanField()
+    retired = models.BooleanField(
+        null=True,
+        blank=True,
+        verbose_name=_('Retired')
+    )
 
     class Meta:
+        app_label = 'calculation_data_app'
         verbose_name = _('Contributions model')
         verbose_name_plural = _('Contributions models')
 

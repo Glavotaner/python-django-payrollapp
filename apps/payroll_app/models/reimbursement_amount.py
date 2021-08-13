@@ -7,10 +7,13 @@ from apps.calculation_data_app.models import Reimbursement
 class ReimbursementAmount(models.Model):
     reimbursement_amount_id = models.AutoField(primary_key=True)
 
-    reimbursement = models.ForeignKey(Reimbursement, on_delete=models.PROTECT, verbose_name=_('Reimbursement'))
-    payroll = models.ForeignKey('Payroll', on_delete=models.PROTECT, verbose_name=_('Payroll'))
+    reimbursement = models.ForeignKey(
+        Reimbursement, on_delete=models.PROTECT, verbose_name=_('Reimbursement'))
+    payroll = models.ForeignKey(
+        'Payroll', on_delete=models.PROTECT, verbose_name=_('Payroll'))
 
-    amount = models.FloatField(verbose_name=_('Amount'))
+    amount = models.DecimalField(
+        max_digits=10, decimal_places=2, verbose_name=_('Amount'))
 
     class Meta:
         verbose_name = _('Reimbursement amount')
@@ -22,8 +25,8 @@ class ReimbursementAmount(models.Model):
         return f'{self.reimbursement.reimbursement_name} - {self.amount}'
 
     @staticmethod
-    def get_payroll_reimbursement_amounts(target_payroll):
-        return ReimbursementAmount.objects.filter(payroll=target_payroll)
+    def get_payroll_reimbursement_amounts(target_payroll_id: int):
+        return ReimbursementAmount.objects.filter(payroll__payroll_id=target_payroll_id)
 
     @property
     def reimbursement_name(self):

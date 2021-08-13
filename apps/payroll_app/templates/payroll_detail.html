@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="card">
+        <div class="card-header">
+            <div style="float: left;">
+                <h5>{{ payroll.employee.name }} | OIB {{ payroll.employee.oib }}</h5>
+                <h6>Za razdoblje {{ payroll.year }}.{{ payroll.month }}</h6>
+                <h6>Datum obračuna: {{ payroll.date_of_accounting }}</h6>
+                <br>
+                <button name="back" type="submit" class="btn-success">
+                    Nazad na pregled razdoblja
+                    <a href="/payroll/payrolls_Y{{ payroll.year }}M{{ payroll.month }}"></a>
+                </button>
+            </div>
+        </div>
+        <div class="card-body">
+            <button name="delete" type="submit" class="btn-danger">Obriši obradu</button>
+        <table class='table'>
+            <thead>
+                <th><h5>Stavka</h5></th>
+                <th><h5>Iznos</h5></th>
+            </thead>
+            <tr>
+                <td><strong>Bruto</strong></td>
+                <td>{{ payroll.gross_salary }}</td>
+            </tr>
+            <tr>
+                <td><strong>Osnovica za obračun doprinosa</strong></td>
+                <td>{{ payroll.contributions_base }}</td>
+            </tr>
+            <tr>
+                <td>
+                    <p><strong>Doprinosi iz plaće</strong></p>
+                    {% for contribution in contributions_from_pay %}
+                    <p>{{ contribution.name }}</p>
+                    {% endfor %}
+                </td>
+                <td><br>
+                    {% for contribution in contributions_from_pay %}
+                    <p>{{ contribution.amount }}</p>
+                    {% endfor %}</td>
+            </tr>
+            <tr>
+                <td><strong>Ukupno doprinosi iz plaće</strong></td>
+                <td>{{ payroll.contributions_frompay_total }}</td>
+            </tr>
+            <tr>
+                <td><strong>Dohodak</strong></td>
+                <td>{{ payroll.income }}</td>
+            </tr>
+            <tr>
+                <td><strong>Olakšice</strong></td>
+                <td>{{ payroll.total_deductibles }}</td>
+            </tr>
+            <tr>
+                <td>Porezna osnovica</td>
+                <td>{{ payroll.tax_base }}</td>
+            </tr>
+            <tr>
+                <td>Porez na dohodak</td>
+                <td>{{ payroll.income_tax_amount }}</td>
+            </tr>
+            <tr>
+                <td>Prirez</td>
+                <td>{{ payroll.city_tax_amount }}</td>
+            </tr>
+            <tr>
+                <td><strong>Porez ukupno</strong></td>
+                <td>{{ payroll.total_tax }}</td>
+            </tr>
+            <tr>
+                <td>
+                    <p><strong>Doprinosi na plaću</strong></p>
+                    {% for contribution in contributions_other %}
+                    <p>{{ contribution.name }}</p>
+                    {% endfor %}
+                </td>
+                <td><br>
+                    {% for contribution in contributions_other %}
+                    <p>{{ contribution.amount }}</p>
+                    {% endfor %}</td>
+            </tr>
+            <tr>
+                <td><strong>Ukupno doprinosi na plaću</strong></td>
+                <td>{{ payroll.contributions_other_total }}</td>
+            </tr>
+            <tr>
+                <td><strong>Neto</strong></td>
+                <td>{{ payroll.net_salary }}</td>
+            </tr>
+            <tr>
+                <td>
+                    <p><strong>Naknade</strong></p>
+                    {% for reimbursement in payroll.reimbursements %}
+                    <p>{{ reimbursement.name }}</p>
+                    {% endfor %}
+                </td>
+                <td><br>
+                    {% for reimbursement in payroll.reimbursements %}
+                    <p>{{ reimbursement.amount }}</p>
+                    {% endfor %}
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Ukupno za isplatu</strong></td>
+                <td>{{ payroll.total_amount }}</td>
+            </tr>
+            <tr>
+                <td><strong>Trošak poslodavca</strong></td>
+                <td>{{ payroll.labour_cost }}</td>
+            </tr>
+        </table>
+        </div>
+    </div>
+
+    {% block javascript %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        var token = '{{csrf_token}}';
+        $(document).ready(function () {
+            $(document).on('click', 'button[type="submit"]', function (e) {
+                e.preventDefault();
+                var action = $(this).attr('name');
+                $.ajax({
+                    type: 'POST',
+                    headers: { "X-CSRFToken": token },
+                    data: {
+                        dataType: 'json',
+                        csrfmiddlewaretoken: '{{ csrf_token }}',
+                        action
+                    },
+                })
+            })
+        })
+    </script>
+    {% endblock javascript %}
+
+{% endblock %}

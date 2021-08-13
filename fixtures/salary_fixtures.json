@@ -1,0 +1,312 @@
+[
+  {
+    "model": "employment_app.Contract",
+    "pk": 2,
+    "fields": {
+      "contract_type": 1,
+      "position": 1,
+      "multiplier": 0.3,
+      "start_date": "2005-01-01",
+      "end_date": "2022-01-01"
+    }
+  },
+  {
+    "model": "employee_app.Employee",
+    "pk": 2,
+    "fields": {
+      "oib": "12345678912",
+      "first_name": "Luka",
+      "last_name": "Anić",
+      "date_of_birth": "1999-01-01",
+      "disability": "I",
+      "hrvi": 0,
+      "street_name": "Low earner street", "street_number": 1, "city": 1,
+      "iban": "HR12245678912345",
+      "first_employment": "True",
+      "first_employment_with_company": "True",
+      "employee_bank": 1,
+      "contributions_model": 1,
+      "signed_contract": 2,
+      "employee_since": "2005-01-01"
+    }
+  },
+  {
+    "model": "employment_app.Contract",
+    "pk": 3,
+    "fields": {
+      "contract_type": 1,
+      "position": 1,
+      "multiplier": 0.3,
+      "start_date": "2005-01-01",
+      "end_date": "2022-01-01"
+    }
+  },
+  {
+    "model": "employee_app.Employee",
+    "pk": 3,
+    "fields": {
+      "oib": "12345678913",
+      "first_name": "Ana",
+      "last_name": "Anić",
+      "date_of_birth": "1999-01-01",
+      "disability": "N",
+      "hrvi": 0,
+      "street_name": "Low earner street", "street_number": 1, "city": 1,
+      "iban": "HR12345678912345",
+      "first_employment": "True",
+      "first_employment_with_company": "True",
+      "employee_bank": 1,
+      "contributions_model": 1,
+      "signed_contract": 3,
+      "employee_since": "2005-01-01"
+    }
+  },
+  {
+    "model": "employment_app.Contract",
+    "pk": 4,
+    "fields": {
+      "contract_type": 1,
+      "position": 1,
+      "multiplier": 0.3,
+      "start_date": "2005-01-01",
+      "end_date": "2022-01-01"
+    }
+  },
+  {
+    "model": "employee_app.Employee",
+    "pk": 4,
+    "fields": {
+      "oib": "12345678914",
+      "first_name": "Ivan",
+      "last_name": "Matić",
+      "date_of_birth": "1999-01-01",
+      "disability": "N",
+      "hrvi": 0,
+      "street_name": "Low earner street", "street_number": 1, "city": 1,
+      "iban": "HR12445678912345",
+      "first_employment": "True",
+      "first_employment_with_company": "True",
+      "employee_bank": 1,
+      "contributions_model": 1,
+      "signed_contract": 4,
+      "employee_since": "2005-01-01"
+    }
+  },
+  {
+    "model": "employment_app.Contract",
+    "pk": 5,
+    "fields": {
+      "contract_type": 1,
+      "position": 1,
+      "multiplier": 0.3,
+      "start_date": "2005-01-01",
+      "end_date": "2022-01-01"
+    }
+  },
+  {
+    "model": "employee_app.Employee",
+    "pk": 5,
+    "fields": {
+      "oib": "51234567891",
+      "first_name": "Antun",
+      "last_name": "Horvat",
+      "date_of_birth": "1999-01-01",
+      "disability": "N",
+      "hrvi": 0,
+      "street_name": "Low earner street", "street_number": 1, "city": 1,
+      "iban": "HR12545678912345",
+      "first_employment": "True",
+      "first_employment_with_company": "True",
+      "employee_bank": 1,
+      "contributions_model": 1,
+      "signed_contract": 5,
+      "employee_since": "2005-01-01"
+    }
+  },
+  {
+    "model": "employment_app.Contract",
+    "pk": 6,
+    "fields": {
+      "contract_type": 1,
+      "position": 1,
+      "multiplier": 0.3,
+      "start_date": "2005-01-01",
+      "end_date": "2022-01-01"
+    }
+  },
+  {
+    "model": "employee_app.Employee",
+    "pk": 6,
+    "fields": {
+      "oib": "61234567891",
+      "first_name": "Ivo",
+      "last_name": "Šimić",
+      "date_of_birth": "1999-01-01",
+      "disability": "N",
+      "hrvi": 0,
+      "street_name": "Low earner street", "street_number": 1, "city": 1,
+      "iban": "HR12645678912345",
+      "first_employment": "True",
+      "first_employment_with_company": "True",
+      "employee_bank": 1,
+      "contributions_model": 1,
+      "signed_contract": 6,
+      "employee_since": "2005-01-01"
+    }
+  },
+  {
+    "model": "employment_app.Contract",
+    "pk": 7,
+    "fields": {
+      "contract_type": 1,
+      "position": 1,
+      "multiplier": 0.3,
+      "start_date": "2005-01-01",
+      "end_date": "2022-01-01"
+    }
+  },
+  {
+    "model": "employee_app.Employee",
+    "pk": 7,
+    "fields": {
+      "oib": "71234567891",
+      "first_name": "Ivan",
+      "last_name": "Anić",
+      "date_of_birth": "1999-01-01",
+      "disability": "N",
+      "hrvi": 0,
+      "street_name": "Low earner street", "street_number": 1, "city": 1,
+      "iban": "HR12745678912345",
+      "first_employment": "True",
+      "first_employment_with_company": "True",
+      "employee_bank": 1,
+      "contributions_model": 1,
+      "signed_contract": 7,
+      "employee_since": "2005-01-01"
+    }
+  },
+  {
+    "model": "employment_app.Contract",
+    "pk": 8,
+    "fields": {
+      "contract_type": 1,
+      "position": 1,
+      "multiplier": 0.3,
+      "start_date": "2005-01-01",
+      "end_date": "2022-01-01"
+    }
+  },
+  {
+    "model": "employee_app.Employee",
+    "pk": 8,
+    "fields": {
+      "oib": "81234567891",
+      "first_name": "Mate",
+      "last_name": "Šimić",
+      "date_of_birth": "1999-01-01",
+      "disability": "N",
+      "hrvi": 0,
+      "street_name": "Low earner street", "street_number": 1, "city": 1,
+      "iban": "HR12845678912345",
+      "first_employment": "True",
+      "first_employment_with_company": "True",
+      "employee_bank": 1,
+      "contributions_model": 1,
+      "signed_contract": 8,
+      "employee_since": "2005-01-01"
+    }
+  },
+  {
+    "model": "employment_app.Contract",
+    "pk": 9,
+    "fields": {
+      "contract_type": 1,
+      "position": 1,
+      "multiplier": 0.3,
+      "start_date": "2005-01-01",
+      "end_date": "2022-01-01"
+    }
+  },
+  {
+    "model": "employee_app.Employee",
+    "pk": 9,
+    "fields": {
+      "oib": "91234567891",
+      "first_name": "Ivan",
+      "last_name": "Barić",
+      "date_of_birth": "1999-01-01",
+      "disability": "N",
+      "hrvi": 0,
+      "street_name": "Low earner street", "street_number": 1, "city": 1,
+      "iban": "HR12945678912345",
+      "first_employment": "True",
+      "first_employment_with_company": "True",
+      "employee_bank": 1,
+      "contributions_model": 3,
+      "signed_contract": 9,
+      "employee_since": "2005-01-01"
+    }
+  },
+  {
+    "model": "employment_app.Contract",
+    "pk": 10,
+    "fields": {
+      "contract_type": 1,
+      "position": 1,
+      "multiplier": 0.3,
+      "start_date": "2005-01-01",
+      "end_date": "2022-01-01"
+    }
+  },
+  {
+    "model": "employee_app.Employee",
+    "pk": 10,
+    "fields": {
+      "oib": "11456789111",
+      "first_name": "Miroslav",
+      "last_name": "Šimić",
+      "date_of_birth": "1999-01-01",
+      "disability": "N",
+      "hrvi": 0,
+      "street_name": "Low earner street", "street_number": 1, "city": 4,
+      "iban": "HR12345108912345",
+      "first_employment": "True",
+      "first_employment_with_company": "True",
+      "employee_bank": 3,
+      "contributions_model": 2,
+      "signed_contract": 10,
+      "employee_since": "2005-01-01"
+    }
+  },
+  {
+    "model": "employment_app.Contract",
+    "pk": 11,
+    "fields": {
+      "contract_type": 2,
+      "position": 2,
+      "multiplier": 0.3,
+      "start_date": "2005-01-01",
+      "end_date": "2022-01-01"
+    }
+  },
+  {
+    "model": "employee_app.Employee",
+    "pk": 11,
+    "fields": {
+      "oib": "11156789111",
+      "first_name": "Leon",
+      "last_name": "Puljak",
+      "date_of_birth": "1999-01-01",
+      "disability": "I*",
+      "hrvi": 0,
+      "street_name": "Low earner street", "street_number": 1, "city": 1,
+      "iban": "HR12345671112345",
+      "first_employment": "True",
+      "first_employment_with_company": "True",
+      "employee_bank": 1,
+      "contributions_model": 1,
+      "signed_contract": 11,
+      "employee_since": "2005-01-01"
+    }
+  }
+]

@@ -12,7 +12,7 @@ class Position(models.Model):
     )
     salary = models.FloatField(verbose_name=_('Salary'), default=5600)
 
-    retired = models.BooleanField()
+    retired = models.BooleanField(verbose_name=_('Retired'))
 
     class Meta:
         verbose_name = _('Position')

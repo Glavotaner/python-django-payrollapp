@@ -25,7 +25,8 @@ class Employee(Person, Address):
 
     iban = models.CharField(unique=True, verbose_name='IBAN', max_length=22)
 
-    protected_iban = models.CharField(unique=True, verbose_name='Protected IBAN', max_length=22, null=True, blank=True)
+    protected_iban = models.CharField(
+        unique=True, verbose_name=_('Protected IBAN'), max_length=22, null=True, blank=True)
 
     # Dependents
     no_children = models.IntegerField(
@@ -91,7 +92,8 @@ class Employee(Person, Address):
         on_delete=models.CASCADE
     )
 
-    tax_breaks = models.ManyToManyField(TaxBreak)
+    tax_breaks = models.ManyToManyField(
+        TaxBreak, verbose_name=_('Tax breaks'), null=True, blank=True)
 
     class Meta:
         verbose_name = _('Employee')
@@ -109,16 +111,15 @@ class Employee(Person, Address):
         # validate_iban(self.iban)
 
     @staticmethod
-    def get_eligible_employees(year: int, month: int) -> QuerySet['Employee']:
+    def get_eligible_employees(year: int, month: int):
         start_date: date = date(year, month, 1)
         end_date: date = date(year, month, monthrange(year, month)[1])
-
         return Employee.objects.filter(
             (Q(signed_contract__start_date__lte=start_date) & (
-                    Q(signed_contract__end_date__gte=start_date) | Q(signed_contract__end_date__isnull=True))
+                Q(signed_contract__end_date__gte=start_date) | Q(signed_contract__end_date__isnull=True))
              ) |
             (Q(signed_contract__start_date__lte=end_date) & (
-                    Q(signed_contract__end_date__gte=start_date) | Q(signed_contract__end_date__isnull=True))
+                Q(signed_contract__end_date__gte=start_date) | Q(signed_contract__end_date__isnull=True))
              )
         )
 
@@ -151,7 +152,7 @@ class Employee(Person, Address):
 
     # DEPENDENTS
     @property
-    def get_dependents(self) -> List['Dependent']:
+    def get_dependents(self) -> QuerySet['Dependent']:
         return Dependent.objects.filter(dependent_of=self)
 
     @property
@@ -164,13 +165,15 @@ class Employee(Person, Address):
 
     @property
     def get_disabled_dependents_count(self) -> int:
-        deps_count: int = Dependent.objects.filter(dependent_of=self, disability='I').count()
+        deps_count: int = Dependent.objects.filter(
+            dependent_of=self, disability='I').count()
 
         return deps_count + 1 if self.disability == 'I' else deps_count
 
     @property
     def get_disabled_dependents_100_count(self) -> int:
-        deps_count: int = Dependent.objects.filter(dependent_of=self, disability='I*').count()
+        deps_count: int = Dependent.objects.filter(
+            dependent_of=self, disability='I*').count()
 
         return deps_count + 1 if self.disability == 'I*' else deps_count
 

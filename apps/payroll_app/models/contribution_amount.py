@@ -10,7 +10,7 @@ class ContributionAmount(models.Model):
     contribution = models.ForeignKey(Contribution, on_delete=models.PROTECT, verbose_name=_('Contribution'))
     payroll = models.ForeignKey('Payroll', on_delete=models.PROTECT, verbose_name=_('Payroll'))
 
-    amount = models.FloatField(default=0, editable=False, verbose_name=_('Amount'))
+    amount = models.DecimalField(default=0, max_digits=10, decimal_places=2, editable=False, verbose_name=_('Amount'))
 
     class Meta:
         verbose_name = _('Contribution amount')
@@ -22,8 +22,8 @@ class ContributionAmount(models.Model):
         return f'{self.contribution.contribution_name} - {self.amount}'
 
     @staticmethod
-    def get_payroll_contribution_amounts(target_payroll):
-        return ContributionAmount.objects.filter(payroll=target_payroll)
+    def get_payroll_contribution_amounts(target_payroll_id: int):
+        return ContributionAmount.objects.filter(payroll__payroll_id=target_payroll_id)
 
     @property
     def contribution_name(self):

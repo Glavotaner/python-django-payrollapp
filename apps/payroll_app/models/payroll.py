@@ -1,3 +1,4 @@
+from django.db.models.query import QuerySet
 from apps.calculation_data_app.models.tax_model import TaxModel
 from apps.calculation_data_app.services.tax_calculation import TaxCalculated
 from apps.calculation_data_app.models.deductibles_model import DeductiblesModel
@@ -8,7 +9,7 @@ from apps.payroll_app.services.calculations.salary_calculation import SalaryCalc
 from datetime import date
 from typing import List, Dict
 
-from django.db import models
+from django.db import models, transaction
 from django.db.models.aggregates import Max
 from django.utils.translation import gettext_lazy as _
 
@@ -32,50 +33,59 @@ class Payroll(models.Model):
     )
 
     work_data = models.OneToOneField(
-        Labour, on_delete=models.PROTECT, db_index=True, verbose_name=_('Work data'))
+        Labour, on_delete=models.CASCADE, db_index=True, verbose_name=_('Work data'))
 
     valid_contributions = models.ManyToManyField(
-        Contribution, editable=False, verbose_name=_('Valid contributions'))
+        Contribution, verbose_name=_('Valid contributions'))
 
-    wage = models.FloatField(verbose_name=_('Wage'))
+    wage = models.DecimalField(
+        max_digits=10, decimal_places=2, verbose_name=_('Wage'))
 
-    gross_salary = models.FloatField(verbose_name=_('Gross salary'))
+    gross_salary = models.DecimalField(
+        max_digits=10, decimal_places=2, verbose_name=_('Gross salary'))
 
-    contributions_base = models.FloatField(
-        verbose_name=_('Contributions base'))
+    contributions_base = models.DecimalField(max_digits=10, decimal_places=2,
+                                             verbose_name=_('Contributions base'))
 
-    contributions_frompay_total = models.FloatField(
-        verbose_name=_('Total contributions from pay'))
-    contributions_other_total = models.FloatField(
-        verbose_name=_('Other contributions total'))
+    contributions_frompay_total = models.DecimalField(max_digits=10, decimal_places=2,
+                                                      verbose_name=_('Total contributions from pay'))
+    contributions_other_total = models.DecimalField(max_digits=10, decimal_places=2,
+                                                    verbose_name=_('Other contributions total'))
 
-    income = models.FloatField(verbose_name=_('Income'))
+    income = models.DecimalField(
+        max_digits=10, decimal_places=2, verbose_name=_('Income'))
 
-    personal_deductible_amount = models.FloatField(
-        verbose_name=_('Personal deductible amount'))
-    deductible_dependents = models.FloatField(
-        verbose_name=_('Dependents deductible amount'))
-    deductible_children = models.FloatField(
-        verbose_name=_('Children deductible amount'))
-    deductible_dependents_disabled = models.FloatField(
-        verbose_name=_('Disabled dependents deductible amount'))
-    deductible_dependents_disabled_100 = models.FloatField(
-        verbose_name=_('100% disabled dependents deductible amount'))
-    total_deductibles = models.FloatField(
-        verbose_name=_('Total deductibles amount'))
+    personal_deductible_amount = models.DecimalField(max_digits=10, decimal_places=2,
+                                                     verbose_name=_('Personal deductible amount'))
+    deductible_dependents = models.DecimalField(max_digits=10, decimal_places=2,
+                                                verbose_name=_('Dependents deductible amount'))
+    deductible_children = models.DecimalField(max_digits=10, decimal_places=2,
+                                              verbose_name=_('Children deductible amount'))
+    deductible_dependents_disabled = models.DecimalField(max_digits=10, decimal_places=2,
+                                                         verbose_name=_('Disabled dependents deductible amount'))
+    deductible_dependents_disabled_100 = models.DecimalField(max_digits=10, decimal_places=2,
+                                                             verbose_name=_('100% disabled dependents deductible amount'))
+    total_deductibles = models.DecimalField(max_digits=10, decimal_places=2,
+                                            verbose_name=_('Total deductibles amount'))
 
-    tax_base = models.FloatField(verbose_name=_('Tax base'))
+    tax_base = models.DecimalField(
+        max_digits=10, decimal_places=2, verbose_name=_('Tax base'))
 
-    income_tax_amount = models.FloatField(verbose_name=_('Income tax amount'))
-    city_tax_amount = models.FloatField(verbose_name=_('City tax amount'))
-    total_tax = models.FloatField(verbose_name=_('Total tax amount'))
+    income_tax_amount = models.DecimalField(
+        max_digits=10, decimal_places=2, verbose_name=_('Income tax amount'))
+    city_tax_amount = models.DecimalField(
+        max_digits=10, decimal_places=2, verbose_name=_('City tax amount'))
+    total_tax = models.DecimalField(
+        max_digits=10, decimal_places=2, verbose_name=_('Total tax amount'))
 
-    net_salary = models.FloatField(verbose_name=_('Net salary'))
+    net_salary = models.DecimalField(
+        max_digits=10, decimal_places=2, verbose_name=_('Net salary'))
 
-    reimbursements_total = models.FloatField(
-        verbose_name=_('Reimbursements total'), null=True, blank=True)
+    reimbursements_total = models.DecimalField(max_digits=10, decimal_places=2,
+                                               verbose_name=_('Reimbursements total'), null=True, blank=True)
 
-    labour_cost = models.FloatField(verbose_name=_('Labour cost'))
+    labour_cost = models.DecimalField(
+        max_digits=10, decimal_places=2, verbose_name=_('Labour cost'))
 
     class Meta:
         verbose_name = _('Payroll')
@@ -90,43 +100,46 @@ class Payroll(models.Model):
         super(Payroll, self).save()
 
     @staticmethod
+    @transaction.atomic
     def calculate_reimbursements(
             accounting_date: date,
             reimbursements: List[Dict],
-            payrolls: List['Payroll'] = None
+            payrolls=None
     ) -> None:
         if not payrolls:
-            payrolls = Payroll.objects.filter(accounting_date=accounting_date)
+            payrolls = Payroll.objects.filter(
+                date_of_accounting=accounting_date)
         payrolls_to_update: List['Payroll'] = []
         reimbursements_total: float = 0
 
         for payroll in payrolls:
             for reimbursement in reimbursements:
-                reimbursements_total += reimbursement['amount']
+                reimbursements_total += float(reimbursement['amount'])
                 ReimbursementAmount.objects.create(
-                    reimbursement=Reimbursement.objects.get(reimbursement['id']),
-                    amount=reimbursement['amount'],
+                    reimbursement=Reimbursement.objects.get(
+                        pk=reimbursement['id']),
+                    amount=float(reimbursement['amount']),
                     payroll=payroll
                 ).save()
 
             payroll.reimbursements_total = reimbursements_total
-            payroll.net_salary += reimbursements_total
             payrolls_to_update.append(payroll)
 
-        Payroll.objects.bulk_update(payrolls_to_update, ['reimbursements_total', 'net_salary'])
+        Payroll.objects.bulk_update(
+            payrolls_to_update, ['reimbursements_total', 'net_salary'])
 
     @staticmethod
     def calculate_payrolls(
             accounting_date: date,
             year: int, month: int,
-            labours: List['Labour'] = None
-    ) -> None:
+            labours = None
+    ) -> List['Payroll']:
         current_wage_parameters: WageParameters = \
             WageParameters.get_valid_wage_parameters(accounting_date)
 
         labour_to_calculate: List[Labour] = []
         contributions_to_save: List[ContributionAmount] = []
-
+        payrolls: List[Payroll] = []
         if not labours:
             labours = Labour.objects.filter(year=year, month=month)
         for labour in labours:
@@ -193,18 +206,29 @@ class Payroll(models.Model):
                 net_salary=income - tax_calculated.total_tax,
                 labour_cost=gross_salary + contributions_other
             )
-            payroll.valid_contributions.set(Contribution.get_current_contributions())
+            payroll.valid_contributions.set(
+                Contribution.get_current_contributions())
             payroll.save()
             labour_to_calculate.append(payroll)
             for contribution in labour.employee.contributions_model.contributions.all():
                 contributions_to_save.append(ContributionAmount.objects.create(
                     contribution=contribution.contribution,
-                    amount=round(contribution.rate * salary_calculated.contributions_base, 2),
+                    amount=round((contribution.rate / 100) *
+                                 salary_calculated.contributions_base, 2),
                     payroll=payroll
                 ).save())
+            payrolls.append(payroll)
+        return payrolls
 
     @staticmethod
     def get_accounting_counter_for_period(year: int, month: int) -> int:
         if Payroll.objects.filter(year=year, month=month).count() > 0:
             return Payroll.objects.filter(year=year, month=month).aggregate(Max('acc_counter'))['acc_counter__max'] + 1
         return 1
+    
+    @staticmethod
+    @transaction.atomic
+    def delete_selected_payrolls(ids: List[int]) -> None:
+        ReimbursementAmount.objects.filter(payroll__payroll_id__in=ids).delete()
+        ContributionAmount.objects.filter(payroll__payroll_id__in=ids).delete()
+        Payroll.objects.filter(pk__in=ids).delete()

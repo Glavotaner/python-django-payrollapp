@@ -9,8 +9,10 @@ from apps.calculation_data_app.models import Reimbursement
 
 class ReimbursementValue(models.Model):
     reimbursement_value_id = models.AutoField(primary_key=True)
-    reimbursement = models.ForeignKey(Reimbursement, on_delete=models.CASCADE, verbose_name=_('Reimbursement'))
-    amount = models.FloatField(verbose_name=_('Amount'))
+    reimbursement = models.ForeignKey(
+        Reimbursement, on_delete=models.CASCADE, verbose_name=_('Reimbursement'))
+    amount = models.DecimalField(
+        max_digits=10, decimal_places=2, verbose_name=_('Amount'))
     valid_from = models.DateField(verbose_name=_('Valid from'))
 
     class Meta:
@@ -26,9 +28,10 @@ class ReimbursementValue(models.Model):
 
     @staticmethod
     def get_valid_reimbursement_values(target_date: date) -> List['ReimbursementValue']:
-        return ReimbursementValue.objects.raw("""SELECT * FROM reimbursement_values 
-                                                    WHERE valid_from = (SELECT MAX(valid_from) FROM reimbursement_values
-                                                    WHERE valid_from <= %s)""", target_date)
+        return ReimbursementValue.objects.raw("""SELECT rv.* FROM reimbursement_values as rv
+        inner join (SELECT reimbursement_id from reimbursements WHERE retired = 0) as r on r.reimbursement_id = rv.reimbursement_id
+        WHERE rv.valid_from = (SELECT MAX(valid_from) FROM reimbursement_values
+        WHERE valid_from <= %s)""", target_date)
 
     @property
     def reimbursement_name(self):

@@ -36,21 +36,21 @@ class WageParameters(models.Model):
         get_latest_by = 'valid_from'
 
     def __str__(self):
-        return f'Valid from: {self.valid_from}'
+        return f'Vrijedi od: {self.valid_from}'
 
     @staticmethod
     def get_valid_wage_parameters(target_date: date) -> 'WageParameters':
         return WageParameters.objects.filter(valid_from__lte=target_date).latest()
 
     def get_proportional_min_wage(self, labour_data: Labour) -> float:
-        return round(
+        return (
             self.min_wage *
-            (labour_data.regular_hours / labour_data.get_hours_fund), 2)
+            (labour_data.regular_hours / labour_data.get_hours_fund))
 
     def get_proportional_min_base(self, labour_data: Labour) -> float:
-        return round(
+        return (
             self.min_base *
-            (labour_data.regular_hours / labour_data.get_hours_fund), 2)
+            (labour_data.regular_hours / labour_data.get_hours_fund))
 
     def below_min_wage(self, salary: float) -> bool:
         return salary < self.min_wage

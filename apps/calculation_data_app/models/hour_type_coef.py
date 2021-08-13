@@ -31,7 +31,7 @@ class HourTypeCoef(models.Model):
     def get_valid_hour_type_coef(hour_type: HourType, target_date: date) -> float:
         return HourTypeCoef.objects.filter(
             hour_type=hour_type, valid_from__lte=target_date
-        ).latest()
+        ).latest().coef
 
     @property
     def hour_type_name(self):

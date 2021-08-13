@@ -52,7 +52,7 @@ class EmployeeAdmin(admin.ModelAdmin):
             }
         ),
         (
-            'Accounting data', {
+            _('Accounting data'), {
                 'fields': [
                     'contributions_model',
                     'tax_breaks'
@@ -74,7 +74,8 @@ class DependentAdmin(admin.ModelAdmin):
     ]
 
     search_fields = ['oib']
-    list_display = ('oib', 'first_name', 'last_name', 'date_of_birth', 'child_in_line', 'disability')
+    list_display = ('oib', 'first_name', 'last_name',
+                    'date_of_birth', 'child_in_line', 'disability')
 
 
 admin.site.register(Employee, EmployeeAdmin)

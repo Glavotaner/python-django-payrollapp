@@ -1,4 +1,3 @@
-from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
@@ -42,21 +41,31 @@ class Contract(models.Model):
     def __str__(self):
 
         if self.end_date:
-            return f"{self.contract_type.contract_type_name} contract | Signed: {self.start_date} \
-            - Expires on: {self.end_date}"
+            return f"{self.contract_type.contract_type_name} ugovor | Potpisan: {self.start_date} \
+            - Ističe: {self.end_date}"
 
-        return f"{self.contract_type.contract_type_name} contract | Signed: {self.start_date}"
+        return f"{self.contract_type.contract_type_name} ugovor | Potpisan: {self.start_date}"
 
     def clean(self):
         if self.multiplier < 0:
             raise ValidationError(_('Multiplier cannot be less than 0'))
 
         if self.start_date and self.contract_type.contract_type_name == _('Indefinite'):
-            raise ValidationError(_('An indefinite contract cannot have an expiration date'))
+            raise ValidationError(
+                _('An indefinite contract cannot have an expiration date'))
 
         if self.end_date and self.end_date < self.start_date:
-            raise ValidationError(_('The contract cannot expire before it is signed'))
+            raise ValidationError(
+                _('The contract cannot expire before it is signed'))
+
+    @ property
+    def total_salary(self) -> float:
+        return self.position.salary * self.multiplier
 
     @property
-    def total_salary(self) -> float:
-        return round(self.position.salary * self.multiplier, 2)
+    def contract_type_name(self) -> str:
+        return self.contract_type.contract_type_name
+
+    @property
+    def position_name(self) -> str:
+        return self.position.position_name

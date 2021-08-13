@@ -14,8 +14,8 @@ class TaxBracket(models.Model):
     )
 
     class Meta:
-        verbose_name = _('Tax model')
-        verbose_name_plural = _('Tax models')
+        verbose_name = _('Tax bracket')
+        verbose_name_plural = _('Tax brackets')
 
         db_table = 'tax_brackets'
 

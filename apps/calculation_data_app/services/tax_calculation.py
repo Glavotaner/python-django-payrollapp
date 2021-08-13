@@ -33,7 +33,6 @@ class TaxCalculated:
         while True:
             highest_bracket: TaxBracket = self.tax_model.get_tax_bracket(
                 reduced_income)
-
             if not highest_bracket.amount_to:
                 taxable = (self.tax_base - highest_bracket.amount_from) + 0.01
             elif highest_bracket.amount_to and self.tax_base >= highest_bracket.amount_to:
@@ -46,19 +45,15 @@ class TaxCalculated:
                 taxable = self.tax_base
 
             reduced_income -= taxable
-
-            income_tax += taxable * highest_bracket.tax_rate
-
+            income_tax += taxable * (highest_bracket.tax_rate / 100)
             if highest_bracket.amount_from <= 0:
                 break
-
         return round(income_tax, 2)
 
     @property
     def tax_break_amount(self):
-
         hrvi: float = self.hrvi if self.hrvi else 0
-        tax_breaks: QuerySet[TaxBreak] = self.tax_breaks
+        tax_breaks = self.tax_breaks
 
         if tax_breaks:
             deduction: float = (hrvi * self.tax_base) + \

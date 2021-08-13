@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-25 06:00+0000\n"
+"POT-Creation-Date: 2021-08-13 11:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,43 +19,46 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
-#: apps/calculation_data_app/models/contribution.py:9
+#: apps/calculation_data_app/models/contribution.py:10
 msgid "Contribution name"
 msgstr "Naziv doprinosa"
 
-#: apps/calculation_data_app/models/contribution.py:10
+#: apps/calculation_data_app/models/contribution.py:11
 msgid "From pay"
 msgstr "Iz plaće"
 
-#: apps/calculation_data_app/models/contribution.py:11
-#: apps/calculation_data_app/models/hour_type.py:13
-#: apps/calculation_data_app/models/reimbursement.py:10
-#: apps/calculation_data_app/models/tax_break.py:9
+#: apps/calculation_data_app/models/contribution.py:12
+#: apps/calculation_data_app/models/contributions_model.py:23
+#: apps/calculation_data_app/models/hour_type.py:12
+#: apps/calculation_data_app/models/reimbursement.py:13
+#: apps/calculation_data_app/models/tax_break.py:10
 #: apps/employee_data_app/employment_app/models/contract_type.py:13
+#: apps/employee_data_app/employment_app/models/position.py:15
 msgid "Retired"
 msgstr "Umirovljeno"
 
-#: apps/calculation_data_app/models/contribution.py:14
+#: apps/calculation_data_app/models/contribution.py:15
 #: apps/calculation_data_app/models/contribution_rate.py:13
 #: apps/payroll_app/models/contribution_amount.py:10
 msgid "Contribution"
 msgstr "Doprinos"
 
-#: apps/calculation_data_app/models/contribution.py:15
-#: apps/calculation_data_app/models/contributions_model.py:17
+#: apps/calculation_data_app/models/contribution.py:16
+#: apps/calculation_data_app/models/contributions_model.py:18
 msgid "Contributions"
 msgstr "Doprinosi"
 
 #: apps/calculation_data_app/models/contribution_rate.py:14
-#: apps/calculation_data_app/models/tax_break.py:8
+#: apps/calculation_data_app/models/tax_break.py:9
 msgid "Rate"
 msgstr "Stopa"
 
 #: apps/calculation_data_app/models/contribution_rate.py:15
 #: apps/calculation_data_app/models/deductibles_model.py:57
-#: apps/calculation_data_app/models/hour_type_coef.py:14
-#: apps/calculation_data_app/models/reimbursement_value.py:14
-#: apps/payroll_app/models/wage_parameters.py:25
+#: apps/calculation_data_app/models/hour_type_coef.py:17
+#: apps/calculation_data_app/models/reimbursement_value.py:16
+#: apps/calculation_data_app/models/tax_model.py:14
+#: apps/payroll_app/models/wage_parameters.py:28
 msgid "Valid from"
 msgstr "Vrijedi od"
 
@@ -75,12 +78,12 @@ msgstr "Oznaka modela"
 msgid "Up to 10 characters long textual ID of this model"
 msgstr "Tekstualna oznaka ovog modela do 10 znakova"
 
-#: apps/calculation_data_app/models/contributions_model.py:22
-#: apps/employee_data_app/employee_app/models/employee.py:85
+#: apps/calculation_data_app/models/contributions_model.py:28
+#: apps/employee_data_app/employee_app/models/employee.py:86
 msgid "Contributions model"
 msgstr "Model doprinosa"
 
-#: apps/calculation_data_app/models/contributions_model.py:23
+#: apps/calculation_data_app/models/contributions_model.py:29
 msgid "Contributions models"
 msgstr "Modeli doprinosa"
 
@@ -165,13 +168,13 @@ msgstr "Model odbitaka"
 msgid "Deductibles models"
 msgstr "Modeli odbitaka"
 
-#: apps/calculation_data_app/models/hour_fund.py:8
-#: apps/payroll_app/models/labour.py:15
+#: apps/calculation_data_app/models/hour_fund.py:8 apps/payroll_app/forms.py:9
+#: apps/payroll_app/models/labour.py:16 apps/payroll_app/models/payroll.py:29
 msgid "Year"
 msgstr "Godina"
 
-#: apps/calculation_data_app/models/hour_fund.py:9
-#: apps/payroll_app/models/labour.py:16
+#: apps/calculation_data_app/models/hour_fund.py:9 apps/payroll_app/forms.py:10
+#: apps/payroll_app/models/labour.py:17 apps/payroll_app/models/payroll.py:32
 msgid "Month"
 msgstr "Mjesec"
 
@@ -187,53 +190,58 @@ msgstr "Fond sati"
 msgid "Hour funds"
 msgstr "Fondovi sati"
 
-#: apps/calculation_data_app/models/hour_type.py:12
+#: apps/calculation_data_app/models/hour_type.py:11
 msgid "Hour type name"
 msgstr "Naziv vrste sata"
 
-#: apps/calculation_data_app/models/hour_type_coef.py:12
-#: apps/payroll_app/models/hour_type_amount.py:10
+#: apps/calculation_data_app/models/hour_type.py:18
+#: apps/calculation_data_app/models/hour_type_coef.py:15
+#: apps/payroll_app/models/hour_type_amount.py:8
 msgid "Hour type"
 msgstr "Vrsta sata"
 
-#: apps/calculation_data_app/models/hour_type_coef.py:13
+#: apps/calculation_data_app/models/hour_type.py:19
+msgid "Hour types"
+msgstr "Vrste sati"
+
+#: apps/calculation_data_app/models/hour_type_coef.py:16
 msgid "Hour coefficient"
 msgstr "Koeficijent sata"
 
-#: apps/calculation_data_app/models/hour_type_coef.py:17
+#: apps/calculation_data_app/models/hour_type_coef.py:20
 msgid "Hour type coef."
 msgstr "Koef. vrste sata"
 
-#: apps/calculation_data_app/models/hour_type_coef.py:18
+#: apps/calculation_data_app/models/hour_type_coef.py:21
 msgid "Hour type coefs."
 msgstr "Koeficijenti vrsta sati"
 
-#: apps/calculation_data_app/models/reimbursement.py:9
+#: apps/calculation_data_app/models/reimbursement.py:12
 msgid "Reimbursement name"
 msgstr "Naziv naknade"
 
-#: apps/calculation_data_app/models/reimbursement.py:13
-#: apps/calculation_data_app/models/reimbursement_value.py:12
-#: apps/payroll_app/models/reimbursement_amount.py:10
+#: apps/calculation_data_app/models/reimbursement.py:16
+#: apps/calculation_data_app/models/reimbursement_value.py:13
+#: apps/payroll_app/models/reimbursement_amount.py:11
 msgid "Reimbursement"
 msgstr "Naknada"
 
-#: apps/calculation_data_app/models/reimbursement.py:14
+#: apps/calculation_data_app/models/reimbursement.py:17
 msgid "Reimbursements"
 msgstr "Naknade"
 
-#: apps/calculation_data_app/models/reimbursement_value.py:13
+#: apps/calculation_data_app/models/reimbursement_value.py:15
 #: apps/payroll_app/models/contribution_amount.py:13
-#: apps/payroll_app/models/hour_type_amount.py:13
-#: apps/payroll_app/models/reimbursement_amount.py:13
+#: apps/payroll_app/models/hour_type_amount.py:11
+#: apps/payroll_app/models/reimbursement_amount.py:16
 msgid "Amount"
 msgstr "Iznos"
 
-#: apps/calculation_data_app/models/reimbursement_value.py:17
+#: apps/calculation_data_app/models/reimbursement_value.py:19
 msgid "Reimbursement value"
 msgstr "Vrijednost naknade"
 
-#: apps/calculation_data_app/models/reimbursement_value.py:18
+#: apps/calculation_data_app/models/reimbursement_value.py:20
 msgid "Reimbursement values"
 msgstr "Vrijednosti naknada"
 
@@ -255,27 +263,41 @@ msgid "Expressed as a decimal number"
 msgstr "Izražena kao postotak"
 
 #: apps/calculation_data_app/models/tax_bracket.py:17
-msgid "Tax model"
-msgstr "Porezni model"
+msgid "Tax bracket"
+msgstr "Porezni razred"
 
 #: apps/calculation_data_app/models/tax_bracket.py:18
-msgid "Tax models"
-msgstr "Porezni modeli"
+#: apps/calculation_data_app/models/tax_model.py:13
+msgid "Tax brackets"
+msgstr "Porezni razredi"
 
-#: apps/calculation_data_app/models/tax_break.py:7
+#: apps/calculation_data_app/models/tax_break.py:8
 msgid "Tax break name"
 msgstr "Naziv porezne olakšice"
 
-#: apps/calculation_data_app/models/tax_model.py:12
-msgid "Tax brackets"
-msgstr "Porezni razredi"
+#: apps/calculation_data_app/models/tax_break.py:13
+msgid "Tax break"
+msgstr "Porezna olakšica"
+
+#: apps/calculation_data_app/models/tax_break.py:14
+#: apps/employee_data_app/employee_app/models/employee.py:96
+msgid "Tax breaks"
+msgstr "Porezne olakšice"
+
+#: apps/calculation_data_app/models/tax_model.py:17
+msgid "Tax model"
+msgstr "Porezni model"
+
+#: apps/calculation_data_app/models/tax_model.py:18
+msgid "Tax models"
+msgstr "Porezni modeli"
 
 #: apps/employee_data_app/employee_app/admin.py:16
 msgid "Personal data"
 msgstr "Osobni podaci"
 
 #: apps/employee_data_app/employee_app/admin.py:27
-#: apps/third_parties_app/admin.py:39
+#: apps/third_parties_app/admin.py:40
 msgid "Address and contact data"
 msgstr "Adresa i kontakt podaci"
 
@@ -286,6 +308,10 @@ msgstr "Podaci o plaćanju"
 #: apps/employee_data_app/employee_app/admin.py:46
 msgid "Employment data"
 msgstr "Podaci o zaposlenju"
+
+#: apps/employee_data_app/employee_app/admin.py:55
+msgid "Accounting data"
+msgstr "Obračunski podaci"
 
 #: apps/employee_data_app/employee_app/models/dependent.py:16
 msgid "Child in line"
@@ -307,55 +333,59 @@ msgstr "Uzdržavana osoba"
 msgid "Dependents"
 msgstr "Uzdržavane osobe"
 
-#: apps/employee_data_app/employee_app/models/employee.py:32
+#: apps/employee_data_app/employee_app/models/employee.py:29
+msgid "Protected IBAN"
+msgstr "Zaštićeni IBAN"
+
+#: apps/employee_data_app/employee_app/models/employee.py:33
 msgid "Number of children"
 msgstr "Broj djece"
 
-#: apps/employee_data_app/employee_app/models/employee.py:37
+#: apps/employee_data_app/employee_app/models/employee.py:38
 msgid "Number of dependents"
 msgstr "Broj uzdržavanih osoba"
 
-#: apps/employee_data_app/employee_app/models/employee.py:41
+#: apps/employee_data_app/employee_app/models/employee.py:42
 msgid "Number of disabled dependents"
 msgstr "Broj uzdržavanih osoba s invaliditetom"
 
-#: apps/employee_data_app/employee_app/models/employee.py:46
+#: apps/employee_data_app/employee_app/models/employee.py:47
 #, python-format
 msgid "Number of 100% disabled dependents"
 msgstr "Broj uzdržavanih osoba sa 100% invaliditetom"
 
-#: apps/employee_data_app/employee_app/models/employee.py:54
+#: apps/employee_data_app/employee_app/models/employee.py:55
 msgid "First employment"
 msgstr "Prvo zaposlenje"
 
-#: apps/employee_data_app/employee_app/models/employee.py:60
+#: apps/employee_data_app/employee_app/models/employee.py:61
 msgid "First employment with company"
 msgstr "Prvo zaposlenje u tvrtci"
 
-#: apps/employee_data_app/employee_app/models/employee.py:66
+#: apps/employee_data_app/employee_app/models/employee.py:67
 msgid "Employee since"
 msgstr "Zaposlen od"
 
-#: apps/employee_data_app/employee_app/models/employee.py:72
+#: apps/employee_data_app/employee_app/models/employee.py:73
 #: apps/third_parties_app/models/bank.py:21
 msgid "Bank"
 msgstr "Banka"
 
-#: apps/employee_data_app/employee_app/models/employee.py:77
+#: apps/employee_data_app/employee_app/models/employee.py:78
 msgid "Protected account bank"
 msgstr "Banka zažtićenog računa"
 
-#: apps/employee_data_app/employee_app/models/employee.py:90
-#: apps/employee_data_app/employment_app/models/contract.py:35
+#: apps/employee_data_app/employee_app/models/employee.py:91
+#: apps/employee_data_app/employment_app/models/contract.py:34
 msgid "Contract"
 msgstr "Ugovor"
 
-#: apps/employee_data_app/employee_app/models/employee.py:97
-#: apps/payroll_app/models/labour.py:21
+#: apps/employee_data_app/employee_app/models/employee.py:99
+#: apps/payroll_app/models/labour.py:22
 msgid "Employee"
 msgstr "Zaposlenik"
 
-#: apps/employee_data_app/employee_app/models/employee.py:98
+#: apps/employee_data_app/employee_app/models/employee.py:100
 msgid "Employees"
 msgstr "Zaposlenici"
 
@@ -366,7 +396,7 @@ msgstr "Nema"
 #: apps/employee_data_app/employee_app/models/person.py:17
 #: apps/third_parties_app/models/bank.py:12
 msgid "PID"
-msgstr "OID"
+msgstr "OIB"
 
 #: apps/employee_data_app/employee_app/models/person.py:18
 #: apps/third_parties_app/models/bank.py:13
@@ -397,44 +427,42 @@ msgstr "Osoba"
 msgid "Persons"
 msgstr "Osobe"
 
-#: apps/employee_data_app/employee_app/services/validation/validate_dependent.py:30
+#: apps/employee_data_app/employee_app/services/validation/validate_dependent.py:17
 #, python-brace-format
-msgid ""
-"Employee already has a child dependent            marked as their {order}. "
-"child"
+msgid "Employee already has a child dependent marked as their {order}. child"
 msgstr ""
 
-#: apps/employee_data_app/employment_app/models/contract.py:14
+#: apps/employee_data_app/employment_app/models/contract.py:13
 #: apps/employee_data_app/employment_app/models/contract_type.py:16
 msgid "Contract type"
 msgstr "Vrsta ugovora"
 
-#: apps/employee_data_app/employment_app/models/contract.py:19
+#: apps/employee_data_app/employment_app/models/contract.py:18
 #: apps/employee_data_app/employment_app/models/position.py:18
 msgid "Position"
 msgstr "Radno mjesto"
 
-#: apps/employee_data_app/employment_app/models/contract.py:24
+#: apps/employee_data_app/employment_app/models/contract.py:23
 msgid "Multiplier"
 msgstr "Koeficijent"
 
-#: apps/employee_data_app/employment_app/models/contract.py:28
+#: apps/employee_data_app/employment_app/models/contract.py:27
 msgid "Start date"
 msgstr "Datum početka rada"
 
-#: apps/employee_data_app/employment_app/models/contract.py:30
+#: apps/employee_data_app/employment_app/models/contract.py:29
 msgid "Expiration date"
 msgstr "Datum isteka ugovora"
 
-#: apps/employee_data_app/employment_app/models/contract.py:36
+#: apps/employee_data_app/employment_app/models/contract.py:35
 msgid "Contracts"
 msgstr "Ugovori"
 
-#: apps/employee_data_app/employment_app/models/contract.py:52
+#: apps/employee_data_app/employment_app/models/contract.py:51
 msgid "Multiplier cannot be less than 0"
 msgstr "Koeficijent ne može biti manji od 0"
 
-#: apps/employee_data_app/employment_app/models/contract.py:54
+#: apps/employee_data_app/employment_app/models/contract.py:53
 msgid "Indefinite"
 msgstr "Neodređeno"
 
@@ -442,7 +470,7 @@ msgstr "Neodređeno"
 msgid "An indefinite contract cannot have an expiration date"
 msgstr "Ugovor na neodređeno ne može imati datum isteka"
 
-#: apps/employee_data_app/employment_app/models/contract.py:58
+#: apps/employee_data_app/employment_app/models/contract.py:59
 msgid "The contract cannot expire before it is signed"
 msgstr "Ugovor ne može imati datum isteka prije datuma početka rada"
 
@@ -487,6 +515,24 @@ msgstr "OIB nije isključivo numerički"
 msgid "PID is invalid, please check your input"
 msgstr "OIB je nevažeći, provjerite unos"
 
+#: apps/general_services/validators/id_validators.py:49
+#, fuzzy
+#| msgid "City ID number is of an invalid length"
+msgid "Business ID number is of an invalid length"
+msgstr "Matični broj je nevažeče duljine"
+
+#: apps/general_services/validators/id_validators.py:51
+#, fuzzy
+#| msgid "City ID number is not entirely numeric"
+msgid "Businnes ID number is not entirely numeric"
+msgstr "Matični broj nije isključivo numerički"
+
+#: apps/general_services/validators/id_validators.py:67
+#, fuzzy
+#| msgid "City ID number is invalid"
+msgid "Business ID number is invalid"
+msgstr "Matični broj je nevažeči"
+
 #: apps/general_services/validators/id_validators.py:86
 msgid "IBAN country code invalid"
 msgstr "Šifra zemlje IBAN-a je nevažeča"
@@ -523,21 +569,93 @@ msgstr "Zaposlenik ne smije biti maloljetan"
 msgid "Date of birth cannot be in the future"
 msgstr "Datum rođenja ne smije biti u budućnosti"
 
-#: apps/payroll_app/admin.py:25 apps/payroll_app/admin.py:49
+#: apps/payroll_app/admin.py:33 apps/payroll_app/admin.py:57
 msgid "Accounted period data"
 msgstr "Podaci o obračunatom razdoblju"
 
-#: apps/payroll_app/admin.py:33
+#: apps/payroll_app/admin.py:41
 msgid "Accounted hours data"
 msgstr "Podaci o obračunatim satima"
 
-#: apps/payroll_app/admin.py:56
+#: apps/payroll_app/admin.py:64
 msgid "Employee and labour data"
 msgstr "Podaci o zaposleniku i radu"
 
+#: apps/payroll_app/admin.py:71
+msgid "Payroll components"
+msgstr "Stavke"
+
+#: apps/payroll_app/forms.py:12
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:14
+msgid "January"
+msgstr ""
+
+#: apps/payroll_app/forms.py:13
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:14
+msgid "February"
+msgstr ""
+
+#: apps/payroll_app/forms.py:14
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:14
+msgid "March"
+msgstr ""
+
+#: apps/payroll_app/forms.py:15
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:14
+msgid "April"
+msgstr ""
+
+#: apps/payroll_app/forms.py:16
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:14
+msgid "May"
+msgstr ""
+
+#: apps/payroll_app/forms.py:17
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:14
+msgid "June"
+msgstr ""
+
+#: apps/payroll_app/forms.py:18
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:15
+msgid "July"
+msgstr ""
+
+#: apps/payroll_app/forms.py:19
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:15
+msgid "August"
+msgstr ""
+
+#: apps/payroll_app/forms.py:20
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:15
+#, fuzzy
+#| msgid "Street number"
+msgid "September"
+msgstr "Broj"
+
+#: apps/payroll_app/forms.py:21
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:15
+msgid "October"
+msgstr ""
+
+#: apps/payroll_app/forms.py:22
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:15
+msgid "November"
+msgstr ""
+
+#: apps/payroll_app/forms.py:23
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:16
+msgid "December"
+msgstr ""
+
+#: apps/payroll_app/forms.py:27
+#, fuzzy
+#| msgid "Accounting data"
+msgid "Accounting date"
+msgstr "Obračunski podaci"
+
 #: apps/payroll_app/models/contribution_amount.py:11
-#: apps/payroll_app/models/payroll.py:90
-#: apps/payroll_app/models/reimbursement_amount.py:11
+#: apps/payroll_app/models/payroll.py:91
+#: apps/payroll_app/models/reimbursement_amount.py:13
 msgid "Payroll"
 msgstr "Plaća"
 
@@ -549,159 +667,167 @@ msgstr "Iznos doprinosa"
 msgid "Contribution amounts"
 msgstr "Iznosi doprinosa"
 
-#: apps/payroll_app/models/hour_type_amount.py:11
+#: apps/payroll_app/models/hour_type_amount.py:9
 msgid "Labour"
 msgstr "Podaci o radu"
 
-#: apps/payroll_app/models/hour_type_amount.py:16
+#: apps/payroll_app/models/hour_type_amount.py:14
 msgid "Hour type amount"
 msgstr "Iznos po vrsti sata"
 
-#: apps/payroll_app/models/hour_type_amount.py:17
+#: apps/payroll_app/models/hour_type_amount.py:15
 msgid "Hour type amounts"
 msgstr "Iznosi po vrstama sati"
 
-#: apps/payroll_app/models/labour.py:27
+#: apps/payroll_app/models/labour.py:28
 msgid "Regular hours"
 msgstr "Redoviti sati"
 
-#: apps/payroll_app/models/labour.py:31 apps/payroll_app/models/labour.py:32
+#: apps/payroll_app/models/labour.py:32 apps/payroll_app/models/labour.py:33
 msgid "Labour data"
 msgstr "Podaci o radu"
 
-#: apps/payroll_app/models/payroll.py:14
+#: apps/payroll_app/models/labour.py:38
+msgid "Employee ID"
+msgstr "Zaposlenik"
+
+#: apps/payroll_app/models/labour.py:39
+msgid "Period "
+msgstr "Razdoblje "
+
+#: apps/payroll_app/models/payroll.py:23
 msgid "Accounting counter"
 msgstr "Brojač obračuna"
 
-#: apps/payroll_app/models/payroll.py:17
+#: apps/payroll_app/models/payroll.py:26
 msgid "Date of accounting"
 msgstr "Datum obračuna"
 
-#: apps/payroll_app/models/payroll.py:25
+#: apps/payroll_app/models/payroll.py:36
 msgid "Work data"
 msgstr "Podaci o radu"
 
-#: apps/payroll_app/models/payroll.py:28
+#: apps/payroll_app/models/payroll.py:39
 msgid "Valid contributions"
 msgstr "Važeći doprinosi"
 
-#: apps/payroll_app/models/payroll.py:31
+#: apps/payroll_app/models/payroll.py:42
 msgid "Wage"
 msgstr "Satnica"
 
-#: apps/payroll_app/models/payroll.py:35
+#: apps/payroll_app/models/payroll.py:45
 msgid "Gross salary"
 msgstr "Bruto plaća"
 
-#: apps/payroll_app/models/payroll.py:39
+#: apps/payroll_app/models/payroll.py:48
 msgid "Contributions base"
 msgstr "Osnovica doprinosa"
 
-#: apps/payroll_app/models/payroll.py:42
-msgid "Total contributions out-of-pay"
+#: apps/payroll_app/models/payroll.py:51
+msgid "Total contributions from pay"
 msgstr "Ukupni iznos doprinosa iz plaće"
 
-#: apps/payroll_app/models/payroll.py:44
+#: apps/payroll_app/models/payroll.py:53
+msgid "Other contributions total"
+msgstr "Ukupni iznos ostalih doprinosa"
+
+#: apps/payroll_app/models/payroll.py:56
 msgid "Income"
 msgstr "Dohodak"
 
-#: apps/payroll_app/models/payroll.py:47
+#: apps/payroll_app/models/payroll.py:59
 msgid "Personal deductible amount"
 msgstr "Iznos osobnog odbitka"
 
-#: apps/payroll_app/models/payroll.py:51
+#: apps/payroll_app/models/payroll.py:61
 msgid "Dependents deductible amount"
 msgstr "Iznos odbitka uzdržavanih osoba"
 
-#: apps/payroll_app/models/payroll.py:54
+#: apps/payroll_app/models/payroll.py:63
 msgid "Children deductible amount"
 msgstr "Iznos odbitka uzdržavane djece"
 
-#: apps/payroll_app/models/payroll.py:57
+#: apps/payroll_app/models/payroll.py:65
 msgid "Disabled dependents deductible amount"
 msgstr "Iznos odbitka uzdržavanih osoba s invaliditetom"
 
-#: apps/payroll_app/models/payroll.py:60
+#: apps/payroll_app/models/payroll.py:67
 #, python-format
 msgid "100% disabled dependents deductible amount"
 msgstr "Iznos odbitka uzdržavanih osoba sa 100% invaliditetom"
 
-#: apps/payroll_app/models/payroll.py:64
+#: apps/payroll_app/models/payroll.py:69
 msgid "Total deductibles amount"
 msgstr "Ukupni iznos odbitaka"
 
-#: apps/payroll_app/models/payroll.py:67
+#: apps/payroll_app/models/payroll.py:72
 msgid "Tax base"
 msgstr "Porezna osnovica"
 
-#: apps/payroll_app/models/payroll.py:70
+#: apps/payroll_app/models/payroll.py:75
 msgid "Income tax amount"
 msgstr "Iznos poreza na dohodak"
 
-#: apps/payroll_app/models/payroll.py:73
+#: apps/payroll_app/models/payroll.py:77
 msgid "City tax amount"
 msgstr "Iznos prireza"
 
-#: apps/payroll_app/models/payroll.py:76
+#: apps/payroll_app/models/payroll.py:79
 msgid "Total tax amount"
 msgstr "Ukupni iznos poreza"
 
-#: apps/payroll_app/models/payroll.py:80
+#: apps/payroll_app/models/payroll.py:82
 msgid "Net salary"
 msgstr "Neto plaća"
 
-#: apps/payroll_app/models/payroll.py:82
+#: apps/payroll_app/models/payroll.py:85
 msgid "Reimbursements total"
 msgstr "Ukupno naknade"
 
-#: apps/payroll_app/models/payroll.py:84
-msgid "Other contributions total"
-msgstr "Ukupni iznos ostalih doprinosa"
-
-#: apps/payroll_app/models/payroll.py:87
+#: apps/payroll_app/models/payroll.py:88
 msgid "Labour cost"
 msgstr "Trošak rada"
 
-#: apps/payroll_app/models/payroll.py:91
+#: apps/payroll_app/models/payroll.py:92
 msgid "Payrolls"
 msgstr "Plaće"
 
-#: apps/payroll_app/models/reimbursement_amount.py:16
+#: apps/payroll_app/models/reimbursement_amount.py:19
 msgid "Reimbursement amount"
 msgstr "Iznos naknade"
 
-#: apps/payroll_app/models/reimbursement_amount.py:17
+#: apps/payroll_app/models/reimbursement_amount.py:20
 msgid "Reimbursement amounts"
 msgstr "Iznosi naknada"
 
-#: apps/payroll_app/models/wage_parameters.py:12
+#: apps/payroll_app/models/wage_parameters.py:13
 msgid "Contributions minimal base"
 msgstr "Minimalna osnovica doprinosa"
 
-#: apps/payroll_app/models/wage_parameters.py:13
+#: apps/payroll_app/models/wage_parameters.py:15
 msgid "The year's legal minimum contributions base. Use '.' as decimal point"
-msgstr "Minimalna mjesečna osnovica za doprinose za godinu. Rabite decimalnu točku kod unosa"
+msgstr ""
+"Minimalna mjesečna osnovica za doprinose za godinu. Rabite decimalnu točku "
+"kod unosa"
 
-#: apps/payroll_app/models/wage_parameters.py:18
+#: apps/payroll_app/models/wage_parameters.py:20
 msgid "Contributions maximum base"
 msgstr "Maksimalna osnovica doprinosa"
 
-#: apps/payroll_app/models/wage_parameters.py:19
+#: apps/payroll_app/models/wage_parameters.py:22
 msgid "The year's legal maximum contributions base. Use '.' as decimal point"
-msgstr "Maksimalna mjesečna osnovica za doprinose za godinu. Rabite decimalnu točku kod unosa"
+msgstr ""
+"Maksimalna mjesečna osnovica za doprinose za godinu. Rabite decimalnu točku "
+"kod unosa"
 
-#: apps/payroll_app/models/wage_parameters.py:23
+#: apps/payroll_app/models/wage_parameters.py:26
 msgid "Minimum wage"
 msgstr "Minimalna plaća"
 
-#: apps/payroll_app/models/wage_parameters.py:28
-#: apps/payroll_app/models/wage_parameters.py:29
+#: apps/payroll_app/models/wage_parameters.py:31
+#: apps/payroll_app/models/wage_parameters.py:32
 msgid "Wage parameters"
 msgstr "Parametri plaće"
-
-#: apps/payroll_app/views.py:61
-msgid "Hours amount cannot be less than 0!"
-msgstr "Količina sati ne smije biti manja od 0!"
 
 #: apps/third_parties_app/admin.py:11
 msgid "City data"
@@ -711,7 +837,7 @@ msgstr "Podaci o gradu"
 msgid "Tax data"
 msgstr "Porezni podaci"
 
-#: apps/third_parties_app/admin.py:32
+#: apps/third_parties_app/admin.py:33
 msgid "Bank data"
 msgstr "Podaci o banci"
 
@@ -759,3 +885,1197 @@ msgstr "Grad"
 #: apps/third_parties_app/models/city.py:32
 msgid "Cities"
 msgstr "Gradovi"
+
+#: python_django_payrollapp/settings.py:132
+msgid "Croatian"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/contrib/messages/apps.py:7
+msgid "Messages"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/contrib/sitemaps/apps.py:8
+msgid "Site Maps"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/contrib/staticfiles/apps.py:9
+msgid "Static Files"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/contrib/syndication/apps.py:7
+msgid "Syndication"
+msgstr ""
+
+#. Translators: String used to replace omitted page numbers in elided page
+#. range generated by paginators, e.g. [1, 2, '…', 5, 6, 7, '…', 9, 10].
+#: venv-payrollapp/lib/python3.8/site-packages/django/core/paginator.py:30
+msgid "…"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/core/paginator.py:51
+#, fuzzy
+#| msgid "City ID number is not entirely numeric"
+msgid "That page number is not an integer"
+msgstr "JOPPD nije isključivo numerički"
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/core/paginator.py:53
+msgid "That page number is less than 1"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/core/paginator.py:58
+msgid "That page contains no results"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/core/validators.py:22
+msgid "Enter a valid value."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/core/validators.py:93
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/fields.py:664
+msgid "Enter a valid URL."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/core/validators.py:147
+msgid "Enter a valid integer."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/core/validators.py:158
+msgid "Enter a valid email address."
+msgstr ""
+
+#. Translators: "letters" means latin letters: a-z and A-Z.
+#: venv-payrollapp/lib/python3.8/site-packages/django/core/validators.py:259
+msgid ""
+"Enter a valid “slug” consisting of letters, numbers, underscores or hyphens."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/core/validators.py:266
+msgid ""
+"Enter a valid “slug” consisting of Unicode letters, numbers, underscores, or "
+"hyphens."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/core/validators.py:275
+#: venv-payrollapp/lib/python3.8/site-packages/django/core/validators.py:295
+msgid "Enter a valid IPv4 address."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/core/validators.py:280
+#: venv-payrollapp/lib/python3.8/site-packages/django/core/validators.py:296
+msgid "Enter a valid IPv6 address."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/core/validators.py:290
+#: venv-payrollapp/lib/python3.8/site-packages/django/core/validators.py:294
+msgid "Enter a valid IPv4 or IPv6 address."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/core/validators.py:324
+msgid "Enter only digits separated by commas."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/core/validators.py:330
+#, python-format
+msgid "Ensure this value is %(limit_value)s (it is %(show_value)s)."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/core/validators.py:363
+#, python-format
+msgid "Ensure this value is less than or equal to %(limit_value)s."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/core/validators.py:372
+#, python-format
+msgid "Ensure this value is greater than or equal to %(limit_value)s."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/core/validators.py:382
+#, python-format
+msgid ""
+"Ensure this value has at least %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at least %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/core/validators.py:397
+#, python-format
+msgid ""
+"Ensure this value has at most %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at most %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/core/validators.py:416
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/fields.py:292
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/fields.py:327
+#, fuzzy
+#| msgid "Street number"
+msgid "Enter a number."
+msgstr "Broj"
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/core/validators.py:418
+#, python-format
+msgid "Ensure that there are no more than %(max)s digit in total."
+msgid_plural "Ensure that there are no more than %(max)s digits in total."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/core/validators.py:423
+#, python-format
+msgid "Ensure that there are no more than %(max)s decimal place."
+msgid_plural "Ensure that there are no more than %(max)s decimal places."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/core/validators.py:428
+#, python-format
+msgid ""
+"Ensure that there are no more than %(max)s digit before the decimal point."
+msgid_plural ""
+"Ensure that there are no more than %(max)s digits before the decimal point."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/core/validators.py:490
+#, python-format
+msgid ""
+"File extension “%(extension)s” is not allowed. Allowed extensions are: "
+"%(allowed_extensions)s."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/core/validators.py:543
+msgid "Null characters are not allowed."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/base.py:1197
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/models.py:768
+msgid "and"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/base.py:1199
+#, python-format
+msgid "%(model_name)s with this %(field_labels)s already exists."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:100
+#, python-format
+msgid "Value %(value)r is not a valid choice."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:101
+msgid "This field cannot be null."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:102
+msgid "This field cannot be blank."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:103
+#, python-format
+msgid "%(model_name)s with this %(field_label)s already exists."
+msgstr ""
+
+#. Translators: The 'lookup_type' is one of 'date', 'year' or 'month'.
+#. Eg: "Title must be unique for pub_date year"
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:107
+#, python-format
+msgid ""
+"%(field_label)s must be unique for %(date_field_label)s %(lookup_type)s."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:126
+#, python-format
+msgid "Field of type: %(field_type)s"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:958
+#, python-format
+msgid "“%(value)s” value must be either True or False."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:959
+#, python-format
+msgid "“%(value)s” value must be either True, False, or None."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:961
+msgid "Boolean (Either True or False)"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1002
+#, python-format
+msgid "String (up to %(max_length)s)"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1096
+msgid "Comma-separated integers"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1145
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid date format. It must be in YYYY-MM-DD "
+"format."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1147
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1290
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (YYYY-MM-DD) but it is an invalid "
+"date."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1150
+msgid "Date (without time)"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1288
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[."
+"uuuuuu]][TZ] format."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1292
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]]"
+"[TZ]) but it is an invalid date/time."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1296
+msgid "Date (with time)"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1444
+#, python-format
+msgid "“%(value)s” value must be a decimal number."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1446
+#, fuzzy
+#| msgid "Expressed as a decimal number"
+msgid "Decimal number"
+msgstr "Izražena kao postotak"
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1585
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in [DD] [[HH:]MM:]ss[."
+"uuuuuu] format."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1588
+msgid "Duration"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1638
+#, fuzzy
+#| msgid "Address"
+msgid "Email address"
+msgstr "Adresa"
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1661
+msgid "File path"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1727
+#, python-format
+msgid "“%(value)s” value must be a float."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1729
+msgid "Floating point number"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1767
+#, python-format
+msgid "“%(value)s” value must be an integer."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1769
+msgid "Integer"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1852
+msgid "Big (8 byte) integer"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1867
+msgid "Small integer"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1875
+#, fuzzy
+#| msgid "Address"
+msgid "IPv4 address"
+msgstr "Adresa"
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1906
+#, fuzzy
+#| msgid "Address"
+msgid "IP address"
+msgstr "Adresa"
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1986
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1987
+#, python-format
+msgid "“%(value)s” value must be either None, True or False."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1989
+msgid "Boolean (Either True, False or None)"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:2043
+msgid "Positive big integer"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:2056
+#, fuzzy
+#| msgid "Position name"
+msgid "Positive integer"
+msgstr "Naziv radnog mjesta"
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:2069
+msgid "Positive small integer"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:2083
+#, python-format
+msgid "Slug (up to %(max_length)s)"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:2115
+msgid "Text"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:2181
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in HH:MM[:ss[.uuuuuu]] "
+"format."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:2183
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (HH:MM[:ss[.uuuuuu]]) but it is an "
+"invalid time."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:2186
+msgid "Time"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:2312
+msgid "URL"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:2334
+#, fuzzy
+#| msgid "Labour data"
+msgid "Raw binary data"
+msgstr "Podaci o radu"
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:2399
+#, python-format
+msgid "“%(value)s” is not a valid UUID."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/__init__.py:2401
+msgid "Universally unique identifier"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/files.py:225
+msgid "File"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/files.py:373
+msgid "Image"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/json.py:18
+msgid "A JSON object"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/json.py:20
+msgid "Value must be valid JSON."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/related.py:790
+#, python-format
+msgid "%(model)s instance with %(field)s %(value)r does not exist."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/related.py:792
+msgid "Foreign Key (type determined by related field)"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/related.py:1045
+msgid "One-to-one relationship"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/related.py:1099
+#, python-format
+msgid "%(from)s-%(to)s relationship"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/related.py:1100
+#, python-format
+msgid "%(from)s-%(to)s relationships"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/db/models/fields/related.py:1142
+msgid "Many-to-many relationship"
+msgstr ""
+
+#. Translators: If found as last label character, these punctuation
+#. characters will prevent the default label_suffix to be appended to the label
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/boundfield.py:150
+msgid ":?.!"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/fields.py:54
+msgid "This field is required."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/fields.py:247
+msgid "Enter a whole number."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/fields.py:391
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/fields.py:1132
+msgid "Enter a valid date."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/fields.py:415
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/fields.py:1133
+msgid "Enter a valid time."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/fields.py:443
+msgid "Enter a valid date/time."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/fields.py:477
+msgid "Enter a valid duration."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/fields.py:478
+#, python-brace-format
+msgid "The number of days must be between {min_days} and {max_days}."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/fields.py:538
+msgid "No file was submitted. Check the encoding type on the form."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/fields.py:539
+msgid "No file was submitted."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/fields.py:540
+msgid "The submitted file is empty."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/fields.py:542
+#, python-format
+msgid "Ensure this filename has at most %(max)d character (it has %(length)d)."
+msgid_plural ""
+"Ensure this filename has at most %(max)d characters (it has %(length)d)."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/fields.py:545
+msgid "Please either submit a file or check the clear checkbox, not both."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/fields.py:606
+msgid ""
+"Upload a valid image. The file you uploaded was either not an image or a "
+"corrupted image."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/fields.py:768
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/fields.py:858
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/models.py:1309
+#, python-format
+msgid "Select a valid choice. %(value)s is not one of the available choices."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/fields.py:859
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/fields.py:974
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/models.py:1308
+msgid "Enter a list of values."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/fields.py:975
+msgid "Enter a complete value."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/fields.py:1191
+#, fuzzy
+#| msgid "Input valid PID"
+msgid "Enter a valid UUID."
+msgstr "Unesite valjani OIB"
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/fields.py:1221
+msgid "Enter a valid JSON."
+msgstr ""
+
+#. Translators: This is the default suffix added to form field labels
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/forms.py:76
+msgid ":"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/forms.py:203
+#, python-format
+msgid "(Hidden field %(name)s) %(error)s"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/formsets.py:61
+#, python-format
+msgid ""
+"ManagementForm data is missing or has been tampered with. Missing fields: "
+"%(field_names)s. You may need to file a bug report if the issue persists."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/formsets.py:370
+#, python-format
+msgid "Please submit at most %d form."
+msgid_plural "Please submit at most %d forms."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/formsets.py:377
+#, python-format
+msgid "Please submit at least %d form."
+msgid_plural "Please submit at least %d forms."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/formsets.py:405
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/formsets.py:412
+msgid "Order"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/formsets.py:417
+msgid "Delete"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/models.py:763
+#, python-format
+msgid "Please correct the duplicate data for %(field)s."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/models.py:767
+#, python-format
+msgid "Please correct the duplicate data for %(field)s, which must be unique."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/models.py:773
+#, python-format
+msgid ""
+"Please correct the duplicate data for %(field_name)s which must be unique "
+"for the %(lookup)s in %(date_field)s."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/models.py:782
+msgid "Please correct the duplicate values below."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/models.py:1109
+msgid "The inline value did not match the parent instance."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/models.py:1193
+msgid "Select a valid choice. That choice is not one of the available choices."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/models.py:1311
+#, python-format
+msgid "“%(pk)s” is not a valid value."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/utils.py:172
+#, python-format
+msgid ""
+"%(datetime)s couldn’t be interpreted in time zone %(current_timezone)s; it "
+"may be ambiguous or it may not exist."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/widgets.py:403
+msgid "Clear"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/widgets.py:404
+msgid "Currently"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/widgets.py:405
+msgid "Change"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/widgets.py:714
+msgid "Unknown"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/widgets.py:715
+msgid "Yes"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/forms/widgets.py:716
+#, fuzzy
+#| msgid "None"
+msgid "No"
+msgstr "Nema"
+
+#. Translators: Please do not add spaces around commas.
+#: venv-payrollapp/lib/python3.8/site-packages/django/template/defaultfilters.py:805
+msgid "yes,no,maybe"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/template/defaultfilters.py:834
+#: venv-payrollapp/lib/python3.8/site-packages/django/template/defaultfilters.py:851
+#, python-format
+msgid "%(size)d byte"
+msgid_plural "%(size)d bytes"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/template/defaultfilters.py:853
+#, python-format
+msgid "%s KB"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/template/defaultfilters.py:855
+#, python-format
+msgid "%s MB"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/template/defaultfilters.py:857
+#, python-format
+msgid "%s GB"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/template/defaultfilters.py:859
+#, python-format
+msgid "%s TB"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/template/defaultfilters.py:861
+#, python-format
+msgid "%s PB"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dateformat.py:66
+msgid "p.m."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dateformat.py:67
+msgid "a.m."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dateformat.py:72
+msgid "PM"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dateformat.py:73
+msgid "AM"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dateformat.py:146
+msgid "midnight"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dateformat.py:148
+msgid "noon"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:6
+msgid "Monday"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:6
+msgid "Tuesday"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:6
+msgid "Wednesday"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:6
+msgid "Thursday"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:6
+msgid "Friday"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:7
+msgid "Saturday"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:7
+msgid "Sunday"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:10
+#, fuzzy
+#| msgid "Month"
+msgid "Mon"
+msgstr "Mjesec"
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:10
+msgid "Tue"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:10
+msgid "Wed"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:10
+msgid "Thu"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:10
+msgid "Fri"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:11
+msgid "Sat"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:11
+msgid "Sun"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:19
+msgid "jan"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:19
+msgid "feb"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:19
+msgid "mar"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:19
+msgid "apr"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:19
+msgid "may"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:19
+msgid "jun"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:20
+msgid "jul"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:20
+msgid "aug"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:20
+msgid "sep"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:20
+msgid "oct"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:20
+msgid "nov"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:20
+msgid "dec"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:23
+msgctxt "abbrev. month"
+msgid "Jan."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:24
+msgctxt "abbrev. month"
+msgid "Feb."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:25
+msgctxt "abbrev. month"
+msgid "March"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:26
+msgctxt "abbrev. month"
+msgid "April"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:27
+msgctxt "abbrev. month"
+msgid "May"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:28
+msgctxt "abbrev. month"
+msgid "June"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:29
+msgctxt "abbrev. month"
+msgid "July"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:30
+msgctxt "abbrev. month"
+msgid "Aug."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:31
+msgctxt "abbrev. month"
+msgid "Sept."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:32
+msgctxt "abbrev. month"
+msgid "Oct."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:33
+msgctxt "abbrev. month"
+msgid "Nov."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:34
+msgctxt "abbrev. month"
+msgid "Dec."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:37
+msgctxt "alt. month"
+msgid "January"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:38
+msgctxt "alt. month"
+msgid "February"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:39
+msgctxt "alt. month"
+msgid "March"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:40
+msgctxt "alt. month"
+msgid "April"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:41
+msgctxt "alt. month"
+msgid "May"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:42
+msgctxt "alt. month"
+msgid "June"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:43
+msgctxt "alt. month"
+msgid "July"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:44
+msgctxt "alt. month"
+msgid "August"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:45
+#, fuzzy
+#| msgid "Street number"
+msgctxt "alt. month"
+msgid "September"
+msgstr "Broj"
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:46
+msgctxt "alt. month"
+msgid "October"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:47
+msgctxt "alt. month"
+msgid "November"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/dates.py:48
+msgctxt "alt. month"
+msgid "December"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/ipv6.py:8
+msgid "This is not a valid IPv6 address."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/text.py:70
+#, python-format
+msgctxt "String to return when truncating text"
+msgid "%(truncated_text)s…"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/text.py:236
+msgid "or"
+msgstr ""
+
+#. Translators: This string is used as a separator between list elements
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/text.py:255
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/timesince.py:94
+msgid ", "
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/timesince.py:9
+#, python-format
+msgid "%d year"
+msgid_plural "%d years"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/timesince.py:10
+#, fuzzy, python-format
+#| msgid "Month"
+msgid "%d month"
+msgid_plural "%d months"
+msgstr[0] "Mjesec"
+msgstr[1] "Mjesec"
+msgstr[2] "Mjesec"
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/timesince.py:11
+#, python-format
+msgid "%d week"
+msgid_plural "%d weeks"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/timesince.py:12
+#, python-format
+msgid "%d day"
+msgid_plural "%d days"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/timesince.py:13
+#, python-format
+msgid "%d hour"
+msgid_plural "%d hours"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/utils/timesince.py:14
+#, python-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/views/csrf.py:110
+msgid "Forbidden"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/views/csrf.py:111
+msgid "CSRF verification failed. Request aborted."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/views/csrf.py:115
+msgid ""
+"You are seeing this message because this HTTPS site requires a “Referer "
+"header” to be sent by your Web browser, but none was sent. This header is "
+"required for security reasons, to ensure that your browser is not being "
+"hijacked by third parties."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/views/csrf.py:120
+msgid ""
+"If you have configured your browser to disable “Referer” headers, please re-"
+"enable them, at least for this site, or for HTTPS connections, or for “same-"
+"origin” requests."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/views/csrf.py:124
+msgid ""
+"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or "
+"including the “Referrer-Policy: no-referrer” header, please remove them. The "
+"CSRF protection requires the “Referer” header to do strict referer checking. "
+"If you’re concerned about privacy, use alternatives like <a rel=\"noreferrer"
+"\" …> for links to third-party sites."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/views/csrf.py:132
+msgid ""
+"You are seeing this message because this site requires a CSRF cookie when "
+"submitting forms. This cookie is required for security reasons, to ensure "
+"that your browser is not being hijacked by third parties."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/views/csrf.py:137
+msgid ""
+"If you have configured your browser to disable cookies, please re-enable "
+"them, at least for this site, or for “same-origin” requests."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/views/csrf.py:142
+msgid "More information is available with DEBUG=True."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/views/generic/dates.py:41
+msgid "No year specified"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/views/generic/dates.py:61
+#: venv-payrollapp/lib/python3.8/site-packages/django/views/generic/dates.py:111
+#: venv-payrollapp/lib/python3.8/site-packages/django/views/generic/dates.py:208
+#, fuzzy
+#| msgid "Date of accounting"
+msgid "Date out of range"
+msgstr "Datum obračuna"
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/views/generic/dates.py:90
+msgid "No month specified"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/views/generic/dates.py:142
+msgid "No day specified"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/views/generic/dates.py:188
+msgid "No week specified"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/views/generic/dates.py:338
+#: venv-payrollapp/lib/python3.8/site-packages/django/views/generic/dates.py:367
+#, python-format
+msgid "No %(verbose_name_plural)s available"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/views/generic/dates.py:594
+#, python-format
+msgid ""
+"Future %(verbose_name_plural)s not available because %(class_name)s."
+"allow_future is False."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/views/generic/dates.py:628
+#, python-format
+msgid "Invalid date string “%(datestr)s” given format “%(format)s”"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/views/generic/detail.py:54
+#, python-format
+msgid "No %(verbose_name)s found matching the query"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/views/generic/list.py:67
+msgid "Page is not “last”, nor can it be converted to an int."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/views/generic/list.py:72
+#, python-format
+msgid "Invalid page (%(page_number)s): %(message)s"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/views/generic/list.py:154
+#, python-format
+msgid "Empty list and “%(class_name)s.allow_empty” is False."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/views/static.py:40
+msgid "Directory indexes are not allowed here."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/views/static.py:42
+#, python-format
+msgid "“%(path)s” does not exist"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/views/static.py:80
+#, python-format
+msgid "Index of %(directory)s"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/views/templates/default_urlconf.html:7
+#: venv-payrollapp/lib/python3.8/site-packages/django/views/templates/default_urlconf.html:221
+msgid "The install worked successfully! Congratulations!"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/views/templates/default_urlconf.html:207
+#, python-format
+msgid ""
+"View <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
+"target=\"_blank\" rel=\"noopener\">release notes</a> for Django %(version)s"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/views/templates/default_urlconf.html:222
+#, python-format
+msgid ""
+"You are seeing this page because <a href=\"https://docs.djangoproject.com/en/"
+"%(version)s/ref/settings/#debug\" target=\"_blank\" rel=\"noopener"
+"\">DEBUG=True</a> is in your settings file and you have not configured any "
+"URLs."
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/views/templates/default_urlconf.html:230
+msgid "Django Documentation"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/views/templates/default_urlconf.html:231
+msgid "Topics, references, &amp; how-to’s"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/views/templates/default_urlconf.html:239
+msgid "Tutorial: A Polling App"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/views/templates/default_urlconf.html:240
+msgid "Get started with Django"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/views/templates/default_urlconf.html:248
+msgid "Django Community"
+msgstr ""
+
+#: venv-payrollapp/lib/python3.8/site-packages/django/views/templates/default_urlconf.html:249
+msgid "Connect, get help, or contribute"
+msgstr ""
+
+#, fuzzy
+#~| msgid "Hours amount cannot be less than 0!"
+#~ msgid "Reimbursement amount cannot be less than 0!"
+#~ msgstr "Količina sati ne smije biti manja od 0!"
