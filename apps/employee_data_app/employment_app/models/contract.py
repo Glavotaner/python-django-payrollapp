@@ -60,7 +60,7 @@ class Contract(models.Model):
 
     @ property
     def total_salary(self) -> float:
-        return self.position.salary * self.multiplier
+        return float(self.position.salary) * self.multiplier
 
     @property
     def contract_type_name(self) -> str:
